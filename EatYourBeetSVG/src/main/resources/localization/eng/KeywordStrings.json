@@ -1,0 +1,28 @@
+[
+    {
+      "NAMES": [
+        "synergy",
+        "synergies",
+        "synergize"
+      ],
+      "PROPERNAME": "Synergy",
+      "DESCRIPTION": "Activates if the last card played had the same synergy."
+    },
+	 
+	{
+	"NAMES": [
+		  "slow"
+		],
+		"PROPERNAME": "Slow",
+		"DESCRIPTION": "For every card you have played this turn, enemy takes #b10% more damage from #yAttacks."
+	},
+  
+	{
+      "NAMES": [
+        "shapeshifter",
+        "shapeshift"
+      ],
+      "PROPERNAME": "Shapeshifter",
+      "DESCRIPTION": "Synergizes with any card."
+    }
+]

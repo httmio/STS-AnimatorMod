@@ -1,0 +1,56 @@
+package eatyourbeets.cards.animator;
+
+import com.badlogic.gdx.graphics.Color;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
+import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.Synergies;
+
+public class Shalltear extends AnimatorCard
+{
+    public static final String ID = CreateFullID(Shalltear.class.getSimpleName());
+
+    public Shalltear()
+    {
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+
+        Initialize(9,0, 3);
+
+        tags.add(CardTags.HEALING);
+
+        AddSynergy(Synergies.Overlord);
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) 
+    {
+        for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters)
+        {
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m2.hb.cX, m2.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m2, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+
+            if (m2.currentBlock > 0 && m2.currentBlock <= (this.damage * 2))
+            {
+                AbstractDungeon.actionManager.addToTop(new HealAction(p, p, this.magicNumber));
+            }
+        }
+    }
+
+    @Override
+    public void upgrade() 
+    {
+        if (TryUpgrade())
+        {          
+            upgradeDamage(2);
+            upgradeMagicNumber(1);
+        }
+    }
+}

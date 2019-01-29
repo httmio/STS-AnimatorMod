@@ -1,0 +1,44 @@
+package eatyourbeets.cards.animator;
+
+import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.Synergies;
+
+public class PandorasActor extends AnimatorCard
+{
+    public static final String ID = CreateFullID(PandorasActor.class.getSimpleName());
+
+    public PandorasActor()
+    {
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+
+        Initialize(0,4, 3);
+
+        AddSynergies(Synergies.Overlord, Synergies.ANY);
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m)
+    {
+        int block = this.block;
+        if (HasSynergy())
+        {
+            block += this.magicNumber;
+        }
+
+        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, block));
+    }
+
+    @Override
+    public void upgrade() 
+    {
+        if (TryUpgrade())
+        {
+            upgradeBlock(1);
+            upgradeMagicNumber(2);
+        }
+    }
+}

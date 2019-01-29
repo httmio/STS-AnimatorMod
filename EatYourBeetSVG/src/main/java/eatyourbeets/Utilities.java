@@ -1,0 +1,39 @@
+package eatyourbeets;
+
+import com.badlogic.gdx.math.MathUtils;
+
+import java.util.ArrayList;
+import java.util.function.Predicate;
+
+public class Utilities
+{
+    public static <T> T SafeCast(Object o, Class<T> type)
+    {
+        return type.isInstance(o) ? type.cast(o) : null;
+    }
+
+    public static <T> T GetRandomElement(ArrayList<T> list)
+    {
+        int size = list.size();
+        if (size > 0)
+        {
+            return list.get(MathUtils.random(list.size() - 1));
+        }
+
+        return null;
+    }
+
+    public static <T> ArrayList<T> Where(ArrayList<T> list, Predicate<T> predicate)
+    {
+        ArrayList<T> res = new ArrayList<>();
+        for (T t : list)
+        {
+            if (predicate.test(t))
+            {
+                res.add(t);
+            }
+        }
+
+        return res;
+    }
+}
