@@ -32,7 +32,7 @@ public class RoryMercury extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            updateCost(-1);
+            upgradeBaseCost(0);
         }
     }
 }

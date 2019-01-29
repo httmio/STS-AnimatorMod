@@ -12,10 +12,11 @@ import eatyourbeets.powers.AinzPower;
 public class Ainz extends AnimatorCard
 {
     public static final String ID = CreateFullID(Ainz.class.getSimpleName());
+    public static final int BASE_COST = 8;
 
     public Ainz()
     {
-        super(ID, 8, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, BASE_COST, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
 
         Initialize(0,0,0);
 
@@ -24,13 +25,13 @@ public class Ainz extends AnimatorCard
     }
 
     @Override
-    public void triggerOnEndOfPlayerTurn()
+    public void atTurnStart()
     {
-        super.triggerOnEndOfPlayerTurn();
+        super.atTurnStart();
 
         if (this.cost > 0)
         {
-            this.modifyCostForCombat(-1);
+            this.updateCost(-1);
         }
     }
 
@@ -45,7 +46,18 @@ public class Ainz extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(7);
+            if (this.cost < BASE_COST)
+            {
+                this.upgradeBaseCost(this.cost - 1);
+                if (this.cost < 0)
+                {
+                    this.cost = 0;
+                }
+            }
+            else
+            {
+                this.upgradeBaseCost(7);
+            }
         }
     }
 }

@@ -247,5 +247,11 @@
 	{
 		"NAME": "Togame",
 		"DESCRIPTION": "Draw !M! cards, then Exhaust 1 card."
+	},
+	
+	"animator_Fredrika":
+	{
+		"NAME": "Fredrika",
+		"DESCRIPTION": "Shapeshifter. Gain !B! Block for each enemy. Synergy: Retain up to !M! cards this turn."
 	}
 }

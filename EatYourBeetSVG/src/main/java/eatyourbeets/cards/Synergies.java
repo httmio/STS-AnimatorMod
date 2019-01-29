@@ -8,6 +8,8 @@ public class Synergies
 
     public final static String Kancolle = "Kantai Collection";
 
+    public final static String Chaika = "Hitsugi no Chaika";
+
     public final static String Konosuba = "Konosuba";
 
     public final static String Katanagatari = "Katanagatari";

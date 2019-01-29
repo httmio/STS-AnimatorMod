@@ -38,7 +38,7 @@ public class NarberalGamma extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            updateCost(-1);
+            upgradeBaseCost(0);
         }
     }
 }

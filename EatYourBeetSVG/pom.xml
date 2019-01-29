@@ -62,6 +62,7 @@
                         <configuration>
                             <target>
                                 <copy file="target/TheAnimator.jar" tofile="D:\SteamLibrary\steamapps\common\SlayTheSpire\mods\TheAnimator.jar"/>
+                                <copy file="target/TheAnimator.jar" tofile="D:\SteamLibrary\steamapps\common\SlayTheSpire\TheAnimator\content\TheAnimator.jar"/>
                             </target>
                         </configuration>
                         <goals>
