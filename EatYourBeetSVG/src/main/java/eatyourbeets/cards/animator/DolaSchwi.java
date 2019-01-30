@@ -18,9 +18,9 @@ public class DolaSchwi extends AnimatorCard
 
     public DolaSchwi()
     {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
-        Initialize(6,0,1);
+        Initialize(10,0,1);
 
         AddSynergy(Synergies.NoGameNoLife);
     }
@@ -50,7 +50,7 @@ public class DolaSchwi extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(2);
+            upgradeDamage(4);
             upgradeMagicNumber(1);
         }
     }

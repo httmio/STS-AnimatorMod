@@ -25,7 +25,7 @@ public class Togame extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.baseMagicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false));
+        AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false, true, true));
     }
 
     @Override

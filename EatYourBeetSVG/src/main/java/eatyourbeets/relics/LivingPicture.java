@@ -12,13 +12,13 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class LivingPicture extends CustomRelic
 {
-    public static final String ID = "LivingPicture";
+    public static final String ID = "Animator_LivingPicture";
 
     private Boolean active = true;
 
     public LivingPicture()
     {
-        super(ID, new Texture("images/relics/livingPicture.png"), RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, new Texture("images/relics/animator_livingPicture.png"), RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
     @Override

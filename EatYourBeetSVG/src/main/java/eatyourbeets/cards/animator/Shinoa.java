@@ -18,7 +18,7 @@ public class Shinoa extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL);
 
-        Initialize(0,6, 1);
+        Initialize(0,7, 1);
 
         AddSynergy(Synergies.OwariNoSeraph);
     }
@@ -44,7 +44,6 @@ public class Shinoa extends AnimatorCard
         if (TryUpgrade())
         {
             upgradeBlock(3);
-            upgradeMagicNumber(1);
         }
     }
 }

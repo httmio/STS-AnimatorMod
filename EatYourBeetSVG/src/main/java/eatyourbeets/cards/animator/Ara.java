@@ -41,7 +41,7 @@ public class Ara extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(1);
+            //upgradeDamage(1);
             upgradeMagicNumber(1);
         }
     }

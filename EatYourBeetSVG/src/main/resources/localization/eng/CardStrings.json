@@ -35,7 +35,7 @@
 	"animator_LeleiLaLalena":
 	{
 		"NAME": "Lelei La Lalena",
-		"DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply 3 Slow."
+		"DESCRIPTION": "Apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply !SV! Slow."
 	},
 
 	"animator_PinaCoLada":
@@ -79,7 +79,7 @@
 	"animator_Mikaela":
 	{
 		"NAME": "Mikaela",
-		"DESCRIPTION": "Deal !D! Damage Twice. Exhaust a card in your discard pile."
+		"DESCRIPTION": "Deal !D! Damage Twice. Choose and Exhaust a card in your discard pile."
 	},
 
 	"animator_KrulTepes":
@@ -184,13 +184,14 @@
 	"animator_ChlammyZell":
 	{
 		"NAME": "Kurami",
-		"DESCRIPTION": "Deal !M! Damage for each card you have drawn this turn. NL (Deal !D! Damage)"
+		"DESCRIPTION": "Deal !M! Damage for each card you have drawn this turn. NL (Drawn !SV! Cards)"
 	},
 	
 	"animator_DolaStephanie":
 	{
 		"NAME": "Stephanie",
-		"DESCRIPTION": "If this is the first skill you play this turn, draw !M! Cards."
+		"DESCRIPTION": "Choose a card in your hand, Fetch 1 card with the same Synergy.",
+		"UPGRADE_DESCRIPTION": "Innate. Choose a card in your hand, Fetch 1 card with the same Synergy."
 	},
 	
 	"animator_DolaRiku":
@@ -246,12 +247,12 @@
 	"animator_Togame":
 	{
 		"NAME": "Togame",
-		"DESCRIPTION": "Draw !M! cards, then Exhaust 1 card."
+		"DESCRIPTION": "Draw !M! cards, then you may Exhaust 1 card."
 	},
 	
 	"animator_Fredrika":
 	{
 		"NAME": "Fredrika",
-		"DESCRIPTION": "Shapeshifter. Gain !B! Block for each enemy. Synergy: Retain up to !M! cards this turn."
+		"DESCRIPTION": "Shapeshifter. Gain !B! Block for each enemy. Synergy: Choose and Retain up to !M! cards."
 	}
 }

@@ -21,21 +21,31 @@ public class ChlammyZell extends AnimatorCard
 
         Initialize(0,0,1);
 
+        secondaryValue = baseSecondaryValue = 0;
+
         AddSynergy(Synergies.NoGameNoLife);
     }
 
     @Override
     public void update()
     {
-        int c = PlayerStatistics.getCardsDrawnThisTurn();
-        if (cardsDrawn != c)
+        int cardsDrawn = PlayerStatistics.getCardsDrawnThisTurn();
+        if (secondaryValue != cardsDrawn)
         {
-            this.baseDamage = Math.max(0, c) * this.baseMagicNumber;
-            this.isDamageModified = baseDamage > 0;
-            cardsDrawn = c;
+            secondaryValue = cardsDrawn;
+            isSecondaryValueModified = true;
         }
 
         super.update();
+    }
+
+    @Override
+    public void calculateCardDamage(AbstractMonster mo)
+    {
+        secondaryValue = PlayerStatistics.getCardsDrawnThisTurn();
+        this.baseDamage = secondaryValue * this.magicNumber;
+
+        super.calculateCardDamage(mo);
     }
 
     @Override

@@ -197,6 +197,11 @@ public abstract class AnimatorCard extends CustomCard
         return false;
     }
 
+    public boolean HasSynergy(AbstractCard card)
+    {
+        return card instanceof AnimatorCard && ((AnimatorCard)card).HasSynergy(synergies);
+    }
+
     protected void upgradeSecondaryValue(int amount)
     {
         this.baseSecondaryValue += amount;

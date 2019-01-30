@@ -14,8 +14,6 @@ import java.util.ArrayList;
 
 public class DolaRikuAction extends AbstractGameAction
 {
-    //protected static final Logger logger = org.apache.logging.log4j.LogManager.getLogger(DolaRikuAction.class.getName());
-
     private static final String[] TEXT = CardCrawlGame.languagePack.getUIString("ExhaustAction").TEXT;
     private AbstractPlayer player;
     private int addCost;

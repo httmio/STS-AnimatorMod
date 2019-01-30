@@ -17,7 +17,7 @@ public class Hitei extends AnimatorCard
     {
         super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
 
-        Initialize(0,0,4);
+        Initialize(0,0,5);
 
         AddTooltip(new TooltipInfo("Gold Limit", "You cannot gain more than 100 Gold per combat."));
         AddSynergy(Synergies.Katanagatari);

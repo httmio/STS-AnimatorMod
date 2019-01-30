@@ -3,6 +3,7 @@ package eatyourbeets;
 import com.badlogic.gdx.math.MathUtils;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.function.Predicate;
 
 public class Utilities
@@ -10,6 +11,17 @@ public class Utilities
     public static <T> T SafeCast(Object o, Class<T> type)
     {
         return type.isInstance(o) ? type.cast(o) : null;
+    }
+
+    public static <T> T GetRandomElement(ArrayList<T> list, com.megacrit.cardcrawl.random.Random rng)
+    {
+        int size = list.size();
+        if (size > 0)
+        {
+            return list.get(rng.random(list.size() - 1));
+        }
+
+        return null;
     }
 
     public static <T> T GetRandomElement(ArrayList<T> list)

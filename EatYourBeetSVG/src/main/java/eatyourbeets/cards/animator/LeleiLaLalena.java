@@ -15,9 +15,11 @@ public class LeleiLaLalena extends AnimatorCard
 
     public LeleiLaLalena()
     {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         Initialize(0,0,1);
+
+        secondaryValue = baseSecondaryValue = 3;
 
         AddSynergy(Synergies.Gate);
     }
@@ -25,14 +27,11 @@ public class LeleiLaLalena extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        for (AbstractMonster m1 : AbstractDungeon.getCurrRoom().monsters.monsters)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m1, p, new VulnerablePower(m1, this.magicNumber, false), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
 
-            if (HasSynergy())
-            {
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m1, p, new SlowPower(m1, 3), 3));
-            }
+        if (HasSynergy())
+        {
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new SlowPower(m, this.secondaryValue), this.secondaryValue));
         }
     }
 
@@ -41,6 +40,7 @@ public class LeleiLaLalena extends AnimatorCard
     {
         if (TryUpgrade())
         {
+            upgradeSecondaryValue(2);
             upgradeMagicNumber(1);
         }
     }
