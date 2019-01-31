@@ -18,12 +18,6 @@ public class PinaCoLadaPower extends AnimatorPower
     }
 
     @Override
-    public void updateDescription()
-    {
-        this.description = (powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1]);
-    }
-
-    @Override
     public void onAfterCardPlayed(AbstractCard usedCard)
     {
         super.onAfterCardPlayed(usedCard);

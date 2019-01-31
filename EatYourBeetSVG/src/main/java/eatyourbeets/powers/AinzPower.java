@@ -43,12 +43,6 @@ public class AinzPower extends AnimatorPower
     }
 
     @Override
-    public void updateDescription()
-    {
-        this.description = (powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1]);
-    }
-
-    @Override
     public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
     {
         AinzPower other = Utilities.SafeCast(power, AinzPower.class);
@@ -63,7 +57,7 @@ public class AinzPower extends AnimatorPower
     private void AddPowerForm(boolean upgrade)
     {
         AbstractCard power;
-        int roll = MathUtils.random(2);
+        int roll = AbstractDungeon.miscRng.random(2);
         switch (roll)
         {
             case 0: power = new DemonForm(); break;

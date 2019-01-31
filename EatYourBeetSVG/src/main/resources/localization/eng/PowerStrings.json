@@ -8,6 +8,26 @@
 		]
 	},
 	
+	"Animator_EntouJyuu":
+	{
+		"NAME": "Entou Jyuu",
+		"DESCRIPTIONS":
+		[
+			"Every time you play an Attack increase its Damage by #b",
+			" this combat."
+		]
+	},
+	
+	"Animator_MarkOfPoison":
+	{
+		"NAME": "Mark of Poison",
+		"DESCRIPTIONS":
+		[
+			"Whenever an #yAttack deals you damage receive #b",
+			" #yPoison."
+		]
+	},
+	
 	"Animator_Eve":
 	{
 		"NAME": "Eve's Awakening",

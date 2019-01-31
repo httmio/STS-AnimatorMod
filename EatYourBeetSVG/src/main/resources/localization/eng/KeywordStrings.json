@@ -11,6 +11,15 @@
 	 
 	{
 	"NAMES": [
+		  "mark",
+		  "marks"
+		],
+		"PROPERNAME": "Mark",
+		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff on every #yAttack received."
+	},
+	 
+	{
+	"NAMES": [
 		  "slow"
 		],
 		"PROPERNAME": "Slow",

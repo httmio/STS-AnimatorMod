@@ -1,0 +1,116 @@
+package eatyourbeets.cards.animator;
+
+import basemod.helpers.TooltipInfo;
+import com.evacipated.cardcrawl.mod.stslib.StSLib;
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import eatyourbeets.actions.ModifyMagicNumberAction;
+import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.Synergies;
+import eatyourbeets.powers.PlayerStatistics;
+import eatyourbeets.subscribers.OnBattleStartSubscriber;
+import eatyourbeets.subscribers.OnLoseHpSubscriber;
+
+import java.util.Iterator;
+import java.util.concurrent.ArrayBlockingQueue;
+
+public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleStartSubscriber
+{
+    public static final String ID = CreateFullID(Eris.class.getSimpleName());
+
+    private boolean expired = false;
+
+    public Eris()
+    {
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+
+        Initialize(0,0, 4);
+
+        this.purgeOnUse = true;
+        this.tags.add(CardTags.HEALING);
+
+        if (PlayerStatistics.InBattle())
+        {
+            PlayerStatistics.onLoseHpSubscribers.add(this);
+        }
+
+        AddTooltip(new TooltipInfo("Revive Limitation","If the card is exhausted or purged you will NOT be saved."));
+        AddSynergy(Synergies.Konosuba);
+    }
+
+    @Override
+    public void OnBattleStart()
+    {
+        if (!PlayerStatistics.onLoseHpSubscribers.contains(this))
+        {
+            PlayerStatistics.onLoseHpSubscribers.add(this);
+        }
+    }
+
+    @Override
+    public int OnLoseHp(int damageAmount)
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        if (InPlayerDeck() && damageAmount > 0 && player.currentHealth < damageAmount)
+        {
+            AbstractCard c = StSLib.getMasterDeckEquivalent(this);
+            if (c != null)
+            {
+                player.masterDeck.removeCard(c);
+            }
+            for (AbstractCard card : GetAllInBattleInstances.get(this.uuid))
+            {
+                player.discardPile.removeCard(card);
+                player.drawPile.removeCard(card);
+                player.hand.removeCard(card);
+                player.hand.refreshHandLayout();
+            }
+
+            Eris temp = new Eris();
+            if (upgraded)
+            {
+                temp.upgrade();
+            }
+            AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(temp));
+            PlayerStatistics.onLoseHpSubscribers.remove(this);
+
+            return 0;
+        }
+
+        return damageAmount;
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) 
+    {
+        AbstractDungeon.actionManager.addToBottom(new HealAction(p, p, this.magicNumber));
+    }
+
+    @Override
+    public void upgrade() 
+    {
+        if (TryUpgrade())
+        {
+            upgradeMagicNumber(2);
+        }
+    }
+
+    private boolean InPlayerDeck()
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        if (PlayerStatistics.InBattle())
+        {
+            return player.hand.contains(this) || player.drawPile.contains(this) || player.discardPile.contains(this);
+        }
+
+        return false;
+    }
+}

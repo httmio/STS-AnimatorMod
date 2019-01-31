@@ -18,7 +18,7 @@ public class Shichika extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
 
-        Initialize(0, 4, 2);
+        Initialize(0, 3, 2);
 
         AddSynergy(Synergies.Katanagatari);
     }

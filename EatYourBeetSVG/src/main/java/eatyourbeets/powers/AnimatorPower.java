@@ -20,7 +20,7 @@ public abstract class AnimatorPower extends AbstractPower
     {
         this.owner = owner;
         this.ID = "Animator_" + id;
-        this.img = new Texture("images/powers/" + id + ".png");
+        this.img = new Texture("images/powers/" + ID + ".png");
 
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(this.ID);
 
@@ -30,6 +30,32 @@ public abstract class AnimatorPower extends AbstractPower
     @Override
     public  void updateDescription()
     {
-        this.description = StringUtils.join(powerStrings.DESCRIPTIONS, " ");
+        switch (powerStrings.DESCRIPTIONS.length)
+        {
+            case 0:
+            {
+                logger.error("powerStrings.Description was an empty array, " + this.name);
+                break;
+            }
+
+            case 1:
+            {
+                this.description = powerStrings.DESCRIPTIONS[0];
+                break;
+            }
+
+            case 2:
+            {
+                this.description = powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1];
+                break;
+            }
+
+            default:
+            {
+                this.description = StringUtils.join(powerStrings.DESCRIPTIONS, " ");
+            }
+        }
+        logger.info(powerStrings.DESCRIPTIONS.length + ": " + powerStrings.DESCRIPTIONS[0]);
+        logger.info(this.description);
     }
 }

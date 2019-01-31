@@ -23,12 +23,6 @@ public class DarknessPower extends AnimatorPower
     }
 
     @Override
-    public void updateDescription()
-    {
-        this.description = (powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1]);
-    }
-
-    @Override
     public int onLoseHp(int damageAmount)
     {
         ArrayList<AbstractCard> toUpgrade = new ArrayList<>();

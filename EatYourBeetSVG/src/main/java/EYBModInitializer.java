@@ -72,7 +72,9 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
     public void receiveOnBattleStart(AbstractRoom abstractRoom)
     {
         AnimatorCard.SetLastCardPlayed(null);
-        AbstractDungeon.player.powers.add(new PlayerStatistics(AbstractDungeon.player));
+        PlayerStatistics stats = new PlayerStatistics(AbstractDungeon.player);
+        AbstractDungeon.player.powers.add(stats);
+        stats.OnBattleStart();
     }
 
     @Override // false = skips monster turn

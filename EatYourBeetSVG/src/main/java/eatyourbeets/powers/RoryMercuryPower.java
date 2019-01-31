@@ -20,12 +20,6 @@ public class RoryMercuryPower extends AnimatorPower
     }
 
     @Override
-    public void updateDescription()
-    {
-        this.description = (powerStrings.DESCRIPTIONS[0] + this.amount + powerStrings.DESCRIPTIONS[1]);
-    }
-
-    @Override
     public void atEndOfTurn(boolean isPlayer)
     {
         AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));

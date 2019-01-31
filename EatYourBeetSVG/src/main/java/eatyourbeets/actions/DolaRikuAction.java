@@ -57,7 +57,7 @@ public class DolaRikuAction extends AbstractGameAction
             {
                 if (c.color == AbstractCard.CardColor.COLORLESS || c.color == AbstractCard.CardColor.CURSE || c.color == selectedCard.color)
                 {
-                    if (!c.originalName.equals(selectedCard.originalName))
+                    if (!c.originalName.equals(selectedCard.originalName) && !c.tags.contains(AbstractCard.CardTags.HEALING))
                     {
                         if (c.type == AbstractCard.CardType.CURSE)
                         {
