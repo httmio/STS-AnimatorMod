@@ -23,7 +23,7 @@ public class ChlammyZell extends AnimatorCard
 
         secondaryValue = baseSecondaryValue = 0;
 
-        AddSynergy(Synergies.NoGameNoLife);
+        SetSynergy(Synergies.NoGameNoLife);
     }
 
     @Override

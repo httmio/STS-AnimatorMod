@@ -20,7 +20,7 @@ public class Ainz extends AnimatorCard
 
         Initialize(0,0,0);
 
-        AddSynergy(Synergies.Overlord);
+        SetSynergy(Synergies.Overlord);
         AddTooltip(new TooltipInfo("Powers Form", "Either Demon Form, Wraith Form or Echo Form"));
     }
 

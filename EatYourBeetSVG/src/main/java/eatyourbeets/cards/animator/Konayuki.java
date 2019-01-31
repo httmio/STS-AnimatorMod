@@ -3,59 +3,66 @@ package eatyourbeets.cards.animator;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
+import eatyourbeets.powers.PlayerStatistics;
+import eatyourbeets.subscribers.OnApplyPowerSubscriber;
+import eatyourbeets.subscribers.OnBattleStartSubscriber;
 
-public class Konayuki extends AnimatorCard
+public class Konayuki extends AnimatorCard implements OnBattleStartSubscriber, OnApplyPowerSubscriber
 {
     public static final String ID = CreateFullID(Konayuki.class.getSimpleName());
     private long lastUpdate = 0;
 
     public Konayuki()
     {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.SELF_AND_ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.SELF);
 
         Initialize(30,0, 2);
 
-        AddSynergy(Synergies.Katanagatari);
-    }
-
-    @Override
-    public boolean canPlay(AbstractCard card)
-    {
-        boolean canPlay = super.canPlay(card);
-
-        if (canPlay)
+        if (PlayerStatistics.InBattle())
         {
-            long currentTime = System.currentTimeMillis();
-            if ((lastUpdate + 600) < currentTime)
-            {
-                lastUpdate = currentTime;
-                if (EnoughStrength())
-                {
-                    this.target = CardTarget.ENEMY;
-                }
-                else
-                {
-                    this.target = CardTarget.SELF;
-                }
-            }
+            OnBattleStart();
         }
 
-        return canPlay;
+        SetSynergy(Synergies.Katanagatari);
     }
+
+    //@Override
+    //public boolean canPlay(AbstractCard card)
+    //{
+    //    boolean canPlay = super.canPlay(card);
+    //    if (canPlay)
+    //    {
+    //        long currentTime = System.currentTimeMillis();
+    //        if ((lastUpdate + 600) < currentTime)
+    //        {
+    //            lastUpdate = currentTime;
+    //            if (EnoughStrength())
+    //            {
+    //                this.target = CardTarget.ENEMY;
+    //            }
+    //            else
+    //            {
+    //                this.target = CardTarget.SELF;
+    //            }
+    //        }
+    //    }
+    //    return canPlay;
+    //}
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        if (EnoughStrength())
+        if (CurrentStrength() >= 10)
         {
             AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
         }
@@ -70,15 +77,45 @@ public class Konayuki extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(10);
+            upgradeDamage(3);
             upgradeMagicNumber(1);
         }
     }
 
-    private boolean EnoughStrength()
+    @Override
+    public void OnApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
+    {
+        if (target.isPlayer && power.ID.equals(StrengthPower.POWER_ID))
+        {
+            if ((CurrentStrength() + power.amount) >= 10)
+            {
+                this.target = CardTarget.ENEMY;
+            }
+            else
+            {
+                this.target = CardTarget.SELF;
+            }
+        }
+    }
+
+    @Override
+    public void OnBattleStart()
+    {
+        PlayerStatistics.onApplyPower.Subscribe(this);
+        if (CurrentStrength() >= 10)
+        {
+            this.target = CardTarget.ENEMY;
+        }
+        else
+        {
+            this.target = CardTarget.SELF;
+        }
+    }
+
+    private int CurrentStrength()
     {
         StrengthPower strength = Utilities.SafeCast(AbstractDungeon.player.getPower(StrengthPower.POWER_ID), StrengthPower.class);
 
-        return (strength != null && strength.amount >= 10);
+        return (strength != null ? strength.amount : 0);
     }
 }

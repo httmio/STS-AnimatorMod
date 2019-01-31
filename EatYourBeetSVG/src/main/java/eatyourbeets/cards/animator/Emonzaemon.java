@@ -25,7 +25,7 @@ public class Emonzaemon extends AnimatorCard
 
         AddTooltip(new TooltipInfo("Entou Jyuu", "A strong Power card."));
 
-        AddSynergy(Synergies.Katanagatari);
+        SetSynergy(Synergies.Katanagatari);
     }
 
     @Override

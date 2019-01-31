@@ -17,9 +17,9 @@ public class Shimakaze extends AnimatorCard
     {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(2,0, 3);
+        Initialize(3,0, 3);
 
-        AddSynergy(Synergies.Kancolle);
+        SetSynergy(Synergies.Kancolle);
     }
 
     @Override

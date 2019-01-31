@@ -23,7 +23,7 @@ public class PinaCoLadaPower extends AnimatorPower
         super.onAfterCardPlayed(usedCard);
 
         AnimatorCard card = Utilities.SafeCast(usedCard, AnimatorCard.class);
-        if (card != null && card.HasSynergy())
+        if (card != null && card.HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, this.amount));
         }

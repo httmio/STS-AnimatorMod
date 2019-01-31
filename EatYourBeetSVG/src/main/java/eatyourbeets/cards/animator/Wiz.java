@@ -19,7 +19,7 @@ public class Wiz extends AnimatorCard
 
         Initialize(0,0,2);
 
-        AddSynergy(Synergies.Konosuba);
+        SetSynergy(Synergies.Konosuba);
     }
 
     @Override

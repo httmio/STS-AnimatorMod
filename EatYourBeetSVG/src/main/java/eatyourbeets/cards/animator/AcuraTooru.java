@@ -1,7 +1,6 @@
 package eatyourbeets.cards.animator;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,7 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
-import eatyourbeets.powers.MarkOfPoisonPower;
 
 public class AcuraTooru extends AnimatorCard
 {
@@ -21,14 +19,14 @@ public class AcuraTooru extends AnimatorCard
 
         Initialize(4,0, 3);
 
-        AddSynergy(Synergies.Chaika);
+        SetSynergy(Synergies.Chaika);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         int times = this.magicNumber;
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             times += 1;
         }

@@ -21,7 +21,7 @@ public class Ara extends AnimatorCard
 
         Initialize(4,0, 1);
 
-        AddSynergy(Synergies.Elsword);
+        SetSynergy(Synergies.Elsword);
     }
 
     @Override

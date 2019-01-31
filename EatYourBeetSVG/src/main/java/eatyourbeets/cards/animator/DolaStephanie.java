@@ -1,15 +1,11 @@
 package eatyourbeets.cards.animator;
 
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.actions.StephanieAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
-
-import java.util.ArrayList;
 
 public class DolaStephanie extends AnimatorCard
 {
@@ -21,7 +17,7 @@ public class DolaStephanie extends AnimatorCard
 
         Initialize(0,0);
 
-        AddSynergy(Synergies.NoGameNoLife);
+        SetSynergy(Synergies.NoGameNoLife);
     }
 
     @Override

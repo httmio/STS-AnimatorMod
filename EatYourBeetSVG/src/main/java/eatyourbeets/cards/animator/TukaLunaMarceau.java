@@ -19,7 +19,7 @@ public class TukaLunaMarceau extends AnimatorCard
 
         Initialize(0,0,2);
 
-        AddSynergy(Synergies.Gate);
+        SetSynergy(Synergies.Gate);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class TukaLunaMarceau extends AnimatorCard
     {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
         int loseDex = this.magicNumber;
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             loseDex = 1;
         }

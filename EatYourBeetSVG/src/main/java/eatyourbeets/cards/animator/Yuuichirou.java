@@ -21,7 +21,7 @@ public class Yuuichirou extends AnimatorCard
         Initialize(9,0);
 
         AddTooltip(new TooltipInfo("Asuramaru", "Very strong 0-Cost card."));
-        AddSynergy(Synergies.OwariNoSeraph);
+        SetSynergy(Synergies.OwariNoSeraph);
     }
 
     @Override

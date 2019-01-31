@@ -22,11 +22,11 @@ public class Shalltear extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
-        Initialize(9,0, 3);
+        Initialize(9,0, 4);
 
         tags.add(CardTags.HEALING);
 
-        AddSynergy(Synergies.Overlord);
+        SetSynergy(Synergies.Overlord);
     }
 
     @Override

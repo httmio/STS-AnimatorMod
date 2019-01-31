@@ -2,25 +2,24 @@ package eatyourbeets.powers;
 
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eatyourbeets.Utilities;
-import eatyourbeets.subscribers.OnBattleStartSubscriber;
-import eatyourbeets.subscribers.OnEndOfTurnSubscriber;
-import eatyourbeets.subscribers.OnLoseHpSubscriber;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.ListIterator;
+import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.subscribers.*;
 
 public class PlayerStatistics extends AnimatorPower implements InvisiblePower, OnCardDrawPower
 {
-    public static ArrayList<OnBattleStartSubscriber> onBattleStartSubscribers = new ArrayList<>();
-    public static ArrayList<OnEndOfTurnSubscriber> onEndOfTurnSubscribers = new ArrayList<>();
-    public static ArrayList<OnLoseHpSubscriber> onLoseHpSubscribers = new ArrayList<>();
+    public static GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
+    public static GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
+    public static GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
+    public static GameEvent<OnLoseHpSubscriber> onLoseHp = new GameEvent<>();
 
     private static int turnCount = 0;
     private static int cardsDrawnThisTurn = 0;
@@ -30,6 +29,19 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         super(owner, "PlayerStatistics");
     }
 
+    private static void ClearStats()
+    {
+        logger.info("Clearing Player Stats");
+
+        AnimatorCard.SetLastCardPlayed(null);
+        cardsDrawnThisTurn = 0;
+        turnCount = 0;
+        onLoseHp.Clear();
+        onLoseHp.Clear();
+        onEndOfTurn.Clear();
+        onApplyPower.Clear();
+    }
+
     public void OnBattleStart()
     {
         for (AbstractCard c : AbstractDungeon.player.drawPile.group)
@@ -37,7 +49,7 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
             OnBattleStartSubscriber s = Utilities.SafeCast(c, OnBattleStartSubscriber.class);
             if (s != null)
             {
-                onBattleStartSubscribers.add(s);
+                onBattleStart.Subscribe(s);
                 s.OnBattleStart();
             }
         }
@@ -77,6 +89,25 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         }
 
         return turnCount;
+    }
+
+    @Override
+    public void onApplyPower(AbstractPower power, AbstractCreature target, AbstractCreature source)
+    {
+        super.onApplyPower(power, target, source);
+
+        for (OnApplyPowerSubscriber p : onApplyPower.GetSubscribers())
+        {
+            p.OnApplyPower(power, target, source);
+        }
+    }
+
+    @Override
+    public void onAfterUseCard(AbstractCard card, UseCardAction action)
+    {
+        super.onAfterUseCard(card, action);
+
+        AnimatorCard.SetLastCardPlayed(card);
     }
 
     @Override
@@ -129,26 +160,14 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     public int onLoseHp(int damageAmount)
     {
         int damage = damageAmount;
-        if (onLoseHpSubscribers.size() > 0)
+        if (onLoseHp.Count() > 0)
         {
-            ArrayList<OnLoseHpSubscriber> temp = new ArrayList<>(onLoseHpSubscribers);
-            for (OnLoseHpSubscriber s : temp)
+            for (OnLoseHpSubscriber s : onLoseHp.GetSubscribers())
             {
                 damage = s.OnLoseHp(damage);
             }
         }
 
         return super.onLoseHp(damage);
-    }
-
-    private static void ClearStats()
-    {
-        logger.info("Clearing Player Stats");
-
-        cardsDrawnThisTurn = 0;
-        turnCount = 0;
-        onLoseHpSubscribers.clear();
-        onLoseHpSubscribers.clear();
-        onEndOfTurnSubscribers.clear();
     }
 }

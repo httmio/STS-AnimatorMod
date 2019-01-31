@@ -140,7 +140,7 @@
 	"animator_Aisha":
 	{
 		"NAME": "Aisha",
-		"DESCRIPTION": "Put a random skill from your draw pile into your hand, it costs !M! less this combat."
+		"DESCRIPTION": "Put a random #ySkill from your draw pile into your hand, it costs !M! less this combat."
 	},
 		
 	"animator_Cocytus":

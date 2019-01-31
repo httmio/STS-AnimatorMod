@@ -22,7 +22,7 @@ public class Jibril extends AnimatorCard
 
         Initialize(9,0,1);
 
-        AddSynergy(Synergies.NoGameNoLife);
+        SetSynergy(Synergies.NoGameNoLife);
     }
 
     @Override

@@ -20,7 +20,7 @@ public class YaoHaDucy extends AnimatorCard
 
         Initialize(3,3,1);
         isMultiDamage = true;
-        AddSynergy(Synergies.Gate);
+        SetSynergy(Synergies.Gate);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class YaoHaDucy extends AnimatorCard
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
         }

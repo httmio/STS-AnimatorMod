@@ -18,7 +18,7 @@ public class Togame extends AnimatorCard
 
         Initialize(0,0, 2);
 
-        AddSynergy(Synergies.Katanagatari);
+        SetSynergy(Synergies.Katanagatari);
     }
 
     @Override

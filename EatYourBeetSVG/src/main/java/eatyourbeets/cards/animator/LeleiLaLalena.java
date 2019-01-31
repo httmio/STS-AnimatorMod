@@ -21,7 +21,7 @@ public class LeleiLaLalena extends AnimatorCard
 
         secondaryValue = baseSecondaryValue = 3;
 
-        AddSynergy(Synergies.Gate);
+        SetSynergy(Synergies.Gate);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class LeleiLaLalena extends AnimatorCard
     {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new VulnerablePower(m, this.magicNumber, false), this.magicNumber));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new SlowPower(m, this.secondaryValue), this.secondaryValue));
         }

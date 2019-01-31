@@ -22,7 +22,7 @@ public class Elesis extends AnimatorCard
 
         this.retain = true;
 
-        AddSynergy(Synergies.Elsword);
+        SetSynergy(Synergies.Elsword);
     }
 
     @Override

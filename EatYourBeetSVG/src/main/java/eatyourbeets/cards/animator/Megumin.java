@@ -24,7 +24,7 @@ public class Megumin extends AnimatorCard
         this.isMultiDamage = true;
         this.exhaust = true;
         
-        AddSynergy(Synergies.Konosuba);
+        SetSynergy(Synergies.Konosuba);
     }
 
     @Override
@@ -32,7 +32,7 @@ public class Megumin extends AnimatorCard
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new ModifyDamagePermanentlyAction(this.uuid, this.magicNumber));
         }

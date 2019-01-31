@@ -17,14 +17,14 @@ public class PandorasActor extends AnimatorCard
 
         Initialize(0,4, 3);
 
-        AddSynergies(Synergies.Overlord, Synergies.ANY);
+        SetSynergy(Synergies.Overlord, true);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         int block = this.block;
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             block += this.magicNumber;
         }

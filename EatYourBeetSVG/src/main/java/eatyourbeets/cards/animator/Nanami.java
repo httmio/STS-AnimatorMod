@@ -19,7 +19,7 @@ public class Nanami extends AnimatorCard
 
         Initialize(0,4);
 
-        AddSynergy(Synergies.Katanagatari);
+        SetSynergy(Synergies.Katanagatari);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class Nanami extends AnimatorCard
     {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             Pummel pummel = new Pummel();
             if (upgraded)

@@ -20,6 +20,14 @@
 	 
 	{
 	"NAMES": [
+		  "stun"
+		],
+		"PROPERNAME": "Stun",
+		"DESCRIPTION": "Cannot act for #b1 turn."
+	},
+	 
+	{
+	"NAMES": [
 		  "slow"
 		],
 		"PROPERNAME": "Slow",

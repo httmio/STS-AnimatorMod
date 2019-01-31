@@ -26,7 +26,7 @@ public class HigakiRinne extends AnimatorCard
 
         Initialize(0,0,2);
 
-        AddSynergies(Synergies.Katanagatari, Synergies.ANY);
+        SetSynergy(Synergies.Katanagatari, true);
     }
 
     @Override

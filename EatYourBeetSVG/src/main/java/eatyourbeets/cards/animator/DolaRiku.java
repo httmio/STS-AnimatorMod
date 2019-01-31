@@ -17,7 +17,7 @@ public class DolaRiku extends AnimatorCard
 
         Initialize(0,0,1);
 
-        AddSynergy(Synergies.NoGameNoLife);
+        SetSynergy(Synergies.NoGameNoLife);
     }
 
     @Override

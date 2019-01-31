@@ -46,7 +46,7 @@ public class LivingPicture extends CustomRelic
         super.onPlayCard(c, m);
 
         AnimatorCard card = Utilities.SafeCast(c, AnimatorCard.class);
-        if (active && card != null && card.HasSynergy())
+        if (active && card != null && card.HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, 1));
             active = false;

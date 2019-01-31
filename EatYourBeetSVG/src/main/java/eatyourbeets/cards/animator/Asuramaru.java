@@ -26,7 +26,7 @@ public class Asuramaru extends AnimatorCard
 
         this.purgeOnUse = true;
 
-        AddSynergy(Synergies.OwariNoSeraph);
+        SetSynergy(Synergies.OwariNoSeraph);
     }
 
     @Override

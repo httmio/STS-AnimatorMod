@@ -3,7 +3,6 @@ package eatyourbeets;
 import com.badlogic.gdx.math.MathUtils;
 
 import java.util.ArrayList;
-import java.util.Random;
 import java.util.function.Predicate;
 
 public class Utilities

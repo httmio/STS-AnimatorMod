@@ -1,13 +1,10 @@
 package eatyourbeets.cards.animator;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
-import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.unique.RetainCardsAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.RetainCardPower;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -21,7 +18,7 @@ public class Fredrika extends AnimatorCard
 
         Initialize(0, 4, 2);
 
-        AddSynergies(Synergies.Chaika, Synergies.ANY);
+        SetSynergy(Synergies.Chaika, true);
     }
 
     @Override
@@ -35,7 +32,7 @@ public class Fredrika extends AnimatorCard
             }
         }
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new RetainCardsAction(p, this.magicNumber));
         }

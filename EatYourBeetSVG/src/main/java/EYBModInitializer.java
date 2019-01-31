@@ -28,7 +28,7 @@ import java.util.Map;
 
 @SpireInitializer
 public class EYBModInitializer implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber,
-                                          OnCardUseSubscriber, OnStartBattleSubscriber, PreMonsterTurnSubscriber
+                                          OnStartBattleSubscriber, PreMonsterTurnSubscriber//, OnCardUseSubscriber
 {
     private static final Logger logger = LogManager.getLogger(EYBModInitializer.class.getName());
 
@@ -62,11 +62,11 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
                 ANIMATOR_POWER_P, ANIMATOR_ORB_B, ANIMATOR_ORB_C);
     }
 
-    @Override
-    public void receiveCardUsed(AbstractCard abstractCard)
-    {
-        AnimatorCard.SetLastCardPlayed(abstractCard);
-    }
+    //@Override
+    //public void receiveCardUsed(AbstractCard abstractCard)
+    //{
+    //    AnimatorCard.SetLastCardPlayed(abstractCard);
+    //}
 
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom)

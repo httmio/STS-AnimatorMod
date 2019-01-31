@@ -22,7 +22,7 @@ public class ChaikaTrabant extends AnimatorCard
 
         this.isEthereal = true;
 
-        AddSynergy(Synergies.Chaika);
+        SetSynergy(Synergies.Chaika);
     }
 
     @Override

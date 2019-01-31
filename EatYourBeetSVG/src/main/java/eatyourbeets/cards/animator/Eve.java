@@ -18,7 +18,7 @@ public class Eve extends AnimatorCard
 
         Initialize(0,0,1);
 
-        AddSynergy(Synergies.Elsword);
+        SetSynergy(Synergies.Elsword);
     }
 
     @Override

@@ -21,7 +21,7 @@ public class Aqua extends AnimatorCard
         this.secondaryValue = this.baseSecondaryValue = 2;
         this.tags.add(CardTags.HEALING);
 
-        AddSynergy(Synergies.Konosuba);
+        SetSynergy(Synergies.Konosuba);
     }
 
     @Override

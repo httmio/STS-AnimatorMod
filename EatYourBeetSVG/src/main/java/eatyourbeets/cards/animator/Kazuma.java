@@ -21,7 +21,7 @@ public class Kazuma extends AnimatorCard
 
         Initialize(5,5);
 
-        AddSynergy(Synergies.Konosuba);
+        SetSynergy(Synergies.Konosuba);
     }
 
     @Override
@@ -30,7 +30,7 @@ public class Kazuma extends AnimatorCard
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, 1));
         }

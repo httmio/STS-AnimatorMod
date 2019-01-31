@@ -18,7 +18,7 @@ public class Darkness extends AnimatorCard
 
         Initialize(0,0,1);
 
-        AddSynergy(Synergies.Konosuba);
+        SetSynergy(Synergies.Konosuba);
     }
 
     @Override

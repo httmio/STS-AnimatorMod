@@ -20,14 +20,14 @@ public class Cocytus extends AnimatorCard
 
         Initialize(7,0,4);
 
-        AddSynergy(Synergies.Overlord);
+        SetSynergy(Synergies.Overlord);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         int damage = this.damage;
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             damage += this.magicNumber;
         }

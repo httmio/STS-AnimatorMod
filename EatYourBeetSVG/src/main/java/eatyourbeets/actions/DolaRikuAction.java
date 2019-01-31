@@ -51,11 +51,21 @@ public class DolaRikuAction extends AbstractGameAction
 
             boolean status = selectedCard.type == AbstractCard.CardType.STATUS;
             boolean curse = selectedCard.type == AbstractCard.CardType.CURSE;
+            AbstractCard.CardColor mainColor;
+            if (selectedCard.color == AbstractCard.CardColor.COLORLESS)
+            {
+                mainColor = player.getCardColor();
+            }
+            else
+            {
+                mainColor = selectedCard.color;
+            }
+
             ArrayList<AbstractCard> sameRarity = new ArrayList<>();
             ArrayList<AbstractCard> allCards = CardLibrary.getAllCards();
             for (AbstractCard c : allCards)
             {
-                if (c.color == AbstractCard.CardColor.COLORLESS || c.color == AbstractCard.CardColor.CURSE || c.color == selectedCard.color)
+                if (c.color == AbstractCard.CardColor.COLORLESS || c.color == AbstractCard.CardColor.CURSE || c.color == mainColor)
                 {
                     if (!c.originalName.equals(selectedCard.originalName) && !c.tags.contains(AbstractCard.CardTags.HEALING))
                     {

@@ -19,7 +19,7 @@ public class NarberalGamma extends AnimatorCard
 
         Initialize(0,0,1);
 
-        AddSynergies(Synergies.Overlord, Synergies.ANY);
+        SetSynergy(Synergies.Overlord, true);
     }
 
     @Override
@@ -27,7 +27,7 @@ public class NarberalGamma extends AnimatorCard
     {
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Lightning(), true));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(this.magicNumber));
         }

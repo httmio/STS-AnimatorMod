@@ -19,7 +19,7 @@ public class Azekura extends AnimatorCard
 
         Initialize(0,6,1);
 
-        AddSynergy(Synergies.Katanagatari);
+        SetSynergy(Synergies.Katanagatari);
     }
 
     @Override
@@ -28,7 +28,7 @@ public class Azekura extends AnimatorCard
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(p, p, new DexterityPower(p, this.magicNumber), this.magicNumber));
         }

@@ -2,25 +2,18 @@ package eatyourbeets.cards.animator;
 
 import basemod.helpers.TooltipInfo;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.FleetingField;
 import com.megacrit.cardcrawl.actions.common.HealAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
-import eatyourbeets.actions.ModifyMagicNumberAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 import eatyourbeets.powers.PlayerStatistics;
 import eatyourbeets.subscribers.OnBattleStartSubscriber;
 import eatyourbeets.subscribers.OnLoseHpSubscriber;
-
-import java.util.Iterator;
-import java.util.concurrent.ArrayBlockingQueue;
 
 public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleStartSubscriber
 {
@@ -39,20 +32,17 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
 
         if (PlayerStatistics.InBattle())
         {
-            PlayerStatistics.onLoseHpSubscribers.add(this);
+            OnBattleStart();
         }
 
         AddTooltip(new TooltipInfo("Revive Limitation","If the card is exhausted or purged you will NOT be saved."));
-        AddSynergy(Synergies.Konosuba);
+        SetSynergy(Synergies.Konosuba);
     }
 
     @Override
     public void OnBattleStart()
     {
-        if (!PlayerStatistics.onLoseHpSubscribers.contains(this))
-        {
-            PlayerStatistics.onLoseHpSubscribers.add(this);
-        }
+        PlayerStatistics.onLoseHp.Subscribe(this);
     }
 
     @Override
@@ -80,7 +70,7 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
                 temp.upgrade();
             }
             AbstractDungeon.effectList.add(new ShowCardBrieflyEffect(temp));
-            PlayerStatistics.onLoseHpSubscribers.remove(this);
+            PlayerStatistics.onLoseHp.Unsubscribe(this);
 
             return 0;
         }

@@ -20,7 +20,7 @@ public class Shinoa extends AnimatorCard
 
         Initialize(0,7, 1);
 
-        AddSynergy(Synergies.OwariNoSeraph);
+        SetSynergy(Synergies.OwariNoSeraph);
     }
 
     @Override
@@ -31,7 +31,7 @@ public class Shinoa extends AnimatorCard
         for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters)
         {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m2, p, new VulnerablePower(m2, this.magicNumber, false), this.magicNumber));
-            if (HasSynergy())
+            if (HasActiveSynergy())
             {
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m2, p, new WeakPower(m2, this.magicNumber, false), this.magicNumber));
             }

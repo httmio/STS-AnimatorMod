@@ -18,7 +18,7 @@ public class PinaCoLada extends AnimatorCard
 
         Initialize(0,0,3);
 
-        AddSynergy(Synergies.Gate);
+        SetSynergy(Synergies.Gate);
     }
 
     @Override

@@ -28,7 +28,7 @@ public class EvePower extends AnimatorPower
         super.onAfterCardPlayed(usedCard);
 
         AnimatorCard card = Utilities.SafeCast(usedCard, AnimatorCard.class);
-        if (card != null && card.HasSynergy())
+        if (card != null && card.HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(owner, this.amount, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SMASH));
             this.amount += growth;

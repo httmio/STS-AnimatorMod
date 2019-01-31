@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
@@ -22,7 +23,7 @@ public class DolaSchwi extends AnimatorCard
 
         Initialize(10,0,1);
 
-        AddSynergy(Synergies.NoGameNoLife);
+        SetSynergy(Synergies.NoGameNoLife);
     }
 
     @Override
@@ -32,14 +33,14 @@ public class DolaSchwi extends AnimatorCard
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, power, this.magicNumber));
 
         int damage = this.damage;
-        if (!m.hasPower(VulnerablePower.POWER_ID))
+        if (!m.hasPower(VulnerablePower.POWER_ID) && !m.hasPower(ArtifactPower.POWER_ID))
         {
             damage = (int)power.atDamageReceive(damage, DamageInfo.DamageType.NORMAL);
         }
 
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SHIELD));
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToTop(new GainEnergyAction(1));
         }

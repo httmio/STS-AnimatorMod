@@ -2,6 +2,7 @@ package eatyourbeets.cards;
 
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -10,24 +11,27 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import eatyourbeets.Utilities;
+import eatyourbeets.powers.PlayerStatistics;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import patches.AbstractCardEnum;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public abstract class AnimatorCard extends CustomCard 
 {
     protected static final Logger logger = LogManager.getLogger(AnimatorCard.class.getName());
+    private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
+
     private static AnimatorCard previousCard = null;
     private static AnimatorCard lastCardPlayed = null;
 
     private String upgradedDescription = null;
     private List<TooltipInfo> customTooltips = new ArrayList<>();
-    private ArrayList<String> synergies = new ArrayList<>();
+    private String synergy;
+    private boolean anySynergy;
     private boolean lastHovered = false;
 
     public boolean isSecondaryValueModified = false;
@@ -54,16 +58,27 @@ public abstract class AnimatorCard extends CustomCard
         }
     }
 
-    public Boolean HasSynergy()
+    public boolean HasActiveSynergy()
     {
         if (this == lastCardPlayed)
         {
-            return previousCard != null && previousCard.HasSynergy(synergies);
+            return previousCard != null && previousCard.HasSynergy(this);
         }
         else
         {
-            return lastCardPlayed != null && lastCardPlayed.HasSynergy(synergies);
+            return lastCardPlayed != null && lastCardPlayed.HasSynergy(this);
         }
+    }
+
+    public boolean HasSynergy(AbstractCard other)
+    {
+        AnimatorCard card = Utilities.SafeCast(other, AnimatorCard.class);
+        if (card != null && card.synergy != null)
+        {
+            return this.anySynergy || card.anySynergy || card.synergy.equals(this.synergy);
+        }
+
+        return false;
     }
 
     @Override
@@ -84,7 +99,7 @@ public abstract class AnimatorCard extends CustomCard
             for (AbstractCard c : hand)
             {
                 AnimatorCard card = Utilities.SafeCast(c, AnimatorCard.class);
-                if (c != this && (card != null && card.HasSynergy(synergies)))
+                if (c != this && (card != null && card.HasSynergy(this)))
                 {
                     c.targetDrawScale = 0.9f;
                 }
@@ -101,12 +116,10 @@ public abstract class AnimatorCard extends CustomCard
     {
         super.triggerOnOtherCardPlayed(c);
 
-        if (HasSynergy())
+        if (HasActiveSynergy())
         {
             this.targetDrawScale = 0.9f;
         }
-
-        //logger.info(String.format("(%s) Card Played: %s | HasSynergy: %s", this.name, c.name, HasSynergy() ? "yes" : "no"));
     }
 
     @Override
@@ -125,14 +138,24 @@ public abstract class AnimatorCard extends CustomCard
 
     private void RenderSynergy(SpriteBatch sb)
     {
-        if (this.synergies.size() > 0)
+        if (this.synergy != null)
         {
             float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
             FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
 
-            FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergies.get(0),
+            Color textColor;
+            if (HasActiveSynergy())
+            {
+                textColor = SYNERGY_COLOR.cpy();
+            }
+            else
+            {
+                textColor = Settings.CREAM_COLOR.cpy();
+            }
+
+            FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy,
                     this.current_x, this.current_y, 0.0F, 400.0F * Settings.scale * this.drawScale / 2.0F,
-                    this.angle, true, Settings.CREAM_COLOR.cpy());
+                    this.angle, true, textColor);
 
             FontHelper.cardTitleFont_small_N.getData().setScale(originalScale);
         }
@@ -197,11 +220,6 @@ public abstract class AnimatorCard extends CustomCard
         return false;
     }
 
-    public boolean HasSynergy(AbstractCard card)
-    {
-        return card instanceof AnimatorCard && ((AnimatorCard)card).HasSynergy(synergies);
-    }
-
     protected void upgradeSecondaryValue(int amount)
     {
         this.baseSecondaryValue += amount;
@@ -209,42 +227,28 @@ public abstract class AnimatorCard extends CustomCard
         this.upgradedSecondaryValue = true;
     }
 
-    protected void AddSynergy(String synergy)
+    protected void SetSynergy(String synergy)
     {
-        this.synergies.add(synergy);
-        customTooltips.add(new TooltipInfo("Synergies:", synergy));
+        SetSynergy(synergy, false);
     }
 
-    protected void AddSynergies(String... synergies)
+    protected void SetSynergy(String synergy, boolean anySynergy)
     {
-        Collections.addAll(this.synergies, synergies);
-        customTooltips.add(new TooltipInfo("Synergies:", StringUtils.join(synergies, ", ")));
+        this.synergy = synergy;
+        this.anySynergy = anySynergy;
+        if (anySynergy)
+        {
+            customTooltips.add(new TooltipInfo("Synergies", "Any"));
+        }
+        else
+        {
+            customTooltips.add(new TooltipInfo("Synergies", synergy));
+        }
     }
 
     protected void AddTooltip(TooltipInfo tooltip)
     {
         customTooltips.add(tooltip);
-    }
-
-    private Boolean HasSynergy(ArrayList<String> synergies)
-    {
-        for (String s1 : this.synergies)
-        {
-            if (s1.equals(Synergies.ANY) && synergies.size() > 0)
-            {
-                return true;
-            }
-
-            for (String s2 : synergies)
-            {
-                if (s2.equals(Synergies.ANY) || s1.equals(s2))
-                {
-                    return true;
-                }
-            }
-        }
-
-        return false;
     }
 
     protected AnimatorCard(String id, int cost, CardType type, CardRarity rarity, CardTarget target)
