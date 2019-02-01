@@ -1,0 +1,11 @@
+{
+	"Animator_LivingPicture":
+	{
+		"NAME": "Living Picture",
+		"FLAVOR": "It's always watching.",
+		"DESCRIPTIONS":
+		[
+			"Once per turn, when a #ySynergy is activated draw #b1 card."
+		]
+	}
+}

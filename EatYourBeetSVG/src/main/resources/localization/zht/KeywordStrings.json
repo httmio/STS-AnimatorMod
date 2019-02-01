@@ -1,0 +1,45 @@
+[
+    {
+      "NAMES": [
+        "synergy",
+        "synergies",
+        "synergize"
+      ],
+      "PROPERNAME": "同調",
+      "DESCRIPTION": "上一張牌有相同的同調時發動"
+    },
+	 
+	{
+	"NAMES": [
+		  "mark",
+		  "marks"
+		],
+		"PROPERNAME": "印記",
+		"DESCRIPTION": "擁有者受到攻擊時造成特定的#y負面效果"
+	},
+	 
+	{
+	"NAMES": [
+		  "stun"
+		],
+		"PROPERNAME": "暈眩",
+		"DESCRIPTION": " #b1 回合不能行動"
+	},
+	 
+	{
+	"NAMES": [
+		  "slow"
+		],
+		"PROPERNAME": "緩慢",
+		"DESCRIPTION": "這回合的每張打出的牌使敵人受到  #b10% 的 #y攻擊傷害"
+	},
+  
+	{
+      "NAMES": [
+        "shapeshifter",
+        "shapeshift"
+      ],
+      "PROPERNAME": "型態轉換者",
+      "DESCRIPTION": "跟任何卡片同調"
+    }
+]

@@ -1,0 +1,91 @@
+{
+	"Animator_PlayerStatistics":
+	{
+		"NAME": "Player Statistics",
+		"DESCRIPTIONS":
+		[
+			"Hidden Player Statistics power."
+		]
+	},
+	
+	"Animator_EntouJyuu":
+	{
+		"NAME": "Entou Jyuu",
+		"DESCRIPTIONS":
+		[
+			"Every time you play an Attack increase its Damage by #b",
+			" this combat."
+		]
+	},
+	
+	"Animator_MarkOfPoison":
+	{
+		"NAME": "Mark of Poison",
+		"DESCRIPTIONS":
+		[
+			"Whenever an #yAttack deals you damage receive #b",
+			" #yPoison."
+		]
+	},
+	
+	"Animator_Eve":
+	{
+		"NAME": "Eve's Awakening",
+		"DESCRIPTIONS":
+		[
+			"Whenever a #ySynergy is activated deal #b",
+			" damage to a random enemy."
+		]
+	},
+	
+	"Animator_Darkness":
+	{
+		"NAME": "Dustiness Ford Lalatina",
+		"DESCRIPTIONS":
+		[
+			"Whenever you take damage upgrade #b",
+			" random card/s, prioritizing those in your hand."
+		]
+	},
+	
+	"Animator_Ainz":
+	{
+		"NAME": "Ainz Ooal Gown",
+		"DESCRIPTIONS":
+		[
+			"At the start of your turn add #b",
+			" random #yPower #yForm to your hand."
+		]
+	},
+
+	"Animator_Hitei":
+	{
+		"NAME": "Princess Hitei",
+		"DESCRIPTIONS":
+		[
+			"At the start of your turn gain #b",
+			" gold and Exhaust #b",
+			" random card/s in your draw pile."
+		]
+	},
+	
+	"Animator_PinaCoLada":
+	{
+		"NAME": "Piña Co Lada",
+		"DESCRIPTIONS":
+		[
+			"Whenever a #ySynergy is activated gain #b",
+			" block."
+		]
+	},
+	
+	"Animator_RoryMercury":
+	{
+		"NAME": "Rory Mercury",
+		"DESCRIPTIONS":
+		[
+			"Your next attack this turn deals double damage. #b",
+			" use/s."
+		]
+	}
+}
