@@ -1,11 +1,11 @@
 {
 	"Animator_LivingPicture":
 	{
-		"NAME": "Living Picture",
+		"NAME": "活動的畫",
 		"FLAVOR": "It's always watching.",
 		"DESCRIPTIONS":
 		[
-			"Once per turn, when a #ySynergy is activated draw #b1 card."
+			"每回合一次, 當 #y同調發動時，從牌堆抽一張卡。"
 		]
 	}
 }
