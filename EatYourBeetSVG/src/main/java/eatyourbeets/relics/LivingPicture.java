@@ -7,10 +7,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rewards.RewardItem;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
 
-public class LivingPicture extends CustomRelic
+public class LivingPicture extends AnimatorRelic
 {
     public static final String ID = "Animator_LivingPicture";
 
@@ -33,10 +34,21 @@ public class LivingPicture extends CustomRelic
         return new LivingPicture();
     }
 
+    //@Override
+    //public void onVictory()
+    //{
+    //    RewardItem reward1 = new RewardItem(AbstractDungeon.player.getCardColor());
+    //    //RewardItem reward2 = new RewardItem(AbstractDungeon.player.getCardColor());
+    //    //reward1.relicLink = reward2;
+    //    //reward2.relicLink = reward1;
+    //    AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(reward1, RewardItem.RewardType.CARD));
+    //    super.onVictory();
+    //}
+
     @Override
     public void atTurnStart()
     {
-        super.onPlayerEndTurn();
+        super.atTurnStart();
         active = true;
     }
 

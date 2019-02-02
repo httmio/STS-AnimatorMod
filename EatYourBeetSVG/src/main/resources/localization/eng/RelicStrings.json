@@ -7,5 +7,16 @@
 		[
 			"Once per turn, when a #ySynergy is activated draw #b1 card."
 		]
+	},
+	
+	"Animator_TheMissingPiece":
+	{
+		"NAME": "The Missing Piece",
+		"FLAVOR": "What is this thing?",
+		"DESCRIPTIONS":
+		[
+			"Every #b",
+			" combats, receive improved card rewards."
+		]
 	}
 }

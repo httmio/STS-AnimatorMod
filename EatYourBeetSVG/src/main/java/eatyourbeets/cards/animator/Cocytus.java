@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import eatyourbeets.actions.OnTargetBlockLostAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -34,10 +35,12 @@ public class Cocytus extends AnimatorCard
 
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
 
-        if (m.currentBlock > 0)
-        {
-            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, Math.min(m.currentBlock, damage)));
-        }
+        AbstractDungeon.actionManager.addToBottom(new OnTargetBlockLostAction(m, new GainBlockAction(p, p, 0)));
+
+        //if (m.currentBlock > 0)
+        //{
+        //    AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, Math.min(m.currentBlock, damage)));
+        //}
     }
 
     @Override

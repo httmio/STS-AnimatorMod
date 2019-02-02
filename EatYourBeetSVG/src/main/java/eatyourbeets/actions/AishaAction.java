@@ -11,7 +11,7 @@ import eatyourbeets.Utilities;
 
 import java.util.ArrayList;
 
-public class AishaAction extends AbstractGameAction
+public class AishaAction extends AnimatorAction
 {
     private int costReduction;
     private AbstractPlayer p;
@@ -52,12 +52,13 @@ public class AishaAction extends AbstractGameAction
                     return;
                 }
 
-                this.p.hand.addToHand(card);
-                card.lighten(false);
-                this.p.drawPile.removeCard(card);
-                this.p.hand.refreshHandLayout();
-
                 AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(card.uuid, costReduction));
+                AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardAction(card));
+
+                //this.p.hand.addToHand(card);
+                //card.lighten(false);
+                //this.p.drawPile.removeCard(card);
+                //this.p.hand.refreshHandLayout();
             }
         }
 

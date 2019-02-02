@@ -24,7 +24,7 @@ public class KrulTepes extends AnimatorCard
 
     public KrulTepes()
     {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         Initialize(16,0);
 

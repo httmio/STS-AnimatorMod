@@ -1,5 +1,6 @@
 package eatyourbeets.powers;
 
+import basemod.BaseMod;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -9,6 +10,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
@@ -16,6 +18,10 @@ import eatyourbeets.subscribers.*;
 
 public class PlayerStatistics extends AnimatorPower implements InvisiblePower, OnCardDrawPower
 {
+    public static final String POWER_ID = "PlayerStatistics";
+
+    public static final PlayerStatistics Instance = new PlayerStatistics(null);
+
     public static GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
     public static GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
     public static GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
@@ -24,9 +30,9 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     private static int turnCount = 0;
     private static int cardsDrawnThisTurn = 0;
 
-    public PlayerStatistics(AbstractPlayer owner)
+    protected PlayerStatistics(AbstractPlayer owner)
     {
-        super(owner, "PlayerStatistics");
+        super(null, POWER_ID);
     }
 
     private static void ClearStats()
@@ -42,8 +48,19 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         onApplyPower.Clear();
     }
 
+    public static void EnsurePowerIsApplied()
+    {
+        if (!AbstractDungeon.player.powers.contains(Instance))
+        {
+            logger.info("Applied PlayerStatistics");
+
+            AbstractDungeon.player.powers.add(Instance);
+        }
+    }
+
     public void OnBattleStart()
     {
+        ClearStats();
         for (AbstractCard c : AbstractDungeon.player.drawPile.group)
         {
             OnBattleStartSubscriber s = Utilities.SafeCast(c, OnBattleStartSubscriber.class);
@@ -55,20 +72,24 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         }
     }
 
-    public static boolean InBattle()
+    public static AbstractRoom CurrentRoom()
     {
         MapRoomNode mapNode = AbstractDungeon.currMapNode;
         if (mapNode == null)
         {
-            return false;
+            return null;
         }
         else
         {
-            AbstractRoom room = mapNode.getRoom();
-
-            return room != null && !room.isBattleOver && room.monsters != null;
+            return mapNode.getRoom();
         }
+    }
 
+    public static boolean InBattle()
+    {
+        AbstractRoom room = CurrentRoom();
+
+        return room != null && !room.isBattleOver && room.monsters != null;
     }
 
     public static int getCardsDrawnThisTurn()
@@ -117,30 +138,33 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     }
 
     @Override
-    public void atStartOfTurn()
+    public void atEndOfTurn(boolean isPlayer)
     {
-        super.atStartOfTurn();
+        super.atEndOfTurn(isPlayer);
+
         cardsDrawnThisTurn = 0;
         turnCount += 1;
+        AnimatorCard.SetLastCardPlayed(null);
     }
 
     @Override
     public void onCardDraw(AbstractCard abstractCard)
     {
-        super.onDrawOrDiscard();
         cardsDrawnThisTurn += 1;
     }
 
-    @Override
-    public void onRemove()
-    {
-        super.onRemove();
-
-        if (AbstractDungeon.getCurrRoom()!=null && !AbstractDungeon.getCurrRoom().isBattleOver)
-        {
-            AbstractDungeon.player.powers.add(new PlayerStatistics(AbstractDungeon.player));
-        }
-    }
+    //@Override
+    //public void onRemove()
+    //{
+    //    super.onRemove();
+    //    if (AbstractDungeon.getCurrRoom() != null && !AbstractDungeon.getCurrRoom().isBattleOver)
+    //    {
+    //        if (!AbstractDungeon.player.powers.contains(this))
+    //        {
+    //            AbstractDungeon.player.powers.add(this);
+    //        }
+    //    }
+    //}
 
     @Override
     public void onDeath()

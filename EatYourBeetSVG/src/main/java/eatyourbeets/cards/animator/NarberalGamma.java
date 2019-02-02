@@ -27,7 +27,7 @@ public class NarberalGamma extends AnimatorCard
     {
         AbstractDungeon.actionManager.addToBottom(new ChannelAction(new Lightning(), true));
 
-        if (HasActiveSynergy())
+        if (HasActiveSynergy() && upgraded)
         {
             AbstractDungeon.actionManager.addToBottom(new IncreaseMaxOrbAction(this.magicNumber));
         }
@@ -36,9 +36,6 @@ public class NarberalGamma extends AnimatorCard
     @Override
     public void upgrade() 
     {
-        if (TryUpgrade())
-        {
-            upgradeBaseCost(0);
-        }
+        TryUpgrade();
     }
 }

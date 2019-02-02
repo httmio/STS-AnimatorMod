@@ -14,7 +14,7 @@ public class EntouJyuu extends AnimatorCard
 
     public EntouJyuu()
     {
-        super(ID, 1, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
+        super(ID, 0, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
 
         Initialize(0,0,1);
 
@@ -32,7 +32,7 @@ public class EntouJyuu extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
         }
     }
 }

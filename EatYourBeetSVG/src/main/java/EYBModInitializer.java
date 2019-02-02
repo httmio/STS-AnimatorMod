@@ -6,29 +6,42 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.Synergies;
+import eatyourbeets.cards.animator.Gilgamesh;
 import eatyourbeets.characters.AnimatorCharacter;
 import eatyourbeets.powers.PlayerStatistics;
 import eatyourbeets.relics.LivingPicture;
+import eatyourbeets.relics.TheMissingPiece;
+import eatyourbeets.rewards.SynergyCardsReward;
 import eatyourbeets.variables.SecondaryValueVariable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import patches.AbstractCardEnum;
 import patches.AbstractClassEnum;
+import patches.RewardTypeEnum;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 @SpireInitializer
 public class EYBModInitializer implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber,
-                                          OnStartBattleSubscriber, PreMonsterTurnSubscriber//, OnCardUseSubscriber
+                                          OnStartBattleSubscriber, PreMonsterTurnSubscriber, PostInitializeSubscriber, PostEnergyRechargeSubscriber//, OnCardUseSubscriber
 {
     private static final Logger logger = LogManager.getLogger(EYBModInitializer.class.getName());
 
@@ -71,16 +84,20 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
     @Override
     public void receiveOnBattleStart(AbstractRoom abstractRoom)
     {
-        AnimatorCard.SetLastCardPlayed(null);
-        PlayerStatistics stats = new PlayerStatistics(AbstractDungeon.player);
-        AbstractDungeon.player.powers.add(stats);
-        stats.OnBattleStart();
+        PlayerStatistics.EnsurePowerIsApplied();
+        PlayerStatistics.Instance.OnBattleStart();
+    }
+
+    @Override
+    public void receivePostEnergyRecharge()
+    {
+        PlayerStatistics.EnsurePowerIsApplied();
     }
 
     @Override // false = skips monster turn
     public boolean receivePreMonsterTurn(AbstractMonster abstractMonster)
     {
-        AnimatorCard.SetLastCardPlayed(null);
+        PlayerStatistics.EnsurePowerIsApplied();
 
         return true;
     }
@@ -120,6 +137,7 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
     public void receiveEditRelics()
     {
         BaseMod.addRelicToCustomPool(new LivingPicture(), AbstractCardEnum.THE_ANIMATOR);
+        BaseMod.addRelicToCustomPool(new TheMissingPiece(), AbstractCardEnum.THE_ANIMATOR);
     }
 
     @Override
@@ -141,6 +159,16 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
                 e.printStackTrace();
             }
         }
+    }
+
+    @Override
+    public void receivePostInitialize()
+    {
+        BaseMod.registerCustomReward(
+                RewardTypeEnum.SYNERGY_CARDS,
+                (rewardSave) -> new SynergyCardsReward(Synergies.All.get(rewardSave.amount)),
+                (customReward) -> new RewardSave(customReward.type.toString(), null,
+                        Synergies.All.indexOf(((SynergyCardsReward)customReward).synergy), 0));
     }
 
     private void AddAndUnlock(Class cardClass)

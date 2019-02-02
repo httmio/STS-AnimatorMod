@@ -8,6 +8,16 @@
 		]
 	},
 	
+	"Animator_Archer":
+	{
+		"NAME": "Archer",
+		"DESCRIPTIONS":
+		[
+			"At the end of your turn, deal #b",
+			" Damage to all enemies with a Debuff."
+		]
+	},
+
 	"Animator_EntouJyuu":
 	{
 		"NAME": "Entou Jyuu",
@@ -17,7 +27,7 @@
 			" this combat."
 		]
 	},
-	
+
 	"Animator_MarkOfPoison":
 	{
 		"NAME": "Mark of Poison",
@@ -27,7 +37,7 @@
 			" #yPoison."
 		]
 	},
-	
+
 	"Animator_Eve":
 	{
 		"NAME": "Eve's Awakening",
@@ -37,7 +47,7 @@
 			" damage to a random enemy."
 		]
 	},
-	
+
 	"Animator_Darkness":
 	{
 		"NAME": "Dustiness Ford Lalatina",
@@ -47,7 +57,7 @@
 			" random card/s, prioritizing those in your hand."
 		]
 	},
-	
+
 	"Animator_Ainz":
 	{
 		"NAME": "Ainz Ooal Gown",
@@ -68,7 +78,7 @@
 			" random card/s in your draw pile."
 		]
 	},
-	
+
 	"Animator_PinaCoLada":
 	{
 		"NAME": "Piña Co Lada",
@@ -78,7 +88,7 @@
 			" block."
 		]
 	},
-	
+
 	"Animator_RoryMercury":
 	{
 		"NAME": "Rory Mercury",

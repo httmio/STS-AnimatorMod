@@ -34,12 +34,15 @@ public class Shalltear extends AnimatorCard
     {
         for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters)
         {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m2.hb.cX, m2.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m2, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-
-            if (m2.currentBlock > 0 && m2.currentBlock <= (this.damage * 2))
+            if (!m2.isDying && !m2.isDead)
             {
-                AbstractDungeon.actionManager.addToTop(new HealAction(p, p, this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m2.hb.cX, m2.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m2, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+
+                if (m2.currentBlock > 0 && m2.currentBlock <= (this.damage * 2))
+                {
+                    AbstractDungeon.actionManager.addToTop(new HealAction(p, p, this.magicNumber));
+                }
             }
         }
     }

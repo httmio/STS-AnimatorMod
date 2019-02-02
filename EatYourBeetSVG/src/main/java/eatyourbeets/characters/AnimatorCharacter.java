@@ -21,6 +21,7 @@ import eatyourbeets.cards.animator.Defend;
 import eatyourbeets.cards.animator.Kazuma;
 import eatyourbeets.cards.animator.Strike;
 import eatyourbeets.relics.LivingPicture;
+import eatyourbeets.relics.TheMissingPiece;
 import patches.AbstractCardEnum;
 import patches.AbstractClassEnum;
 
@@ -182,9 +183,14 @@ public class AnimatorCharacter extends CustomPlayer
         {
             UnlockTracker.markRelicAsSeen(LivingPicture.ID);
         }
+        if (!UnlockTracker.isRelicSeen(TheMissingPiece.ID))
+        {
+            UnlockTracker.markRelicAsSeen(TheMissingPiece.ID);
+        }
 
         ArrayList<String> res = new ArrayList<>();
         res.add(LivingPicture.ID);
+        res.add(TheMissingPiece.ID);
         return res;
     }
 
@@ -197,7 +203,7 @@ public class AnimatorCharacter extends CustomPlayer
     @Override
     public CharSelectInfo getLoadout()
     {
-        return new CharSelectInfo(NAMES[0], TEXT[0], 75, 75, 1, 99, 5, this, getStartingRelics(), getStartingDeck(), false);
+        return new CharSelectInfo(NAMES[0], TEXT[0], 75, 75, 3, 99, 5, this, getStartingRelics(), getStartingDeck(), false);
     }
 
     @Override

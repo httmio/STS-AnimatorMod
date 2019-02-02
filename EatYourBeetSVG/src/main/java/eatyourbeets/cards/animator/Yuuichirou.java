@@ -3,10 +3,12 @@ package eatyourbeets.cards.animator;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -35,7 +37,7 @@ public class Yuuichirou extends AnimatorCard
     {
         super.triggerOnExhaust();
 
-        AbstractDungeon.player.discardPile.addToBottom(new Asuramaru());
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Asuramaru(), 1));
     }
 
     @Override

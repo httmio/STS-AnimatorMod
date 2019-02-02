@@ -1,45 +1,61 @@
 [
-    {
-      "NAMES": [
-        "synergy",
-        "synergies",
-        "synergize"
-      ],
-      "PROPERNAME": "Synergy",
-      "DESCRIPTION": "Activates if the last card played had the same synergy."
-    },
-	 
 	{
-	"NAMES": [
-		  "mark",
-		  "marks"
+		"NAMES": [
+			"synergy",
+			"synergies",
+			"synergize"
+		],
+		"PROPERNAME": "Synergy",
+		"DESCRIPTION": "Activates if the last card played had the same synergy."
+	},
+
+	{
+		"NAMES": [
+			"mark",
+			"marks"
 		],
 		"PROPERNAME": "Mark",
-		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff on every #yAttack received."
+		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect on every #yAttack received."
 	},
-	 
+	
 	{
-	"NAMES": [
-		  "stun"
+		"NAMES": [
+			"heartseeker"
+		],
+		"PROPERNAME": "Heartseeker",
+		"DESCRIPTION": "If the target has less than 50% HP, deal Double Damage."
+	},
+	
+	{
+		"NAMES": [
+			"resurrect"
+		],
+		"PROPERNAME": "Resurrect",
+		"DESCRIPTION": "If you would die, and this card is anywhere in your deck, prevent all Damage and permanently lose this card. Will not work if Exhausted or Purged."
+	},
+
+	{
+		"NAMES": [
+			"stun"
 		],
 		"PROPERNAME": "Stun",
 		"DESCRIPTION": "Cannot act for #b1 turn."
 	},
-	 
+
 	{
-	"NAMES": [
-		  "slow"
+		"NAMES": [
+			"slow"
 		],
 		"PROPERNAME": "Slow",
 		"DESCRIPTION": "For every card you have played this turn, enemy takes #b10% more damage from #yAttacks."
 	},
-  
+
 	{
-      "NAMES": [
-        "shapeshifter",
-        "shapeshift"
-      ],
-      "PROPERNAME": "Shapeshifter",
-      "DESCRIPTION": "Synergizes with any card."
-    }
+		"NAMES": [
+			"shapeshifter",
+			"shapeshift"
+		],
+		"PROPERNAME": "Shapeshifter",
+		"DESCRIPTION": "Synergizes with any card."
+	}
 ]

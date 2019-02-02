@@ -14,7 +14,7 @@ public class Eve extends AnimatorCard
 
     public Eve()
     {
-        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
 
         Initialize(0,0,1);
 
@@ -43,7 +43,7 @@ public class Eve extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(1);
+            upgradeBaseCost(2);
         }
     }
 }

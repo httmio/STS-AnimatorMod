@@ -2,6 +2,8 @@ package eatyourbeets.cards.animator;
 
 import basemod.BaseMod;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction;
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.red.Pummel;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -38,12 +40,11 @@ public class Nanami extends AnimatorCard
             if (p.hand.size() >= BaseMod.MAX_HAND_SIZE)
             {
                 p.createHandIsFullDialog();
-                p.discardPile.addToBottom(pummel);
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(pummel, 1));
             }
             else
             {
-                p.hand.addToHand(pummel);
-                pummel.flash();
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(pummel));
             }
         }
     }

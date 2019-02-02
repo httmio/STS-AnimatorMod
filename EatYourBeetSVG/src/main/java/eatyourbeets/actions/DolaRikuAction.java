@@ -12,7 +12,7 @@ import eatyourbeets.Utilities;
 
 import java.util.ArrayList;
 
-public class DolaRikuAction extends AbstractGameAction
+public class DolaRikuAction extends AnimatorAction
 {
     private static final String[] TEXT = CardCrawlGame.languagePack.getUIString("ExhaustAction").TEXT;
     private AbstractPlayer player;

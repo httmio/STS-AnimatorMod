@@ -8,8 +8,11 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eatyourbeets.Utilities;
 import eatyourbeets.powers.PlayerStatistics;
 import org.apache.commons.lang3.StringUtils;
@@ -19,6 +22,7 @@ import patches.AbstractCardEnum;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AnimatorCard extends CustomCard 
 {
@@ -33,6 +37,8 @@ public abstract class AnimatorCard extends CustomCard
     private String synergy;
     private boolean anySynergy;
     private boolean lastHovered = false;
+
+    protected CardStrings cardStrings;
 
     public boolean isSecondaryValueModified = false;
     public boolean upgradedSecondaryValue = false;
@@ -75,10 +81,15 @@ public abstract class AnimatorCard extends CustomCard
         AnimatorCard card = Utilities.SafeCast(other, AnimatorCard.class);
         if (card != null && card.synergy != null)
         {
-            return this.anySynergy || card.anySynergy || card.synergy.equals(this.synergy);
+            return this.synergy != null && (this.anySynergy || card.anySynergy || card.synergy.equals(this.synergy));
         }
 
         return false;
+    }
+
+    public boolean HasExactSynergy(String synergy)
+    {
+        return Objects.equals(this.synergy, synergy);
     }
 
     @Override
@@ -116,7 +127,7 @@ public abstract class AnimatorCard extends CustomCard
     {
         super.triggerOnOtherCardPlayed(c);
 
-        if (HasActiveSynergy())
+        if (HasSynergy(c))
         {
             this.targetDrawScale = 0.9f;
         }
@@ -138,26 +149,30 @@ public abstract class AnimatorCard extends CustomCard
 
     private void RenderSynergy(SpriteBatch sb)
     {
+        AbstractRoom room = PlayerStatistics.CurrentRoom();
         if (this.synergy != null)
         {
-            float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
-            FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
-
-            Color textColor;
-            if (HasActiveSynergy())
+            if(room == null || !(room.event instanceof GremlinMatchGame))
             {
-                textColor = SYNERGY_COLOR.cpy();
-            }
-            else
-            {
-                textColor = Settings.CREAM_COLOR.cpy();
-            }
+                float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
+                FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
 
-            FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy,
-                    this.current_x, this.current_y, 0.0F, 400.0F * Settings.scale * this.drawScale / 2.0F,
-                    this.angle, true, textColor);
+                Color textColor;
+                if (HasActiveSynergy())
+                {
+                    textColor = SYNERGY_COLOR.cpy();
+                }
+                else
+                {
+                    textColor = Settings.CREAM_COLOR.cpy();
+                }
 
-            FontHelper.cardTitleFont_small_N.getData().setScale(originalScale);
+                FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy,
+                        this.current_x, this.current_y, 0.0F, 400.0F * Settings.scale * this.drawScale / 2.0F,
+                        this.angle, true, textColor);
+
+                FontHelper.cardTitleFont_small_N.getData().setScale(originalScale);
+            }
         }
     }
 
@@ -265,6 +280,7 @@ public abstract class AnimatorCard extends CustomCard
     {
         super(id, strings.NAME, "images/cards/" + id + ".png", cost, strings.DESCRIPTION, type, color, rarity, target);
 
+        cardStrings = strings;
         if (StringUtils.isNotEmpty(strings.UPGRADE_DESCRIPTION))
         {
             this.upgradedDescription = strings.UPGRADE_DESCRIPTION;

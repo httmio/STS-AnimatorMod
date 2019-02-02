@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import eatyourbeets.cards.animator.KrulTepes;
 
-public class KrulTepesAction extends AbstractGameAction
+public class KrulTepesAction extends AnimatorAction
 {
     private DamageInfo info;
     private KrulTepes krul;

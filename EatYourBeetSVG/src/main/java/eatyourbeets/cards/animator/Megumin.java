@@ -16,7 +16,7 @@ public class Megumin extends AnimatorCard
 
     public Megumin()
     {
-        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
         this.misc = ORIGINAL_DAMAGE;
         Initialize(ORIGINAL_DAMAGE, 0, 2);
@@ -34,7 +34,7 @@ public class Megumin extends AnimatorCard
 
         if (HasActiveSynergy())
         {
-            AbstractDungeon.actionManager.addToBottom(new ModifyDamagePermanentlyAction(this.uuid, this.magicNumber));
+            AbstractDungeon.actionManager.addToTop(new ModifyDamagePermanentlyAction(this.uuid, this.magicNumber));
         }
     }
 

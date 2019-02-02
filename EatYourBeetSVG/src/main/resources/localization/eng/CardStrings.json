@@ -12,26 +12,26 @@
 		"NAME": "Defend",
 		"DESCRIPTION": "Gain !B! Block."
 	},
-	
+
 	"animator_RoryMercury":
 	{
 		"NAME": "Rory Mercury",
 		"DESCRIPTION": "Your next attack this turn deals double damage."
 	},
-	
+
 	"animator_TukaLunaMarceau":
 	{
 		"NAME": "Tuka",
 		"DESCRIPTION": "Gain !M! Dexterity. At the end of your turn lose !M! Dexterity. Synergy: lose 1 Dexterity instead."
 	},
-	
+
 	"animator_YaoHaDucy":
 	{
 		"NAME": "Yao Ha Ducy",
 		"DESCRIPTION": "Gain !B! Block. NL Deal !D! Damage to ALL enemies. Synergy: Draw !M! card.",
 		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! Damage to ALL enemies. Synergy: Draw !M! cards."
 	},
-	
+
 	"animator_LeleiLaLalena":
 	{
 		"NAME": "Lelei La Lalena",
@@ -43,7 +43,7 @@
 		"NAME": "Piña Co Lada",
 		"DESCRIPTION": "When a Synergy is activated gain !M! Block."
 	},
-	
+
 	"animator_Megumin":
 	{
 		"NAME": "Megumin",
@@ -62,26 +62,26 @@
 		"NAME": "Kazuma",
 		"DESCRIPTION": "Gain !B! Block, then Deal !D! Damage. NL Synergy: Draw 1 card."
 	},
-	
+
 	"animator_Darkness":
 	{
 		"NAME": "Darkness",
 		"DESCRIPTION": "Whenever you take damage Upgrade !M! random card, prioritizing those in your hand.",
 		"UPGRADE_DESCRIPTION": "Whenever you take damage Upgrade !M! random cards, prioritizing those in your hand."
 	},
-	
+
 	"animator_Wiz":
 	{
 		"NAME": "Wiz",
 		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses."
 	},
-		
+
 	"animator_Eris":
 	{
 		"NAME": "Eris",
-		"DESCRIPTION": "Heal !M! hp. Purge. If you would die, prevent all Damage and permanently lose this card."
+		"DESCRIPTION": "Heal !M! hp. Purge. NL Resurrect."
 	},
-	
+
 	"animator_Mikaela":
 	{
 		"NAME": "Mikaela",
@@ -93,26 +93,26 @@
 		"NAME": "Krul Tepes",
 		"DESCRIPTION": "Deal !D! Damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial."
 	},
-	
+
 	"animator_Shinoa":
 	{
 		"NAME": "Shinoa",
 		"DESCRIPTION": "Gain !B! Block and apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply !M! Weak."
 	},
-	
+
 	"animator_Yuuichirou":
 	{
 		"NAME": "Yuuichirou",
 		"DESCRIPTION": "Deal !D! Damage. NL If this card is Exhausted add [#EFC851]Asuramaru to your discard pile.",
 		"UPGRADE_DESCRIPTION": "Deal !D! Damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile."
 	},
-	
+
 	"animator_Asuramaru":
 	{
 		"NAME": "Asuramaru",
 		"DESCRIPTION": "Deal !D! Damage. Gain !M! Intangible, Strength, Dexterity and Artifact. Purge."
 	},
-	
+
 	"animator_Shimakaze":
 	{
 		"NAME": "Shimakaze",
@@ -124,7 +124,7 @@
 		"NAME": "Ara",
 		"DESCRIPTION": "Deal !D! Damage twice. If you break the target's Block gain !M! Strength."
 	},
-	
+
 	"animator_Elesis":
 	{
 		"NAME": "Elesis",
@@ -140,97 +140,98 @@
 	"animator_Aisha":
 	{
 		"NAME": "Aisha",
-		"DESCRIPTION": "Put a random #ySkill from your draw pile into your hand, it costs !M! less this combat."
+		"DESCRIPTION": "Put a random [#EFC851]Skill from your draw pile into your hand, it costs !M! less this combat."
 	},
-		
+
 	"animator_Cocytus":
 	{
 		"NAME": "Cocytus",
 		"DESCRIPTION": "Deal !D! Damage. NL Gain any Block lost by the enemy. NL Synergy: Deal !M! more damage."
 	},
-		
+
 	"animator_Demiurge":
 	{
 		"NAME": "Demiurge",
 		"DESCRIPTION": "Gain [B] [B] NL The next time you draw this, take !M! Damage.",
 		"UPGRADE_DESCRIPTION": "Gain [B] [B] [B] NL The next time you draw this, take !M! Damage."
 	},
-		
+
 	"animator_NarberalGamma":
 	{
 		"NAME": "Gamma Narberal",
-		"DESCRIPTION": "Channel !M! Lightning. Shapeshifter. NL Synergy: Gain 1 Orb slot."
+		"DESCRIPTION": "Channel !M! Lightning. Shapeshifter.",
+		"UPGRADE_DESCRIPTION": "Channel !M! Lightning. Shapeshifter. NL Synergy: Gain 1 Orb slot."
 	},
-	
+
 	"animator_Shalltear":
 	{
 		"NAME": "Shalltear",
 		"DESCRIPTION": "Deal !D! Damage to ALL enemies. NL Heal !M! HP for each enemy that lost its Block."
 	},
-	
+
 	"animator_PandorasActor":
 	{
 		"NAME": "Pandora's Actor",
 		"DESCRIPTION": "Gain !B! Block. Shapeshifter. NL Synergy: Gain !M! extra Block."
 	},
-	
+
 	"animator_Ainz":
 	{
 		"NAME": "Ainz Ooal Gown",
 		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand.",
 		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand."
 	},
-	
+
 	"animator_Jibril":
 	{
 		"NAME": "Jibril",
 		"DESCRIPTION": "Deal !D! Damage. NL If the enemy has Vulnerable gain !M! Strength."
 	},
-	
+
 	"animator_ChlammyZell":
 	{
 		"NAME": "Kurami",
 		"DESCRIPTION": "Deal !M! Damage for each card you have drawn this turn. NL (Drawn !SV! Cards)"
 	},
-	
+
 	"animator_DolaStephanie":
 	{
 		"NAME": "Stephanie",
 		"DESCRIPTION": "Choose a card in your hand, Fetch 1 card with the same Synergy.",
 		"UPGRADE_DESCRIPTION": "Innate. Choose a card in your hand, Fetch 1 card with the same Synergy."
 	},
-	
+
 	"animator_DolaRiku":
 	{
 		"NAME": "Riku",
 		"DESCRIPTION": "Exhaust a card in your hand and gain one of the same rarity, it costs !M! less."
 	},
-	
+
 	"animator_DolaSchwi":
 	{
 		"NAME": "Schwi",
 		"DESCRIPTION": "Apply !M! Vulnerable, then deal !D! Damage. NL Synergy: Gain [B]."
 	},
-		
+
 	"animator_Emonzaemon":
 	{
 		"NAME": "Emonzaemon",
-		"DESCRIPTION": "Deal !D! Damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu, then Purge this.",		
+		"DESCRIPTION": "Deal !D! Damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu, then Purge this.",
 		"UPGRADE_DESCRIPTION": "Deal !D! Damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu+, then Purge this."
 	},
-	
+
 	"animator_EntouJyuu":
 	{
 		"NAME": "Entou Jyuu",
 		"DESCRIPTION": "Every time you play an Attack increase its Damage by !M! for this combat."
 	},
-	
+
 	"animator_Konayuki":
 	{
 		"NAME": "Konayuki",
 		"DESCRIPTION": "If you have at least 10 Strength, deal !D! Damage, otherwise gain !M! strength."
 	},
-	
+
 	"animator_Azekura":
 	{
 		"NAME": "Azekura",
@@ -243,20 +244,20 @@
 		"DESCRIPTION": "Shapeshifter. NL Behaves erratically...",
 		"UPGRADE_DESCRIPTION": "Shapeshifter. NL Behaves very erratically..."
 	},
-	
+
 	"animator_Nanami":
 	{
 		"NAME": "Nanami",
 		"DESCRIPTION": "Gain !B! Block. NL Synergy: Add [#EFC851]Pummel to your hand.",
 		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Synergy: Add [#EFC851]Pummel+ to your hand."
 	},
-	
+
 	"animator_Hitei":
 	{
 		"NAME": "Hitei",
 		"DESCRIPTION": "At the start of your turn gain !M! Gold and Exhaust a random card in your draw pile."
 	},
-	
+
 	"animator_Shichika":
 	{
 		"NAME": "Shichika",
@@ -269,24 +270,80 @@
 		"DESCRIPTION": "Draw !M! cards, then you may Exhaust 1 card."
 	},
 	
+	"animator_Gilgamesh":
+	{
+		"NAME": "Gilgamesh",
+		"DESCRIPTION": "Can be Upgraded any number of times. Deal !D! Damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon."
+	},
+	
+	"animator_RinTohsaka":
+	{
+		"NAME": "Rin Tohsaka",
+		"DESCRIPTION": "Channel 1 random Orb.",
+		"UPGRADE_DESCRIPTION": "Channel 1 random Orb. NL Synergy: Gain 1 Focus."
+	},
+	
+	"animator_Archer":
+	{
+		"NAME": "Archer",
+		"DESCRIPTION": "At the end of your turn, deal !D! Damage to all enemies for each Debuff they have. Scales with Strength."
+	},
+	
+	"animator_Lancer":
+	{
+		"NAME": "Lancer",
+		"DESCRIPTION": "Deal !D! Damage. Heartseeker. If this kills an enemy gain [B]."
+	},
+
+	"animator_Alexander":
+	{
+		"NAME": "Alexander",
+		"DESCRIPTION": "Deal !D! Damage to a random enemy !M! times. If this is Exhausted, gain !SV! [#EFC851]Plated [#EFC851]Armor."
+	},
+	
+	"animator_Berserker":
+	{
+		"NAME": "Berserker",
+		"DESCRIPTION": "Deal !D! Damage, if the target's Block is broken, Stun it."
+	},
+	
+	"animator_Illya":
+	{
+		"NAME": "Illya",
+		"DESCRIPTION": "Draw your [#EFC851]Attack with the highest Damage and increase its Damage by !M! this combat."
+	},
+	
+	"animator_Saber":
+	{
+		"NAME": "Saber",
+		"DESCRIPTION": "Deal !D! Damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
+		"UPGRADE_DESCRIPTION": "Deal !D! Damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
+	},
+	
+	"animator_Excalibur":
+	{
+		"NAME": "Excalibur",
+		"DESCRIPTION": "Deal !D! Damage to ALL enemies, Exhaust ALL [#EFC851]Attacks in your hand and gain their Damage."
+	},
+	
 	"animator_ChaikaTrabant":
 	{
 		"NAME": "Chaika Trabant",
 		"DESCRIPTION": "Deal !D! Damage. If this is the first card you play this turn, Stun the enemy. Ethereal."
 	},
-	
+
 	"animator_AcuraTooru":
 	{
 		"NAME": "Tooru",
 		"DESCRIPTION": "Deal !D! Damage !M! Times. NL Synergy: Deal Damage 1 extra time."
 	},
-	
+
 	"animator_AcuraAkari":
 	{
 		"NAME": "Akari",
 		"DESCRIPTION": "Apply !M! Marks of Poison to an enemy. NL Synergy: Draw 1 more card next turn."
 	},
-	
+
 	"animator_Fredrika":
 	{
 		"NAME": "Fredrika",

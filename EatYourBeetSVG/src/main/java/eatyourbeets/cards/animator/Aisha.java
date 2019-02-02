@@ -14,7 +14,7 @@ public class Aisha extends AnimatorCard
 
     public Aisha()
     {
-        super(ID, 1, AbstractCard.CardType.SKILL, CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        super(ID, 1, AbstractCard.CardType.SKILL, CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
         Initialize(0,0, 1);
 

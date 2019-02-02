@@ -35,7 +35,7 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
             OnBattleStart();
         }
 
-        AddTooltip(new TooltipInfo("Revive Limitation","If the card is exhausted or purged you will NOT be saved."));
+        //AddTooltip(new TooltipInfo("Revive Limitation","If the card is exhausted or purged you will NOT be saved."));
         SetSynergy(Synergies.Konosuba);
     }
 
