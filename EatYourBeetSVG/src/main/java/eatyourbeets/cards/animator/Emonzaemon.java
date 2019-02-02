@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -24,7 +23,8 @@ public class Emonzaemon extends AnimatorCard
 
         Initialize(7,0, 1);
 
-        AddTooltip(new TooltipInfo("Entou Jyuu", "A strong Power card."));
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1]));
 
         SetSynergy(Synergies.Katanagatari);
     }

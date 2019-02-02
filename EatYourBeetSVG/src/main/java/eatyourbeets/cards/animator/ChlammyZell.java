@@ -13,7 +13,6 @@ import eatyourbeets.powers.PlayerStatistics;
 public class ChlammyZell extends AnimatorCard
 {
     public static final String ID = CreateFullID(ChlammyZell.class.getSimpleName());
-    private int cardsDrawn = 0;
 
     public ChlammyZell()
     {

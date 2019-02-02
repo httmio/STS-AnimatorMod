@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.actions.OnTargetBlockBreakAction;
-import eatyourbeets.actions.OnTargetDeadAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -38,7 +37,7 @@ public class Berserker extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(5);
+            upgradeDamage(6);
         }
     }
 }

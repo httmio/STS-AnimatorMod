@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eatyourbeets.Utilities;
 import eatyourbeets.powers.PlayerStatistics;
@@ -33,12 +32,12 @@ public abstract class AnimatorCard extends CustomCard
     private static AnimatorCard lastCardPlayed = null;
 
     private String upgradedDescription = null;
-    private List<TooltipInfo> customTooltips = new ArrayList<>();
+    private final List<TooltipInfo> customTooltips = new ArrayList<>();
     private String synergy;
     private boolean anySynergy;
     private boolean lastHovered = false;
 
-    protected CardStrings cardStrings;
+    protected final CardStrings cardStrings;
 
     public boolean isSecondaryValueModified = false;
     public boolean upgradedSecondaryValue = false;

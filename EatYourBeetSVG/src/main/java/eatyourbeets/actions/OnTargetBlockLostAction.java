@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class OnTargetBlockLostAction extends AnimatorAction
 {
-    private AbstractGameAction action;
-    private int initialBlock;
+    private final AbstractGameAction action;
+    private final int initialBlock;
 
     public OnTargetBlockLostAction(AbstractCreature target, AbstractGameAction action)
     {

@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class DrawSpecificCardAction extends AnimatorAction
 {
-    private AbstractPlayer player;
-    private AbstractCard card;
+    private final AbstractPlayer player;
+    private final AbstractCard card;
 
     public DrawSpecificCardAction(AbstractCard card)
     {

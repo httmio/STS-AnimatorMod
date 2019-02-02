@@ -17,7 +17,7 @@ public class SynergyCardsReward extends CustomReward
 {
     private static final Texture ICON = new Texture("images/ui/rewards/animator_synergyCardReward.png");
 
-    public String synergy;
+    public final String synergy;
     private boolean skip = false;
 
     public SynergyCardsReward(String synergy)

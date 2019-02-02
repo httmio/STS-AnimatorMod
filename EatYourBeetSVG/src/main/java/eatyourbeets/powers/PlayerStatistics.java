@@ -1,16 +1,13 @@
 package eatyourbeets.powers;
 
-import basemod.BaseMod;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
@@ -20,17 +17,17 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
 {
     public static final String POWER_ID = "PlayerStatistics";
 
-    public static final PlayerStatistics Instance = new PlayerStatistics(null);
+    public static final PlayerStatistics Instance = new PlayerStatistics();
 
-    public static GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
-    public static GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
-    public static GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
-    public static GameEvent<OnLoseHpSubscriber> onLoseHp = new GameEvent<>();
+    public static final GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
+    public static final GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
+    public static final GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
+    public static final GameEvent<OnLoseHpSubscriber> onLoseHp = new GameEvent<>();
 
     private static int turnCount = 0;
     private static int cardsDrawnThisTurn = 0;
 
-    protected PlayerStatistics(AbstractPlayer owner)
+    protected PlayerStatistics()
     {
         super(null, POWER_ID);
     }

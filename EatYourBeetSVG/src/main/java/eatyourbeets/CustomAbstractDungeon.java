@@ -1,18 +1,13 @@
 package eatyourbeets;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.ModHelper;
-import com.megacrit.cardcrawl.map.DungeonMap;
-import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import eatyourbeets.cards.AnimatorCard;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class CustomAbstractDungeon extends AbstractDungeon
 {

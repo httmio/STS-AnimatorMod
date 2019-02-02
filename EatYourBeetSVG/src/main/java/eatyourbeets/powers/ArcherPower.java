@@ -1,9 +1,6 @@
 package eatyourbeets.powers;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -11,16 +8,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import eatyourbeets.Utilities;
-import eatyourbeets.cards.AnimatorCard;
 
 public class ArcherPower extends AnimatorPower
 {
+    public static final String POWER_ID = "Archer";
+
     private int baseDamage;
 
     public ArcherPower(AbstractCreature owner, int damage)
     {
-        super(owner, "Archer");
+        super(owner, POWER_ID);
         this.baseDamage = damage;
         this.amount = damage + GetPlayerStrength();
 

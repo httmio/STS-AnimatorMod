@@ -1,6 +1,5 @@
 package eatyourbeets.actions;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,8 +9,8 @@ import eatyourbeets.cards.animator.KrulTepes;
 
 public class KrulTepesAction extends AnimatorAction
 {
-    private DamageInfo info;
-    private KrulTepes krul;
+    private final DamageInfo info;
+    private final KrulTepes krul;
 
     public KrulTepesAction(AbstractCreature target, DamageInfo info, KrulTepes krul)
     {

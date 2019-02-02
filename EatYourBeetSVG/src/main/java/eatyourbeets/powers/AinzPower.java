@@ -13,13 +13,15 @@ import eatyourbeets.Utilities;
 
 public class AinzPower extends AnimatorPower
 {
+    public static final String POWER_ID = "Ainz";
+
     private int upgradedPowerStack;
-    private AbstractPlayer player;
-    private boolean upgraded;
+    private final AbstractPlayer player;
+    private final boolean upgraded;
 
     public AinzPower(AbstractPlayer owner, boolean upgraded)
     {
-        super(owner, "Ainz");
+        super(owner, POWER_ID);
         this.amount = 1;
         this.upgraded = upgraded;
         if (this.upgraded)

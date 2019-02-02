@@ -1,6 +1,5 @@
 package eatyourbeets.actions;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -15,8 +14,8 @@ import java.util.ArrayList;
 public class DolaRikuAction extends AnimatorAction
 {
     private static final String[] TEXT = CardCrawlGame.languagePack.getUIString("ExhaustAction").TEXT;
-    private AbstractPlayer player;
-    private int addCost;
+    private final AbstractPlayer player;
+    private final int addCost;
 
     public DolaRikuAction(AbstractCreature target, int addCost)
     {

@@ -9,9 +9,11 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class PinaCoLadaPower extends AnimatorPower
 {
+    public static final String POWER_ID = "PinaCoLada";
+
     public PinaCoLadaPower(AbstractCreature owner, int block)
     {
-        super(owner, "PinaCoLada");
+        super(owner, POWER_ID);
         this.amount = block;
 
         updateDescription();

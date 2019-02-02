@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class GameEvent<T>
 {
-    private ArrayList<T> subscribersCopy = new ArrayList<>();
-    private ArrayList<T> subscribers = new ArrayList<>();
+    private final ArrayList<T> subscribersCopy = new ArrayList<>();
+    private final ArrayList<T> subscribers = new ArrayList<>();
 
     public int Count()
     {

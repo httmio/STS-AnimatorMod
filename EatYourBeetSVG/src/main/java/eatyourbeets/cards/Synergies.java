@@ -16,7 +16,7 @@ public class Synergies
     public final static String Gate = "GATE";
     public final static String Fate = "Fate";
 
-    public final static ArrayList<String> All = new ArrayList<String>();
+    public final static ArrayList<String> All = new ArrayList<>();
 
     static
     {

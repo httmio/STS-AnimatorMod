@@ -13,7 +13,7 @@ public class RoryMercuryPower extends AnimatorPower
 
     public RoryMercuryPower(AbstractCreature owner, int amount)
     {
-        super(owner, "RoryMercury");
+        super(owner, POWER_ID);
 
         this.amount = amount;
         updateDescription();

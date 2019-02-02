@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -22,7 +21,9 @@ public class Yuuichirou extends AnimatorCard
 
         Initialize(9,0);
 
-        AddTooltip(new TooltipInfo("Asuramaru", "Very strong 0-Cost card."));
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1]));
+
         SetSynergy(Synergies.OwariNoSeraph);
     }
 

@@ -14,7 +14,7 @@ public abstract class AnimatorPower extends AbstractPower
 {
     protected static final Logger logger = LogManager.getLogger(AnimatorCard.class.getName());
 
-    protected PowerStrings powerStrings;
+    protected final PowerStrings powerStrings;
 
     public AnimatorPower(AbstractCreature owner, String id)
     {
@@ -55,7 +55,7 @@ public abstract class AnimatorPower extends AbstractPower
                 this.description = StringUtils.join(powerStrings.DESCRIPTIONS, " ");
             }
         }
-        logger.info(powerStrings.DESCRIPTIONS.length + ": " + powerStrings.DESCRIPTIONS[0]);
-        logger.info(this.description);
+        //logger.info(powerStrings.DESCRIPTIONS.length + ": " + powerStrings.DESCRIPTIONS[0]);
+        //logger.info(this.description);
     }
 }

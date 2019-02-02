@@ -20,7 +20,6 @@ import eatyourbeets.subscribers.OnBattleStartSubscriber;
 public class Konayuki extends AnimatorCard implements OnBattleStartSubscriber, OnApplyPowerSubscriber
 {
     public static final String ID = CreateFullID(Konayuki.class.getSimpleName());
-    private long lastUpdate = 0;
 
     public Konayuki()
     {
@@ -35,29 +34,6 @@ public class Konayuki extends AnimatorCard implements OnBattleStartSubscriber, O
 
         SetSynergy(Synergies.Katanagatari);
     }
-
-    //@Override
-    //public boolean canPlay(AbstractCard card)
-    //{
-    //    boolean canPlay = super.canPlay(card);
-    //    if (canPlay)
-    //    {
-    //        long currentTime = System.currentTimeMillis();
-    //        if ((lastUpdate + 600) < currentTime)
-    //        {
-    //            lastUpdate = currentTime;
-    //            if (EnoughStrength())
-    //            {
-    //                this.target = CardTarget.ENEMY;
-    //            }
-    //            else
-    //            {
-    //                this.target = CardTarget.SELF;
-    //            }
-    //        }
-    //    }
-    //    return canPlay;
-    //}
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 

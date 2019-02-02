@@ -7,8 +7,8 @@ import java.util.UUID;
 
 public class ModifyDamagePermanentlyAction extends com.megacrit.cardcrawl.actions.AbstractGameAction
 {
-    private int increaseAmount;
-    private UUID uuid;
+    private final int increaseAmount;
+    private final UUID uuid;
 
     public ModifyDamagePermanentlyAction(UUID targetUUID, int incAmount)
     {

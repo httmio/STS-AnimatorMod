@@ -21,7 +21,9 @@ public class Ainz extends AnimatorCard
         Initialize(0,0,0);
 
         SetSynergy(Synergies.Overlord);
-        AddTooltip(new TooltipInfo("Powers Form", "Either Demon Form, Wraith Form or Echo Form"));
+
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1]));
     }
 
     @Override

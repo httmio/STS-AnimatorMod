@@ -1,7 +1,6 @@
 package eatyourbeets.actions;
 
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -13,8 +12,8 @@ import java.util.ArrayList;
 
 public class AishaAction extends AnimatorAction
 {
-    private int costReduction;
-    private AbstractPlayer p;
+    private final int costReduction;
+    private final AbstractPlayer p;
 
     public AishaAction(int costReduction)
     {

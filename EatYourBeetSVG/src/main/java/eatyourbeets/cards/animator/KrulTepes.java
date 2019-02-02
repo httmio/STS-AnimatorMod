@@ -28,8 +28,9 @@ public class KrulTepes extends AnimatorCard
 
         Initialize(16,0);
 
-        AddTooltip(new TooltipInfo(relicReward.name, relicReward.description));
-        AddTooltip(new TooltipInfo("Relic Limit", "You will only receive 1 relic in multi-elite combats"));
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1]));
+
         SetSynergy(Synergies.OwariNoSeraph);
     }
 

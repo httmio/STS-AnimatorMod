@@ -1,14 +1,13 @@
 package eatyourbeets.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class OnTargetDeadAction extends AnimatorAction
 {
-    private AbstractGameAction action;
+    private final AbstractGameAction action;
 
     public OnTargetDeadAction(AbstractCreature target, AbstractGameAction action)
     {

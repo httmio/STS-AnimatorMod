@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import eatyourbeets.actions.ModifyMagicNumberAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -17,7 +16,7 @@ public class Excalibur extends AnimatorCard
 
     public Excalibur()
     {
-        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.SPECIAL, CardTarget.ALL_ENEMY);
 
         Initialize(12,0);
 
@@ -47,6 +46,7 @@ public class Excalibur extends AnimatorCard
     {
         if (TryUpgrade())
         {
+            upgradeDamage(4);
             upgradeBaseCost(1);
         }
     }

@@ -8,9 +8,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class EntouJyuuPower extends AnimatorPower
 {
+    public static final String POWER_ID = "EntouJyuu";
+
     public EntouJyuuPower(AbstractCreature owner, int amount)
     {
-        super(owner, "EntouJyuu");
+        super(owner, POWER_ID);
 
         this.amount = amount;
         updateDescription();

@@ -48,7 +48,7 @@ public class TheMissingPiece extends AnimatorRelic
         super.onVictory();
 
         AbstractRoom room = AbstractDungeon.getCurrRoom();
-        if (room.rewardAllowed && !(room instanceof MonsterRoomBoss))
+        if (room.rewardAllowed)
         {
             this.counter += 1;
         }
@@ -56,45 +56,60 @@ public class TheMissingPiece extends AnimatorRelic
 
     public void receiveRewards(ArrayList<RewardItem> rewards)
     {
-        for (int i = 0; i < rewards.size(); i++)
+        if (counter > 0 && counter < TIMER)
         {
-            RewardItem reward = rewards.get(i);
-            if (reward.type == RewardItem.RewardType.CARD)
+            return;
+        }
+        else
+        {
+            counter = 0;
+            this.flash();
+        }
+
+        int startingIndex = -1;
+        if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss)
+        {
+            startingIndex = rewards.size();
+        }
+        else
+        {
+            for (int i = 0; i < rewards.size(); i++)
             {
-                if (counter > 0 && counter < TIMER)
+                RewardItem reward = rewards.get(i);
+                if (reward.type == RewardItem.RewardType.CARD)
                 {
-                    return;
+                    startingIndex = i;
+                    rewards.remove(startingIndex);
+                    break;
                 }
+            }
+        }
 
-                counter = 0;
-                this.flash();
+        if (startingIndex >= 0)
+        {
+            addSynergyRewards(rewards, startingIndex);
+        }
+    }
 
-                ArrayList<String> synergies = new ArrayList<>();
-                synergies.add(Synergies.Gate);
-                synergies.add(Synergies.Overlord);
-                synergies.add(Synergies.NoGameNoLife);
-                //synergies.add(Synergies.Chaika);
-                synergies.add(Synergies.Katanagatari);
-                synergies.add(Synergies.Fate);
-                synergies.add(Synergies.Konosuba);
-                synergies.add(Synergies.OwariNoSeraph);
+    private void addSynergyRewards(ArrayList<RewardItem> rewards, int startingIndex)
+    {
+        ArrayList<String> synergies = new ArrayList<>();
+        synergies.add(Synergies.Gate);
+        synergies.add(Synergies.Overlord);
+        synergies.add(Synergies.NoGameNoLife);
+        //synergies.add(Synergies.Chaika);
+        synergies.add(Synergies.Katanagatari);
+        synergies.add(Synergies.Fate);
+        synergies.add(Synergies.Konosuba);
+        synergies.add(Synergies.OwariNoSeraph);
 
-                String synergy = Utilities.GetRandomElement(synergies, AbstractDungeon.cardRng);
+        for (int i = 0; i < 3; i++)
+        {
+            String synergy = Utilities.GetRandomElement(synergies, AbstractDungeon.cardRng);
+            if (synergy != null)
+            {
                 synergies.remove(synergy);
-
-                rewards.set(i, new SynergyCardsReward(synergy));
-
-                synergy = Utilities.GetRandomElement(synergies, AbstractDungeon.cardRng);
-                synergies.remove(synergy);
-
-                rewards.add(i, new SynergyCardsReward(synergy));
-
-                synergy = Utilities.GetRandomElement(synergies, AbstractDungeon.cardRng);
-                synergies.remove(synergy);
-
-                rewards.add(i, new SynergyCardsReward(synergy));
-
-                return;
+                rewards.add(startingIndex + i, new SynergyCardsReward(synergy));
             }
         }
     }

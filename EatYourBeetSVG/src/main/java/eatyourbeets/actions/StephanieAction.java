@@ -11,8 +11,8 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class StephanieAction extends AnimatorAction
 {
-    private AbstractPlayer player;
-    private int cardDraw;
+    private final AbstractPlayer player;
+    private final int cardDraw;
 
     public StephanieAction(AbstractCreature target, int cardDraw)
     {

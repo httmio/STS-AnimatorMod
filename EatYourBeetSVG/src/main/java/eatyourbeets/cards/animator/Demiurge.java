@@ -19,7 +19,7 @@ public class Demiurge extends AnimatorCard
     {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,0,8);
+        Initialize(0,0,6);
 
         SetSynergy(Synergies.Overlord);
     }
@@ -47,9 +47,10 @@ public class Demiurge extends AnimatorCard
     @Override
     public void upgrade() 
     {
-        if (TryUpgrade())
-        {
-            upgradeMagicNumber(-2);
-        }
+        TryUpgrade();
+        //if (TryUpgrade())
+        //{
+        //    upgradeMagicNumber(-2);
+        //}
     }
 }

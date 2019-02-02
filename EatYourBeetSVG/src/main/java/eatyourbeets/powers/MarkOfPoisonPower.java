@@ -10,9 +10,11 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class MarkOfPoisonPower extends AnimatorPower
 {
+    public static final String POWER_ID = "MarkOfPoison";
+
     public MarkOfPoisonPower(AbstractCreature owner, int stacks)
     {
-        super(owner, "MarkOfPoison");
+        super(owner, POWER_ID);
 
         this.amount = stacks;
         this.type = PowerType.DEBUFF;

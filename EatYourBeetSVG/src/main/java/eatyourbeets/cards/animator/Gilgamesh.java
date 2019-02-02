@@ -2,21 +2,18 @@ package eatyourbeets.cards.animator;
 
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
-import eatyourbeets.powers.ArcherPower;
 
 public class Gilgamesh extends AnimatorCard
 {
     public static final String ID = CreateFullID(Gilgamesh.class.getSimpleName());
-    public static final int GOLD_REWARD = 10;
+    public static final int GOLD_REWARD = 25;
 
     public Gilgamesh()
     {
@@ -24,7 +21,10 @@ public class Gilgamesh extends AnimatorCard
 
         Initialize(3,0, 3);
 
-        AddTooltip(new TooltipInfo("Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b"+GOLD_REWARD+" gold."));
+        //AddTooltip(new TooltipInfo("Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b"+GOLD_REWARD+" gold. Does not work when buying relics."));
+
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1] + GOLD_REWARD + info[2]));
         SetSynergy(Synergies.Fate);
     }
 

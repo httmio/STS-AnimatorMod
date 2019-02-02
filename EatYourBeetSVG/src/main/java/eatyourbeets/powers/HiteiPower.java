@@ -10,14 +10,16 @@ import eatyourbeets.Utilities;
 
 public class HiteiPower extends AnimatorPower
 {
-    private AbstractPlayer player;
+    public static final String POWER_ID = "Hitei";
+
+    private final AbstractPlayer player;
     private int exhaustCards;
     private int goldGain;
     private int goldCap = 100;
 
     public HiteiPower(AbstractPlayer owner, int goldGain)
     {
-        super(owner, "Hitei");
+        super(owner, POWER_ID);
 
         this.player = Utilities.SafeCast(this.owner, AbstractPlayer.class);
         this.amount = 0;
