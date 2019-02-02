@@ -21,6 +21,7 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
 
     public static final GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
     public static final GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
+    public static final GameEvent<OnCardDrawnSubscriber> onCardDrawn = new GameEvent<>();
     public static final GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
     public static final GameEvent<OnLoseHpSubscriber> onLoseHp = new GameEvent<>();
 
@@ -148,6 +149,11 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     public void onCardDraw(AbstractCard abstractCard)
     {
         cardsDrawnThisTurn += 1;
+
+        for (OnCardDrawnSubscriber s : onCardDrawn.GetSubscribers())
+        {
+            s.OnCardDrawn(abstractCard);
+        }
     }
 
     //@Override

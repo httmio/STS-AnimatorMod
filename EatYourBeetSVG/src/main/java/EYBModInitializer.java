@@ -40,11 +40,11 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
     private static final String ANIMATOR_POWER = "images/cardui/512/bg_power_canvas.png";
     private static final String ANIMATOR_ORB_A = "images/cardui/512/card_a_orb_canvas.png";
     private static final String ANIMATOR_ORB_C = "images/cardui/512/card_c_orb_canvas.png";
+    private static final String ANIMATOR_ORB_B = "images/cardui/512/card_b_orb_canvas.png";
 
     private static final String ANIMATOR_ATTACK_P = "images/cardui/1024/bg_attack_canvas.png";
     private static final String ANIMATOR_SKILL_P = "images/cardui/1024/bg_skill_canvas.png";
     private static final String ANIMATOR_POWER_P = "images/cardui/1024/bg_power_canvas.png";
-    private static final String ANIMATOR_ORB_B = "images/cardui/1024/card_b_orb_canvas.png";
 
     private static final String ANIMATOR_CHAR_BUTTON = "images/ui/charselect/animator_button.png";
     private static final String ANIMATOR_CHAR_PORTRAIT = "images/ui/charselect/animator_portrait.jpg";

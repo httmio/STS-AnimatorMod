@@ -54,7 +54,7 @@
 	},
 	"animator_Berserker":
 	{
-		"DESCRIPTION": "Deal !D! Damage, if the target's Block is broken, Stun it.",
+		"DESCRIPTION": "Deal !D! Damage, if you break the target's Block, apply Stun.",
 		"NAME": "Berserker"
 	},
 	"animator_ChaikaTrabant":
@@ -64,7 +64,7 @@
 	},
 	"animator_ChlammyZell":
 	{
-		"DESCRIPTION": "Deal !M! Damage for each card you have drawn this turn. NL (Drawn !SV! Cards)",
+		"DESCRIPTION": "Deal !M! Damage for each card you have drawn this turn. NL (Deal !D! Damage)",
 		"NAME": "Kurami"
 	},
 	"animator_Cocytus":
@@ -129,7 +129,7 @@
 	},
 	"animator_Eve":
 	{
-		"DESCRIPTION": "When you activate a Synergy deal 1 Damage to a random enemy and increase this damage by !M!.",
+		"DESCRIPTION": "When you activate a Synergy deal 1 Damage to a random enemy and increase this damage by 1.",
 		"NAME": "Eve"
 	},
 	"animator_Excalibur":
@@ -146,7 +146,7 @@
 	{
 		"DESCRIPTION": "Can be Upgraded any number of times. Deal !D! Damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon.",
 		"NAME": "Gilgamesh",
-		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not work when buying relics."]
+		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not activate when purchasing relics."]
 	},
 	"animator_HigakiRinne":
 	{
