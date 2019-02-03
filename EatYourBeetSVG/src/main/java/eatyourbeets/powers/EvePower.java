@@ -65,6 +65,7 @@ public class EvePower extends AnimatorPower
 
                 AbstractDungeon.actionManager.addToBottom(new DamageAction(target, new DamageInfo(owner, this.amount, DamageInfo.DamageType.THORNS)));
 
+                this.flash();
                 this.amount += growth;
                 updateDescription();
             }

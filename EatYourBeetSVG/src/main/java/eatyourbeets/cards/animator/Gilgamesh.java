@@ -3,17 +3,51 @@ package eatyourbeets.cards.animator;
 import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
+
+import java.util.ArrayList;
 
 public class Gilgamesh extends AnimatorCard
 {
     public static final String ID = CreateFullID(Gilgamesh.class.getSimpleName());
     public static final int GOLD_REWARD = 25;
+
+    public static void OnRelicReceived()
+    {
+        AbstractPlayer player = AbstractDungeon.player;
+        if (player != null && player.masterDeck != null)
+        {
+            ArrayList<AbstractCard> deck = player.masterDeck.group;
+            if (deck != null && deck.size() > 0)
+            {
+                boolean effectPlayed = false;
+                for (AbstractCard c : deck)
+                {
+                    if (c.cardID.equals(Gilgamesh.ID))
+                    {
+                        c.upgrade();
+                        AbstractDungeon.player.bottledCardUpgradeCheck(c);
+                        if (!effectPlayed)
+                        {
+                            effectPlayed = true;
+                            AbstractDungeon.effectsQueue.add(new UpgradeShineEffect((float) Settings.WIDTH / 4.0F, (float) Settings.HEIGHT / 2.0F));
+                            AbstractDungeon.effectsQueue.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), (float) Settings.WIDTH / 4.0F, (float) Settings.HEIGHT / 2.0F));
+                        }
+                        AbstractDungeon.player.gainGold(Gilgamesh.GOLD_REWARD);
+                    }
+                }
+            }
+        }
+    }
 
     public Gilgamesh()
     {

@@ -3,6 +3,7 @@ package eatyourbeets.cards;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -33,7 +34,7 @@ public abstract class AnimatorCard extends CustomCard
 
     private String upgradedDescription = null;
     private final List<TooltipInfo> customTooltips = new ArrayList<>();
-    private String synergy;
+    private Synergy synergy;
     private boolean anySynergy;
     private boolean lastHovered = false;
 
@@ -80,13 +81,13 @@ public abstract class AnimatorCard extends CustomCard
         AnimatorCard card = Utilities.SafeCast(other, AnimatorCard.class);
         if (card != null && card.synergy != null)
         {
-            return this.synergy != null && (this.anySynergy || card.anySynergy || card.synergy.equals(this.synergy));
+            return this.synergy != null && (this.anySynergy || card.anySynergy || HasExactSynergy(card.synergy));
         }
 
         return false;
     }
 
-    public boolean HasExactSynergy(String synergy)
+    public boolean HasExactSynergy(Synergy synergy)
     {
         return Objects.equals(this.synergy, synergy);
     }
@@ -166,7 +167,7 @@ public abstract class AnimatorCard extends CustomCard
                     textColor = Settings.CREAM_COLOR.cpy();
                 }
 
-                FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy,
+                FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy.NAME,
                         this.current_x, this.current_y, 0.0F, 400.0F * Settings.scale * this.drawScale / 2.0F,
                         this.angle, true, textColor);
 
@@ -241,22 +242,22 @@ public abstract class AnimatorCard extends CustomCard
         this.upgradedSecondaryValue = true;
     }
 
-    protected void SetSynergy(String synergy)
+    protected void SetSynergy(Synergy synergy)
     {
         SetSynergy(synergy, false);
     }
 
-    protected void SetSynergy(String synergy, boolean anySynergy)
+    protected void SetSynergy(Synergy synergy, boolean anySynergy)
     {
         this.synergy = synergy;
         this.anySynergy = anySynergy;
         if (anySynergy)
         {
-            customTooltips.add(new TooltipInfo("Synergies", "Any"));
+            customTooltips.add(new TooltipInfo("Synergies", Synergies.ANY.NAME));
         }
         else
         {
-            customTooltips.add(new TooltipInfo("Synergies", synergy));
+            customTooltips.add(new TooltipInfo("Synergies", synergy.NAME));
         }
     }
 

@@ -38,7 +38,13 @@ public class Yuuichirou extends AnimatorCard
     {
         super.triggerOnExhaust();
 
-        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(new Asuramaru(), 1));
+        Asuramaru card = new Asuramaru();
+        if (upgraded)
+        {
+            card.upgrade();
+        }
+
+        AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDiscardAction(card, 1));
     }
 
     @Override

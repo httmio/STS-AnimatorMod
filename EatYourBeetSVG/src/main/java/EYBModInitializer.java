@@ -6,14 +6,17 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.rewards.RewardSave;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.Synergies;
 import eatyourbeets.characters.AnimatorCharacter;
+import eatyourbeets.characters.AnimatorCharacterSelect;
 import eatyourbeets.powers.PlayerStatistics;
 import eatyourbeets.relics.LivingPicture;
 import eatyourbeets.relics.TheMissingPiece;
@@ -31,7 +34,8 @@ import java.util.Map;
 
 @SpireInitializer
 public class EYBModInitializer implements EditCharactersSubscriber, EditStringsSubscriber, EditCardsSubscriber, EditKeywordsSubscriber, EditRelicsSubscriber,
-                                          OnStartBattleSubscriber, PreMonsterTurnSubscriber, PostInitializeSubscriber, PostEnergyRechargeSubscriber//, OnCardUseSubscriber
+                                          OnStartBattleSubscriber, PreMonsterTurnSubscriber, PostInitializeSubscriber, PostEnergyRechargeSubscriber
+                                          //,StartGameSubscriber, PreStartGameSubscriber, OnCardUseSubscriber
 {
     private static final Logger logger = LogManager.getLogger(EYBModInitializer.class.getName());
 
@@ -106,6 +110,7 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
         BaseMod.loadCustomStringsFile(CardStrings.class, "localization/eng/CardStrings.json");
         BaseMod.loadCustomStringsFile(RelicStrings.class, "localization/eng/RelicStrings.json");
         BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/eng/PowerStrings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, "localization/eng/UIStrings.json");
     }
 
     @Override
@@ -156,9 +161,9 @@ public class EYBModInitializer implements EditCharactersSubscriber, EditStringsS
     {
         BaseMod.registerCustomReward(
                 RewardTypeEnum.SYNERGY_CARDS,
-                (rewardSave) -> new SynergyCardsReward(Synergies.All.get(rewardSave.amount)),
+                (rewardSave) -> new SynergyCardsReward(Synergies.GetByID(rewardSave.amount)),
                 (customReward) -> new RewardSave(customReward.type.toString(), null,
-                        Synergies.All.indexOf(((SynergyCardsReward)customReward).synergy), 0));
+                        ((SynergyCardsReward)customReward).synergy.ID, 0));
     }
 
     private void AddAndUnlock(Class cardClass)

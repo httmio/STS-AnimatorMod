@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import eatyourbeets.CustomAbstractDungeon;
 import eatyourbeets.Utilities;
+import eatyourbeets.cards.Synergy;
 import patches.RewardTypeEnum;
 
 import java.util.ArrayList;
@@ -17,12 +18,12 @@ public class SynergyCardsReward extends CustomReward
 {
     private static final Texture ICON = new Texture("images/ui/rewards/animator_synergyCardReward.png");
 
-    public final String synergy;
+    public final Synergy synergy;
     private boolean skip = false;
 
-    public SynergyCardsReward(String synergy)
+    public SynergyCardsReward(Synergy synergy)
     {
-        super(ICON,"#y" + synergy.replace(" ", " #y"), RewardTypeEnum.SYNERGY_CARDS);
+        super(ICON,"#y" + synergy.NAME.replace(" ", " #y"), RewardTypeEnum.SYNERGY_CARDS);
 
         this.synergy = synergy;
         this.cards = CustomAbstractDungeon.getRewardCards(synergy);
@@ -35,7 +36,7 @@ public class SynergyCardsReward extends CustomReward
 
         if (this.hb.hovered)
         {
-            TipHelper.renderGenericTip(360.0F * Settings.scale, (float) InputHelper.mY, synergy,
+            TipHelper.renderGenericTip(360.0F * Settings.scale, (float) InputHelper.mY, synergy.NAME,
                     "Only contains cards with this synergy. WARNING: once you click on this, the other 2 card rewards will disappear.");
         }
     }

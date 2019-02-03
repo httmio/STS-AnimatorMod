@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ModHelper;
 import com.megacrit.cardcrawl.saveAndContinue.SaveFile;
 import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.Synergy;
 
 import java.util.ArrayList;
 
@@ -43,7 +44,7 @@ public class CustomAbstractDungeon extends AbstractDungeon
     protected void initializeShrineList() { }
 
 
-    public static ArrayList<AbstractCard> getRewardCards(String synergy)
+    public static ArrayList<AbstractCard> getRewardCards(Synergy synergy)
     {
         ArrayList<AbstractCard> retVal = new ArrayList<>();
         int numCards = 3;

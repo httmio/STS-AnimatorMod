@@ -40,6 +40,8 @@ public class DarknessPower extends AnimatorPower
             c.superFlash();
         }
 
+        this.flash();
+
         return super.onLoseHp(damageAmount);
     }
 

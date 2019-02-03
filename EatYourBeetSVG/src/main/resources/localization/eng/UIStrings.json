@@ -1,0 +1,28 @@
+{
+	"Animator_Synergies":
+	{
+		"TEXT": 
+		[
+			"Any",
+			"Elsword",
+			"Kantai Collection",
+			"Hitsugi no Chaika",
+			"Konosuba",
+			"Katanagatari",
+			"Owari no Seraph",
+			"Overlord",
+			"No Game No Life",
+			"GATE",
+			"Fate"
+		]
+	},
+	
+	"Animator_CharacterSelect":
+	{
+		"TEXT": 
+		[
+			"Starting Cards: ",
+			"#############"
+		]
+	}
+}

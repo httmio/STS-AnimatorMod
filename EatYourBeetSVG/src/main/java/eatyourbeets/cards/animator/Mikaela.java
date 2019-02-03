@@ -16,9 +16,9 @@ public class Mikaela extends AnimatorCard
 
     public Mikaela()
     {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(9,0);
+        Initialize(5,0);
 
         SetSynergy(Synergies.OwariNoSeraph);
     }
@@ -31,7 +31,14 @@ public class Mikaela extends AnimatorCard
 
         if (p.discardPile.size() > 0)
         {
-            AbstractDungeon.actionManager.addToBottom(new ExhaustFromDiscardPileAction(1));
+            if (upgraded)
+            {
+                AbstractDungeon.actionManager.addToBottom(new ExhaustFromDiscardPileAction(1, false));
+            }
+            else
+            {
+                AbstractDungeon.actionManager.addToBottom(new ExhaustFromDiscardPileAction(1, true));
+            }
         }
     }
 
@@ -40,7 +47,7 @@ public class Mikaela extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(2);
+            upgradeDamage(1);
         }
     }
 }

@@ -19,7 +19,7 @@ public class Emonzaemon extends AnimatorCard
 
     public Emonzaemon()
     {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
         Initialize(7,0, 1);
 

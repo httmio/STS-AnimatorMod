@@ -40,6 +40,7 @@ public class AinzPower extends AnimatorPower
         for(int i = 0; i < this.amount; i++)
         {
             AddPowerForm(i < upgradedPowerStack);
+            this.flash();
         }
     }
 

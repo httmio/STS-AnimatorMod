@@ -26,6 +26,8 @@ public class EntouJyuuPower extends AnimatorPower
             AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card.uuid, this.amount));
         }
 
+        this.flash();
+
         super.onPlayCard(card, m);
     }
 }

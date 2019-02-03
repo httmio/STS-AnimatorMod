@@ -203,7 +203,8 @@
 	},
 	"animator_Mikaela":
 	{
-		"DESCRIPTION": "Deal !D! Damage Twice. Choose and Exhaust a card in your discard pile.",
+		"DESCRIPTION": "Deal !D! Damage Twice. Exhaust a random card in your discard pile.",
+		"UPGRADE_DESCRIPTION": "Deal !D! Damage Twice. Choose and Exhaust a card in your discard pile.",
 		"NAME": "Mikaela"
 	},
 	"animator_Nanami":
@@ -230,9 +231,8 @@
 	},
 	"animator_RinTohsaka":
 	{
-		"DESCRIPTION": "Channel 1 random Orb.",
-		"NAME": "Rin Tohsaka",
-		"UPGRADE_DESCRIPTION": "Channel 1 random Orb. NL Synergy: Gain 1 Focus."
+		"DESCRIPTION": "Channel 1 random Orb. NL Synergy: Gain !B! Block for each Orb you have.",
+		"NAME": "Rin Tohsaka"
 	},
 	"animator_RoryMercury":
 	{

@@ -71,6 +71,7 @@ public class HiteiPower extends AnimatorPower
                 card.freeToPlayOnce = false;
             }
         }
+        this.flash();
     }
 
     @Override

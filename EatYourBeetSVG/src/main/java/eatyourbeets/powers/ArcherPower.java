@@ -71,6 +71,8 @@ public class ArcherPower extends AnimatorPower
                     }
                 }
             }
+
+            this.flash();
         }
     }
 

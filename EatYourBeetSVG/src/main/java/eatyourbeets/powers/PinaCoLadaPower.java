@@ -28,6 +28,7 @@ public class PinaCoLadaPower extends AnimatorPower
         if (card != null && card.HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, this.amount));
+            this.flash();
         }
     }
 }

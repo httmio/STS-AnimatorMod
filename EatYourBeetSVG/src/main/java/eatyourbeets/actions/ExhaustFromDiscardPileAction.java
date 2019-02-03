@@ -17,9 +17,11 @@ public class ExhaustFromDiscardPileAction extends AbstractGameAction
     private static final UIStrings uiStrings;
     public static final String[] TEXT;
     private AbstractPlayer p;
+    private boolean random;
 
-    public ExhaustFromDiscardPileAction(int amount)
+    public ExhaustFromDiscardPileAction(int amount, boolean random)
     {
+        this.random = random;
         this.p = AbstractDungeon.player;
         this.setValues(this.p, AbstractDungeon.player, amount);
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -57,7 +59,19 @@ public class ExhaustFromDiscardPileAction extends AbstractGameAction
             }
             else
             {
-                if (this.amount == 1)
+                if (this.random)
+                {
+                    for (int i = 0; i < this.amount; i++)
+                    {
+                        card = tmp.getRandomCard(true);
+                        tmp.removeCard(card);
+
+                        AbstractDungeon.player.discardPile.moveToExhaustPile(card);
+                    }
+
+                    this.p.hand.applyPowers();
+                }
+                else if (this.amount == 1)
                 {
                     AbstractDungeon.gridSelectScreen.open(tmp, this.amount, TEXT[0], false);
                 }

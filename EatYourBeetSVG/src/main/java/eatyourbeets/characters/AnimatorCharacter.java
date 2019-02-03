@@ -171,8 +171,10 @@ public class AnimatorCharacter extends CustomPlayer
         res.add(Defend.ID);
         res.add(Defend.ID);
         res.add(Defend.ID);
-        res.add(Kazuma.ID);
-        res.add(Aqua.ID);
+        AnimatorCharacterSelect.PrepareCharacterDeck(res);
+
+        //res.add(Kazuma.ID);
+        //res.add(Aqua.ID);
         return res;
     }
 

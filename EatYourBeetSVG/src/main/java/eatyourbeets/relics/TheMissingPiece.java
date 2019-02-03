@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.Synergies;
+import eatyourbeets.cards.Synergy;
 import eatyourbeets.rewards.SynergyCardsReward;
 
 import java.util.ArrayList;
@@ -93,7 +94,7 @@ public class TheMissingPiece extends AnimatorRelic
 
     private void addSynergyRewards(ArrayList<RewardItem> rewards, int startingIndex)
     {
-        ArrayList<String> synergies = new ArrayList<>();
+        ArrayList<Synergy> synergies = new ArrayList<>();
         synergies.add(Synergies.Gate);
         synergies.add(Synergies.Overlord);
         synergies.add(Synergies.NoGameNoLife);
@@ -105,7 +106,7 @@ public class TheMissingPiece extends AnimatorRelic
 
         for (int i = 0; i < 3; i++)
         {
-            String synergy = Utilities.GetRandomElement(synergies, AbstractDungeon.cardRng);
+            Synergy synergy = Utilities.GetRandomElement(synergies, AbstractDungeon.cardRng);
             if (synergy != null)
             {
                 synergies.remove(synergy);

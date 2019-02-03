@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.powers.FocusPower;
+import eatyourbeets.actions.RinTohsakaAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -18,7 +19,7 @@ public class RinTohsaka extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,0,1);
+        Initialize(0,3);
 
         SetSynergy(Synergies.Fate);
     }
@@ -30,13 +31,16 @@ public class RinTohsaka extends AnimatorCard
 
         if (HasActiveSynergy())
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new FocusPower(p, 1), 1));
+            AbstractDungeon.actionManager.addToBottom(new RinTohsakaAction(this.block));
         }
     }
 
     @Override
     public void upgrade() 
     {
-        TryUpgrade();
+        if (TryUpgrade())
+        {
+            upgradeBlock(1);
+        }
     }
 }
