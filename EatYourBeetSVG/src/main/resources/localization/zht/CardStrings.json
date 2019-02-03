@@ -73,44 +73,44 @@
 	"animator_Wiz":
 	{
 		"NAME": "維茲",
-		"DESCRIPTION": "消耗 1 張牌, 從消耗牌堆裡選擇一張牌複製並且加入手牌。Purge after !M! uses."
+		"DESCRIPTION": "消耗 1 張牌, 從消耗牌堆裡選擇一張牌複製並且加入手牌。 使用 !M! 後Purge。"
 	},
 		
 	"animator_Eris":
 	{
 		"NAME": "艾莉絲",
-		"DESCRIPTION": "Heal !M! hp. Purge. If you would die, prevent all Damage and permanently lose this card."
+		"DESCRIPTION": "回復 !M! 點生命。 淨化。 受到致命傷害時，避免所有傷害然後永遠失去這張卡。"
 	},
 	
 	"animator_Mikaela":
 	{
 		"NAME": "百夜米迦爾",
-		"DESCRIPTION": "Deal !D! Damage Twice. Choose and Exhaust a card in your discard pile."
+		"DESCRIPTION": "造成 !D! 點傷害兩次。從棄牌堆選擇並且消耗一張卡。"
 	},
 
 	"animator_KrulTepes":
 	{
 		"NAME": "克魯魯·采佩西",
-		"DESCRIPTION": "Deal !D! Damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial."
+		"DESCRIPTION": "造成 !D! 點傷害。 NL 如果這張牌殺死精英或王，獲得 NL  [#EFC851]小[#EFC851]血 [#EFC851]瓶"
 	},
 	
 	"animator_Shinoa":
 	{
 		"NAME": "柊筱婭",
-		"DESCRIPTION": "Gain !B! Block and apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply !M! Weak."
+		"DESCRIPTION": "獲得 !B! 點格檔 並且對所有敵人造成 !M! 層易傷。 NL 同調: 同時造成!M! 層虛弱。"
 	},
 	
 	"animator_Yuuichirou":
 	{
 		"NAME": "百夜優一郎",
-		"DESCRIPTION": "Deal !D! Damage. NL If this card is Exhausted add [#EFC851]Asuramaru to your discard pile.",
-		"UPGRADE_DESCRIPTION": "Deal !D! Damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile."
+		"DESCRIPTION": "造成 !D! 點傷害。 NL 如果這張牌被消耗加入[#EFC851]阿[#EFC851]朱[#EFC851]羅[#EFC851]丸 到棄牌堆。",
+		"UPGRADE_DESCRIPTION": "造成 !D! 點傷害。 NL 如果這張牌被消耗加入[#EFC851]阿[#EFC851]朱[#EFC851]羅[#EFC851]丸[#EFC851]+ 到棄牌堆。."
 	},
 	
 	"animator_Asuramaru":
 	{
 		"NAME": "阿朱羅丸",
-		"DESCRIPTION": "Deal !D! Damage. Gain !M! Intangible, Strength, Dexterity and Artifact. Purge."
+		"DESCRIPTION": "造成 !D! 點傷害。 獲得 !M! 層無實體，力量，敏捷，和人工製品。淨化。"
 	},
 	
 	"animator_Shimakaze":
@@ -122,75 +122,75 @@
 	"animator_Ara":
 	{
 		"NAME": "艾拉",
-		"DESCRIPTION": "Deal !D! Damage twice. If you break the target's Block gain !M! Strength."
+		"DESCRIPTION": "造成 !D! 點傷害兩次。如果你打破目標的格檔，獲得 !M! 力量。"
 	},
 	
 	"animator_Elesis":
 	{
 		"NAME": "愛利西斯",
-		"DESCRIPTION": "Deal !D! Damage. Retain. Increase this card's Damage by !M! each turn while in your hand."
+		"DESCRIPTION": "造成 !D! 點傷害。 保留。 在手上時每回合增加 !M! 點傷害。"
 	},
 
 	"animator_Eve":
 	{
 		"NAME": "伊芙",
-		"DESCRIPTION": "When you activate a Synergy deal 1 Damage to a random enemy and increase this damage by !M!."
+		"DESCRIPTION": "當你觸發同調時，對隨機敵人造成1點傷害並且增加 !M!"
 	},
 
 	"animator_Aisha":
 	{
 		"NAME": "愛莎",
-		"DESCRIPTION": "Put a random #ySkill from your draw pile into your hand, it costs !M! less this combat."
+		"DESCRIPTION": "從抽排堆放一個隨機的 #y技#y能l 到手中， 這場戰鬥降低 !M!點消耗。"
 	},
 		
 	"animator_Cocytus":
 	{
 		"NAME": "科塞特斯",
-		"DESCRIPTION": "Deal !D! Damage. NL Gain any Block lost by the enemy. NL Synergy: Deal !M! more damage."
+		"DESCRIPTION": "造成 !D!點傷害。 NL 獲得敵人失去的格檔。 NL 同調: 造成 !M!點更多傷害。"
 	},
 		
 	"animator_Demiurge":
 	{
 		"NAME": "迪米烏哥斯",
-		"DESCRIPTION": "Gain [B] [B] NL The next time you draw this, take !M! Damage.",
-		"UPGRADE_DESCRIPTION": "Gain [B] [B] [B] NL The next time you draw this, take !M! Damage."
+		"DESCRIPTION": "獲得 [B] [B] NL 下一次抽到這張牌，受到!M! 點傷害。.",
+		"UPGRADE_DESCRIPTION": "獲得 [B] [B] [B] NL 下一次抽到這張牌，受到 !M! 點傷害。"
 	},
 		
 	"animator_NarberalGamma":
 	{
 		"NAME": "娜貝拉爾·伽瑪",
-		"DESCRIPTION": "Channel !M! Lightning. Shapeshifter. NL Synergy: Gain 1 Orb slot."
+		"DESCRIPTION": "引導 !M! 閃電。 型態轉換者。 NL 同調: 獲得 1 寶珠插槽"
 	},
 	
 	"animator_Shalltear":
 	{
 		"NAME": "夏提雅",
-		"DESCRIPTION": "Deal !D! Damage to ALL enemies. NL Heal !M! HP for each enemy that lost its Block."
+		"DESCRIPTION": "對所有敵人造成 !D! 點傷害。 NL 每個敵人失去格檔可以回復 !M! 點生命 。"
 	},
 	
 	"animator_PandorasActor":
 	{
 		"NAME": "潘朵拉·亞克特",
-		"DESCRIPTION": "Gain !B! Block. Shapeshifter. NL Synergy: Gain !M! extra Block."
+		"DESCRIPTION": "獲得 !B! 點格檔。 型態轉換者。NL 同調: 獲得 !M! 點額外格檔"
 	},
 	
 	"animator_Ainz":
 	{
 		"NAME": "安茲·烏爾·恭",
-		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand.",
-		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand."
+		"DESCRIPTION": "每回合降低 1 點消耗。 在你的回合一開始加入 [#EFC851]力[#EFC851]量 [#EFC851]型 [#EFC851]態 到手牌。",
+		"UPGRADE_DESCRIPTION":"每回合降低 1 點消耗。 在你的回合一開始加入 [#EFC851]力[#EFC851]量 [#EFC851]型 [#EFC851]態[#EFC851]+ 到手牌。"
 	},
 	
 	"animator_Jibril":
 	{
 		"NAME": "吉普莉爾",
-		"DESCRIPTION": "Deal !D! Damage. NL If the enemy has Vulnerable gain !M! Strength."
+		"DESCRIPTION": "造成 !D! 點傷害。 NL 如果敵人處於易傷狀態獲得!M! 點力量.。"
 	},
 	
 	"animator_ChlammyZell":
 	{
 		"NAME": "克拉米",
-		"DESCRIPTION": "Deal !M! Damage for each card you have drawn this turn. NL (Drawn !SV! Cards)"
+		"DESCRIPTION": "這回合抽的每張牌造成 !M!點傷害。 NL (抽 !SV! 張牌)"
 	},
 	
 	"animator_DolaStephanie":
