@@ -15,7 +15,7 @@ public class Shimakaze extends AnimatorCard
 
     public Shimakaze()
     {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         Initialize(3,0, 3);
 

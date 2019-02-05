@@ -21,8 +21,7 @@ public class Yuuichirou extends AnimatorCard
 
         Initialize(9,0);
 
-        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
-        AddTooltip(new TooltipInfo(info[0], info[1]));
+        AddExtendedDescription();
 
         SetSynergy(Synergies.OwariNoSeraph);
     }

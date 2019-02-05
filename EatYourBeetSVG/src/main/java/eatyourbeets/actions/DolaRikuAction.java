@@ -15,12 +15,12 @@ public class DolaRikuAction extends AnimatorAction
 {
     private static final String[] TEXT = CardCrawlGame.languagePack.getUIString("ExhaustAction").TEXT;
     private final AbstractPlayer player;
-    private final int addCost;
+    private final int costReduction;
 
-    public DolaRikuAction(AbstractCreature target, int addCost)
+    public DolaRikuAction(AbstractCreature target, int costReduction)
     {
         this.target = target;
-        this.addCost = addCost;
+        this.costReduction = -costReduction;
         this.player = (AbstractPlayer)target;
         this.duration = Settings.ACTION_DUR_FAST;
         this.actionType = ActionType.CARD_MANIPULATION;
@@ -98,7 +98,7 @@ public class DolaRikuAction extends AnimatorAction
             AbstractCard randomCard = Utilities.GetRandomElement(sameRarity);
             if (randomCard != null)
             {
-                randomCard.modifyCostForCombat(addCost);
+                randomCard.modifyCostForCombat(costReduction);
                 player.hand.addToTop(randomCard);
             }
 

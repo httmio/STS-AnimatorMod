@@ -17,7 +17,7 @@ public class Lancer extends AnimatorCard
 
     public Lancer()
     {
-        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
         Initialize(7,0);
 
@@ -25,18 +25,40 @@ public class Lancer extends AnimatorCard
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) 
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster mo, float tmp)
     {
-        if (m.currentHealth < (m.maxHealth / 2))
+        if (mo != null && mo.currentHealth <= mo.maxHealth / 2)
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage * 2, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HEAVY));
+            return super.calculateModifiedCardDamage(player, mo, tmp) * 2;
         }
         else
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            return super.calculateModifiedCardDamage(player, mo, tmp);
+        }
+    }
+
+    @Override
+    public void use(AbstractPlayer p, AbstractMonster m) 
+    {
+        AbstractGameAction.AttackEffect attackEffect;
+        if (m.currentHealth <= (m.maxHealth / 2))
+        {
+            attackEffect = AbstractGameAction.AttackEffect.SLASH_HEAVY;
+        }
+        else
+        {
+            attackEffect = AbstractGameAction.AttackEffect.SLASH_VERTICAL;
         }
 
-        AbstractDungeon.actionManager.addToBottom(new OnTargetDeadAction(m, new GainEnergyAction(1)));
+        DamageAction damageAction = new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.HP_LOSS), attackEffect);
+//        if (HasActiveSynergy())
+//        {
+            AbstractDungeon.actionManager.addToBottom(new OnTargetDeadAction(m, damageAction, new GainEnergyAction(1), true));
+//        }
+//        else
+//        {
+//            AbstractDungeon.actionManager.addToBottom(damageAction);
+//        }
     }
 
     @Override

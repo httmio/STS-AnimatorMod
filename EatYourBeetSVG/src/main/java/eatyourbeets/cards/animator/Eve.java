@@ -25,19 +25,6 @@ public class Eve extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EvePower(p, 1, 1), 1));
-
-        //EvePower newPower = new EvePower(p, 1, this.magicNumber);
-        //if (p.hasPower(newPower.ID))
-        //{
-        //    EvePower currentPower = (EvePower) p.getPower(newPower.ID);
-        //    currentPower.amount += newPower.amount;
-        //    currentPower.growth += newPower.growth;
-        //    currentPower.updateDescription();
-        //}
-        //else
-        //{
-        //    AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, newPower));
-        //}
     }
 
     @Override

@@ -29,9 +29,9 @@ public class TukaLunaMarceau extends AnimatorCard
         int loseDex = this.magicNumber;
         if (HasActiveSynergy())
         {
-            loseDex = 1;
+            loseDex = Math.max(0, loseDex - 1);
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, loseDex), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new LoseDexterityPower(p, loseDex), loseDex));
     }
 
     @Override

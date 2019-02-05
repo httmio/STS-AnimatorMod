@@ -37,7 +37,7 @@ public class Berserker extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(6);
+            upgradeDamage(8);
         }
     }
 }

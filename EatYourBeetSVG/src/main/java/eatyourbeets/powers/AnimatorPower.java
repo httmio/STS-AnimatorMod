@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import eatyourbeets.AnimatorResources;
 import eatyourbeets.cards.AnimatorCard;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
@@ -16,11 +17,16 @@ public abstract class AnimatorPower extends AbstractPower
 
     protected final PowerStrings powerStrings;
 
+    public static String CreateFullID(String id)
+    {
+        return "animator_" + id;
+    }
+
     public AnimatorPower(AbstractCreature owner, String id)
     {
         this.owner = owner;
-        this.ID = "Animator_" + id;
-        this.img = new Texture("images/powers/" + ID + ".png");
+        this.ID = id;
+        this.img = new Texture(AnimatorResources.GetPowerImage(ID));
 
         powerStrings = CardCrawlGame.languagePack.getPowerStrings(this.ID);
 

@@ -10,7 +10,7 @@ import eatyourbeets.Utilities;
 
 public class HiteiPower extends AnimatorPower
 {
-    public static final String POWER_ID = "Hitei";
+    public static final String POWER_ID = CreateFullID(HiteiPower.class.getSimpleName());
 
     private final AbstractPlayer player;
     private int exhaustCards;

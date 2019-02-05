@@ -57,8 +57,10 @@ public class Gilgamesh extends AnimatorCard
 
         //AddTooltip(new TooltipInfo("Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b"+GOLD_REWARD+" gold. Does not work when buying relics."));
 
-        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
-        AddTooltip(new TooltipInfo(info[0], info[1] + GOLD_REWARD + info[2]));
+//        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+//        AddTooltip(new TooltipInfo(info[0], info[1] + GOLD_REWARD + info[2]));
+        AddExtendedDescription(GOLD_REWARD);
+
         SetSynergy(Synergies.Fate);
     }
 
@@ -73,7 +75,7 @@ public class Gilgamesh extends AnimatorCard
     {
         for (int i = 0; i < this.magicNumber; i++)
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
         }
     }
 

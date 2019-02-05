@@ -9,7 +9,7 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class PinaCoLadaPower extends AnimatorPower
 {
-    public static final String POWER_ID = "PinaCoLada";
+    public static final String POWER_ID = CreateFullID(PinaCoLadaPower.class.getSimpleName());
 
     public PinaCoLadaPower(AbstractCreature owner, int block)
     {

@@ -22,8 +22,7 @@ public class Ainz extends AnimatorCard
 
         SetSynergy(Synergies.Overlord);
 
-        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
-        AddTooltip(new TooltipInfo(info[0], info[1]));
+        AddExtendedDescription();
     }
 
     @Override

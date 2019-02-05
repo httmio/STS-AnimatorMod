@@ -15,12 +15,11 @@ public class Hitei extends AnimatorCard
 
     public Hitei()
     {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
 
         Initialize(0,0,5);
 
-        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
-        AddTooltip(new TooltipInfo(info[0], info[1]));
+        AddExtendedDescription();
 
         SetSynergy(Synergies.Katanagatari);
     }

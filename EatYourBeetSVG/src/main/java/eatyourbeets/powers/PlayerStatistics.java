@@ -15,7 +15,7 @@ import eatyourbeets.subscribers.*;
 
 public class PlayerStatistics extends AnimatorPower implements InvisiblePower, OnCardDrawPower
 {
-    public static final String POWER_ID = "PlayerStatistics";
+    public static final String POWER_ID = CreateFullID(PlayerStatistics.class.getSimpleName());
 
     public static final PlayerStatistics Instance = new PlayerStatistics();
 

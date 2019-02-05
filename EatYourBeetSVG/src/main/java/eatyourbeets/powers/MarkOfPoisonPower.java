@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class MarkOfPoisonPower extends AnimatorPower
 {
-    public static final String POWER_ID = "MarkOfPoison";
+    public static final String POWER_ID = CreateFullID(MarkOfPoisonPower.class.getSimpleName());
 
     public MarkOfPoisonPower(AbstractCreature owner, int stacks)
     {

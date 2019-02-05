@@ -20,8 +20,7 @@ public class Wiz extends AnimatorCard
 
         Initialize(0,0,2);
 
-        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
-        AddTooltip(new TooltipInfo(info[0], info[1]));
+        AddExtendedDescription();
 
         SetSynergy(Synergies.Konosuba);
     }

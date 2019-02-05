@@ -1,29 +1,32 @@
 package eatyourbeets.rewards;
 
+import basemod.BaseMod;
 import basemod.abstracts.CustomReward;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.TipHelper;
 import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.rewards.RewardItem;
+import com.megacrit.cardcrawl.rewards.RewardSave;
+import eatyourbeets.AnimatorResources;
 import eatyourbeets.CustomAbstractDungeon;
 import eatyourbeets.Utilities;
+import eatyourbeets.cards.Synergies;
 import eatyourbeets.cards.Synergy;
 import patches.RewardTypeEnum;
 
 import java.util.ArrayList;
 
-public class SynergyCardsReward extends CustomReward
+public class SynergyCardsReward extends AnimatorReward
 {
-    private static final Texture ICON = new Texture("images/ui/rewards/animator_synergyCardReward.png");
+    public static final String ID = CreateFullID(SynergyCardsReward.class.getSimpleName());
 
     public final Synergy synergy;
     private boolean skip = false;
 
     public SynergyCardsReward(Synergy synergy)
     {
-        super(ICON,"#y" + synergy.NAME.replace(" ", " #y"), RewardTypeEnum.SYNERGY_CARDS);
+        super(ID,"#y" + synergy.NAME.replace(" ", " #y"), RewardTypeEnum.SYNERGY_CARDS);
 
         this.synergy = synergy;
         this.cards = CustomAbstractDungeon.getRewardCards(synergy);
@@ -37,7 +40,7 @@ public class SynergyCardsReward extends CustomReward
         if (this.hb.hovered)
         {
             TipHelper.renderGenericTip(360.0F * Settings.scale, (float) InputHelper.mY, synergy.NAME,
-                    "Only contains cards with this synergy. WARNING: once you click on this, the other 2 card rewards will disappear.");
+                    AnimatorResources.GetUIStrings(AnimatorResources.UIStringType.Rewards).TEXT[0]);
         }
     }
 
@@ -82,46 +85,19 @@ public class SynergyCardsReward extends CustomReward
 
         return false;
     }
-}
 
-/*
-
-package patches;
-
-import com.evacipated.cardcrawl.modthespire.lib.*;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.screens.CardRewardScreen;
-import com.megacrit.cardcrawl.screens.CombatRewardScreen;
-import com.megacrit.cardcrawl.ui.buttons.DynamicButton;
-import eatyourbeets.relics.TheMissingPiece;
-import eatyourbeets.rewards.SynergyCardsReward;
-import javassist.CtBehavior;
-
-@SpirePatch(clz= CardRewardScreen.class, method="takeReward")
-public class CardRewardScreenPatch
-{
-    @SpireInsertPatch(locator=Locator.class)
-    public static void Insert(CardRewardScreen __instance)
-    {
-        if (__instance.rItem instanceof SynergyCardsReward)
-        {
-            ((SynergyCardsReward)__instance.rItem).OnRewardTaken();
-        }
-    }
-
-    private static class Locator extends SpireInsertLocator
+    public static class Serializer implements BaseMod.LoadCustomReward, BaseMod.SaveCustomReward
     {
         @Override
-        public int[] Locate(CtBehavior ctMethodToPatch) throws Exception
+        public CustomReward onLoad(RewardSave rewardSave)
         {
-            // Insert here to be after the game is saved
-            // Avoids weird save/load issues
-            //Matcher finalMatcher = new Matcher.MethodCallMatcher(DynamicButton.class, "hide");
-            //int[] found = LineFinder.findAllInOrder(ctMethodToPatch, finalMatcher);
-            return new int[]{0};
+            return new SynergyCardsReward(Synergies.GetByID(rewardSave.amount));
+        }
+
+        @Override
+        public RewardSave onSave(CustomReward customReward)
+        {
+            return new RewardSave(customReward.type.toString(), null, ((SynergyCardsReward) customReward).synergy.ID, 0);
         }
     }
 }
-
-
-*/

@@ -2,8 +2,6 @@ package patches;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.Hitbox;
@@ -12,7 +10,8 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
-import eatyourbeets.cards.Synergies;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
+import eatyourbeets.AnimatorResources;
 import eatyourbeets.characters.AnimatorCharacterSelect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,7 +20,7 @@ public class CharacterSelectScreenPatch
 {
     protected static final Logger logger = LogManager.getLogger(CharacterSelectScreenPatch.class.getName());
 
-    public static final UIStrings UIStrings = CardCrawlGame.languagePack.getUIString("Animator_CharacterSelect");
+    public static final UIStrings UIStrings = AnimatorResources.GetUIStrings(AnimatorResources.UIStringType.CharacterSelect);
 
     public static Hitbox startingCardsLabelHb;
     public static Hitbox startingCardsSelectedHb;
@@ -39,17 +38,17 @@ public class CharacterSelectScreenPatch
         float rightTextWidth = FontHelper.getSmartWidth(FontHelper.cardTitleFont_N, UIStrings.TEXT[1], 9999.0F, 0.0F); // Level 22
 
         POS_X = 180f * Settings.scale;
-        POS_Y = ((float) Settings.HEIGHT / 2.0F) - 30f;
+        POS_Y = ((float) Settings.HEIGHT / 2.0F) + (20 * Settings.scale);
 
         startingCardsLabelHb = new Hitbox(leftTextWidth, 50.0F * Settings.scale);
         startingCardsSelectedHb = new Hitbox(rightTextWidth, 50f * Settings.scale);
         startingCardsLeftHb = new Hitbox(70.0F * Settings.scale, 50.0F * Settings.scale);
         startingCardsRightHb = new Hitbox(70.0F * Settings.scale, 50.0F * Settings.scale);
 
-        startingCardsLabelHb.move(POS_X + (leftTextWidth / 2f), POS_Y * Settings.scale);
-        startingCardsLeftHb.move(startingCardsLabelHb.x + startingCardsLabelHb.width + (20 * Settings.scale), (POS_Y - 10) * Settings.scale);
-        startingCardsSelectedHb.move(startingCardsLeftHb.x + startingCardsLeftHb.width + (rightTextWidth / 2f), POS_Y * Settings.scale);
-        startingCardsRightHb.move(startingCardsSelectedHb.x + startingCardsSelectedHb.width + (10 * Settings.scale), (POS_Y - 10) * Settings.scale);
+        startingCardsLabelHb.move(POS_X + (leftTextWidth / 2f), POS_Y);
+        startingCardsLeftHb.move(startingCardsLabelHb.x + startingCardsLabelHb.width + (20 * Settings.scale), POS_Y - (10 * Settings.scale));
+        startingCardsSelectedHb.move(startingCardsLeftHb.x + startingCardsLeftHb.width + (rightTextWidth / 2f), POS_Y);
+        startingCardsRightHb.move(startingCardsSelectedHb.x + startingCardsSelectedHb.width + (10 * Settings.scale), POS_Y - (10 * Settings.scale));
     }
 
     public static void Update(CharacterSelectScreen selectScreen)
@@ -99,9 +98,19 @@ public class CharacterSelectScreenPatch
         {
             return;
         }
+        AnimatorCharacterSelect.SynergyInfo info = AnimatorCharacterSelect.GetSynergyInfo();
+        String description = info.GetDescription();
+        selectScreen.confirmButton.isDisabled = info.Locked;
+        if (description != null)
+        {
+            float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
+            FontHelper.cardTitleFont_small_N.getData().setScale(Settings.scale * 0.8f);
+            FontHelper.renderFont(sb, FontHelper.cardTitleFont_small_N, description, startingCardsSelectedHb.x, startingCardsSelectedHb.cY + (20 * Settings.scale), Settings.GREEN_TEXT_COLOR);
+            FontHelper.cardTitleFont_small_N.getData().setScale(Settings.scale * originalScale);
+        }
 
         FontHelper.renderFont(sb, FontHelper.cardTitleFont_N, UIStrings.TEXT[0], startingCardsLabelHb.x, startingCardsLabelHb.cY, Settings.GOLD_COLOR);
-        FontHelper.renderFont(sb, FontHelper.cardTitleFont_N, AnimatorCharacterSelect.GetSynergy().NAME, startingCardsSelectedHb.x, startingCardsSelectedHb.cY, Settings.CREAM_COLOR);//.BLUE_TEXT_COLOR);
+        FontHelper.renderFont(sb, FontHelper.cardTitleFont_N, info.Name, startingCardsSelectedHb.x, startingCardsSelectedHb.cY, Settings.CREAM_COLOR);//.BLUE_TEXT_COLOR);
 
         if (!startingCardsLeftHb.hovered)
         {

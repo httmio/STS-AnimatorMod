@@ -23,7 +23,7 @@ public class DolaRiku extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        AbstractDungeon.actionManager.addToTop(new DolaRikuAction(p, -this.magicNumber));
+        AbstractDungeon.actionManager.addToTop(new DolaRikuAction(p, this.magicNumber));
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Nanami extends AnimatorCard
 
     public Nanami()
     {
-        super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
 
         Initialize(0,4);
 

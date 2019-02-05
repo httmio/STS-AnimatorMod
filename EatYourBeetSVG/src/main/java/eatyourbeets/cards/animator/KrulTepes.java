@@ -3,6 +3,7 @@ package eatyourbeets.cards.animator;
 import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -13,6 +14,7 @@ import com.megacrit.cardcrawl.relics.BloodVial;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import eatyourbeets.actions.KrulTepesAction;
+import eatyourbeets.actions.OnTargetDeadAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -28,8 +30,7 @@ public class KrulTepes extends AnimatorCard
 
         Initialize(16,0);
 
-        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
-        AddTooltip(new TooltipInfo(info[0], info[1]));
+        AddExtendedDescription();
 
         SetSynergy(Synergies.OwariNoSeraph);
     }
@@ -40,9 +41,10 @@ public class KrulTepes extends AnimatorCard
         if (m != null)
         {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m.hb.cX, m.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+            DamageAction damageAction = new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn));
+            AbstractDungeon.actionManager.addToBottom(new OnTargetDeadAction(m, damageAction, new KrulTepesAction(m, this)));
         }
-
-        AbstractDungeon.actionManager.addToBottom(new KrulTepesAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), this));
+            //AbstractDungeon.actionManager.addToBottom(new KrulTepesAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), this));
     }
 
     @Override

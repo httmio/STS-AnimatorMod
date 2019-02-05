@@ -11,7 +11,7 @@ import com.megacrit.cardcrawl.powers.StrengthPower;
 
 public class ArcherPower extends AnimatorPower
 {
-    public static final String POWER_ID = "Archer";
+    public static final String POWER_ID = CreateFullID(ArcherPower.class.getSimpleName());
 
     private int baseDamage;
 

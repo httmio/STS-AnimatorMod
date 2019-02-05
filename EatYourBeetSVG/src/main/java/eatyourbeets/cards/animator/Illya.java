@@ -31,7 +31,7 @@ public class Illya extends AnimatorCard
         {
             if (c.type == CardType.ATTACK && c.baseDamage > bestDamage)
             {
-                logger.info(c.name + ", Damage: " + c.baseDamage+ ", Best Damage: " + bestDamage);
+                //logger.info(c.name + ", Damage: " + c.baseDamage+ ", Best Damage: " + bestDamage);
                 bestDamage = c.baseDamage;
                 bestCard = c;
             }

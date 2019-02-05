@@ -1,10 +1,8 @@
 package eatyourbeets.powers;
 
 import com.badlogic.gdx.graphics.Color;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DamageRandomEnemyAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -19,7 +17,7 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class EvePower extends AnimatorPower
 {
-    public static final String POWER_ID = "Eve";
+    public static final String POWER_ID = CreateFullID(EvePower.class.getSimpleName());
 
     public int growth;
 

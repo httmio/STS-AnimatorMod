@@ -24,7 +24,8 @@ public class Aisha extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new AishaAction(this.magicNumber));
+        int costReduction = HasActiveSynergy() ? 1 : 0;
+        AbstractDungeon.actionManager.addToBottom(new AishaAction(costReduction));
     }
 
     @Override

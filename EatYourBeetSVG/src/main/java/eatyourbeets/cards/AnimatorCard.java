@@ -3,16 +3,16 @@ package eatyourbeets.cards;
 import basemod.abstracts.CustomCard;
 import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import eatyourbeets.AnimatorResources;
 import eatyourbeets.Utilities;
 import eatyourbeets.powers.PlayerStatistics;
 import org.apache.commons.lang3.StringUtils;
@@ -90,6 +90,11 @@ public abstract class AnimatorCard extends CustomCard
     public boolean HasExactSynergy(Synergy synergy)
     {
         return Objects.equals(this.synergy, synergy);
+    }
+
+    public Synergy GetSynergy()
+    {
+        return synergy;
     }
 
     @Override
@@ -261,6 +266,18 @@ public abstract class AnimatorCard extends CustomCard
         }
     }
 
+    protected void AddExtendedDescription(Object param)
+    {
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1] + param + info[2]));
+    }
+
+    protected void AddExtendedDescription()
+    {
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1]));
+    }
+
     protected void AddTooltip(TooltipInfo tooltip)
     {
         customTooltips.add(tooltip);
@@ -273,17 +290,34 @@ public abstract class AnimatorCard extends CustomCard
 
     protected AnimatorCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        this(CardCrawlGame.languagePack.getCardStrings(id), id, cost, type, color, rarity, target);
+        this(AnimatorResources.GetCardStrings(id), id, cost, type, color, rarity, target);
     }
 
     protected AnimatorCard(CardStrings strings, String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        super(id, strings.NAME, "images/cards/" + id + ".png", cost, strings.DESCRIPTION, type, color, rarity, target);
+        super(id, strings.NAME, AnimatorResources.GetCardImage(id), cost, strings.DESCRIPTION, type, color, rarity, target);
 
         cardStrings = strings;
         if (StringUtils.isNotEmpty(strings.UPGRADE_DESCRIPTION))
         {
             this.upgradedDescription = strings.UPGRADE_DESCRIPTION;
         }
-    } 
+    }
+
+    protected void ChangeMagicNumberForCombat(int value, boolean add)
+    {
+        for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
+        {
+            if (add)
+            {
+                c.baseMagicNumber += value;
+            }
+            else
+            {
+                c.baseMagicNumber = value;
+            }
+            c.magicNumber = c.baseMagicNumber;
+            c.isMagicNumberModified = true;
+        }
+    }
 }

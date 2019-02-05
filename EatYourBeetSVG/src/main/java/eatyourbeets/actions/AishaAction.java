@@ -51,13 +51,11 @@ public class AishaAction extends AnimatorAction
                     return;
                 }
 
-                AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(card.uuid, costReduction));
+                if (costReduction > 0)
+                {
+                    AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(card.uuid, costReduction));
+                }
                 AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardAction(card));
-
-                //this.p.hand.addToHand(card);
-                //card.lighten(false);
-                //this.p.drawPile.removeCard(card);
-                //this.p.hand.refreshHandLayout();
             }
         }
 

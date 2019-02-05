@@ -1,6 +1,5 @@
 package eatyourbeets.relics;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,13 +10,13 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class LivingPicture extends AnimatorRelic
 {
-    public static final String ID = "Animator_LivingPicture";
+    public static final String ID = CreateFullID(LivingPicture.class.getSimpleName());
 
     private Boolean active = true;
 
     public LivingPicture()
     {
-        super(ID, new Texture("images/relics/animator_livingPicture.png"), RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
     @Override
@@ -31,17 +30,6 @@ public class LivingPicture extends AnimatorRelic
     {
         return new LivingPicture();
     }
-
-    //@Override
-    //public void onVictory()
-    //{
-    //    RewardItem reward1 = new RewardItem(AbstractDungeon.player.getCardColor());
-    //    //RewardItem reward2 = new RewardItem(AbstractDungeon.player.getCardColor());
-    //    //reward1.relicLink = reward2;
-    //    //reward2.relicLink = reward1;
-    //    AbstractDungeon.getCurrRoom().rewards.add(new RewardItem(reward1, RewardItem.RewardType.CARD));
-    //    super.onVictory();
-    //}
 
     @Override
     public void atTurnStart()

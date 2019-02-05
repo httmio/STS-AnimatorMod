@@ -1,13 +1,13 @@
 package eatyourbeets.cards;
 
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.UIStrings;
+import eatyourbeets.AnimatorResources;
 
 import java.util.HashMap;
 
 public class Synergies
 {
-    private final static UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("Animator_Synergies");
+    private final static UIStrings uiStrings = AnimatorResources.GetUIStrings(AnimatorResources.UIStringType.Synergies);
     private final static HashMap<Integer, Synergy> All = new HashMap<>();
 
     public final static Synergy ANY =            CreateSynergy(0 );

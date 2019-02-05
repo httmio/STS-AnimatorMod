@@ -39,7 +39,7 @@ public class Demiurge extends AnimatorCard
         if (damagePlayer)
         {
             AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.HP_LOSS)));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.NORMAL)));
             damagePlayer = false;
         }
     }

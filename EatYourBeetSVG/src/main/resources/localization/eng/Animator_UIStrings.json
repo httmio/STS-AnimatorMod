@@ -1,0 +1,52 @@
+{
+	"Animator_Synergies":
+	{
+		"TEXT": 
+		[
+			"Any",
+			"Elsword",
+			"Kantai Collection",
+			"Hitsugi no Chaika",
+			"Konosuba",
+			"Katanagatari",
+			"Owari no Seraph",
+			"Overlord",
+			"No Game No Life",
+			"GATE",
+			"Fate"
+		]
+	},
+	
+	"Animator_Actions":
+	{
+		"TEXT": 
+		[
+			"Fetch cards with the same synergy."
+		]
+	},
+	
+	"Animator_Rewards":
+	{
+		"TEXT": 
+		[
+			"Only contains cards with this synergy. WARNING: once you click on this, the other 2 card rewards will disappear."
+		]
+	},
+		
+	
+	"Animator_CharacterSelect":
+	{
+		"TEXT": 
+		[
+			"Starting Cards: ",
+			"#############",
+			"Unlocks at Level ",
+			" (You are Level ",
+			")",
+			"Recommended.",
+			"Balanced start.",
+			"Slightly overpowered start.",
+			"Very overpowered start."
+		]
+	}
+}

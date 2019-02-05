@@ -101,7 +101,7 @@ public class HigakiRinne extends AnimatorCard
         }
         else if (n < 20) // 10%
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(p, 4), AbstractGameAction.AttackEffect.POISON));
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(p, 4, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
         }
         else if (n < 25) // 5%
         {

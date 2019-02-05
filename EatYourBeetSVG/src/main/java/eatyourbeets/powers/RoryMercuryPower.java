@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class RoryMercuryPower extends AnimatorPower
 {
-    public static final String POWER_ID = "RoryMercury";
+    public static final String POWER_ID = CreateFullID(RoryMercuryPower.class.getSimpleName());
 
     public RoryMercuryPower(AbstractCreature owner, int amount)
     {

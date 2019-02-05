@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class DarknessPower extends AnimatorPower
 {
-    public static final String POWER_ID = "Darkness";
+    public static final String POWER_ID = CreateFullID(DarknessPower.class.getSimpleName());
 
     private final AbstractPlayer player;
 

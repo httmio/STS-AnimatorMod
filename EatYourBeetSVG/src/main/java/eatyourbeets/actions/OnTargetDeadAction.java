@@ -1,28 +1,48 @@
 package eatyourbeets.actions;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class OnTargetDeadAction extends AnimatorAction
 {
+    private final DamageAction damageAction;
     private final AbstractGameAction action;
+    private final boolean includeMinions;
 
-    public OnTargetDeadAction(AbstractCreature target, AbstractGameAction action)
+    public OnTargetDeadAction(AbstractCreature target, DamageAction damageAction, AbstractGameAction action)
     {
+        this(target, damageAction, action, false);
+    }
+
+    public OnTargetDeadAction(AbstractCreature target, DamageAction damageAction, AbstractGameAction action, boolean includeMinions)
+    {
+        this.includeMinions = includeMinions;
         this.target = target;
         this.action = action;
         this.duration = Settings.ACTION_DUR_FAST;
-        this.actionType = action.actionType;
+        this.actionType = damageAction.actionType;
+        this.damageAction = damageAction;
     }
 
     public void update()
     {
-        if (target.isDead || target.isDying)
+        if (!this.damageAction.isDone)
+        {
+            this.damageAction.update();
+
+            return;
+        }
+
+        AbstractMonster monster = ((AbstractMonster)this.target);
+        if ((monster.isDying || monster.currentHealth <= 0) && !monster.halfDead && (includeMinions || !monster.hasPower("Minion")))
         {
             AbstractDungeon.actionManager.addToBottom(action);
         }
+
         this.isDone = true;
     }
 }

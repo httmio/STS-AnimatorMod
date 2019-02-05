@@ -19,7 +19,7 @@ public class ChlammyZell extends AnimatorCard implements OnBattleStartSubscriber
 
     public ChlammyZell()
     {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
         Initialize(0, 0, 1);
 
@@ -34,31 +34,11 @@ public class ChlammyZell extends AnimatorCard implements OnBattleStartSubscriber
         SetSynergy(Synergies.NoGameNoLife);
     }
 
-//    @Override
-//    public void update()
-//    {
-//        if (this.damage < 0)
-//        {
-//            this.damage = 0;
-//        }
-//
-//        int cardsDrawn = PlayerStatistics.getCardsDrawnThisTurn();
-//        if (secondaryValue != cardsDrawn)
-//        {
-//            secondaryValue = cardsDrawn;
-//            isSecondaryValueModified = true;
-//            this.baseDamage = secondaryValue * this.magicNumber;
-//            this.isDamageModified = true;
-//        }
-//
-//        super.update();
-//    }
-
     @Override
     public void calculateCardDamage(AbstractMonster mo)
     {
-        secondaryValue = PlayerStatistics.getCardsDrawnThisTurn();
-        this.baseDamage = secondaryValue * this.magicNumber;
+        this.secondaryValue = PlayerStatistics.getCardsDrawnThisTurn();
+        this.baseDamage = this.secondaryValue * this.magicNumber;
 
         super.calculateCardDamage(mo);
     }
@@ -66,7 +46,7 @@ public class ChlammyZell extends AnimatorCard implements OnBattleStartSubscriber
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+        AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 
     @Override

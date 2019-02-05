@@ -13,7 +13,7 @@ import eatyourbeets.Utilities;
 
 public class AinzPower extends AnimatorPower
 {
-    public static final String POWER_ID = "Ainz";
+    public static final String POWER_ID = CreateFullID(AinzPower.class.getSimpleName());
 
     private int upgradedPowerStack;
     private final AbstractPlayer player;

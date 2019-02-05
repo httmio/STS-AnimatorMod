@@ -1,6 +1,5 @@
 package eatyourbeets.relics;
 
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
@@ -15,13 +14,13 @@ import java.util.ArrayList;
 
 public class TheMissingPiece extends AnimatorRelic
 {
-    public static final String ID = "Animator_TheMissingPiece";
+    public static final String ID = CreateFullID(TheMissingPiece.class.getSimpleName());
 
     private static final int TIMER = 5;
 
     public TheMissingPiece()
     {
-        super(ID, new Texture("images/relics/animator_theMissingPiece.png"), RelicTier.STARTER, LandingSound.FLAT);
+        super(ID, RelicTier.STARTER, LandingSound.FLAT);
     }
 
     @Override

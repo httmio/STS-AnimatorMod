@@ -1,12 +1,10 @@
 package eatyourbeets.cards.animator;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.powers.FocusPower;
 import eatyourbeets.actions.RinTohsakaAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
@@ -19,7 +17,7 @@ public class RinTohsaka extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,3);
+        Initialize(0,0, 3);
 
         SetSynergy(Synergies.Fate);
     }
@@ -31,7 +29,7 @@ public class RinTohsaka extends AnimatorCard
 
         if (HasActiveSynergy())
         {
-            AbstractDungeon.actionManager.addToBottom(new RinTohsakaAction(this.block));
+            AbstractDungeon.actionManager.addToBottom(new RinTohsakaAction(this.magicNumber, this));
         }
     }
 
@@ -40,7 +38,7 @@ public class RinTohsaka extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBlock(1);
+            upgradeMagicNumber(1);
         }
     }
 }

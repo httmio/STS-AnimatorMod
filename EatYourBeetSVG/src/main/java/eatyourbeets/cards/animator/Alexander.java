@@ -38,7 +38,7 @@ public class Alexander extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         AbstractMonster m2 = AbstractDungeon.getMonsters().getRandomMonster(null, true, AbstractDungeon.cardRandomRng);
-        AbstractDungeon.actionManager.addToBottom(new SwordBoomerangAction(m2, new DamageInfo(p, this.baseDamage), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new SwordBoomerangAction(m2, new DamageInfo(p, this.baseDamage, damageTypeForTurn), this.magicNumber));
     }
 
     @Override

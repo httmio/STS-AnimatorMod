@@ -1,50 +1,50 @@
 {
-	"Animator_Ainz":
+	"animator_AinzPower":
 	{
 		"DESCRIPTIONS": ["At the start of your turn add #b", " random #yPower #yForm to your hand."],
 		"NAME": "Ainz Ooal Gown"
 	},
-	"Animator_Archer":
+	"animator_ArcherPower":
 	{
-		"DESCRIPTIONS": ["At the end of your turn, deal #b", " Damage to all enemies with a Debuff."],
+		"DESCRIPTIONS": ["At the end of your turn, deal #b", " damage to all enemies with a Debuff."],
 		"NAME": "Archer"
 	},
-	"Animator_Darkness":
+	"animator_DarknessPower":
 	{
 		"DESCRIPTIONS": ["Whenever you take damage upgrade #b", " random card/s, prioritizing those in your hand."],
 		"NAME": "Dustiness Ford Lalatina"
 	},
-	"Animator_EntouJyuu":
+	"animator_EntouJyuuPower":
 	{
-		"DESCRIPTIONS": ["Every time you play an Attack increase its Damage by #b", " this combat."],
+		"DESCRIPTIONS": ["Every time you play an Attack increase its damage by #b", " this combat."],
 		"NAME": "Entou Jyuu"
 	},
-	"Animator_Eve":
+	"animator_EvePower":
 	{
 		"DESCRIPTIONS": ["Whenever a #ySynergy is activated deal #b", " damage to a random enemy."],
 		"NAME": "Eve's Awakening"
 	},
-	"Animator_Hitei":
+	"animator_HiteiPower":
 	{
 		"DESCRIPTIONS": ["At the start of your turn gain #b", " gold and Exhaust #b", " random card/s in your draw pile."],
 		"NAME": "Princess Hitei"
 	},
-	"Animator_MarkOfPoison":
+	"animator_MarkOfPoisonPower":
 	{
 		"DESCRIPTIONS": ["Whenever an #yAttack deals you damage receive #b", " #yPoison."],
 		"NAME": "Mark of Poison"
 	},
-	"Animator_PinaCoLada":
+	"animator_PinaCoLadaPower":
 	{
 		"DESCRIPTIONS": ["Whenever a #ySynergy is activated gain #b", " block."],
 		"NAME": "Piña Co Lada"
 	},
-	"Animator_PlayerStatistics":
+	"animator_PlayerStatistics":
 	{
 		"DESCRIPTIONS": ["Hidden Player Statistics power."],
 		"NAME": "Player Statistics"
 	},
-	"Animator_RoryMercury":
+	"animator_RoryMercuryPower":
 	{
 		"DESCRIPTIONS": ["Your next attack this turn deals double damage. #b", " use/s."],
 		"NAME": "Rory Mercury"

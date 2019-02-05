@@ -24,15 +24,6 @@ public class DolaStephanie extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         AbstractDungeon.actionManager.addToBottom(new StephanieAction(p, 1));
-        //ArrayList<AbstractCard> cards = AbstractDungeon.actionManager.cardsPlayedThisTurn;
-        //for (int i = 0; i < cards.size() - 1; i++)
-        //{
-        //    if (cards.get(i).type == CardType.SKILL)
-        //    {
-        //        return;
-        //    }
-        //}
-        //AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
     }
 
     @Override
