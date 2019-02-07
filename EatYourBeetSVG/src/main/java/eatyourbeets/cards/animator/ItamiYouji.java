@@ -17,7 +17,9 @@ public class ItamiYouji extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
 
-        Initialize(4,0,0);
+        Initialize(5,0,0);
+
+        this.retain = true;
 
         SetSynergy(Synergies.Gate);
     }
@@ -29,6 +31,13 @@ public class ItamiYouji extends AnimatorCard
 
         this.magicNumber = AbstractDungeon.actionManager.cardsPlayedThisTurn.size();
         this.isMagicNumberModified = this.magicNumber > 0;
+    }
+
+    @Override
+    public void atTurnStart()
+    {
+        super.atTurnStart();
+        this.retain = true;
     }
 
     @Override
@@ -45,7 +54,7 @@ public class ItamiYouji extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(2);
+            upgradeDamage(3);
         }
     }
 }

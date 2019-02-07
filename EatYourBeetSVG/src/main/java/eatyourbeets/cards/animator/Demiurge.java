@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import eatyourbeets.actions.CycleAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -28,6 +29,11 @@ public class Demiurge extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded ? 3 : 2));
+
+        if (HasActiveSynergy())
+        {
+            AbstractDungeon.actionManager.addToBottom(new CycleAction(p, 1));
+        }
         damagePlayer = true;
     }
 
@@ -39,7 +45,7 @@ public class Demiurge extends AnimatorCard
         if (damagePlayer)
         {
             AbstractPlayer p = AbstractDungeon.player;
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.NORMAL)));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(p, new DamageInfo(p, this.magicNumber, DamageInfo.DamageType.HP_LOSS)));
             damagePlayer = false;
         }
     }

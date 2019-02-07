@@ -23,7 +23,7 @@ public class Shalltear extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
 
-        Initialize(9,0, 4);
+        Initialize(11,0, 4);
 
         tags.add(CardTags.HEALING);
 
@@ -55,7 +55,7 @@ public class Shalltear extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(2);
+            upgradeDamage(3);
             upgradeMagicNumber(1);
         }
     }

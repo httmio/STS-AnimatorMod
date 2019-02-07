@@ -12,9 +12,9 @@
 	"animator_Ainz":
 	{
 		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand.",
+		"EXTENDED_DESCRIPTION": ["Power Form", "Either Demon Form, Wraith Form or Echo Form."],
 		"NAME": "Ainz Ooal Gown",
-		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand.",
-		"EXTENDED_DESCRIPTION": ["Power Form", "Either Demon Form, Wraith Form or Echo Form."]
+		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand."
 	},
 	"animator_Aisha":
 	{
@@ -67,11 +67,16 @@
 		"DESCRIPTION": "Deal !M! damage for each card you have drawn this turn. NL (Deal !D! damage)",
 		"NAME": "Kurami"
 	},
+	"animator_Chung":
+	{
+		"DESCRIPTION": "Gain !B! Block. Cooldown !M!: NL Deal !D! damage to ALL enemies.",
+		"NAME": "Chung"
+	},
 	"animator_Cocytus":
 	{
 		"DESCRIPTION": "Deal !D! damage. [#EFC851]Absorb [#EFC851]Armor. Synergy: Increase this card's damage by !M! this combat.",
-		"NAME": "Cocytus",
-		"EXTENDED_DESCRIPTION": ["Absorb Armor", "Gain any block lost by the enemy during this attack."]
+		"EXTENDED_DESCRIPTION": ["Absorb Armor", "Gain any block lost by the enemy during this attack."],
+		"NAME": "Cocytus"
 	},
 	"animator_Darkness":
 	{
@@ -86,9 +91,9 @@
 	},
 	"animator_Demiurge":
 	{
-		"DESCRIPTION": "Gain [B] [B] NL The next time you draw this, take !M! damage.",
+		"DESCRIPTION": "Gain [B] [B] NL The next time you draw this, lose !M! HP. Synergy: Cycle 1 card.",
 		"NAME": "Demiurge",
-		"UPGRADE_DESCRIPTION": "Gain [B] [B] [B] NL The next time you draw this, take !M! damage."
+		"UPGRADE_DESCRIPTION": "Gain [B] [B] [B] NL The next time you draw this, lose !M! HP. Synergy: Cycle 1 card."
 	},
 	"animator_DolaRiku":
 	{
@@ -111,12 +116,23 @@
 		"DESCRIPTION": "Deal !D! damage. Retain. Increase this card's damage by !M! each turn while in your hand.",
 		"NAME": "Elesis"
 	},
+	"animator_Elsword":
+	{
+		"DESCRIPTION": "Deal !D! damage. Synergy: Cycle 2 cards.",
+		"NAME": "Elsword"
+	},
 	"animator_Emonzaemon":
 	{
 		"DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu, then Purge this.",
+		"EXTENDED_DESCRIPTION": ["Entou Jyuu", "A special 0-Cost #yPower."],
 		"NAME": "Emonzaemon",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu+, then Purge this.",
-		"EXTENDED_DESCRIPTION": ["Entou Jyuu", "A special 0-Cost #yPower."]
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu+, then Purge this."
+	},
+	"animator_Entoma":
+	{
+		"DESCRIPTION": "Deal !D! damage and Apply !M! Poison. [#EFC851]Hunger.",
+		"EXTENDED_DESCRIPTION": ["Hunger", "Lose #b1 damage each turn. If this kills a non-minion enemy, permanently gain #b1 damage and #b2 Max HP."],
+		"NAME": "Entoma"
 	},
 	"animator_EntouJyuu":
 	{
@@ -125,7 +141,7 @@
 	},
 	"animator_Eris":
 	{
-		"DESCRIPTION": "Heal !M! hp. Purge. NL Resurrect.",
+		"DESCRIPTION": "Heal !M! HP. Purge. NL Resurrect.",
 		"NAME": "Eris"
 	},
 	"animator_Eve":
@@ -138,6 +154,11 @@
 		"DESCRIPTION": "Deal !D! damage to ALL enemies, Exhaust ALL [#EFC851]Attacks in your hand and gain their damage.",
 		"NAME": "Excalibur"
 	},
+	"animator_FeridBathory":
+	{
+		"DESCRIPTION": "Twice per turn, when a card is Exhausted gain !M! Strength and Heal 2 HP.",
+		"NAME": "Ferid Bathory"
+	},
 	"animator_Fredrika":
 	{
 		"DESCRIPTION": "Shapeshifter. Gain !B! Block for each enemy. Synergy: Choose and Retain up to !M! cards.",
@@ -146,8 +167,8 @@
 	"animator_Gilgamesh":
 	{
 		"DESCRIPTION": "Can be Upgraded any number of times. Deal !D! damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon.",
-		"NAME": "Gilgamesh",
-		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not activate when purchasing relics."]
+		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not activate when purchasing relics."],
+		"NAME": "Gilgamesh"
 	},
 	"animator_HigakiRinne":
 	{
@@ -158,13 +179,18 @@
 	"animator_Hitei":
 	{
 		"DESCRIPTION": "At the start of your turn gain !M! Gold and Exhaust a random card in your draw pile.",
-		"NAME": "Hitei",
-		"EXTENDED_DESCRIPTION": ["Gold Limit", "You cannot gain more than 100 Gold per combat. Stacking this power increases the gold cap a little."]
+		"EXTENDED_DESCRIPTION": ["Gold Limit", "You cannot gain more than 100 Gold per combat. Stacking this power increases the gold cap a little."],
+		"NAME": "Hitei"
 	},
 	"animator_Illya":
 	{
 		"DESCRIPTION": "Draw your highest damage [#EFC851]Attack and increase its damage by !M! this combat.",
 		"NAME": "Illya"
+	},
+	"animator_ItamiYouji":
+	{
+		"DESCRIPTION": "Retain. Deal !D! damage to a random enemy for each card you have played this turn. (Played !M! cards)",
+		"NAME": "Itami Youji"
 	},
 	"animator_Jibril":
 	{
@@ -184,8 +210,13 @@
 	"animator_KrulTepes":
 	{
 		"DESCRIPTION": "Deal !D! damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial.",
-		"NAME": "Krul Tepes",
-		"EXTENDED_DESCRIPTION": ["Relic Limit", "You will only receive 1 relic in multi-elite combats."]
+		"EXTENDED_DESCRIPTION": ["Relic Limit", "You will only receive 1 relic in multi-elite combats."],
+		"NAME": "Krul Tepes"
+	},
+	"animator_Kuribayashi":
+	{
+		"DESCRIPTION": "Deal !D! damage. Synergy: The target loses !M! Strength this turn.",
+		"NAME": "Kuribayashi"
 	},
 	"animator_Lancer":
 	{
@@ -195,8 +226,8 @@
 	"animator_LeleiLaLalena":
 	{
 		"DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! card. Synergy: Also apply !M! Weak.",
-		"UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! cards. Synergy: Also apply !M! Weak.",
-		"NAME": "Lelei La Lalena"
+		"NAME": "Lelei La Lalena",
+		"UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! cards. Synergy: Also apply !M! Weak."
 	},
 	"animator_Megumin":
 	{
@@ -206,8 +237,8 @@
 	"animator_Mikaela":
 	{
 		"DESCRIPTION": "Deal !D! damage Twice. Exhaust a random card in your discard pile.",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage Twice. Choose and Exhaust a card in your discard pile.",
-		"NAME": "Mikaela"
+		"NAME": "Mikaela",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage Twice. Choose and Exhaust a card in your discard pile."
 	},
 	"animator_Nanami":
 	{
@@ -217,9 +248,9 @@
 	},
 	"animator_NarberalGamma":
 	{
-		"DESCRIPTION": "Channel !M! Lightning. Shapeshifter.",
+		"DESCRIPTION": "Channel !M! Lightning. Next turn, gain [B]. Shapeshifter.",
 		"NAME": "Gamma Narberal",
-		"UPGRADE_DESCRIPTION": "Channel !M! Lightning. Shapeshifter. NL Synergy: Gain 1 Orb slot."
+		"UPGRADE_DESCRIPTION": "Channel !M! Lightning. Next turn, gain [B]. Shapeshifter. NL Synergy: Gain 1 Orb slot."
 	},
 	"animator_PandorasActor":
 	{
@@ -230,6 +261,12 @@
 	{
 		"DESCRIPTION": "When a Synergy is activated gain !M! Block.",
 		"NAME": "Piña Co Lada"
+	},
+	"animator_Rena":
+	{
+		"DESCRIPTION": "Apply 1 Vulnerable and Gain !B! Block. Synergy: Gain 1 [#EFC851]Blur.",
+		"EXTENDED_DESCRIPTION": ["Blur", "Your #yBlock is not removed at the start of your next turn."],
+		"NAME": "Rena"
 	},
 	"animator_RinTohsaka":
 	{
@@ -243,9 +280,9 @@
 	},
 	"animator_Saber":
 	{
-		"DESCRIPTION": "Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
+		"DESCRIPTION": "Loyal. Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
 		"NAME": "Saber",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
+		"UPGRADE_DESCRIPTION": "Loyal. Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
 	},
 	"animator_Shalltear":
 	{
@@ -275,7 +312,7 @@
 	},
 	"animator_Togame":
 	{
-		"DESCRIPTION": "Draw !M! cards, then you may Exhaust 1 card.",
+		"DESCRIPTION": "Draw !SV! cards, then you may choose and Exhaust 1 card. Purge after !M! uses.",
 		"NAME": "Togame"
 	},
 	"animator_TukaLunaMarceau":
@@ -283,60 +320,45 @@
 		"DESCRIPTION": "Gain !M! Dexterity. At the end of your turn lose !M! Dexterity. Synergy: lose 1 less Dexterity.",
 		"NAME": "Tuka"
 	},
-	"animator_Wiz":
-	{
-		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses.",
-		"NAME": "Wiz",
-		"EXTENDED_DESCRIPTION": ["Retrieval Limit", "You cannot retrieve another Wiz from your exhaust pile."]
-	},
-	"animator_YaoHaDucy":
-	{
-		"DESCRIPTION": "Gain !B! Block. NL Deal !D! damage to ALL enemies. Synergy: Draw !M! card.",
-		"NAME": "Yao Ha Ducy",
-		"UPGRADE_DESCRIPTION": "Gain !B! Block. NL Deal !D! damage to ALL enemies. Synergy: Draw !M! cards."
-	},
-	"animator_Yuuichirou":
-	{
-		"DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru to your discard pile.",
-		"NAME": "Yuuichirou",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile.",
-		"EXTENDED_DESCRIPTION": ["Asuramaru", "A special 0-Cost #yAttack."]
-	},
-	"animator_ItamiYouji":
-	{
-		"DESCRIPTION": "Deal !D! damage to a random enemy for each card you have played this turn. (Played !M! cards)",
-		"NAME": "Itami Youji"
-	},
-	"animator_Kuribayashi":
-	{
-		"DESCRIPTION": "Deal !D! damage. Synergy: The target loses !M! Strength this turn.",
-		"NAME": "Kuribayashi"
-	},
-	"animator_Entoma":
-	{
-		"DESCRIPTION": "Deal !D! damage and Apply !M! Poison. [#EFC851]Hunger.",
-		"NAME": "Entoma",
-		"EXTENDED_DESCRIPTION": ["Hunger", "Lose #b1 damage each turn. If this kills a non-minion enemy, permanently gain #b1 damage and #b2 Max Hp."]
-	},
-	"animator_Elsword":
-	{
-		"DESCRIPTION": "Deal !D! damage. Synergy: Cycle 2 cards.",
-		"NAME": "Elsword"
-	},
-	"animator_Rena":
-	{
-		"DESCRIPTION": "Apply 1 Vulnerable and Gain !B! Block. Synergy: Gain 1 [#EFC851]Blur.",
-		"NAME": "Rena",
-		"EXTENDED_DESCRIPTION": ["Blur", "Your #yBlock is not removed at the start of your next turn."]
-	},
-	"animator_Chung":
-	{
-		"DESCRIPTION": "Gain !B! Block. Cooldown !M!: NL Deal !D! damage to ALL enemies.",
-		"NAME": "Chung"
-	},
 	"animator_Tyuule":
 	{
 		"DESCRIPTION": "Apply !M! Poison to an enemy for each [#EFC851]Skill in your hand. NL (Apply !SV! Poison)",
 		"NAME": "Tyuule"
+	},
+	"animator_Wiz":
+	{
+		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses.",
+		"EXTENDED_DESCRIPTION": ["Retrieval Limit", "You cannot retrieve another Wiz from your exhaust pile."],
+		"NAME": "Wiz"
+	},
+	"animator_YaoHaDucy":
+	{
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. Synergy: Gain !B! Block.",
+		"NAME": "Yao Ha Ducy"
+	},
+	"animator_Yuuichirou":
+	{
+		"DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru to your discard pile.",
+		"EXTENDED_DESCRIPTION": ["Asuramaru", "A special 0-Cost #yAttack."],
+		"NAME": "Yuuichirou",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile."
+	},
+	"animator_Layla":
+	{
+		"DESCRIPTION": "[#EFC851]Reload: Deal !D! damage.",
+		"EXTENDED_DESCRIPTION": ["Reload", "Discard any number of cards, activate this effect that many times."],
+		"NAME": "Layla",
+		"UPGRADE_DESCRIPTION": "[#EFC851]Reload: Deal !D! Piercing damage."
+	},
+	"animator_ChaikaBohdan":
+	{
+		"DESCRIPTION": "[#EFC851]Impatient !M!. NL Deal !D! damage.",
+		"EXTENDED_DESCRIPTION": ["Impatient", "Whenever you attack an enemy while this is in your hand, gain this much damage. Reset after use."],
+		"NAME": "Chaika Bohdan"
+	},
+	"animator_Guy":
+	{
+		"DESCRIPTION": "Give an enemy !B! Block, then gain its total Block. Synergy: Gain !M! Focus.",
+		"NAME": "Guy"
 	}
 }

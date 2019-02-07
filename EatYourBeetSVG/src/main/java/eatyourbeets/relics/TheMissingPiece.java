@@ -97,7 +97,7 @@ public class TheMissingPiece extends AnimatorRelic
         synergies.add(Synergies.Gate);
         synergies.add(Synergies.Overlord);
         synergies.add(Synergies.NoGameNoLife);
-        //synergies.add(Synergies.Chaika);
+        synergies.add(Synergies.Chaika);
         synergies.add(Synergies.Katanagatari);
         synergies.add(Synergies.Fate);
         synergies.add(Synergies.Konosuba);

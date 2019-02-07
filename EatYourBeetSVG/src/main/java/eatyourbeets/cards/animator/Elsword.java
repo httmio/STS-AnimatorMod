@@ -2,12 +2,11 @@ package eatyourbeets.cards.animator;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.DiscardAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import eatyourbeets.actions.CycleAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -31,8 +30,9 @@ public class Elsword extends AnimatorCard
 
         if (HasActiveSynergy())
         {
-            AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new CycleAction(p, this.magicNumber));
+//            AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
+//            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
         }
     }
 

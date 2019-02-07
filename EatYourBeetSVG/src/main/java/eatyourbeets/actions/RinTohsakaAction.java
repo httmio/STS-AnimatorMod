@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.relics.RingOfTheSerpent;
 import eatyourbeets.cards.animator.RinTohsaka;
 
 public class RinTohsakaAction extends AbstractGameAction

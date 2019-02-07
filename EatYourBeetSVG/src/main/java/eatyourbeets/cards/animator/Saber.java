@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.actions.ModifyMagicNumberAction;
+import eatyourbeets.actions.MoveSpecificCardAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -17,11 +18,19 @@ public class Saber extends AnimatorCard
 
     public Saber()
     {
-        super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
+        super(ID, 1, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
 
-        Initialize(8,0,4);
+        Initialize(9,0,3);
 
         SetSynergy(Synergies.Fate);
+    }
+
+    @Override
+    public void onMoveToDiscard()
+    {
+        super.onMoveToDiscard();
+        AbstractPlayer player = AbstractDungeon.player;
+        AbstractDungeon.actionManager.addToBottom(new MoveSpecificCardAction(this, player.drawPile, player.discardPile, true));
     }
 
     @Override
@@ -54,7 +63,7 @@ public class Saber extends AnimatorCard
         if (TryUpgrade())
         {
             upgradeDamage(2);
-            upgradeMagicNumber(-1);
+            //upgradeMagicNumber(-1);
         }
     }
 }

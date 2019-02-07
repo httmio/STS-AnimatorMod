@@ -7,9 +7,10 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import eatyourbeets.AnimatorResources;
 import eatyourbeets.cards.AnimatorCard;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.StringJoiner;
 
 public abstract class AnimatorPower extends AbstractPower
 {
@@ -58,7 +59,12 @@ public abstract class AnimatorPower extends AbstractPower
 
             default:
             {
-                this.description = StringUtils.join(powerStrings.DESCRIPTIONS, " ");
+                StringJoiner stringJoiner = new StringJoiner(Integer.toString(this.amount));
+                for (String s : powerStrings.DESCRIPTIONS)
+                {
+                    stringJoiner.add(s);
+                }
+                this.description = stringJoiner.toString();
             }
         }
         //logger.info(powerStrings.DESCRIPTIONS.length + ": " + powerStrings.DESCRIPTIONS[0]);

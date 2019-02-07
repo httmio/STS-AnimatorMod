@@ -3,6 +3,7 @@ package eatyourbeets.cards.animator;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.cards.colorless.Shiv;
@@ -159,7 +160,11 @@ public class HigakiRinne extends AnimatorCard
         }
         else if (n < 90) // 5%
         {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(CardLibrary.getRandomColorSpecificCard(this.color, rng)));
+            AbstractCard card = CardLibrary.getRandomColorSpecificCard(this.color, rng);
+            if (!card.tags.contains(CardTags.HEALING))
+            {
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card));
+            }
         }
     }
 }

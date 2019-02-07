@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import eatyourbeets.actions.ModifyMagicNumberAction;
+import eatyourbeets.actions.ModifyMagicNumberPermanentlyAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -20,10 +20,19 @@ public class Chung extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL);
 
-        Initialize(18, 5, COOLDOWN);
+        Initialize(16, 5, COOLDOWN);
 
+        this.misc = COOLDOWN;
         this.isMultiDamage = true;
         SetSynergy(Synergies.Elsword);
+    }
+
+    @Override
+    public void applyPowers()
+    {
+        this.magicNumber = this.misc;
+        super.applyPowers();
+        initializeDescription();
     }
 
     @Override
@@ -42,22 +51,22 @@ public class Chung extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(6);
+            upgradeDamage(4);
             upgradeBlock(3);
         }
     }
 
     private boolean ProgressCooldown()
     {
-        if (this.magicNumber == 0)
+        if (this.baseMagicNumber <= 0)
         {
-            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberAction(this.uuid, COOLDOWN));
+            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberPermanentlyAction(this.uuid, COOLDOWN));
 
             return true;
         }
         else
         {
-            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberAction(this.uuid, -1));
+            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberPermanentlyAction(this.uuid, -1));
 
             return false;
         }

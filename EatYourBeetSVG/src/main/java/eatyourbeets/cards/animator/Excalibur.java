@@ -45,8 +45,8 @@ public class Excalibur extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(4);
-            upgradeBaseCost(1);
+            upgradeDamage(8);
+            //upgradeBaseCost(1);
         }
     }
 }

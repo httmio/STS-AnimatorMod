@@ -256,14 +256,14 @@ public abstract class AnimatorCard extends CustomCard
     {
         this.synergy = synergy;
         this.anySynergy = anySynergy;
-        if (anySynergy)
-        {
-            customTooltips.add(new TooltipInfo("Synergies", Synergies.ANY.NAME));
-        }
-        else
-        {
-            customTooltips.add(new TooltipInfo("Synergies", synergy.NAME));
-        }
+//        if (anySynergy)
+//        {
+//            customTooltips.add(new TooltipInfo("Synergies", Synergies.ANY.NAME));
+//        }
+//        else
+//        {
+//            customTooltips.add(new TooltipInfo("Synergies", synergy.NAME));
+//        }
     }
 
     protected void AddExtendedDescription(Object param)
@@ -296,6 +296,11 @@ public abstract class AnimatorCard extends CustomCard
     protected AnimatorCard(CardStrings strings, String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
         super(id, strings.NAME, AnimatorResources.GetCardImage(id), cost, strings.DESCRIPTION, type, color, rarity, target);
+
+        if (rarity == CardRarity.SPECIAL)
+        {
+            setBannerTexture("images\\cardui\\512\\banner_special.png","images\\cardui\\1024\\banner_special.png");
+        }
 
         cardStrings = strings;
         if (StringUtils.isNotEmpty(strings.UPGRADE_DESCRIPTION))

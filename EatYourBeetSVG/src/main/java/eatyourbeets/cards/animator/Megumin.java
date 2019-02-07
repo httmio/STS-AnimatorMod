@@ -51,7 +51,7 @@ public class Megumin extends AnimatorCard
         if (TryUpgrade())
         {          
             this.initializeDescription();
-            upgradeDamage(4);
+            //upgradeDamage(4);
             upgradeMagicNumber(1);
         }
     }

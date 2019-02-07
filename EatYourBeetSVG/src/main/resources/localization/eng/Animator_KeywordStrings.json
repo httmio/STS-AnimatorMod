@@ -1,8 +1,13 @@
 [
 	{
-		"DESCRIPTION": "Activates if the last card played had the same synergy.",
+		"DESCRIPTION": "Activates if the last card played was from the same series.",
 		"NAMES": ["synergy", "synergies", "synergize"],
 		"PROPERNAME": "Synergy"
+	},
+	{
+		"DESCRIPTION": "Whenever this is discarded or played, shuffle it into your draw pile.",
+		"NAMES": ["loyal"],
+		"PROPERNAME": "Loyal"
 	},
 	{
 		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect on every #yAttack received. Lasts 1 turn.",
@@ -25,7 +30,7 @@
 		"PROPERNAME": "Resurrect"
 	},
 	{
-		"DESCRIPTION": "Gets reduced by 1 each time you play this card, if it is at 0, activate the effect and reset the Cooldown.",
+		"DESCRIPTION": "Gets reduced by 1 each time you play this card, if it is at 0, activate the effect and reset the Cooldown. Preserved between fights.",
 		"NAMES": ["cooldown"],
 		"PROPERNAME": "Cooldown"
 	},

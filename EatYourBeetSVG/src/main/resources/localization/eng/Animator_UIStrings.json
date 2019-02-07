@@ -21,7 +21,9 @@
 	{
 		"TEXT": 
 		[
-			"Fetch cards with the same synergy."
+			"fetch Cards with the same synergy.",
+			"discard and draw that many Cards.",
+			"activate this card's effect that many times."
 		]
 	},
 	
@@ -29,7 +31,7 @@
 	{
 		"TEXT": 
 		[
-			"Only contains cards with this synergy. WARNING: once you click on this, the other 2 card rewards will disappear."
+			"Only contains Cards with this synergy. WARNING: once you click on this, the other 2 Card rewards will disappear."
 		]
 	},
 		

@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
@@ -19,6 +20,7 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
 
     public static final PlayerStatistics Instance = new PlayerStatistics();
 
+    public static final GameEvent<OnAttackSubscriber> onAttack = new GameEvent<>();
     public static final GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
     public static final GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
     public static final GameEvent<OnCardDrawnSubscriber> onCardDrawn = new GameEvent<>();
@@ -40,6 +42,8 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         AnimatorCard.SetLastCardPlayed(null);
         cardsDrawnThisTurn = 0;
         turnCount = 0;
+
+        onAttack.Clear();
         onLoseHp.Clear();
         onLoseHp.Clear();
         onEndOfTurn.Clear();
@@ -59,6 +63,7 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     public void OnBattleStart()
     {
         ClearStats();
+        onBattleStart.Clear();
         for (AbstractCard c : AbstractDungeon.player.drawPile.group)
         {
             OnBattleStartSubscriber s = Utilities.SafeCast(c, OnBattleStartSubscriber.class);
@@ -108,6 +113,17 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         }
 
         return turnCount;
+    }
+
+    @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target)
+    {
+        super.onAttack(info, damageAmount, target);
+
+        for (OnAttackSubscriber p : onAttack.GetSubscribers())
+        {
+            p.OnAttack(info, damageAmount, target);
+        }
     }
 
     @Override

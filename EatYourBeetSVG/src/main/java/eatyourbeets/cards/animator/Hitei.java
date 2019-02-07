@@ -1,6 +1,5 @@
 package eatyourbeets.cards.animator;
 
-import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,7 +16,7 @@ public class Hitei extends AnimatorCard
     {
         super(ID, 1, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,0,5);
+        Initialize(0,0,6);
 
         AddExtendedDescription();
 
@@ -35,7 +34,7 @@ public class Hitei extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(4);
         }
     }
 }

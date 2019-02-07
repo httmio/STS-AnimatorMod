@@ -24,6 +24,11 @@
 		"DESCRIPTIONS": ["Whenever a #ySynergy is activated deal #b", " damage to a random enemy."],
 		"NAME": "Eve's Awakening"
 	},
+	"animator_FeridBathoryPower":
+	{
+		"DESCRIPTIONS": ["Twice per turn, when a card is Exhausted gain #b", " Strength and Heal #b", " Hp."],
+		"NAME": "Ferid Bathory"
+	},
 	"animator_HiteiPower":
 	{
 		"DESCRIPTIONS": ["At the start of your turn gain #b", " gold and Exhaust #b", " random card/s in your draw pile."],

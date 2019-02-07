@@ -1,4 +1,4 @@
-package patches;
+package eatyourbeets.ui;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -10,11 +10,11 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.AnimatorResources;
 import eatyourbeets.characters.AnimatorCharacterSelect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import patches.AbstractClassEnum;
 
 public class CharacterSelectScreenPatch
 {

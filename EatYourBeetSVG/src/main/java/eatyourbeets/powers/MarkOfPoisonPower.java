@@ -24,7 +24,7 @@ public class MarkOfPoisonPower extends AnimatorPower
     @Override
     public int onAttacked(DamageInfo info, int damageAmount)
     {
-        if (info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0)
+        if (info.type != DamageInfo.DamageType.THORNS && damageAmount > 0)
         {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new PoisonPower(owner, owner, this.amount), this.amount, AbstractGameAction.AttackEffect.POISON));
         }

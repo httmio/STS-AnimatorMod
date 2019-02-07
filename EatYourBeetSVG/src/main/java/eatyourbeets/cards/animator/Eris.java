@@ -85,7 +85,7 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
     {
         if (TryUpgrade())
         {
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(3);
         }
     }
 
