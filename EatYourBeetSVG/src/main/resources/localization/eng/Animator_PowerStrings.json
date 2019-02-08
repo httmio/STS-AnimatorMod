@@ -19,6 +19,11 @@
 		"DESCRIPTIONS": ["Every time you play an Attack increase its damage by #b", " this combat."],
 		"NAME": "Entou Jyuu"
 	},
+	"animator_ShiroPower":
+	{
+		"DESCRIPTIONS": ["At the start of you turn gain #b", " energy."],
+		"NAME": "Shiro"
+	},
 	"animator_EvePower":
 	{
 		"DESCRIPTIONS": ["Whenever a #ySynergy is activated deal #b", " damage to a random enemy."],

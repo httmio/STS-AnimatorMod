@@ -361,11 +361,6 @@
 		"NAME": "Yuuichirou",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile."
 	},
-	"animator_Sora":
-	{
-		"DESCRIPTION": "Choose and execute !M! effects.",
-		"NAME": "Sora"
-	},
 	"animator_Shiro":
 	{
 		"DESCRIPTION": "Gain [B] at the start of each turn.",
@@ -373,7 +368,7 @@
 	},
 	"animator_DolaCouronne":
 	{
-		"DESCRIPTION": "Gain !B! Block. Synergy: Draw 1 card.",
+		"DESCRIPTION": "Gain !B! Block. NL Synergy: Draw 1 card.",
 		"NAME": "Couronne"
 	}
 }

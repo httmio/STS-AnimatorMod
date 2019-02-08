@@ -3,20 +3,13 @@ package eatyourbeets.relics;
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.metrics.MetricData;
-import com.megacrit.cardcrawl.metrics.Metrics;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
-import eatyourbeets.Utilities;
-import eatyourbeets.cards.Synergies;
-import eatyourbeets.cards.Synergy;
-import eatyourbeets.rewards.SynergyCardsReward;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.StringJoiner;
 
 public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
 {

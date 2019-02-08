@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import eatyourbeets.actions.OnTargetBlockBreakAction;
 import eatyourbeets.actions.OnTargetBlockLostAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
@@ -31,7 +32,7 @@ public class Ara extends AnimatorCard
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_DIAGONAL));
 
-        AbstractDungeon.actionManager.addToBottom(new OnTargetBlockLostAction(m, new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new OnTargetBlockBreakAction(m, new ApplyPowerAction(p, p, new StrengthPower(p, this.magicNumber), this.magicNumber)));
     }
 
     @Override

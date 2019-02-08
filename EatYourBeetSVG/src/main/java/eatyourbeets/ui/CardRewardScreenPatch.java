@@ -3,7 +3,6 @@ package eatyourbeets.ui;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.screens.CardRewardScreen;
 import com.megacrit.cardcrawl.vfx.cardManip.ExhaustCardEffect;
@@ -18,7 +17,7 @@ public class CardRewardScreenPatch
 {
     public static final Logger logger = LogManager.getLogger(CardRewardScreenPatch.class.getName());
 
-    private static ArrayList<BanCardButton> buttons = new ArrayList<>();
+    private static final ArrayList<BanCardButton> buttons = new ArrayList<>();
     private static PurgingStone purgingStone;
     private static RewardItem rewardItem;
 
