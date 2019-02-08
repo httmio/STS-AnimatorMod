@@ -35,18 +35,22 @@ public class HigakiRinne extends AnimatorCard
     {
         super.triggerOnExhaust();
 
-        int n = AbstractDungeon.miscRng.random(6);
-        if (n == 0)
+        int n = AbstractDungeon.miscRng.random(100);
+        if (n < 20)
         {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Shiv()));
         }
-        else if (n == 1)
+        else if (n < 40)
         {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Madness()));
         }
-        else if (n == 2)
+        else if (n < 60)
         {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Slimed()));
+        }
+        else if (n < 64)
+        {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(makeCopy()));
         }
     }
 
@@ -79,7 +83,7 @@ public class HigakiRinne extends AnimatorCard
     {
         for (int i = 0; i < this.magicNumber; i++)
         {
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5f));
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(1));
             ExecuteRandomAction(p, AbstractDungeon.miscRng);
         }
     }

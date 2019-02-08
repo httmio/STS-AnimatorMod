@@ -57,6 +57,12 @@
 		"DESCRIPTION": "Deal !D! damage, if you break the target's Block, apply Stun.",
 		"NAME": "Berserker"
 	},
+	"animator_ChaikaBohdan":
+	{
+		"DESCRIPTION": "[#EFC851]Impatient !M!. NL Deal !D! damage.",
+		"EXTENDED_DESCRIPTION": ["Impatient", "Whenever you attack an enemy while this is in your hand, gain this much damage. Reset after use."],
+		"NAME": "Chaika Bohdan"
+	},
 	"animator_ChaikaTrabant":
 	{
 		"DESCRIPTION": "Deal !D! damage. If this is the first card you play this turn, Stun the enemy. Ethereal.",
@@ -170,6 +176,11 @@
 		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not activate when purchasing relics."],
 		"NAME": "Gilgamesh"
 	},
+	"animator_Guy":
+	{
+		"DESCRIPTION": "Give an enemy !B! Block, then gain its total Block. Synergy: Gain !M! Focus.",
+		"NAME": "Guy"
+	},
 	"animator_HigakiRinne":
 	{
 		"DESCRIPTION": "Shapeshifter. NL Behaves erratically...",
@@ -222,6 +233,13 @@
 	{
 		"DESCRIPTION": "Deal !D! Piercing damage. Heartseeker. If this kills an enemy gain [B].",
 		"NAME": "Lancer"
+	},
+	"animator_Layla":
+	{
+		"DESCRIPTION": "[#EFC851]Reload: Deal !D! damage.",
+		"EXTENDED_DESCRIPTION": ["Reload", "Discard any number of cards, activate this effect that many times."],
+		"NAME": "Layla",
+		"UPGRADE_DESCRIPTION": "[#EFC851]Reload: Deal !D! Piercing damage."
 	},
 	"animator_LeleiLaLalena":
 	{
@@ -343,22 +361,19 @@
 		"NAME": "Yuuichirou",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile."
 	},
-	"animator_Layla":
+	"animator_Sora":
 	{
-		"DESCRIPTION": "[#EFC851]Reload: Deal !D! damage.",
-		"EXTENDED_DESCRIPTION": ["Reload", "Discard any number of cards, activate this effect that many times."],
-		"NAME": "Layla",
-		"UPGRADE_DESCRIPTION": "[#EFC851]Reload: Deal !D! Piercing damage."
+		"DESCRIPTION": "Choose and execute !M! effects.",
+		"NAME": "Sora"
 	},
-	"animator_ChaikaBohdan":
+	"animator_Shiro":
 	{
-		"DESCRIPTION": "[#EFC851]Impatient !M!. NL Deal !D! damage.",
-		"EXTENDED_DESCRIPTION": ["Impatient", "Whenever you attack an enemy while this is in your hand, gain this much damage. Reset after use."],
-		"NAME": "Chaika Bohdan"
+		"DESCRIPTION": "Gain [B] at the start of each turn.",
+		"NAME": "Shiro"
 	},
-	"animator_Guy":
+	"animator_DolaCouronne":
 	{
-		"DESCRIPTION": "Give an enemy !B! Block, then gain its total Block. Synergy: Gain !M! Focus.",
-		"NAME": "Guy"
+		"DESCRIPTION": "Gain !B! Block. Synergy: Draw 1 card.",
+		"NAME": "Couronne"
 	}
 }

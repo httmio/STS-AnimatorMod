@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergy;
 import eatyourbeets.relics.LivingPicture;
+import eatyourbeets.relics.PurgingStone;
 import eatyourbeets.relics.TheMissingPiece;
 import eatyourbeets.rewards.SynergyCardsReward;
 import eatyourbeets.variables.SecondaryValueVariable;
@@ -36,7 +37,8 @@ public class AnimatorResources
         CharacterSelect,
         Synergies,
         Rewards,
-        Actions
+        Actions,
+        CardSelect
     }
 
     private static final Logger logger = LogManager.getLogger(AnimatorResources.class.getName());
@@ -148,6 +150,7 @@ public class AnimatorResources
     {
         BaseMod.addRelicToCustomPool(new LivingPicture(), AbstractCardEnum.THE_ANIMATOR);
         BaseMod.addRelicToCustomPool(new TheMissingPiece(), AbstractCardEnum.THE_ANIMATOR);
+        BaseMod.addRelicToCustomPool(new PurgingStone(), AbstractCardEnum.THE_ANIMATOR);
     }
 
     public static void LoadCustomCards() throws Exception

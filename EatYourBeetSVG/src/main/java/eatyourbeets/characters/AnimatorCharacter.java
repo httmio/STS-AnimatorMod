@@ -20,6 +20,7 @@ import eatyourbeets.AnimatorResources;
 import eatyourbeets.cards.animator.Defend;
 import eatyourbeets.cards.animator.Strike;
 import eatyourbeets.relics.LivingPicture;
+import eatyourbeets.relics.PurgingStone;
 import eatyourbeets.relics.TheMissingPiece;
 import patches.AbstractCardEnum;
 import patches.AbstractClassEnum;
@@ -154,6 +155,10 @@ public class AnimatorCharacter extends CustomPlayer
         {
             UnlockTracker.markRelicAsSeen(LivingPicture.ID);
         }
+        if (!UnlockTracker.isRelicSeen(PurgingStone.ID))
+        {
+            UnlockTracker.markRelicAsSeen(PurgingStone.ID);
+        }
         if (!UnlockTracker.isRelicSeen(TheMissingPiece.ID))
         {
             UnlockTracker.markRelicAsSeen(TheMissingPiece.ID);
@@ -161,6 +166,7 @@ public class AnimatorCharacter extends CustomPlayer
 
         ArrayList<String> res = new ArrayList<>();
         res.add(LivingPicture.ID);
+        res.add(PurgingStone.ID);
         res.add(TheMissingPiece.ID);
         return res;
     }

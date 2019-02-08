@@ -24,7 +24,7 @@ public class EntouJyuu extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new EntouJyuuPower(p, this.magicNumber)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new EntouJyuuPower(p, this.magicNumber), this.magicNumber));
     }
 
     @Override

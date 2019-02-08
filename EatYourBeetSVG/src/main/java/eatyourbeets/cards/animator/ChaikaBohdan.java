@@ -69,7 +69,7 @@ public class ChaikaBohdan extends AnimatorCard implements OnBattleStartSubscribe
     public void OnAttack(DamageInfo info, int damageAmount, AbstractCreature target)
     {
         AbstractPlayer player = AbstractDungeon.player;
-        if (player.hand.contains(this) && target instanceof AbstractMonster && info.owner == player)
+        if (player.hand.contains(this) && target instanceof AbstractMonster && info.owner == player && info.type != DamageInfo.DamageType.THORNS)
         {
             for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
             {

@@ -17,7 +17,7 @@ public class AcuraTooru extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(4,0, 3);
+        Initialize(5,0, 3);
 
         SetSynergy(Synergies.Chaika);
     }
@@ -42,7 +42,7 @@ public class AcuraTooru extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(1);
+            upgradeDamage(1);
         }
     }
 }

@@ -17,5 +17,14 @@
 			"Every #b",
 			" combats, receive improved card rewards."
 		]
+	},
+	"Animator_PurgingStone":
+	{
+		"NAME": "Purging Stone",
+		"FLAVOR": "Humans are helpless against curses, and can only redirect their influence.",
+		"DESCRIPTIONS":
+		[
+			"You may ban cards from appearing in future NORMAL card rewards. Gain more uses at the start of every act."
+		]
 	}
 }
