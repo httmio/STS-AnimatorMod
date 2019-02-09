@@ -5,6 +5,11 @@
 		"PROPERNAME": "Synergy"
 	},
 	{
+		"DESCRIPTION": "Triggers when this card is exhausted.",
+		"NAMES": ["legacy"],
+		"PROPERNAME": "Legacy"
+	},
+	{
 		"DESCRIPTION": "Whenever this is discarded or played, shuffle it into your draw pile.",
 		"NAMES": ["loyal"],
 		"PROPERNAME": "Loyal"

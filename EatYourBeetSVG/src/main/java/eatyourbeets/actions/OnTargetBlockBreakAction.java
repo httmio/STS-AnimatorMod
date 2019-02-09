@@ -43,7 +43,7 @@ public class OnTargetBlockBreakAction extends AnimatorAction
 
         if (initialBlock > 0 && target.currentBlock <= 0)
         {
-            AbstractDungeon.actionManager.addToBottom(action);
+            AbstractDungeon.actionManager.addToTop(action);
         }
         this.isDone = true;
     }

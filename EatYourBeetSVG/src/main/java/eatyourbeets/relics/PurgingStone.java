@@ -7,6 +7,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
+import eatyourbeets.Utilities;
+import eatyourbeets.powers.PlayerStatistics;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -15,7 +17,7 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
 {
     public static final String ID = CreateFullID(PurgingStone.class.getSimpleName());
 
-    private static final int CHARGES = 4;
+    private static final int CHARGES = 3;
 
     private final ArrayList<String> bannedCards;
 
@@ -53,7 +55,10 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
         AbstractRoom room = AbstractDungeon.getCurrRoom();
         if (room.rewardAllowed && room instanceof MonsterRoomBoss)
         {
-            this.counter += CHARGES;
+            if (bannedCards.size() < 40)
+            {
+                this.counter += CHARGES;
+            }
         }
     }
 
@@ -77,7 +82,7 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
 
     public boolean CanActivate(RewardItem rewardItem)
     {
-        return (rewardItem != null && rewardItem.type == RewardItem.RewardType.CARD);
+        return (!PlayerStatistics.InBattle() && rewardItem != null && rewardItem.type == RewardItem.RewardType.CARD);
     }
 
     public boolean CanBan(AbstractCard card)
@@ -119,44 +124,76 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
 //                }
 //                logger.info(sj.toString());
 
-                int cycles = 300;
-                AbstractCard toRemove;
-                do
+                for (int i = r.cards.size() - 1; i >= 0; i--)
                 {
-                    toRemove = null;
-                    for (AbstractCard c : r.cards)
+                    if (bannedCards.contains(r.cards.get(i).cardID))
                     {
-                        if (bannedCards.contains(c.cardID))
+                        int cycles = 30;
+                        AbstractCard card;
+                        do
                         {
-                            toRemove = c;
-                            break;
+                            card = GetRandomCard(r.cards);
                         }
-                    }
-
-                    if (toRemove != null)
-                    {
-                        logger.info("Removing " + toRemove.cardID);
-                        r.cards.remove(toRemove);
-
-                        AbstractCard card = null;
-                        int cycles2 = 60;
-                        while (card == null && cycles2-- > 0)
-                        {
-                            card = AbstractDungeon.returnRandomCard();
-                            if (card.cardID.equals(toRemove.cardID))
-                            {
-                                card = null;
-                            }
-                        }
+                        while (card == null && cycles-- > 0);
 
                         if (card != null)
                         {
-                            r.cards.add(card);
+                            r.cards.set(i, card.makeCopy());
+                        }
+                        else
+                        {
+                            r.cards.remove(i);
                         }
                     }
                 }
-                while (toRemove != null && cycles-- > 0);
             }
         }
+    }
+
+    private AbstractCard GetRandomCard(ArrayList<AbstractCard> rewards)
+    {
+        AbstractCard.CardRarity rarity = AbstractDungeon.rollRarity();
+        ArrayList<AbstractCard> pool = null;
+        switch (rarity)
+        {
+            case COMMON:
+                pool = AbstractDungeon.srcCommonCardPool.group;
+                break;
+
+            case UNCOMMON:
+                pool = AbstractDungeon.srcUncommonCardPool.group;
+                break;
+
+            case RARE:
+                pool = AbstractDungeon.srcRareCardPool.group;
+                break;
+
+            case BASIC:
+            case SPECIAL:
+            case CURSE:
+                break;
+        }
+
+        if (pool == null || pool.size() == 0)
+        {
+            return null;
+        }
+
+        ArrayList<String> rewardsID = new ArrayList<>();
+        for (AbstractCard c : rewards)
+        {
+            rewardsID.add(c.cardID);
+        }
+
+        ArrayList<AbstractCard> temp = new ArrayList<>();
+        for (AbstractCard c : pool)
+        {
+            if (!bannedCards.contains(c.cardID) && !rewardsID.contains(c.cardID))
+            {
+                temp.add(c);
+            }
+        }
+
+        return Utilities.GetRandomElement(temp, AbstractDungeon.cardRng);
     }
 }

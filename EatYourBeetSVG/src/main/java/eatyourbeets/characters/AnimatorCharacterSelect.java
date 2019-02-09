@@ -71,9 +71,9 @@ public class AnimatorCharacterSelect
         AddSynergyInfo(Synergies.Konosuba, 0, recommended, Kazuma.ID, Aqua.ID);
         AddSynergyInfo(Synergies.Gate, 1, balanced, Tyuule.ID, Kuribayashi.ID);
         AddSynergyInfo(Synergies.Elsword, 1, balanced, Ara.ID, Elsword.ID);
+        AddSynergyInfo(Synergies.NoGameNoLife, 1, balanced, Jibril.ID, DolaCouronne.ID);
         AddSynergyInfo(Synergies.OwariNoSeraph, 2, unbalanced, Yuuichirou.ID, Shinoa.ID);
         AddSynergyInfo(Synergies.Katanagatari, 2, unbalanced, Emonzaemon.ID, Nanami.ID);
-        AddSynergyInfo(Synergies.NoGameNoLife, 2, unbalanced, Jibril.ID, DolaSchwi.ID);
         AddSynergyInfo(Synergies.Fate, 2, unbalanced, RinTohsaka.ID, Lancer.ID);
         AddSynergyInfo(Synergies.Overlord, 3, veryUnbalanced, Cocytus.ID, Shalltear.ID);
         AddSynergyInfo(Synergies.Chaika, 3, veryUnbalanced, AcuraTooru.ID, AcuraAkari.ID);

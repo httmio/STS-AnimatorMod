@@ -19,7 +19,7 @@ public class Lancer extends AnimatorCard
     {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
-        Initialize(7,0);
+        Initialize(6,0);
 
         SetSynergy(Synergies.Fate);
     }
@@ -51,14 +51,7 @@ public class Lancer extends AnimatorCard
         }
 
         DamageAction damageAction = new DamageAction(m, new DamageInfo(p, this.damage, DamageInfo.DamageType.HP_LOSS), attackEffect);
-//        if (HasActiveSynergy())
-//        {
-            AbstractDungeon.actionManager.addToBottom(new OnTargetDeadAction(m, damageAction, new GainEnergyAction(1), true));
-//        }
-//        else
-//        {
-//            AbstractDungeon.actionManager.addToBottom(damageAction);
-//        }
+        AbstractDungeon.actionManager.addToBottom(new OnTargetDeadAction(m, damageAction, new GainEnergyAction(1), true));
     }
 
     @Override

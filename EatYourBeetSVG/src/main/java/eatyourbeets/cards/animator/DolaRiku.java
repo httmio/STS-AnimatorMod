@@ -13,7 +13,7 @@ public class DolaRiku extends AnimatorCard
 
     public DolaRiku()
     {
-        super(ID, 1, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
 
         Initialize(0,0,1);
 

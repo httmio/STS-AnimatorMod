@@ -17,6 +17,7 @@ public class TheMissingPiece extends AnimatorRelic
     public static final String ID = CreateFullID(TheMissingPiece.class.getSimpleName());
 
     private static final int TIMER = 5;
+    private boolean skipReward;
 
     public TheMissingPiece()
     {
@@ -43,28 +44,48 @@ public class TheMissingPiece extends AnimatorRelic
     }
 
     @Override
-    public void onVictory()
+    public void atBattleStart()
     {
-        super.onVictory();
+        super.atBattleStart();
 
         AbstractRoom room = AbstractDungeon.getCurrRoom();
         if (room.rewardAllowed)
         {
             this.counter += 1;
+            this.skipReward = false;
         }
     }
+//
+//    @Override
+//    public void onVictory()
+//    {
+//        super.onVictory();
+//
+//        AbstractRoom room = AbstractDungeon.getCurrRoom();
+//        if (room.rewardAllowed)
+//        {
+//            this.counter += 1;
+//        }
+//    }
 
     public void receiveRewards(ArrayList<RewardItem> rewards)
     {
-        if (counter > 0 && counter < TIMER)
+        if (counter == 0)
+        {
+            if (skipReward)
+            {
+                return;
+            }
+
+            skipReward = true;
+        }
+        else if (counter < TIMER)
         {
             return;
         }
-        else
-        {
-            counter = 0;
-            this.flash();
-        }
+
+        counter = 0;
+        this.flash();
 
         int startingIndex = -1;
         if (AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss)
@@ -88,6 +109,11 @@ public class TheMissingPiece extends AnimatorRelic
         if (startingIndex >= 0)
         {
             addSynergyRewards(rewards, startingIndex);
+        }
+
+        if (counter == 0)
+        {
+            this.skipReward = true;
         }
     }
 

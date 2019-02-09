@@ -30,7 +30,7 @@ public class YaoHaDucy extends AnimatorCard
         if (HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-            //AbstractDungeon.actionManager.addToBottom(new CycleAction(p, 1));
+            //AbstractDungeon.actionManager.addToBottom(new CycleCardAction(p, 1));
         }
     }
 

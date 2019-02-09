@@ -9,17 +9,17 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import eatyourbeets.AnimatorResources;
 
-public class CycleAction extends AnimatorAction
+public class CycleCardAction extends AnimatorAction
 {
     private final AbstractPlayer player;
 
-    public CycleAction(AbstractCreature target, int count)
+    public CycleCardAction(AbstractCreature target, int count)
     {
         this.target = target;
         this.amount = count;
         this.player = (AbstractPlayer)target;
         this.duration = Settings.ACTION_DUR_FAST;
-        this.actionType = ActionType.CARD_MANIPULATION;
+        this.actionType = ActionType.DISCARD;
     }
 
     public void update()
@@ -53,7 +53,7 @@ public class CycleAction extends AnimatorAction
             }
             if (discarded > 0)
             {
-                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, discarded));
+                AbstractDungeon.actionManager.addToTop(new DrawCardAction(player, discarded));
             }
 
             AbstractDungeon.handCardSelectScreen.wereCardsRetrieved = true;

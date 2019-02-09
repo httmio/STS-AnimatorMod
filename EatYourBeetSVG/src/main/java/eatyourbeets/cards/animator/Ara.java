@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import eatyourbeets.actions.OnTargetBlockBreakAction;
-import eatyourbeets.actions.OnTargetBlockLostAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -40,7 +39,7 @@ public class Ara extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            //upgradeDamage(1);
+            upgradeDamage(1);
             upgradeMagicNumber(1);
         }
     }

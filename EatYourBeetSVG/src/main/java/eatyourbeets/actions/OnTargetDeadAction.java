@@ -40,7 +40,7 @@ public class OnTargetDeadAction extends AnimatorAction
         AbstractMonster monster = ((AbstractMonster)this.target);
         if ((monster.isDying || monster.currentHealth <= 0) && !monster.halfDead && (includeMinions || !monster.hasPower("Minion")))
         {
-            AbstractDungeon.actionManager.addToBottom(action);
+            AbstractDungeon.actionManager.addToTop(action);
         }
 
         this.isDone = true;

@@ -96,7 +96,7 @@ public class EYBModInitializer
         {
             logger.error(e);
         }
-        //AnimatorResources.CreateDebugFile();
+        AnimatorResources.CreateDebugFile();
     }
 
     @Override

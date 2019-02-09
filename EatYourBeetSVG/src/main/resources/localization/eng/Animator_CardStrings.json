@@ -23,7 +23,7 @@
 	},
 	"animator_Alexander":
 	{
-		"DESCRIPTION": "Deal !D! damage to a random enemy !M! times. If this is Exhausted, gain !SV! [#EFC851]Plated [#EFC851]Armor.",
+		"DESCRIPTION": "Deal !D! damage to a random enemy !M! times. Legacy: Gain !SV! [#EFC851]Plated [#EFC851]Armor.",
 		"NAME": "Alexander"
 	},
 	"animator_Aqua":
@@ -100,6 +100,11 @@
 		"DESCRIPTION": "Gain [B] [B] NL The next time you draw this, lose !M! HP. Synergy: Cycle 1 card.",
 		"NAME": "Demiurge",
 		"UPGRADE_DESCRIPTION": "Gain [B] [B] [B] NL The next time you draw this, lose !M! HP. Synergy: Cycle 1 card."
+	},
+	"animator_DolaCouronne":
+	{
+		"DESCRIPTION": "Gain !B! Block. NL Synergy: Draw 1 card.",
+		"NAME": "Couronne"
 	},
 	"animator_DolaRiku":
 	{
@@ -258,6 +263,11 @@
 		"NAME": "Mikaela",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage Twice. Choose and Exhaust a card in your discard pile."
 	},
+	"animator_Mitsurugi":
+	{
+		"DESCRIPTION": "Deal !D! damage, can only be used if the enemy intends to attack. Legacy: Gain !M! Strength.",
+		"NAME": "Mitsurugi"
+	},
 	"animator_Nanami":
 	{
 		"DESCRIPTION": "Gain !B! Block. NL Synergy: Add [#EFC851]Pummel to your hand.",
@@ -322,6 +332,16 @@
 		"DESCRIPTION": "Gain !B! Block and apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply !M! Weak.",
 		"NAME": "Shinoa"
 	},
+	"animator_Shiro":
+	{
+		"DESCRIPTION": "Gain [B] at the start of each turn.",
+		"NAME": "Shiro"
+	},
+	"animator_Sora":
+	{
+		"DESCRIPTION": "Choose and execute !M! custom Effects. Synergy: choose 1 extra Effect.",
+		"NAME": "Sora"
+	},
 	"animator_Strike":
 	{
 		"DESCRIPTION": "Deal !D! damage.",
@@ -354,21 +374,16 @@
 		"DESCRIPTION": "Deal !D! damage to ALL enemies. Synergy: Gain !B! Block.",
 		"NAME": "Yao Ha Ducy"
 	},
+	"animator_YunYun":
+	{
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. Costs 1 more for each [#EFC851]Attack in your hand.",
+		"NAME": "YunYun"
+	},
 	"animator_Yuuichirou":
 	{
-		"DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru to your discard pile.",
+		"DESCRIPTION": "Deal !D! damage. NL Legacy: Add [#EFC851]Asuramaru to your discard pile.",
 		"EXTENDED_DESCRIPTION": ["Asuramaru", "A special 0-Cost #yAttack."],
 		"NAME": "Yuuichirou",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL If this card is Exhausted add [#EFC851]Asuramaru+ to your discard pile."
-	},
-	"animator_Shiro":
-	{
-		"DESCRIPTION": "Gain [B] at the start of each turn.",
-		"NAME": "Shiro"
-	},
-	"animator_DolaCouronne":
-	{
-		"DESCRIPTION": "Gain !B! Block. NL Synergy: Draw 1 card.",
-		"NAME": "Couronne"
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Legacy: Add [#EFC851]Asuramaru+ to your discard pile."
 	}
 }

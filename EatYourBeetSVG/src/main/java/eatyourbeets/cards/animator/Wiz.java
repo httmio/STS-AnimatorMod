@@ -15,7 +15,7 @@ public class Wiz extends AnimatorCard
 
     public Wiz()
     {
-        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
 
         Initialize(0,0,2);
 

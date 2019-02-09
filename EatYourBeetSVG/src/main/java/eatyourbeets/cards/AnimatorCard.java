@@ -285,17 +285,17 @@ public abstract class AnimatorCard extends CustomCard
 
     protected AnimatorCard(String id, int cost, CardType type, CardRarity rarity, CardTarget target)
     {
-        this(id, cost, type, AbstractCardEnum.THE_ANIMATOR, rarity, target);
+        this(AnimatorResources.GetCardStrings(id), id, AnimatorResources.GetCardImage(id), cost, type, AbstractCardEnum.THE_ANIMATOR, rarity, target);
     }
 
-    protected AnimatorCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
-    {
-        this(AnimatorResources.GetCardStrings(id), id, cost, type, color, rarity, target);
-    }
+//    protected AnimatorCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
+//    {
+//        this(AnimatorResources.GetCardStrings(id), id, cost, type, color, rarity, target);
+//    }
 
-    protected AnimatorCard(CardStrings strings, String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
+    protected AnimatorCard(CardStrings strings, String id, String imagePath, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        super(id, strings.NAME, AnimatorResources.GetCardImage(id), cost, strings.DESCRIPTION, type, color, rarity, target);
+        super(id, strings.NAME, imagePath, cost, strings.DESCRIPTION, type, color, rarity, target);
 
         if (rarity == CardRarity.SPECIAL)
         {

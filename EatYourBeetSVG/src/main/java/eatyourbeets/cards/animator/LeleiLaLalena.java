@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import eatyourbeets.actions.CycleAction;
+import eatyourbeets.actions.CycleCardAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -33,7 +33,7 @@ public class LeleiLaLalena extends AnimatorCard
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         }
 
-        AbstractDungeon.actionManager.addToBottom(new CycleAction(p, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new CycleCardAction(p, this.magicNumber));
 //        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
 //        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
     }

@@ -44,7 +44,7 @@ public class OnTargetBlockLostAction extends AnimatorAction
         if (initialBlock > 0 && target.currentBlock < initialBlock)
         {
             action.amount = initialBlock - target.currentBlock;
-            AbstractDungeon.actionManager.addToBottom(action);
+            AbstractDungeon.actionManager.addToTop(action);
         }
 
         this.isDone = true;

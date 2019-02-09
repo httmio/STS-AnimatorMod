@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import eatyourbeets.actions.CycleCardAction;
 
 @SuppressWarnings("UnusedReturnValue")
 public class GameActionsHelper
@@ -15,6 +16,13 @@ public class GameActionsHelper
         AbstractDungeon.actionManager.addToBottom(action);
     }
 
+    public static CycleCardAction CycleCardAction(int amount)
+    {
+        CycleCardAction action = new CycleCardAction(AbstractDungeon.player, amount);
+        AbstractDungeon.actionManager.addToBottom(action);
+        return action;
+    }
+
     public static GainBlockAction GainBlock(AbstractCreature source, int amount)
     {
         GainBlockAction action = new GainBlockAction(source, source, amount);
@@ -22,9 +30,23 @@ public class GameActionsHelper
         return action;
     }
 
-    public static DamageAction DealDamage(AbstractCreature source, AbstractCreature target, int amount, DamageInfo.DamageType damageType)
+    public static DamageAction DamageTarget(AbstractCreature source, AbstractCreature target, int amount, DamageInfo.DamageType damageType, AbstractGameAction.AttackEffect effect)
     {
-        DamageAction action = new DamageAction(target, new DamageInfo(source, amount, damageType));
+        DamageAction action = new DamageAction(target, new DamageInfo(source, amount, damageType), effect);
+        AbstractDungeon.actionManager.addToBottom(action);
+        return action;
+    }
+
+    public static DamageAllEnemiesAction DamageAllEnemies(AbstractCreature source, int[] amount, DamageInfo.DamageType damageType, AbstractGameAction.AttackEffect effect)
+    {
+        DamageAllEnemiesAction action = new DamageAllEnemiesAction(source, amount, damageType, effect);
+        AbstractDungeon.actionManager.addToBottom(action);
+        return action;
+    }
+
+    public static DamageRandomEnemyAction DamageRandomEnemy(AbstractCreature source, int amount, DamageInfo.DamageType damageType, AbstractGameAction.AttackEffect effect)
+    {
+        DamageRandomEnemyAction action = new DamageRandomEnemyAction(new DamageInfo(source, amount, damageType), effect);
         AbstractDungeon.actionManager.addToBottom(action);
         return action;
     }

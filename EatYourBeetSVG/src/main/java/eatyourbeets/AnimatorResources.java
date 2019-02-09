@@ -38,6 +38,7 @@ public class AnimatorResources
         Synergies,
         Rewards,
         Actions,
+        SoraEffects,
         CardSelect
     }
 
