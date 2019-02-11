@@ -1,30 +1,30 @@
 package eatyourbeets.cards.animator;
 
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.RegenPower;
+import eatyourbeets.GameActionsHelper;
 import eatyourbeets.actions.ModifyMagicNumberPermanentlyAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
-public class Chung extends AnimatorCard
+public class Priestess extends AnimatorCard
 {
-    public static final String ID = CreateFullID(Chung.class.getSimpleName());
-
+    public static final String ID = CreateFullID(Priestess.class.getSimpleName());
     private static final int COOLDOWN = 3;
 
-    public Chung()
+    public Priestess()
     {
-        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL);
+        super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(16, 5, COOLDOWN);
+        Initialize(0, 0, 3);
 
+        this.tags.add(CardTags.HEALING);
+        this.baseSecondaryValue = this.secondaryValue = 4;
         this.misc = COOLDOWN;
-        this.isMultiDamage = true;
-        SetSynergy(Synergies.Elsword);
+        SetSynergy(Synergies.GoblinSlayer);
     }
 
     @Override
@@ -39,11 +39,14 @@ public class Chung extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
-
         if (ProgressCooldown())
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, this.multiDamage, damageTypeForTurn, AbstractGameAction.AttackEffect.SHIELD));
+            GameActionsHelper.ApplyPower(p, p, new RegenPower(p, this.secondaryValue), this.secondaryValue);
+        }
+
+        if (HasActiveSynergy())
+        {
+            GameActionsHelper.Special(new AddTemporaryHPAction(p, p, this.secondaryValue));
         }
     }
 
@@ -52,8 +55,7 @@ public class Chung extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(4);
-            upgradeBlock(3);
+            upgradeSecondaryValue(1);
         }
     }
 

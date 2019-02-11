@@ -27,7 +27,7 @@ import java.util.Objects;
 public abstract class AnimatorCard extends CustomCard 
 {
     protected static final Logger logger = LogManager.getLogger(AnimatorCard.class.getName());
-    private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
+    //private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
 
     private static AnimatorCard previousCard = null;
     private static AnimatorCard lastCardPlayed = null;
@@ -160,15 +160,16 @@ public abstract class AnimatorCard extends CustomCard
             if(room == null || !(room.event instanceof GremlinMatchGame))
             {
                 float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
-                FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
 
                 Color textColor;
                 if (HasActiveSynergy())
                 {
-                    textColor = SYNERGY_COLOR.cpy();
+                    FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.85f);
+                    textColor = Color.YELLOW.cpy();
                 }
                 else
                 {
+                    FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
                     textColor = Settings.CREAM_COLOR.cpy();
                 }
 

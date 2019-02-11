@@ -2,14 +2,11 @@ package eatyourbeets.cards.animator;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
-import com.megacrit.cardcrawl.actions.common.ModifyBlockAction;
-import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.GameActionsHelper;
-import eatyourbeets.actions.MoveSpecificCardAction;
 import eatyourbeets.actions.ShuffleRandomGoblinAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
@@ -17,13 +14,12 @@ import eatyourbeets.cards.Synergies;
 public class GoblinSlayer extends AnimatorCard
 {
     public static final String ID = CreateFullID(GoblinSlayer.class.getSimpleName());
-    private static final int BASE_DAMAGE = 6;
 
     public GoblinSlayer()
     {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
 
-        Initialize(BASE_DAMAGE,6);
+        Initialize(4,8);
 
         this.retain = true;
         AddExtendedDescription();
@@ -88,7 +84,8 @@ public class GoblinSlayer extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBlock(8);
+            upgradeDamage(3);
+            upgradeBlock(5);
         }
     }
 }

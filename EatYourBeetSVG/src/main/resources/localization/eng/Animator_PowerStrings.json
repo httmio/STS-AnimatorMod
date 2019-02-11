@@ -39,6 +39,11 @@
 		"DESCRIPTIONS": ["At the start of your turn gain #b", " gold and Exhaust #b", " random card/s in your draw pile."],
 		"NAME": "Princess Hitei"
 	},
+	"animator_GuildGirlPower":
+	{
+		"DESCRIPTIONS": ["At the start of your turn Cycle #b", " cards."],
+		"NAME": "Bookkeeping"
+	},
 	"animator_MarkOfPoisonPower":
 	{
 		"DESCRIPTIONS": ["Whenever an #yAttack deals you damage receive #b", " #yPoison."],

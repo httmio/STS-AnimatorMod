@@ -1,6 +1,7 @@
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.helpers.CardHelper;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
@@ -95,7 +96,14 @@ public class EYBModInitializer
         {
             logger.error(e);
         }
-        AnimatorResources.CreateDebugFile();
+
+        if (Loader.DEBUG)
+        {
+            if (AnimatorResources.CreateDebugFile())
+            {
+                logger.info("Created Debug File at c:\\temp");
+            }
+        }
     }
 
     @Override

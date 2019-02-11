@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class RandomCostReductionAction extends AbstractGameAction
 {
-    private AbstractPlayer p;
+    private final AbstractPlayer p;
     private final int costReduction;
     private final boolean permanent;
 

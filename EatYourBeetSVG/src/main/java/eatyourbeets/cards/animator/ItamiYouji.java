@@ -17,7 +17,7 @@ public class ItamiYouji extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ALL_ENEMY);
 
-        Initialize(5,0,0);
+        Initialize(6,0,0);
 
         this.retain = true;
 
@@ -54,7 +54,7 @@ public class ItamiYouji extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(3);
+            upgradeDamage(2);
         }
     }
 }

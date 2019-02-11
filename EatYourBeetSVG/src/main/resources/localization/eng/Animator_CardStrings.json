@@ -388,7 +388,7 @@
 	},
 	"animator_GoblinSoldier":
 	{
-		"DESCRIPTION": "When you draw this, draw 1 more card. At the end of your turn, take 2 damage.",
+		"DESCRIPTION": "When you draw this, draw another card. At the end of your turn, take 2 damage.",
 		"NAME": "Goblin Soldier"
 	},
 	"animator_GoblinShaman":
@@ -411,5 +411,36 @@
 		"DESCRIPTION": "[#EFC851]Goblin [#EFC851]Slayer. NL Deal !D! damage. NL Gain !B! Block. NL Retain.",
 		"EXTENDED_DESCRIPTION": ["Goblin Slayer", "Exhaust every Status and Curse in your hand and discard pile. Deal 2 extra damage for every card in your exhaust pile. #yWARNING: Goblins will start invading your deck."],
 		"NAME": "Goblin Slayer"
+	},
+	"animator_GuildGirl":
+	{
+		"DESCRIPTION": "At the start of each turn, Cycle !M! card.",
+		"UPGRADE_DESCRIPTION": "At the start of each turn, Cycle !M! cards.",
+		"NAME": "'Guild Girl'"
+	},
+	"animator_Priestess":
+	{
+		"DESCRIPTION": "Cooldown !M!: Gain !SV! Regeneration. NL Synergy: Gain !SV! temporary HP.",
+		"NAME": "'Priestess'"
+	},
+	"animator_DwarfShaman":
+	{
+		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw 1 card and Upgrade it.",
+		"NAME": "'Dwarf Shaman'"
+	},
+	"animator_LizardPriest":
+	{
+		"DESCRIPTION": "Set an enemy's Block to !M!. Cycle 1 card.",
+		"NAME": "'Lizard Priest'"
+	},
+	"animator_HighElfArcher":
+	{
+		"DESCRIPTION": "Deal !D! Piercing damage twice. If you haven't played other copies of this card this turn, draw 1 card.",
+		"NAME": "'High Elf Archer'"
+	},
+	"animator_SwordMaiden":
+	{
+		"DESCRIPTION": "Retain. NL Gain !M! Artifact. NL Gain !M! Intangible. NL Exhaust.",
+		"NAME": "'Sword Maiden'"
 	}
 }
