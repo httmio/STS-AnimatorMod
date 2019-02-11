@@ -13,7 +13,8 @@
 			"Overlord",
 			"No Game No Life",
 			"GATE",
-			"Fate"
+			"Fate",
+			"Goblin Slayer"
 		]
 	},
 	
@@ -42,7 +43,7 @@
 			"Gain !M! Strength.",
 			"Gain !M! Dexterity.",
 			"Gain !M! Thorns.",
-			"Reduce the cost of 2 random cards in your hand by !M! this combat.",
+			"Reduce the cost of 2 random cards in your hand by !M! this turn.",
 			"Apply !M! Weak to ALL enemies.",
 			"Apply !M! Vulnerable to ALL enemies.",
 			"Cycle !M! cards",

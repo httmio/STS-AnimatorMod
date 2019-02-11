@@ -21,6 +21,7 @@ public class Synergies
     public final static Synergy NoGameNoLife =   CreateSynergy(8 );
     public final static Synergy Gate =           CreateSynergy(9 );
     public final static Synergy Fate =           CreateSynergy(10);
+    public final static Synergy GoblinSlayer =   CreateSynergy(11);
 
     private static Synergy CreateSynergy(int id)
     {
@@ -44,5 +45,6 @@ public class Synergies
         All.put(NoGameNoLife.ID, NoGameNoLife);
         All.put(Gate.ID, Gate);
         All.put(Fate.ID, Fate);
+        All.put(GoblinSlayer.ID, GoblinSlayer);
     }
 }

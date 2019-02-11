@@ -13,7 +13,7 @@ import eatyourbeets.CustomAbstractDungeon;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.Synergies;
 import eatyourbeets.cards.Synergy;
-import patches.RewardTypeEnum;
+import patches.AbstractEnums;
 
 import java.util.ArrayList;
 
@@ -26,7 +26,7 @@ public class SynergyCardsReward extends AnimatorReward
 
     public SynergyCardsReward(Synergy synergy)
     {
-        super(ID,"#y" + synergy.NAME.replace(" ", " #y"), RewardTypeEnum.SYNERGY_CARDS);
+        super(ID,"#y" + synergy.NAME.replace(" ", " #y"), AbstractEnums.Rewards.SYNERGY_CARDS);
 
         this.synergy = synergy;
         this.cards = CustomAbstractDungeon.getRewardCards(synergy);

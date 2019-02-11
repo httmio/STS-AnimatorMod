@@ -14,7 +14,7 @@ import eatyourbeets.AnimatorResources;
 import eatyourbeets.characters.AnimatorCharacterSelect;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import patches.AbstractClassEnum;
+import patches.AbstractEnums;
 
 public class CharacterSelectScreenPatch
 {
@@ -144,7 +144,7 @@ public class CharacterSelectScreenPatch
         {
             if (o.selected)
             {
-                if (o.c.chosenClass == AbstractClassEnum.THE_ANIMATOR)
+                if (o.c.chosenClass == AbstractEnums.Characters.THE_ANIMATOR)
                 {
                     selectedOption = o;
                 }

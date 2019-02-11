@@ -7,16 +7,15 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
-import java.util.Iterator;
-import java.util.UUID;
-
 public class RandomCostReductionAction extends AbstractGameAction
 {
     private AbstractPlayer p;
     private final int costReduction;
+    private final boolean permanent;
 
-    public RandomCostReductionAction(int costReduction)
+    public RandomCostReductionAction(int costReduction, boolean permanent)
     {
+        this.permanent = permanent;
         this.costReduction = costReduction;
         this.actionType = ActionType.CARD_MANIPULATION;
         this.p = AbstractDungeon.player;
@@ -58,9 +57,15 @@ public class RandomCostReductionAction extends AbstractGameAction
         {
             if (c.costForTurn > 0)
             {
-                c.cost = Math.max(0, c.cost - costReduction);
-                c.costForTurn = c.cost;
-                c.isCostModified = true;
+                if (permanent)
+                {
+                    c.updateCost(Math.max(0, c.cost - costReduction));
+                }
+                else
+                {
+                    c.setCostForTurn(Math.max(0, c.costForTurn - costReduction));
+                }
+
                 c.superFlash(Color.GOLD.cpy());
             }
             else
@@ -70,9 +75,15 @@ public class RandomCostReductionAction extends AbstractGameAction
         }
         else if (c.cost > 0)
         {
-            c.cost = Math.max(0, c.cost - costReduction);
-            c.costForTurn = c.cost;
-            c.isCostModified = true;
+            if (permanent)
+            {
+                c.updateCost(Math.max(0, c.cost - costReduction));
+            }
+            else
+            {
+                c.setCostForTurn(Math.max(0, c.costForTurn - costReduction));
+            }
+
             c.superFlash(Color.GOLD.cpy());
         }
         else

@@ -385,5 +385,31 @@
 		"EXTENDED_DESCRIPTION": ["Asuramaru", "A special 0-Cost #yAttack."],
 		"NAME": "Yuuichirou",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Legacy: Add [#EFC851]Asuramaru+ to your discard pile."
+	},
+	"animator_GoblinSoldier":
+	{
+		"DESCRIPTION": "When you draw this, draw 1 more card. At the end of your turn, take 2 damage.",
+		"NAME": "Goblin Soldier"
+	},
+	"animator_GoblinShaman":
+	{
+		"DESCRIPTION": "At the end of your turn, gain 1 Frail. Exhaust.",
+		"NAME": "Goblin Shaman"
+	},
+	"animator_GoblinChampion":
+	{
+		"DESCRIPTION": "At the end of your turn, shuffle 1 random Goblin into your draw pile.",
+		"NAME": "Goblin Champion"
+	},
+	"animator_GoblinKing":
+	{
+		"DESCRIPTION": "At the end of your turn, shuffle 3 random Goblins into your draw pile.",
+		"NAME": "Goblin King"
+	},
+	"animator_GoblinSlayer":
+	{
+		"DESCRIPTION": "[#EFC851]Goblin [#EFC851]Slayer. NL Deal !D! damage. NL Gain !B! Block. NL Retain.",
+		"EXTENDED_DESCRIPTION": ["Goblin Slayer", "Exhaust every Status and Curse in your hand and discard pile. Deal 2 extra damage for every card in your exhaust pile. #yWARNING: Goblins will start invading your deck."],
+		"NAME": "Goblin Slayer"
 	}
 }

@@ -44,7 +44,7 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
     public void onEquip()
     {
         super.onEquip();
-        this.counter = CHARGES;
+        this.counter = CHARGES + 1;
     }
 
     @Override

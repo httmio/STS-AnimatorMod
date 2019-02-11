@@ -10,8 +10,7 @@ import eatyourbeets.characters.AnimatorCharacter;
 import eatyourbeets.powers.PlayerStatistics;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import patches.AbstractCardEnum;
-import patches.AbstractClassEnum;
+import patches.AbstractEnums;
 
 @SpireInitializer
 public class EYBModInitializer
@@ -32,7 +31,7 @@ public class EYBModInitializer
 
         BaseMod.subscribe(this);
         Color color = CardHelper.getColor(210, 147, 106);
-        BaseMod.addColor(AbstractCardEnum.THE_ANIMATOR, color, color, color, color, color, color, color,
+        BaseMod.addColor(AbstractEnums.Cards.THE_ANIMATOR, color, color, color, color, color, color, color,
                 AnimatorResources.ATTACK_PNG, AnimatorResources.SKILL_PNG , AnimatorResources.POWER_PNG ,
                 AnimatorResources.ORB_A_PNG , AnimatorResources.ATTACK_P_PNG , AnimatorResources.SKILL_P_PNG ,
                 AnimatorResources.POWER_P_PNG, AnimatorResources.ORB_B_PNG , AnimatorResources.ORB_C_PNG);
@@ -63,8 +62,8 @@ public class EYBModInitializer
     @Override
     public void receiveEditCharacters()
     {
-        AnimatorCharacter animatorCharacter = new AnimatorCharacter(AnimatorCharacter.NAME, AbstractClassEnum.THE_ANIMATOR);
-        BaseMod.addCharacter(animatorCharacter, AnimatorResources.CHAR_BUTTON_PNG, AnimatorResources.CHAR_PORTRAIT_JPG, AbstractClassEnum.THE_ANIMATOR);
+        AnimatorCharacter animatorCharacter = new AnimatorCharacter(AnimatorCharacter.NAME, AbstractEnums.Characters.THE_ANIMATOR);
+        BaseMod.addCharacter(animatorCharacter, AnimatorResources.CHAR_BUTTON_PNG, AnimatorResources.CHAR_PORTRAIT_JPG, AbstractEnums.Characters.THE_ANIMATOR);
     }
 
     @Override

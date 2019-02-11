@@ -24,7 +24,7 @@
 		"FLAVOR": "Humans are helpless against curses, and can only redirect their influence.",
 		"DESCRIPTIONS":
 		[
-			"You may ban cards from appearing in future NORMAL card rewards. Gain more uses at the start of every act."
+			"You may ban cards from appearing in future NORMAL card rewards. Gain more uses at the end of every act."
 		]
 	}
 }

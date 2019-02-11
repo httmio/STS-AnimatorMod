@@ -22,8 +22,7 @@ import eatyourbeets.cards.animator.Strike;
 import eatyourbeets.relics.LivingPicture;
 import eatyourbeets.relics.PurgingStone;
 import eatyourbeets.relics.TheMissingPiece;
-import patches.AbstractCardEnum;
-import patches.AbstractClassEnum;
+import patches.AbstractEnums;
 
 import java.util.ArrayList;
 
@@ -62,7 +61,7 @@ public class AnimatorCharacter extends CustomPlayer
     @Override
     public AbstractPlayer newInstance() 
     {
-        return new AnimatorCharacter(this.name, AbstractClassEnum.THE_ANIMATOR);
+        return new AnimatorCharacter(this.name, AbstractEnums.Characters.THE_ANIMATOR);
     }
 
     @Override
@@ -192,7 +191,7 @@ public class AnimatorCharacter extends CustomPlayer
     @Override
     public AbstractCard.CardColor getCardColor() 
     {
-        return AbstractCardEnum.THE_ANIMATOR;
+        return AbstractEnums.Cards.THE_ANIMATOR;
     }
 
     @Override

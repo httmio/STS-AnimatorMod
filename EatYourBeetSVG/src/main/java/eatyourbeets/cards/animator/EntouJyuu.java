@@ -16,19 +16,19 @@ public class EntouJyuu extends AnimatorCard
     {
         super(ID, 0, CardType.POWER, CardRarity.SPECIAL, CardTarget.SELF);
 
-        Initialize(0,0,1);
+        Initialize(0, 0, 2);
 
         SetSynergy(Synergies.Katanagatari);
     }
 
     @Override
-    public void use(AbstractPlayer p, AbstractMonster m) 
+    public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p,p, new EntouJyuuPower(p, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EntouJyuuPower(p, this.magicNumber), this.magicNumber));
     }
 
     @Override
-    public void upgrade() 
+    public void upgrade()
     {
         if (TryUpgrade())
         {

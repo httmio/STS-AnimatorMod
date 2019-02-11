@@ -17,7 +17,7 @@ public class YunYun extends AnimatorCard
     {
         super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
-        Initialize(13, 0);
+        Initialize(10, 0);
 
         this.isMultiDamage = true;
 
@@ -48,7 +48,7 @@ public class YunYun extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(5);
+            upgradeDamage(4);
         }
     }
 }

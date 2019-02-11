@@ -17,8 +17,7 @@ import eatyourbeets.rewards.SynergyCardsReward;
 import eatyourbeets.variables.SecondaryValueVariable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import patches.AbstractCardEnum;
-import patches.RewardTypeEnum;
+import patches.AbstractEnums;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -149,9 +148,9 @@ public class AnimatorResources
 
     public static void LoadCustomRelics()
     {
-        BaseMod.addRelicToCustomPool(new LivingPicture(), AbstractCardEnum.THE_ANIMATOR);
-        BaseMod.addRelicToCustomPool(new TheMissingPiece(), AbstractCardEnum.THE_ANIMATOR);
-        BaseMod.addRelicToCustomPool(new PurgingStone(), AbstractCardEnum.THE_ANIMATOR);
+        BaseMod.addRelicToCustomPool(new LivingPicture(), AbstractEnums.Cards.THE_ANIMATOR);
+        BaseMod.addRelicToCustomPool(new TheMissingPiece(), AbstractEnums.Cards.THE_ANIMATOR);
+        BaseMod.addRelicToCustomPool(new PurgingStone(), AbstractEnums.Cards.THE_ANIMATOR);
     }
 
     public static void LoadCustomCards() throws Exception
@@ -173,7 +172,7 @@ public class AnimatorResources
     public static void LoadCustomRewards()
     {
         SynergyCardsReward.Serializer serializer = new SynergyCardsReward.Serializer();
-        BaseMod.registerCustomReward(RewardTypeEnum.SYNERGY_CARDS, serializer, serializer);
+        BaseMod.registerCustomReward(AbstractEnums.Rewards.SYNERGY_CARDS, serializer, serializer);
     }
 
     private static void AddAndUnlock(Class cardClass) throws Exception

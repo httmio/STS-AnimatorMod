@@ -18,7 +18,7 @@ import eatyourbeets.powers.PlayerStatistics;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import patches.AbstractCardEnum;
+import patches.AbstractEnums;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -285,13 +285,13 @@ public abstract class AnimatorCard extends CustomCard
 
     protected AnimatorCard(String id, int cost, CardType type, CardRarity rarity, CardTarget target)
     {
-        this(AnimatorResources.GetCardStrings(id), id, AnimatorResources.GetCardImage(id), cost, type, AbstractCardEnum.THE_ANIMATOR, rarity, target);
+        this(AnimatorResources.GetCardStrings(id), id, AnimatorResources.GetCardImage(id), cost, type, AbstractEnums.Cards.THE_ANIMATOR, rarity, target);
     }
 
-//    protected AnimatorCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
-//    {
-//        this(AnimatorResources.GetCardStrings(id), id, cost, type, color, rarity, target);
-//    }
+    protected AnimatorCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
+    {
+        this(AnimatorResources.GetCardStrings(id), id, AnimatorResources.GetCardImage(id), cost, type, color, rarity, target);
+    }
 
     protected AnimatorCard(CardStrings strings, String id, String imagePath, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {

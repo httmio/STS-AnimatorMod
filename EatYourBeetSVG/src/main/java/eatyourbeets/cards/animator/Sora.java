@@ -1,7 +1,6 @@
 package eatyourbeets.cards.animator;
 
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
-import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.AnimatorResources;
@@ -10,7 +9,7 @@ import eatyourbeets.actions.SoraAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 import eatyourbeets.misc.SoraEffects.SoraEffect;
-import patches.AbstractCardEnum;
+import patches.AbstractEnums;
 
 public class Sora extends AnimatorCard
 {
@@ -21,7 +20,7 @@ public class Sora extends AnimatorCard
     public Sora(SoraEffect effect)
     {
         super(AnimatorResources.GetCardStrings(ID), ID, AnimatorResources.GetCardImage(ID + "Alt"),
-                0, CardType.SKILL, AbstractCardEnum.THE_ANIMATOR, CardRarity.RARE, CardTarget.ALL);
+                0, CardType.SKILL, AbstractEnums.Cards.THE_ANIMATOR, CardRarity.RARE, CardTarget.ALL);
         this.effect = effect;
     }
 

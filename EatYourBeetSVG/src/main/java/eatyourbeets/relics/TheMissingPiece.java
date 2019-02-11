@@ -126,6 +126,7 @@ public class TheMissingPiece extends AnimatorRelic
         synergies.add(Synergies.Chaika);
         synergies.add(Synergies.Katanagatari);
         synergies.add(Synergies.Fate);
+        synergies.add(Synergies.Elsword);
         synergies.add(Synergies.Konosuba);
         synergies.add(Synergies.OwariNoSeraph);
 

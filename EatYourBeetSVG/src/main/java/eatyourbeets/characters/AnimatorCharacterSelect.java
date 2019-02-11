@@ -5,7 +5,7 @@ import eatyourbeets.AnimatorResources;
 import eatyourbeets.cards.Synergies;
 import eatyourbeets.cards.Synergy;
 import eatyourbeets.cards.animator.*;
-import patches.AbstractClassEnum;
+import patches.AbstractEnums;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -90,7 +90,7 @@ public class AnimatorCharacterSelect
 
         public String GetDescription()
         {
-            int currentLevel = UnlockTracker.getUnlockLevel(AbstractClassEnum.THE_ANIMATOR);
+            int currentLevel = UnlockTracker.getUnlockLevel(AbstractEnums.Characters.THE_ANIMATOR);
             Locked = unlockLevel > currentLevel;
             if (Locked)
             {
