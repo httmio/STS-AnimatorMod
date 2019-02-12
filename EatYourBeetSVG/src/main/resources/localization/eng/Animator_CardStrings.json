@@ -376,7 +376,7 @@
 	},
 	"animator_YunYun":
 	{
-		"DESCRIPTION": "Deal !D! damage to ALL enemies. Costs 1 more for each [#EFC851]Attack in your hand.",
+		"DESCRIPTION": "Deal !D! damage to ALL enemies. Costs 1 more for each other [#EFC851]Attack in your hand.",
 		"NAME": "YunYun"
 	},
 	"animator_Yuuichirou":
@@ -425,12 +425,13 @@
 	},
 	"animator_DwarfShaman":
 	{
-		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw 1 card and Upgrade it.",
+		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded card and Upgrade it.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded cards and Upgrade them.",
 		"NAME": "'Dwarf Shaman'"
 	},
 	"animator_LizardPriest":
 	{
-		"DESCRIPTION": "Set an enemy's Block to !M!. Cycle 1 card.",
+		"DESCRIPTION": "Set an enemy's Block to !M!. Gain !B! Block. Synergy: Cycle 1 card.",
 		"NAME": "'Lizard Priest'"
 	},
 	"animator_HighElfArcher":

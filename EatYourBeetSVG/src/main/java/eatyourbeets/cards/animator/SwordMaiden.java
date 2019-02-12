@@ -18,6 +18,7 @@ public class SwordMaiden extends AnimatorCard
 
         Initialize(0, 0, 1);
 
+        this.exhaust = true;
         this.retain = true;
         SetSynergy(Synergies.GoblinSlayer);
     }
@@ -26,6 +27,7 @@ public class SwordMaiden extends AnimatorCard
     public void atTurnStart()
     {
         super.atTurnStart();
+        initializeDescription();
         this.retain = true;
     }
 
