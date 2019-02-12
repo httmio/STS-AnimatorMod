@@ -1,52 +1,52 @@
 {
 	"animator_AinzPower":
 	{
-		"DESCRIPTIONS": ["At the start of your turn add #b", " random #yPower #yForm to your hand."],
-		"NAME": "Ainz Ooal Gown"
+		"DESCRIPTIONS": ["在你的回合开始时添加一张 #b", " 随机 #y形态 #y卡到手牌."],
+		"NAME": "安兹·乌尔·恭"
 	},
 	"animator_ArcherPower":
 	{
-		"DESCRIPTIONS": ["At the end of your turn, deal #b", " damage to all enemies with a Debuff."],
+		"DESCRIPTIONS": ["在你的回合结束时对所有敌人造成 #b", " 点伤害并造成负面效果."],
 		"NAME": "Archer"
 	},
 	"animator_DarknessPower":
 	{
-		"DESCRIPTIONS": ["Whenever you take damage upgrade #b", " random card/s, prioritizing those in your hand."],
-		"NAME": "Dustiness Ford Lalatina"
+		"DESCRIPTIONS": ["每当你受伤时随机升级 #b", " 张牌, 手牌优先."],
+		"NAME": "拉拉蒂娜!"
 	},
 	"animator_EntouJyuuPower":
 	{
-		"DESCRIPTIONS": ["Every time you play an Attack increase its damage by #b", " this combat."],
-		"NAME": "Entou Jyuu"
+		"DESCRIPTIONS": ["每打出一张攻击牌，增加那张牌 #b", " 点伤害."],
+		"NAME": "炎刃·铳"
 	},
 	"animator_ShiroPower":
 	{
-		"DESCRIPTIONS": ["At the start of you turn gain #b", " energy."],
-		"NAME": "Shiro"
+		"DESCRIPTIONS": ["在你的回合开始时获得 #b", " 点能量."],
+		"NAME": "白"
 	},
 	"animator_EvePower":
 	{
-		"DESCRIPTIONS": ["Whenever a #ySynergy is activated deal #b", " damage to a random enemy."],
-		"NAME": "Eve's Awakening"
+		"DESCRIPTIONS": ["当 #y同调生效时对一个随机敌人造成 #b", " 点伤害."],
+		"NAME": "EVE的觉醒"
 	},
 	"animator_FeridBathoryPower":
 	{
-		"DESCRIPTIONS": ["Twice per turn, when a card is Exhausted gain #b", " Strength and Heal #b", " Hp."],
-		"NAME": "Ferid Bathory"
+		"DESCRIPTIONS": ["每回合两次，当一张牌被消耗时增加 #b", " 点力量并治疗 #b", " 点生命."],
+		"NAME": "费里德·巴特利"
 	},
 	"animator_HiteiPower":
 	{
-		"DESCRIPTIONS": ["At the start of your turn gain #b", " gold and Exhaust #b", " random card/s in your draw pile."],
-		"NAME": "Princess Hitei"
+		"DESCRIPTIONS": ["在你的回合开始时获得 #b", " 个金币,从你的抽牌堆中随机消耗 #b", " 张牌."],
+		"NAME": "否定姫"
 	},
 	"animator_MarkOfPoisonPower":
 	{
-		"DESCRIPTIONS": ["Whenever an #yAttack deals you damage receive #b", " #yPoison."],
-		"NAME": "Mark of Poison"
+		"DESCRIPTIONS": ["每当 #y攻击 对你造成伤害时，获得 #b", " 层#y毒."],
+		"NAME": "毒标记"
 	},
 	"animator_PinaCoLadaPower":
 	{
-		"DESCRIPTIONS": ["Whenever a #ySynergy is activated gain #b", " block."],
+		"DESCRIPTIONS": ["每当 #y同调生效时获得 #b", " 层格挡."],
 		"NAME": "Piña Co Lada"
 	},
 	"animator_PlayerStatistics":
@@ -57,6 +57,6 @@
 	"animator_RoryMercuryPower":
 	{
 		"DESCRIPTIONS": ["Your next attack this turn deals double damage. #b", " use/s."],
-		"NAME": "Rory Mercury"
+		"NAME": "萝莉·麦丘利"
 	}
 }
