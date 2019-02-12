@@ -1,62 +1,62 @@
 [
 	{
-		"DESCRIPTION": "Activates if the last card played was from the same series.",
+		"DESCRIPTION": "连续使用同一系列的牌时生效",
 		"NAMES": ["synergy", "synergies", "synergize"],
-		"PROPERNAME": "Synergy"
+		"PROPERNAME": "同调"
 	},
 	{
-		"DESCRIPTION": "Triggers when this card is exhausted.",
+		"DESCRIPTION": "这张卡被消耗时触发.",
 		"NAMES": ["legacy"],
-		"PROPERNAME": "Legacy"
+		"PROPERNAME": "遗馈"
 	},
 	{
-		"DESCRIPTION": "Whenever this is discarded or played, shuffle it into your draw pile.",
+		"DESCRIPTION": "被丢弃或打出时，返回抽牌堆.",
 		"NAMES": ["loyal"],
-		"PROPERNAME": "Loyal"
+		"PROPERNAME": "忠诚"
 	},
 	{
-		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect on every #yAttack received. Lasts 1 turn.",
+		"DESCRIPTION": "拥有者受到 #y攻击 时造成特定的 #y负面效果. 持续一回合.",
 		"NAMES": ["mark", "marks"],
-		"PROPERNAME": "Mark"
+		"PROPERNAME": "印记"
 	},
 	{
-		"DESCRIPTION": "If the target has less than 50% HP, deal Double Damage.",
+		"DESCRIPTION": "如果目标的血量低于 50% , 造成双倍伤害.",
 		"NAMES": ["heartseeker"],
-		"PROPERNAME": "Heartseeker"
+		"PROPERNAME": "渴血"
 	},
 	{
-		"DESCRIPTION": "Ignore the target's Block.",
+		"DESCRIPTION": "无视目标的格挡.",
 		"NAMES": ["piercing"],
-		"PROPERNAME": "Piercing"
+		"PROPERNAME": "穿刺"
 	},
 	{
-		"DESCRIPTION": "If you would die, and this card is anywhere in your deck, prevent all Damage and permanently lose this card. Will not work if Exhausted or Purged.",
+		"DESCRIPTION": "受到致命伤害时，无论这张牌在哪，永久移除这张牌，阻挡那次伤害.这张牌位于被消耗牌堆中时，不会生效",
 		"NAMES": ["resurrect"],
-		"PROPERNAME": "Resurrect"
+		"PROPERNAME": "苟活"
 	},
 	{
-		"DESCRIPTION": "Gets reduced by 1 each time you play this card, if it is at 0, activate the effect and reset the Cooldown. Preserved between fights.",
+		"DESCRIPTION": "每打出一次减少一层预热层数,当预热层数为0时，打出时将触发 预热 效果，并重置预热层数. Preserved between fights.",
 		"NAMES": ["cooldown"],
-		"PROPERNAME": "Cooldown"
+		"PROPERNAME": "预热"
 	},
 	{
-		"DESCRIPTION": "Cannot act for #b1 turn.",
+		"DESCRIPTION": " #b1 回合不能行动.",
 		"NAMES": ["stun"],
-		"PROPERNAME": "Stun"
+		"PROPERNAME": "眩晕"
 	},
 	{
-		"DESCRIPTION": "For every card you have played this turn, enemy takes #b10% more damage from #yAttacks.",
+		"DESCRIPTION": "回合内每打出一张牌，使敌人受到的伤害增加 #b10% .",
 		"NAMES": ["slow"],
-		"PROPERNAME": "Slow"
+		"PROPERNAME": "缓慢"
 	},
 	{
-		"DESCRIPTION": "Synergizes with any card.",
+		"DESCRIPTION": "与所有系列都可产生同调效果.",
 		"NAMES": ["shapeshifter", "shapeshift"],
-		"PROPERNAME": "Shapeshifter"
+		"PROPERNAME": "穿越者"
 	},
 	{
-		"DESCRIPTION": "Discard a certain number of cards then draw that many cards.",
+		"DESCRIPTION": "弃掉一定数量的牌然后抽出同等数量的牌.",
 		"NAMES": ["cycle"],
-		"PROPERNAME": "Cycle"
+		"PROPERNAME": "循环"
 	}
 ]
