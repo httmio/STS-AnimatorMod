@@ -7,7 +7,7 @@
 	"animator_ArcherPower":
 	{
 		"DESCRIPTIONS": ["在你的回合结束时对所有敌人造成 #b", " 点伤害并造成负面效果."],
-		"NAME": "Archer"
+		"NAME": "弓兵"
 	},
 	"animator_DarknessPower":
 	{
@@ -56,7 +56,7 @@
 	},
 	"animator_RoryMercuryPower":
 	{
-		"DESCRIPTIONS": ["Your next attack this turn deals double damage. #b", " use/s."],
+		"DESCRIPTIONS": ["本回合你造成的的下 #b", " 次翻倍."],
 		"NAME": "萝莉·麦丘利"
 	}
 }
