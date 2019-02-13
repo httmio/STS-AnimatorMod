@@ -11,10 +11,10 @@
 	},
 	"animator_Ainz":
 	{
-		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand.",
+		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand, it costs 2 energy.",
 		"EXTENDED_DESCRIPTION": ["Power Form", "Either Demon Form, Wraith Form or Echo Form."],
 		"NAME": "Ainz Ooal Gown",
-		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand."
+		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand, it costs 2 energy."
 	},
 	"animator_Aisha":
 	{
@@ -75,7 +75,7 @@
 	},
 	"animator_Chung":
 	{
-		"DESCRIPTION": "Gain !B! Block. Cooldown !M!: NL Deal !D! damage to ALL enemies.",
+		"DESCRIPTION": "Gain !B! Block. Cooldown !SV!: NL Deal !D! damage to ALL enemies.",
 		"NAME": "Chung"
 	},
 	"animator_Cocytus":
@@ -177,7 +177,7 @@
 	},
 	"animator_Gilgamesh":
 	{
-		"DESCRIPTION": "Can be Upgraded any number of times. Deal !D! damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon.",
+		"DESCRIPTION": "Augmentable. Deal !D! damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon.",
 		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not activate when purchasing relics."],
 		"NAME": "Gilgamesh"
 	},
@@ -194,8 +194,8 @@
 	},
 	"animator_Hitei":
 	{
-		"DESCRIPTION": "At the start of your turn gain !M! Gold and Exhaust a random card in your draw pile.",
-		"EXTENDED_DESCRIPTION": ["Gold Limit", "You cannot gain more than 100 Gold per combat. Stacking this power increases the gold cap a little."],
+		"DESCRIPTION": "At the start of your turn gain !M! Gold and Exhaust a random card in your draw pile ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "You cannot gain more than 100 Gold per combat. Stacking this power increases the gold cap a little."],
 		"NAME": "Hitei"
 	},
 	"animator_Illya":
@@ -225,8 +225,8 @@
 	},
 	"animator_KrulTepes":
 	{
-		"DESCRIPTION": "Deal !D! damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial.",
-		"EXTENDED_DESCRIPTION": ["Relic Limit", "You will only receive 1 relic in multi-elite combats."],
+		"DESCRIPTION": "Deal !D! damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "The relic will drop at the end of combat. You will only receive 1 relic in multi-elite combats. You can equip multiple Blood Vials."],
 		"NAME": "Krul Tepes"
 	},
 	"animator_Kuribayashi":
@@ -365,8 +365,8 @@
 	},
 	"animator_Wiz":
 	{
-		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses.",
-		"EXTENDED_DESCRIPTION": ["Retrieval Limit", "You cannot retrieve another Wiz from your exhaust pile."],
+		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "You cannot retrieve another Wiz from your exhaust pile."],
 		"NAME": "Wiz"
 	},
 	"animator_YaoHaDucy":
@@ -420,13 +420,14 @@
 	},
 	"animator_Priestess":
 	{
-		"DESCRIPTION": "Cooldown !M!: Gain !SV! Regeneration. NL Synergy: Gain !SV! temporary HP.",
+		"DESCRIPTION": "Cooldown !SV!: Gain !M! Regeneration. NL Synergy: Gain !M! temporary HP.",
 		"NAME": "'Priestess'"
 	},
 	"animator_DwarfShaman":
 	{
-		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded card and Upgrade it.",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded cards and Upgrade them.",
+		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! card and Upgrade it ([#EFC851]*[#FFFFFF]).",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! cards and Upgrade them ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "It will prioritize upgradable cards, if there are none it will work as normal card draw."],
 		"NAME": "'Dwarf Shaman'"
 	},
 	"animator_LizardPriest":

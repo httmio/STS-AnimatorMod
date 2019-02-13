@@ -1,5 +1,6 @@
 package eatyourbeets.cards.animator;
 
+import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -8,9 +9,10 @@ import com.megacrit.cardcrawl.powers.RegenPower;
 import eatyourbeets.GameActionsHelper;
 import eatyourbeets.actions.ModifyMagicNumberPermanentlyAction;
 import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.AnimatorCard_Cooldown;
 import eatyourbeets.cards.Synergies;
 
-public class Priestess extends AnimatorCard
+public class Priestess extends AnimatorCard_Cooldown implements CustomSavable<Integer>
 {
     public static final String ID = CreateFullID(Priestess.class.getSimpleName());
     private static final int COOLDOWN = 3;
@@ -19,21 +21,12 @@ public class Priestess extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0, 0, 3);
+        Initialize(0, 0, 4);
 
         this.tags.add(CardTags.HEALING);
-        this.baseSecondaryValue = this.secondaryValue = 4;
-        this.misc = COOLDOWN;
-        SetSynergy(Synergies.GoblinSlayer);
-    }
+        this.baseSecondaryValue = this.secondaryValue = COOLDOWN;
 
-    @Override
-    public void applyPowers()
-    {
-        this.magicNumber = this.misc;
-        super.applyPowers();
-        initializeDescription();
-        this.isMagicNumberModified = (this.magicNumber == 0);
+        SetSynergy(Synergies.GoblinSlayer);
     }
 
     @Override
@@ -41,12 +34,12 @@ public class Priestess extends AnimatorCard
     {
         if (ProgressCooldown())
         {
-            GameActionsHelper.ApplyPower(p, p, new RegenPower(p, this.secondaryValue), this.secondaryValue);
+            GameActionsHelper.ApplyPower(p, p, new RegenPower(p, this.magicNumber), this.magicNumber);
         }
 
         if (HasActiveSynergy())
         {
-            GameActionsHelper.Special(new AddTemporaryHPAction(p, p, this.secondaryValue));
+            GameActionsHelper.Special(new AddTemporaryHPAction(p, p, this.magicNumber));
         }
     }
 
@@ -55,23 +48,13 @@ public class Priestess extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeSecondaryValue(1);
+            upgradeMagicNumber(1);
         }
     }
 
-    private boolean ProgressCooldown()
+    @Override
+    protected int GetBaseCooldown()
     {
-        if (this.baseMagicNumber <= 0)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberPermanentlyAction(this.uuid, COOLDOWN));
-
-            return true;
-        }
-        else
-        {
-            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberPermanentlyAction(this.uuid, -1));
-
-            return false;
-        }
+        return COOLDOWN;
     }
 }

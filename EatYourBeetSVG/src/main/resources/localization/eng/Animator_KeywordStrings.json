@@ -58,5 +58,10 @@
 		"DESCRIPTION": "Discard a certain number of cards then draw that many cards.",
 		"NAMES": ["cycle"],
 		"PROPERNAME": "Cycle"
-	}
+	},
+	{
+		"DESCRIPTION": "Can be upgraded any number of times.",
+		"NAMES": ["augmentable"],
+		"PROPERNAME": "Augmentable"
+	},
 ]

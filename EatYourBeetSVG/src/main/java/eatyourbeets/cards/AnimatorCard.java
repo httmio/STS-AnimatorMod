@@ -21,6 +21,7 @@ import org.apache.logging.log4j.Logger;
 import patches.AbstractEnums;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -204,7 +205,7 @@ public abstract class AnimatorCard extends CustomCard
         AnimatorCard copy = Utilities.SafeCast(result, AnimatorCard.class);
         if (copy != null)
         {
-            copy.baseSecondaryValue = this.baseSecondaryValue;
+            copy.secondaryValue = copy.baseSecondaryValue = this.baseSecondaryValue;
         }
 
         return result;
@@ -310,20 +311,18 @@ public abstract class AnimatorCard extends CustomCard
         }
     }
 
-    protected void ChangeMagicNumberForCombat(int value, boolean add)
+    public HashSet<AbstractCard> GetAllInstances()
     {
-        for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
+        HashSet<AbstractCard> cards = GetAllInBattleInstances.get(uuid);
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
         {
-            if (add)
+            if (c.uuid == uuid)
             {
-                c.baseMagicNumber += value;
+                cards.add(c);
+                break;
             }
-            else
-            {
-                c.baseMagicNumber = value;
-            }
-            c.magicNumber = c.baseMagicNumber;
-            c.isMagicNumberModified = true;
         }
+
+        return cards;
     }
 }
