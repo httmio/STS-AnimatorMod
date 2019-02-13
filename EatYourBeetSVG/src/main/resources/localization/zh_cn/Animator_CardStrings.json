@@ -1,4 +1,4 @@
-﻿{
+{
 	"animator_AcuraAkari":
 	{
 		"DESCRIPTION": "对一个敌人造成 !M! 层中毒. NL 同调: 下回合多抽一张牌.",
@@ -11,10 +11,10 @@
 	},
 	"animator_Ainz":
 	{
-		"DESCRIPTION": "每回合花费减少一点. 在你的回合开始时添加一张 [#EFC851]形态[#EFC851]到你的手牌.",
+		"DESCRIPTION": "每回合花费减少一点. 在你的回合开始时添加一张 [#EFC851]形态到你的手牌.",
 		"EXTENDED_DESCRIPTION": ["形态", "恶魔形态，回想形态或幽魂形态."],
 		"NAME": "安兹·乌尔·恭",
-		"UPGRADE_DESCRIPTION": "每回合花费减少一点. 在你的回合开始时添加一张[#EFC851]形态+[#EFC851]到你的手牌."
+		"UPGRADE_DESCRIPTION": "每回合花费减少一点. 在你的回合开始时添加一张[#EFC851]形态+到你的手牌."
 	},
 	"animator_Aisha":
 	{
@@ -75,13 +75,13 @@
 	},
 	"animator_Chung":
 	{
-		"DESCRIPTION": "获得 !B! 点格挡. 预热 !M!: NL 对所有敌人造成 !D! 点伤害.",
-		"EXTENDED_DESCRIPTION": ["预热","每打出一次减少一层预热层数, 当预热层数为0时，打出时将触发 预热 效果，并重置预热层数. Preserved between fights."],
+		"DESCRIPTION": "获得 !B! 点格挡. NL 预热 !M!: 对所有敌人造成 !D! 点伤害.",
+		"EXTENDED_DESCRIPTION": ["预热","每打出一次减少一层预热层数, 当预热层数为0时，打出时将触发 预热 效果，并重置预热层数. "],
 		"NAME": "Chung"
 	},
 	"animator_Cocytus":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. 本回合获得[#EFC851]吸收 [#EFC851]效果. 同调: 额外造成 !M! 点伤害.",
+		"DESCRIPTION": "造成 !D! 点伤害. 本回合获得[#EFC851]吸收效果. 同调: 额外造成 !M! 点伤害.",
 		"EXTENDED_DESCRIPTION": ["吸收", "获得敌人失去的所有格挡."],
 		"NAME": "科赛特斯"
 	},
@@ -98,9 +98,9 @@
 	},
 	"animator_Demiurge":
 	{
-		"DESCRIPTION": "获得 [B] [B] NL 下次抽到这张牌时失去 !M! 点生命. 同调: Cycle 1 card.",
+		"DESCRIPTION": "获得 [B] [B] NL 下次抽到这张牌时失去 !M! 点生命. 同调: 循环1张牌.",
 		"NAME": "Demiurge",
-		"UPGRADE_DESCRIPTION": "获得 [B] [B] [B] NL 下次抽到这张牌时失去 !M! 点生命. 同调: Cycle 1 card."
+		"UPGRADE_DESCRIPTION": "获得 [B] [B] [B] NL 下次抽到这张牌时失去 !M! 点生命. 同调: 循环1张牌."
 	},
 	"animator_DolaCouronne":
 	{
@@ -130,15 +130,15 @@
 	},
 	"animator_Elsword":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. 同调: 抽两张牌，弃两张牌.",
+		"DESCRIPTION": "造成 !D! 点伤害. 同调: 循环2张牌.",
 		"NAME": "Elsword"
 	},
 	"animator_Emonzaemon":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. If this is your 3rd Attack in a row, obtain [#EFC851]炎刀·铳 [#EFC851], then Purge this.",
+		"DESCRIPTION": "造成 !D! 点伤害. If this is your 3rd Attack in a row, obtain [#EFC851]炎刀[#EFC851]·铳, then Purge this.",
 		"EXTENDED_DESCRIPTION": ["炎刀·铳", "A special 0-Cost #yPower."],
 		"NAME": "门左卫兽",
-		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu+, then Purge this."
+		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害. If this is your 3rd Attack in a row, obtain [#EFC851]炎刀[#EFC851]·铳, then Purge this."
 	},
 	"animator_Entoma":
 	{
@@ -178,7 +178,7 @@
 	},
 	"animator_Gilgamesh":
 	{
-		"DESCRIPTION": "可被多次升级. 对一个敌人造成 !D! 点伤害 3 次. NL [#EFC851]巴[#EFC851]比 [#EFC851]伦[#EFC851]的[#EFC851]宝[#EFC851]藏.",
+		"DESCRIPTION": "可被多次升级. 对一个敌人造成 !D! 点伤害 3 次. NL [#EFC851]巴比伦的宝藏.",
 		"EXTENDED_DESCRIPTION": ["巴比伦的宝藏", "每当你获得遗物时升级这张牌并获得 #b", " 个金币. 买的遗物不会触发该效果."],
 		"NAME": "英雄王·吉尔伽美什"
 	},
@@ -201,100 +201,100 @@
 	},
 	"animator_Illya":
 	{
-		"DESCRIPTION": "Draw your highest 点伤害 [#EFC851]Attack and increase its 点伤害 by !M! this combat.",
-		"NAME": "Illya"
+		"DESCRIPTION": "将抽牌堆中伤害最高的 [#EFC851]攻击牌 加入手牌并在本次战斗中使其伤害提高!M!点.",
+		"NAME": "伊莉雅"
 	},
 	"animator_ItamiYouji":
 	{
-		"DESCRIPTION": "Retain. 造成 !D! 点伤害 to a random enemy for each card you have played this turn. (Played !M! cards)",
+		"DESCRIPTION": "保留. 对随机敌人造成 !D! 点伤害，伤害取决于本回合打出的牌的数量. (打出 !M! 张)",
 		"NAME": "Itami Youji"
 	},
 	"animator_Jibril":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. NL If the enemy has Vulnerable 获得 !M! Strength.",
+		"DESCRIPTION": "造成 !D! 点伤害. NL 若敌人有易伤效果获得!M!点力量.",
 		"NAME": "Jibril"
 	},
 	"animator_Kazuma":
 	{
-		"DESCRIPTION": "获得 !B! 点格挡, then 造成 !D! 点伤害. NL 同调: Draw 1 card.",
+		"DESCRIPTION": "获得!B!点格挡,造成 !D! 点伤害. NL 同调: 抽一张牌.",
 		"NAME": "Kazuma"
 	},
 	"animator_Konayuki":
 	{
-		"DESCRIPTION": "If you have at least 10 Strength, 造成 !D! 点伤害, otherwise 获得 !M! strength.",
+		"DESCRIPTION": "若至少拥有10点力量, 造成!D!点伤害,否则获得!M!点力量.",
 		"NAME": "Konayuki"
 	},
 	"animator_KrulTepes":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial.",
-		"EXTENDED_DESCRIPTION": ["Relic Limit", "You will only receive 1 relic in multi-elite combats."],
+		"DESCRIPTION": "造成 !D! 点伤害. NL 若这张牌消灭了一个精英或Boss，获得 NL [#EFC851]小血瓶.",
+		"EXTENDED_DESCRIPTION": ["遗物限制", "若本场战斗中有多个精英存在，只能获得一次遗物."],
 		"NAME": "Krul Tepes"
 	},
 	"animator_Kuribayashi":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. 同调: The target loses !M! Strength this turn.",
+		"DESCRIPTION": "造成 !D! 点伤害. 同调: 本回合目标失去!M!点力量.",
 		"NAME": "Kuribayashi"
 	},
 	"animator_Lancer":
 	{
-		"DESCRIPTION": "造成 !D! Piercing 点伤害. Heartseeker. If this kills an enemy 获得 [B].",
+		"DESCRIPTION": "造成 !D! 点穿刺伤害. 渴血. 若此牌消灭了一个敌人，获得 [B].",
 		"NAME": "Lancer"
 	},
 	"animator_Layla":
 	{
-		"DESCRIPTION": "[#EFC851]Reload: 造成 !D! 点伤害.",
-		"EXTENDED_DESCRIPTION": ["Reload", "Discard any number of cards, activate this effect that many times."],
+		"DESCRIPTION": "[#EFC851]重装填: 造成 !D! 点伤害.",
+		"EXTENDED_DESCRIPTION": ["重装填", "丢弃任意数量的牌,触发同等次数."],
 		"NAME": "Layla",
-		"UPGRADE_DESCRIPTION": "[#EFC851]Reload: 造成 !D! Piercing 点伤害."
+		"UPGRADE_DESCRIPTION": "[#EFC851]重装填: 造成 !D! Piercing 点伤害."
 	},
 	"animator_LeleiLaLalena":
 	{
-		"DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! card. 同调: Also apply !M! Weak.",
+		"DESCRIPTION": "给予一个敌人!M!层易伤，抽!M!张牌，弃!M!张牌. 同调: 同时给予!M!层虚弱.",
 		"NAME": "Lelei La Lalena",
-		"UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! cards. 同调: Also apply !M! Weak."
+		"UPGRADE_DESCRIPTION": "给予一个敌人!M!层易伤，抽!M!张牌，弃!M!张牌. 同调: 同时给予!M!层虚弱."
 	},
 	"animator_Megumin":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害 to ALL Enemies. Exhaust. NL 同调: Permanently increase this card's 点伤害 by !M!.",
-		"NAME": "Megumin"
+		"DESCRIPTION": "对所有敌人造成 !D! 点伤害. 消耗. NL 同调: 伤害永久增加!M!点.",
+		"NAME": "惠惠"
 	},
 	"animator_Mikaela":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害 Twice. Exhaust a random card in your discard pile.",
+		"DESCRIPTION": "造成!D!点伤害两次. 从你的弃牌堆中随机消耗一张牌.",
 		"NAME": "Mikaela",
-		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害 Twice. Choose and Exhaust a card in your discard pile."
+		"UPGRADE_DESCRIPTION": "造成!D!点伤害两次. 从你的弃牌堆中选择并消耗一张牌."
 	},
 	"animator_Mitsurugi":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害, can only be used if the enemy intends to attack. Legacy: 获得 !M! Strength.",
+		"DESCRIPTION": "造成!D!点伤害,仅当敌人意图为攻击时可被打出. 遗馈: 获得!M!点力量.",
 		"NAME": "Mitsurugi"
 	},
 	"animator_Nanami":
 	{
-		"DESCRIPTION": "获得 !B! 点格挡. NL 同调: Add [#EFC851]Pummel to your hand.",
+		"DESCRIPTION": "获得 !B! 点格挡. NL 同调: 将一张[#EFC851]连续拳放入你的手牌.",
 		"NAME": "Nanami",
-		"UPGRADE_DESCRIPTION": "获得 !B! 点格挡. NL 同调: Add [#EFC851]Pummel+ to your hand."
+		"UPGRADE_DESCRIPTION": "获得 !B! 点格挡. NL 同调:添加一张 [#EFC851]连续[#EFC851]拳+到你的手牌."
 	},
 	"animator_NarberalGamma":
 	{
-		"DESCRIPTION": "Channel !M! Lightning. Next turn, 获得 [B]. 穿越者.",
+		"DESCRIPTION": "获得!M!个闪电充能球. 下回合,获得[B]. NL 穿越者.",
 		"NAME": "Gamma Narberal",
-		"UPGRADE_DESCRIPTION": "Channel !M! Lightning. Next turn, 获得 [B]. 穿越者. NL 同调: 获得 1 Orb slot."
+		"UPGRADE_DESCRIPTION": "获得!M!个闪电充能球. 下回合,获得[B]. NL 穿越者.同调:获得一个充能球栏位."
 	},
 	"animator_PandorasActor":
 	{
-		"DESCRIPTION": "获得 !B! 点格挡. 穿越者. NL 同调: 获得 !M! extra 点格挡.",
+		"DESCRIPTION": "获得 !B! 点格挡. 穿越者. NL 同调: 额外获得!M!点格挡.",
 		"NAME": "Pandora's Actor"
 	},
 	"animator_PinaCoLada":
 	{
-		"DESCRIPTION": "When a 同调 is activated 获得 !M! 点格挡.",
+		"DESCRIPTION": "每触发一次同调效果获得!M!点格挡.",
 		"NAME": "Piña Co Lada"
 	},
 	"animator_Rena":
 	{
-		"DESCRIPTION": "Apply 1 Vulnerable and 获得 !B! 点格挡. 同调: 获得 1 [#EFC851]Blur.",
-		"EXTENDED_DESCRIPTION": ["Blur", "Your #y点格挡 is not removed at the start of your next turn."],
+		"DESCRIPTION": "给予一层易伤效果，获得 !B! 点格挡. 同调: 获得 1 [#EFC851]残影.",
+		"EXTENDED_DESCRIPTION": ["残影", "下回合开始时格挡不会消失."],
 		"NAME": "Rena"
 	},
 	"animator_RinTohsaka":
@@ -309,38 +309,38 @@
 	},
 	"animator_Saber":
 	{
-		"DESCRIPTION": "Loyal. 造成 !D! 点伤害, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
+		"DESCRIPTION": "Loyal. 造成!D!点伤害,当这张牌触发!M!次同调效果后,消耗并获得[#EFC851]誓约胜[#EFC851]利之剑.",
 		"NAME": "Saber",
-		"UPGRADE_DESCRIPTION": "Loyal. 造成 !D! 点伤害, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
+		"UPGRADE_DESCRIPTION": "Loyal. 造成!D!点伤害,当这张牌触发!M!次同调效果后,消耗并获得[#EFC851]誓约胜[#EFC851]利之剑+."
 	},
 	"animator_Shalltear":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害 to ALL enemies. NL Heal !M! HP for each enemy that lost its 点格挡.",
+		"DESCRIPTION": "对所有敌人造成!D!点伤害. NL 每有一个敌人失去格挡，治疗!M!HP.",
 		"NAME": "Shalltear"
 	},
 	"animator_Shichika":
 	{
-		"DESCRIPTION": "获得 !B! 点格挡 and !M! Thorns. NL 同调: 获得 !M! [#EFC851]Plated [#EFC851]Armor.",
+		"DESCRIPTION": "获得!B!点格挡和!M!层荆棘. NL 同调: 获得!M!层 [#EFC851]多层护甲.",
 		"NAME": "Shichika"
 	},
 	"animator_Shimakaze":
 	{
-		"DESCRIPTION": "Draw !M! cards, 造成 !D! 点伤害 to the target enemy for each attack drawn.",
+		"DESCRIPTION": "抽!M!张牌,每打出一张攻击牌对目标造成!D!点伤害 .",
 		"NAME": "Shimakaze"
 	},
 	"animator_Shinoa":
 	{
-		"DESCRIPTION": "获得 !B! 点格挡 and apply !M! Vulnerable to ALL enemies. NL 同调: Also apply !M! Weak.",
+		"DESCRIPTION": "获得 !B! 点格挡并给予所有敌人!M!层易伤. NL 同调: 额外给予!M!层虚弱.",
 		"NAME": "Shinoa"
 	},
 	"animator_Shiro":
 	{
-		"DESCRIPTION": "获得 [B] at the start of each turn.",
+		"DESCRIPTION": "每回合开始时获得[B].",
 		"NAME": "白"
 	},
 	"animator_Sora":
 	{
-		"DESCRIPTION": "Choose and execute !M! custom Effects. 同调: choose 1 extra Effect.",
+		"DESCRIPTION": "选择并触发!M!次自定义效果. 同调: 选择一个额外效果.",
 		"NAME": "Sora"
 	},
 	"animator_Strike":
@@ -351,22 +351,22 @@
 	},
 	"animator_Togame":
 	{
-		"DESCRIPTION": "Draw !SV! cards, then you may choose and Exhaust 1 card. Purge after !M! uses.",
+		"DESCRIPTION": "抽!SV!张牌,选择并消耗1张牌.使用!M!次后消耗.",
 		"NAME": "Togame"
 	},
 	"animator_TukaLunaMarceau":
 	{
-		"DESCRIPTION": "获得 !M! 点敏捷. 回合结束时失去 !M! 点敏捷. 同调: 改为减少 1 点敏捷.",
+		"DESCRIPTION": "获得!M!点敏捷. 回合结束时失去!M!点敏捷. 同调: 改为减少1点敏捷.",
 		"NAME": "杜嘉"
 	},
 	"animator_Tyuule":
 	{
-		"DESCRIPTION": "Apply !M! Poison to an enemy for each [#EFC851]Skill in your hand. NL (Apply !SV! Poison)",
+		"DESCRIPTION": "手牌中每有一张[#EFC851]技能 牌，给予一个敌人!M!层毒. NL (给予!SV!层毒)",
 		"NAME": "Tyuule"
 	},
 	"animator_Wiz":
 	{
-		"DESCRIPTION": "消耗一张牌, 从已消耗的牌中选择一张假如你的手牌. 使用 !M! 次后消耗.",
+		"DESCRIPTION": "消耗一张牌, 从已消耗的牌中选择一张假如你的手牌. 使用!M!次后消耗.",
 		"EXTENDED_DESCRIPTION": ["检索限制", "不能在被消耗牌中选另一张<维兹>."],
 		"NAME": "维兹"
 	},
@@ -377,71 +377,73 @@
 	},
 	"animator_YunYun":
 	{
-		"DESCRIPTION": "对所有敌人造成 !D! 点伤害. 手牌中每有一张 [#EFC851]攻击 牌，增加一点消耗.",
+		"DESCRIPTION": "对所有敌人造成 !D! 点伤害. 手牌中每有一张别的 [#EFC851]攻击 牌，增加一点消耗.",
 		"NAME": "芸芸"
 	},
 	"animator_Yuuichirou":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. NL Legacy: Add [#EFC851]Asuramaru to your discard pile.",
-		"EXTENDED_DESCRIPTION": ["Asuramaru", "A special 0-Cost #yAttack."],
-		"NAME": "Yuuichirou",
-		"UPGRADE_DESCRIPTION": "造成 !D! 点伤害. NL Legacy: Add [#EFC851]Asuramaru+ to your discard pile."
+		"DESCRIPTION": "造成!D!点伤害. NL 遗馈: 将一张[#EFC851]阿修[#EFC851]罗丸放到你的弃牌堆.",
+		"EXTENDED_DESCRIPTION": ["阿修罗丸", "特殊的0耗#y攻击牌."],
+		"NAME": "百夜优一郎",
+		"UPGRADE_DESCRIPTION": "造成!D!点伤害. NL 遗馈: 将一张[#EFC851]阿修[#EFC851]罗丸+放到你的弃牌堆."
 	},
 	"animator_GoblinSoldier":
 	{
-		"DESCRIPTION": "When you draw this, draw another card. At the end of your turn, take 2 点伤害.",
-		"NAME": "Goblin Soldier"
+		"DESCRIPTION": "抽到这张牌时，额外抽一张牌.回合结束时,受到2 点伤害.",
+		"NAME": "哥布林小鬼"
 	},
 	"animator_GoblinShaman":
 	{
-		"DESCRIPTION": "At the end of your turn, 获得 1 Frail. Exhaust.",
-		"NAME": "Goblin Shaman"
+		"DESCRIPTION": "在你的回合结束时, 获得1层脆弱. 消耗.",
+		"NAME": "哥布林萨满"
 	},
 	"animator_GoblinChampion":
 	{
-		"DESCRIPTION": "At the end of your turn, shuffle 1 random Goblin into your draw pile.",
-		"NAME": "Goblin Champion"
+		"DESCRIPTION": "在你的回合结束时,往抽牌堆中加入1张随机哥布林牌.",
+		"NAME": "哥布林冠军"
 	},
 	"animator_GoblinKing":
 	{
-		"DESCRIPTION": "At the end of your turn, shuffle 3 random Goblins into your draw pile.",
-		"NAME": "Goblin King"
+		"DESCRIPTION": "回合结束时,往抽牌堆中加入如3张随机哥布林牌.",
+		"NAME": "哥布林王"
 	},
 	"animator_GoblinSlayer":
 	{
-		"DESCRIPTION": "[#EFC851]Goblin [#EFC851]Slayer. NL 造成 !D! 点伤害. NL 获得 !B! 点格挡. NL Retain.",
-		"EXTENDED_DESCRIPTION": ["Goblin Slayer", "Exhaust every Status and Curse in your hand and discard pile. 造成 2 extra 点伤害 for every card in your exhaust pile. #yWARNING: Goblins will start invading your deck."],
-		"NAME": "Goblin Slayer"
+		"DESCRIPTION": "[#EFC851]哥布林杀手. NL 造成!D!点伤害. NL 获得!B!点格挡. NL 保留.",
+		"EXTENDED_DESCRIPTION": ["哥布林杀手", "消耗所有位于手牌和弃牌堆中的状态牌和诅咒牌. 已消耗牌堆中每有一张牌，额外造成2点伤害. #yWARNING: 哥布林将开始入侵你的牌堆."],
+		"NAME": "哥布林杀手"
 	},
 	"animator_GuildGirl":
 	{
-		"DESCRIPTION": "At the start of each turn, Cycle !M! card.",
-		"UPGRADE_DESCRIPTION": "At the start of each turn, Cycle !M! cards.",
-		"NAME": "'Guild Girl'"
+		"DESCRIPTION": "回合开始时, 循环!M!张牌.",
+		"UPGRADE_DESCRIPTION": "回合开始时,循环!M!张牌.",
+		"NAME": "柜台小姐"
 	},
 	"animator_Priestess":
 	{
-		"DESCRIPTION": "预热 !M!: 获得 !SV! Regeneration. NL 同调: 获得 !SV! temporary HP.",
-		"NAME": "'Priestess'"
+		"DESCRIPTION": "预热 !M! : 获得!SV!层再生. NL 同调: 获得 !SV! 点临时生命.",
+		"NAME": "女神官"
 	},
 	"animator_DwarfShaman":
 	{
-		"DESCRIPTION": "造成 !D! 点伤害. 如果打破目标的格挡, 抽一张牌并升级.",
+		"DESCRIPTION": "造成!D!点伤害.若打破目标格挡，抽!M!张牌并升级([#EFC851]*[#FFFFFF]).",
+		"UPGRADE_DESCRIPTION": "造成!D!点伤害.若打破目标格挡，抽!M!张牌并升级([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* 注", "优先抽未升级的牌，若全部升级则随机抽."],
 		"NAME": "'Dwarf Shaman'"
 	},
 	"animator_LizardPriest":
 	{
-		"DESCRIPTION": "使一个敌人的格挡值变为 !M!. 抽一张牌并丢弃一张牌.",
-		"NAME": "'Lizard Priest'"
+		"DESCRIPTION": "使一个敌人的格挡值变为 !M! ，获得 !B! 点格挡. 同调:[#EFC851]循环 一张牌.",
+		"NAME": "蜥蜴僧侣"
 	},
 	"animator_HighElfArcher":
 	{
-		"DESCRIPTION": "造成 !D! Piercing 点伤害 twice. If you haven't played other copies of this card this turn, draw 1 card.",
-		"NAME": "'High Elf Archer'"
+		"DESCRIPTION": "造成!D!点穿刺伤害，重复两次.本回合第一次使用这张牌时,抽一张牌.",
+		"NAME": "精灵弓手"
 	},
 	"animator_SwordMaiden":
 	{
-		"DESCRIPTION": "Retain. NL 获得 !M! Artifact. NL 获得 !M! Intangible. NL Exhaust.",
-		"NAME": "'Sword Maiden'"
+		"DESCRIPTION": "保留. NL 获得!M!层人工制品. NL 获得!M!无实体. NL 消耗.",
+		"NAME": "剑之圣女"
 	}
 }
