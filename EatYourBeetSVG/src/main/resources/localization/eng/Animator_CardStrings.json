@@ -420,7 +420,8 @@
 	},
 	"animator_Priestess":
 	{
-		"DESCRIPTION": "Cooldown !M!: Gain !SV! Regeneration. NL Synergy: Gain !SV! temporary HP.",
+		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded card and Upgrade it.",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded cards and Upgrade them.",
 		"NAME": "'Priestess'"
 	},
 	"animator_DwarfShaman":
@@ -430,7 +431,7 @@
 	},
 	"animator_LizardPriest":
 	{
-		"DESCRIPTION": "Set an enemy's Block to !M!. Cycle 1 card.",
+		"DESCRIPTION": "Set an enemy's Block to !M!. Gain !B! Block. Synergy: Cycle 1 card.",
 		"NAME": "'Lizard Priest'"
 	},
 	"animator_HighElfArcher":
