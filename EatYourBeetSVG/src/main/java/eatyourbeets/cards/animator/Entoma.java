@@ -21,37 +21,36 @@ import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.AnimatorCard_SavableInteger;
 import eatyourbeets.cards.Synergies;
 
-public class Entoma extends AnimatorCard_SavableInteger implements CustomSavable<Integer>
+public class Entoma extends AnimatorCard//_SavableInteger implements CustomSavable<Integer>
 {
     public static final String ID = CreateFullID(Entoma.class.getSimpleName());
 
-    private static final int BASE_DAMAGE = 8;
+    private static final int ORIGINAL_DAMAGE = 7;
+    private static final int ORIGINAL_MAGIC_NUMBER = 3;
 
     public Entoma()
     {
         super(ID, 1, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
-        Initialize(BASE_DAMAGE,0,2);
+        Initialize(ORIGINAL_DAMAGE,0,ORIGINAL_MAGIC_NUMBER);
 
         AddExtendedDescription();
         SetSynergy(Synergies.Overlord);
     }
 
-    @Override
-    public AbstractCard makeStatEquivalentCopy()
-    {
-        AbstractCard c = super.makeStatEquivalentCopy();
-        c.baseDamage = BASE_DAMAGE + this.secondaryValue;
-        c.initializeDescription();
-
-        return c;
-    }
-
+//    @Override
+//    public AbstractCard makeStatEquivalentCopy()
+//    {
+//        AbstractCard c = super.makeStatEquivalentCopy();
+//        c.baseDamage = ORIGINAL_DAMAGE + this.secondaryValue;
+//        c.initializeDescription();
+//
+//        return c;
+//    }
+//
     @Override
     public void applyPowers()
     {
-        this.baseDamage = BASE_DAMAGE + this.secondaryValue;
-        this.isDamageModified = false;
         super.applyPowers();
         initializeDescription();
     }
@@ -81,19 +80,42 @@ public class Entoma extends AnimatorCard_SavableInteger implements CustomSavable
         }
     }
 
+//    @Override
+//    public void upgrade()
+//    {
+//        if (TryUpgrade())
+//        {
+//            upgradeMagicNumber(4);
+//        }
+//    }
+//
+//    @Override
+//    protected void SetValue(Integer integer)
+//    {
+//        super.SetValue(integer);
+//        this.baseDamage = ORIGINAL_DAMAGE + this.secondaryValue;
+//    }
+
     @Override
-    public void upgrade()
+    public boolean canUpgrade()
     {
-        if (TryUpgrade())
-        {
-            upgradeMagicNumber(4);
-        }
+        return true;
     }
 
     @Override
-    protected void SetValue(Integer integer)
+    public void upgrade()
     {
-        super.SetValue(integer);
-        this.baseDamage = BASE_DAMAGE + this.secondaryValue;
+        this.timesUpgraded += 1;
+
+        this.baseDamage = ORIGINAL_DAMAGE + timesUpgraded;
+        this.upgradedDamage = true;
+
+        this.baseMagicNumber = ORIGINAL_MAGIC_NUMBER + (timesUpgraded / 3);
+        this.magicNumber = this.baseMagicNumber;
+        this.upgradedMagicNumber = true;
+
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
     }
 }

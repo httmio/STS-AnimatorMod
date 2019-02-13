@@ -21,7 +21,7 @@ public class Kuribayashi extends AnimatorCard
     {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(9,0,3);
+        Initialize(9,0,4);
 
         SetSynergy(Synergies.Gate);
     }

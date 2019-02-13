@@ -63,5 +63,5 @@
 		"DESCRIPTION": "Can be upgraded any number of times.",
 		"NAMES": ["augmentable"],
 		"PROPERNAME": "Augmentable"
-	},
+	}
 ]

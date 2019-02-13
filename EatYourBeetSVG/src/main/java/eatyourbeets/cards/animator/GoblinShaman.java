@@ -1,6 +1,7 @@
 package eatyourbeets.cards.animator;
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.relics.MedicalKit;
@@ -18,8 +19,14 @@ public class GoblinShaman extends AnimatorCard_Status
 
         Initialize(0,0);
 
-        this.exhaust = true;
         SetSynergy(Synergies.GoblinSlayer);
+    }
+
+    @Override
+    public void triggerWhenDrawn()
+    {
+        super.triggerWhenDrawn();
+        GameActionsHelper.DrawCard(AbstractDungeon.player, 1);
     }
 
     @Override

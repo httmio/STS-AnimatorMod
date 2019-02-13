@@ -17,7 +17,7 @@ public class Mitsurugi extends AnimatorCard
     {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(14, 0, 1);
+        Initialize(15, 0, 1);
 
         SetSynergy(Synergies.Konosuba);
     }

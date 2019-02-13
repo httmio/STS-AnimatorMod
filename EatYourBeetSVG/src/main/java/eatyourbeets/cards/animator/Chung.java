@@ -24,7 +24,7 @@ public class Chung extends AnimatorCard_Cooldown implements CustomSavable<Intege
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL);
 
-        Initialize(16, 5);
+        Initialize(16, 6);
 
         this.baseSecondaryValue = this.secondaryValue = COOLDOWN;
         this.isMultiDamage = true;
@@ -48,7 +48,7 @@ public class Chung extends AnimatorCard_Cooldown implements CustomSavable<Intege
         if (TryUpgrade())
         {
             upgradeDamage(4);
-            upgradeBlock(3);
+            upgradeBlock(2);
         }
     }
 

@@ -40,7 +40,7 @@ public abstract class AnimatorCard_Cooldown extends AnimatorCard_SavableInteger
         {
             AnimatorCard_Cooldown card = (AnimatorCard_Cooldown)c;
             card.baseSecondaryValue = card.secondaryValue = newValue;
-            card.applyPowers();
+            //card.applyPowers();
         }
 
         return activate;

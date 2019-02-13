@@ -21,9 +21,10 @@ public class EntomaAction extends AnimatorAction
         for (AbstractCard c : entoma.GetAllInstances())
         {
             Entoma card = (Entoma)c;
-            card.secondaryValue += 1;
-            card.baseSecondaryValue = card.secondaryValue;
-            card.applyPowers();
+            card.upgrade();
+//            card.secondaryValue += 1;
+//            card.baseSecondaryValue = card.secondaryValue;
+//            card.applyPowers();
         }
 
         this.isDone = true;

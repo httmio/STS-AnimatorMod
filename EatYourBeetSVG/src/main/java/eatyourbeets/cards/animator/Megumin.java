@@ -13,7 +13,7 @@ import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.AnimatorCard_SavableInteger;
 import eatyourbeets.cards.Synergies;
 
-public class Megumin extends AnimatorCard_SavableInteger implements CustomSavable<Integer>
+public class Megumin extends AnimatorCard//_SavableInteger implements CustomSavable<Integer>
 {
     public static final String ID = CreateFullID(Megumin.class.getSimpleName());
     private static final int ORIGINAL_DAMAGE = 14;
@@ -22,7 +22,7 @@ public class Megumin extends AnimatorCard_SavableInteger implements CustomSavabl
     {
         super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
-        Initialize(ORIGINAL_DAMAGE, 0, 2);
+        Initialize(ORIGINAL_DAMAGE, 0);
 
         this.isMultiDamage = true;
         this.exhaust = true;
@@ -42,34 +42,43 @@ public class Megumin extends AnimatorCard_SavableInteger implements CustomSavabl
                 Megumin megumin = Utilities.SafeCast(c, Megumin.class);
                 if (megumin != null)
                 {
-                    megumin.secondaryValue += this.magicNumber;
-                    megumin.baseSecondaryValue = megumin.secondaryValue;
-                    megumin.applyPowers();
+                    megumin.upgrade();
+//                    megumin.secondaryValue += this.magicNumber;
+//                    megumin.baseSecondaryValue = megumin.secondaryValue;
+//                    megumin.applyPowers();
                 }
             }
         }
     }
 
-    public void applyPowers() 
+//    public void applyPowers()
+//    {
+//        this.baseDamage = ORIGINAL_DAMAGE + this.secondaryValue;
+//        super.applyPowers();
+//        initializeDescription();
+//    }
+
+    @Override
+    public boolean canUpgrade()
     {
-        this.baseDamage = ORIGINAL_DAMAGE + this.secondaryValue;
-        super.applyPowers();
-        initializeDescription();
+        return true;
     }
 
     @Override
-    public void upgrade() 
+    public void upgrade()
     {
-        if (TryUpgrade())
-        {
-            upgradeMagicNumber(1);
-        }
+        this.timesUpgraded += 1;
+        this.baseDamage = ORIGINAL_DAMAGE + (timesUpgraded * 2) + (timesUpgraded / 2);
+        this.upgradedDamage = true;
+        this.upgraded = true;
+        this.name = cardStrings.NAME + "+" + this.timesUpgraded;
+        this.initializeTitle();
     }
 
-    @Override
-    protected void SetValue(Integer integer)
-    {
-        super.SetValue(integer);
-        this.baseDamage = ORIGINAL_DAMAGE + this.secondaryValue;
-    }
+//    @Override
+//    protected void SetValue(Integer integer)
+//    {
+//        super.SetValue(integer);
+//        this.baseDamage = ORIGINAL_DAMAGE + this.secondaryValue;
+//    }
 }

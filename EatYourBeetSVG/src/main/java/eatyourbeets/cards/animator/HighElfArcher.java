@@ -18,7 +18,7 @@ public class HighElfArcher extends AnimatorCard
     {
         super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
-        Initialize(3, 0);
+        Initialize(2, 0);
 
         SetSynergy(Synergies.GoblinSlayer);
     }
