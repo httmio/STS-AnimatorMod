@@ -3,6 +3,7 @@ package eatyourbeets.cards.animator;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Madness;
 import com.megacrit.cardcrawl.cards.colorless.Shiv;
@@ -34,18 +35,22 @@ public class HigakiRinne extends AnimatorCard
     {
         super.triggerOnExhaust();
 
-        int n = AbstractDungeon.miscRng.random(6);
-        if (n == 0)
+        int n = AbstractDungeon.miscRng.random(100);
+        if (n < 20)
         {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Shiv()));
         }
-        else if (n == 1)
+        else if (n < 40)
         {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Madness()));
         }
-        else if (n == 2)
+        else if (n < 60)
         {
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(new Slimed()));
+        }
+        else if (n < 64)
+        {
+            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(makeCopy()));
         }
     }
 
@@ -78,7 +83,7 @@ public class HigakiRinne extends AnimatorCard
     {
         for (int i = 0; i < this.magicNumber; i++)
         {
-            AbstractDungeon.actionManager.addToBottom(new WaitAction(0.5f));
+            AbstractDungeon.actionManager.addToBottom(new WaitAction(1));
             ExecuteRandomAction(p, AbstractDungeon.miscRng);
         }
     }
@@ -101,7 +106,7 @@ public class HigakiRinne extends AnimatorCard
         }
         else if (n < 20) // 10%
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(p, 4), AbstractGameAction.AttackEffect.POISON));
+            AbstractDungeon.actionManager.addToBottom(new DamageRandomEnemyAction(new DamageInfo(p, 4, damageTypeForTurn), AbstractGameAction.AttackEffect.POISON));
         }
         else if (n < 25) // 5%
         {
@@ -159,7 +164,11 @@ public class HigakiRinne extends AnimatorCard
         }
         else if (n < 90) // 5%
         {
-            AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(CardLibrary.getRandomColorSpecificCard(this.color, rng)));
+            AbstractCard card = CardLibrary.getRandomColorSpecificCard(this.color, rng);
+            if (!card.tags.contains(CardTags.HEALING))
+            {
+                AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(card));
+            }
         }
     }
 }

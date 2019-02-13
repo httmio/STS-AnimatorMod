@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.CorruptionPower;
+import eatyourbeets.cards.animator.Wiz;
 
 public class WizAction extends AbstractGameAction
 {
@@ -34,7 +35,16 @@ public class WizAction extends AbstractGameAction
     {
         if (this.duration == Settings.ACTION_DUR_FAST)
         {
-            AbstractDungeon.gridSelectScreen.open(this.p.exhaustPile, 1, TEXT[0], false);
+            CardGroup tempGroup = new CardGroup(this.p.exhaustPile, CardGroup.CardGroupType.EXHAUST_PILE);
+            tempGroup.group.removeIf(c -> c.cardID.equals(Wiz.ID));
+
+            if (tempGroup.group.size() == 0)
+            {
+                this.isDone = true;
+                return;
+            }
+
+            AbstractDungeon.gridSelectScreen.open(tempGroup, 1, TEXT[0], false);
             this.tickDuration();
         }
         else

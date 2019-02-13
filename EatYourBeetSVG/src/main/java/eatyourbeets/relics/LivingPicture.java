@@ -1,7 +1,5 @@
 package eatyourbeets.relics;
 
-import basemod.abstracts.CustomRelic;
-import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,15 +8,15 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
 
-public class LivingPicture extends CustomRelic
+public class LivingPicture extends AnimatorRelic
 {
-    public static final String ID = "Animator_LivingPicture";
+    public static final String ID = CreateFullID(LivingPicture.class.getSimpleName());
 
     private Boolean active = true;
 
     public LivingPicture()
     {
-        super(ID, new Texture("images/relics/animator_livingPicture.png"), RelicTier.STARTER, LandingSound.MAGICAL);
+        super(ID, RelicTier.STARTER, LandingSound.MAGICAL);
     }
 
     @Override
@@ -36,7 +34,7 @@ public class LivingPicture extends CustomRelic
     @Override
     public void atTurnStart()
     {
-        super.onPlayerEndTurn();
+        super.atTurnStart();
         active = true;
     }
 

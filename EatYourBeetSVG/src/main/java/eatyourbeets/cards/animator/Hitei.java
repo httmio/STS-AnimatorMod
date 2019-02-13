@@ -1,6 +1,5 @@
 package eatyourbeets.cards.animator;
 
-import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -15,11 +14,12 @@ public class Hitei extends AnimatorCard
 
     public Hitei()
     {
-        super(ID, 1, CardType.POWER, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 1, CardType.POWER, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,0,5);
+        Initialize(0,0,6);
 
-        AddTooltip(new TooltipInfo("Gold Limit", "You cannot gain more than 100 Gold per combat."));
+        AddExtendedDescription();
+
         SetSynergy(Synergies.Katanagatari);
     }
 
@@ -34,7 +34,7 @@ public class Hitei extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(4);
         }
     }
 }

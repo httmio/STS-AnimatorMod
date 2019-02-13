@@ -6,13 +6,14 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import eatyourbeets.AnimatorResources;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
 
 public class StephanieAction extends AnimatorAction
 {
-    private AbstractPlayer player;
-    private int cardDraw;
+    private final AbstractPlayer player;
+    private final int cardDraw;
 
     public StephanieAction(AbstractCreature target, int cardDraw)
     {
@@ -33,7 +34,8 @@ public class StephanieAction extends AnimatorAction
             }
             else
             {
-                AbstractDungeon.handCardSelectScreen.open("Fetch cards with the same synergy.", 1, false, false);
+                String fetchMessage = AnimatorResources.GetUIStrings(AnimatorResources.UIStringType.Actions).TEXT[0];
+                AbstractDungeon.handCardSelectScreen.open(fetchMessage, 1, false, false);
                 this.tickDuration();
             }
 

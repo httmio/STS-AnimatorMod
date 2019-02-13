@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import eatyourbeets.actions.ModifyMagicNumberAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -14,9 +15,11 @@ public class Togame extends AnimatorCard
 
     public Togame()
     {
-        super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
+        super(ID, 0, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.SELF);
 
-        Initialize(0,0, 2);
+        Initialize(0,0, 3);
+
+        this.baseSecondaryValue = this.secondaryValue = 2;
 
         SetSynergy(Synergies.Katanagatari);
     }
@@ -24,16 +27,22 @@ public class Togame extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.baseMagicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.secondaryValue));
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(p, p, 1, false, true, true));
+        AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberAction(this.uuid, -1));
+
+        if (this.magicNumber <= 1)
+        {
+            this.purgeOnUse = true;
+        }
     }
 
     @Override
-    public void upgrade() 
+    public void upgrade()
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(0);
+            upgradeSecondaryValue(1);
         }
     }
 }

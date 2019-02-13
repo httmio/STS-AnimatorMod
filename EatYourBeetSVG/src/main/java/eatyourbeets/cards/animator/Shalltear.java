@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
+import eatyourbeets.actions.OnTargetBlockBreakAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -20,9 +21,9 @@ public class Shalltear extends AnimatorCard
 
     public Shalltear()
     {
-        super(ID, 2, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
+        super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
 
-        Initialize(9,0, 4);
+        Initialize(11,0, 4);
 
         tags.add(CardTags.HEALING);
 
@@ -34,12 +35,17 @@ public class Shalltear extends AnimatorCard
     {
         for (AbstractMonster m2 : AbstractDungeon.getCurrRoom().monsters.monsters)
         {
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m2.hb.cX, m2.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m2, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
-
-            if (m2.currentBlock > 0 && m2.currentBlock <= (this.damage * 2))
+            if (!m2.isDying && m2.currentHealth > 0 && !m2.halfDead)
             {
-                AbstractDungeon.actionManager.addToTop(new HealAction(p, p, this.magicNumber));
+                AbstractDungeon.actionManager.addToBottom(new VFXAction(new BiteEffect(m2.hb.cX, m2.hb.cY - 40.0F * Settings.scale, Color.SCARLET.cpy()), 0.3F));
+                AbstractDungeon.actionManager.addToBottom(new DamageAction(m2, new DamageInfo(p, this.damage, this.damageTypeForTurn), AbstractGameAction.AttackEffect.NONE));
+
+                AbstractDungeon.actionManager.addToBottom(new OnTargetBlockBreakAction(m2, new HealAction(p, p, this.magicNumber)));
+
+//                if (m2.currentBlock > 0 && m2.currentBlock <= (this.damage * 2))
+//                {
+//                    AbstractDungeon.actionManager.addToTop(new HealAction(p, p, this.magicNumber));
+//                }
             }
         }
     }
@@ -49,7 +55,7 @@ public class Shalltear extends AnimatorCard
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(2);
+            upgradeDamage(3);
             upgradeMagicNumber(1);
         }
     }

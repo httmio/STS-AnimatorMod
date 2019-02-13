@@ -4,7 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnCardDrawPower;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
@@ -16,17 +16,23 @@ import eatyourbeets.subscribers.*;
 
 public class PlayerStatistics extends AnimatorPower implements InvisiblePower, OnCardDrawPower
 {
-    public static GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
-    public static GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
-    public static GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
-    public static GameEvent<OnLoseHpSubscriber> onLoseHp = new GameEvent<>();
+    public static final String POWER_ID = CreateFullID(PlayerStatistics.class.getSimpleName());
+
+    public static final PlayerStatistics Instance = new PlayerStatistics();
+
+    public static final GameEvent<OnAttackSubscriber> onAttack = new GameEvent<>();
+    public static final GameEvent<OnApplyPowerSubscriber> onApplyPower = new GameEvent<>();
+    public static final GameEvent<OnBattleStartSubscriber> onBattleStart = new GameEvent<>();
+    public static final GameEvent<OnCardDrawnSubscriber> onCardDrawn = new GameEvent<>();
+    public static final GameEvent<OnEndOfTurnSubscriber> onEndOfTurn = new GameEvent<>();
+    public static final GameEvent<OnLoseHpSubscriber> onLoseHp = new GameEvent<>();
 
     private static int turnCount = 0;
     private static int cardsDrawnThisTurn = 0;
 
-    public PlayerStatistics(AbstractPlayer owner)
+    protected PlayerStatistics()
     {
-        super(owner, "PlayerStatistics");
+        super(null, POWER_ID);
     }
 
     private static void ClearStats()
@@ -36,14 +42,28 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         AnimatorCard.SetLastCardPlayed(null);
         cardsDrawnThisTurn = 0;
         turnCount = 0;
+
+        onAttack.Clear();
         onLoseHp.Clear();
         onLoseHp.Clear();
         onEndOfTurn.Clear();
         onApplyPower.Clear();
     }
 
+    public static void EnsurePowerIsApplied()
+    {
+        if (!AbstractDungeon.player.powers.contains(Instance))
+        {
+            logger.info("Applied PlayerStatistics");
+
+            AbstractDungeon.player.powers.add(Instance);
+        }
+    }
+
     public void OnBattleStart()
     {
+        ClearStats();
+        onBattleStart.Clear();
         for (AbstractCard c : AbstractDungeon.player.drawPile.group)
         {
             OnBattleStartSubscriber s = Utilities.SafeCast(c, OnBattleStartSubscriber.class);
@@ -55,20 +75,24 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         }
     }
 
-    public static boolean InBattle()
+    public static AbstractRoom CurrentRoom()
     {
         MapRoomNode mapNode = AbstractDungeon.currMapNode;
         if (mapNode == null)
         {
-            return false;
+            return null;
         }
         else
         {
-            AbstractRoom room = mapNode.getRoom();
-
-            return room != null && !room.isBattleOver && room.monsters != null;
+            return mapNode.getRoom();
         }
+    }
 
+    public static boolean InBattle()
+    {
+        AbstractRoom room = CurrentRoom();
+
+        return room != null && !room.isBattleOver && room.monsters != null;
     }
 
     public static int getCardsDrawnThisTurn()
@@ -89,6 +113,17 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         }
 
         return turnCount;
+    }
+
+    @Override
+    public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target)
+    {
+        super.onAttack(info, damageAmount, target);
+
+        for (OnAttackSubscriber p : onAttack.GetSubscribers())
+        {
+            p.OnAttack(info, damageAmount, target);
+        }
     }
 
     @Override
@@ -117,30 +152,38 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     }
 
     @Override
-    public void atStartOfTurn()
+    public void atEndOfTurn(boolean isPlayer)
     {
-        super.atStartOfTurn();
+        super.atEndOfTurn(isPlayer);
+
         cardsDrawnThisTurn = 0;
         turnCount += 1;
+        AnimatorCard.SetLastCardPlayed(null);
     }
 
     @Override
     public void onCardDraw(AbstractCard abstractCard)
     {
-        super.onDrawOrDiscard();
         cardsDrawnThisTurn += 1;
-    }
 
-    @Override
-    public void onRemove()
-    {
-        super.onRemove();
-
-        if (AbstractDungeon.getCurrRoom()!=null && !AbstractDungeon.getCurrRoom().isBattleOver)
+        for (OnCardDrawnSubscriber s : onCardDrawn.GetSubscribers())
         {
-            AbstractDungeon.player.powers.add(new PlayerStatistics(AbstractDungeon.player));
+            s.OnCardDrawn(abstractCard);
         }
     }
+
+    //@Override
+    //public void onRemove()
+    //{
+    //    super.onRemove();
+    //    if (AbstractDungeon.getCurrRoom() != null && !AbstractDungeon.getCurrRoom().isBattleOver)
+    //    {
+    //        if (!AbstractDungeon.player.powers.contains(this))
+    //        {
+    //            AbstractDungeon.player.powers.add(this);
+    //        }
+    //    }
+    //}
 
     @Override
     public void onDeath()

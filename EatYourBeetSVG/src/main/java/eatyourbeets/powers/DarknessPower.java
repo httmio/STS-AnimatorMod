@@ -11,11 +11,13 @@ import java.util.ArrayList;
 
 public class DarknessPower extends AnimatorPower
 {
-    private AbstractPlayer player;
+    public static final String POWER_ID = CreateFullID(DarknessPower.class.getSimpleName());
+
+    private final AbstractPlayer player;
 
     public DarknessPower(AbstractPlayer owner, int cards)
     {
-        super(owner, "Darkness");
+        super(owner, POWER_ID);
         this.player = Utilities.SafeCast(this.owner, AbstractPlayer.class);
         this.amount = cards;
 
@@ -37,6 +39,8 @@ public class DarknessPower extends AnimatorPower
             c.upgrade();
             c.superFlash();
         }
+
+        this.flash();
 
         return super.onLoseHp(damageAmount);
     }

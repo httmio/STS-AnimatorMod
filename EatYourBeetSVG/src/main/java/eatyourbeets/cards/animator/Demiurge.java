@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import eatyourbeets.actions.CycleCardAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -19,7 +20,7 @@ public class Demiurge extends AnimatorCard
     {
         super(ID, 0, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,0,8);
+        Initialize(0,0,6);
 
         SetSynergy(Synergies.Overlord);
     }
@@ -28,6 +29,11 @@ public class Demiurge extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
         AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(upgraded ? 3 : 2));
+
+        if (HasActiveSynergy())
+        {
+            AbstractDungeon.actionManager.addToBottom(new CycleCardAction(p, 1));
+        }
         damagePlayer = true;
     }
 
@@ -47,9 +53,10 @@ public class Demiurge extends AnimatorCard
     @Override
     public void upgrade() 
     {
-        if (TryUpgrade())
-        {
-            upgradeMagicNumber(-2);
-        }
+        TryUpgrade();
+        //if (TryUpgrade())
+        //{
+        //    upgradeMagicNumber(-2);
+        //}
     }
 }

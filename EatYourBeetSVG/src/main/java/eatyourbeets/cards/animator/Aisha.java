@@ -14,7 +14,7 @@ public class Aisha extends AnimatorCard
 
     public Aisha()
     {
-        super(ID, 1, AbstractCard.CardType.SKILL, CardRarity.RARE, AbstractCard.CardTarget.SELF);
+        super(ID, 1, AbstractCard.CardType.SKILL, CardRarity.UNCOMMON, AbstractCard.CardTarget.SELF);
 
         Initialize(0,0, 1);
 
@@ -24,7 +24,8 @@ public class Aisha extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        AbstractDungeon.actionManager.addToBottom(new AishaAction(this.magicNumber));
+        int costReduction = HasActiveSynergy() ? 1 : 0;
+        AbstractDungeon.actionManager.addToBottom(new AishaAction(costReduction));
     }
 
     @Override

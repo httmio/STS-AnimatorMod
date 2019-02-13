@@ -5,10 +5,10 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 import java.util.UUID;
 
-public class ModifyDamagePermanentlyAction extends com.megacrit.cardcrawl.actions.AbstractGameAction
+public class ModifyDamagePermanentlyAction extends AnimatorAction
 {
-    private int increaseAmount;
-    private UUID uuid;
+    private final int increaseAmount;
+    private final UUID uuid;
 
     public ModifyDamagePermanentlyAction(UUID targetUUID, int incAmount)
     {

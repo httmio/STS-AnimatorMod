@@ -26,7 +26,7 @@ public class Fredrika extends AnimatorCard
     {
         for (AbstractMonster m1 : AbstractDungeon.getCurrRoom().monsters.monsters)
         {
-            if (!m1.isDead && !m1.isDying)
+            if (!m1.isDying && m1.currentHealth > 0)
             {
                 AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block, true));
             }

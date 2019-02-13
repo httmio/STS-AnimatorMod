@@ -17,7 +17,7 @@ public class AcuraTooru extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(4,0, 3);
+        Initialize(5,0, 3);
 
         SetSynergy(Synergies.Chaika);
     }
@@ -33,7 +33,7 @@ public class AcuraTooru extends AnimatorCard
 
         for (int i = 0; i < times; i++)
         {
-            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(p, this.damage, damageTypeForTurn), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
         }
     }
 
@@ -42,7 +42,7 @@ public class AcuraTooru extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(1);
+            upgradeDamage(1);
         }
     }
 }

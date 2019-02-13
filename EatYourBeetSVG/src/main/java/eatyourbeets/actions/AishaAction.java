@@ -1,7 +1,6 @@
 package eatyourbeets.actions;
 
 import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
@@ -11,10 +10,10 @@ import eatyourbeets.Utilities;
 
 import java.util.ArrayList;
 
-public class AishaAction extends AbstractGameAction
+public class AishaAction extends AnimatorAction
 {
-    private int costReduction;
-    private AbstractPlayer p;
+    private final int costReduction;
+    private final AbstractPlayer p;
 
     public AishaAction(int costReduction)
     {
@@ -52,12 +51,11 @@ public class AishaAction extends AbstractGameAction
                     return;
                 }
 
-                this.p.hand.addToHand(card);
-                card.lighten(false);
-                this.p.drawPile.removeCard(card);
-                this.p.hand.refreshHandLayout();
-
-                AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(card.uuid, costReduction));
+                if (costReduction > 0)
+                {
+                    AbstractDungeon.actionManager.addToBottom(new ReduceCostAction(card.uuid, costReduction));
+                }
+                AbstractDungeon.actionManager.addToBottom(new DrawSpecificCardAction(card));
             }
         }
 

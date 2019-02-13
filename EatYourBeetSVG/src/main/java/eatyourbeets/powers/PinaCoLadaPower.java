@@ -9,9 +9,11 @@ import eatyourbeets.cards.AnimatorCard;
 
 public class PinaCoLadaPower extends AnimatorPower
 {
+    public static final String POWER_ID = CreateFullID(PinaCoLadaPower.class.getSimpleName());
+
     public PinaCoLadaPower(AbstractCreature owner, int block)
     {
-        super(owner, "PinaCoLada");
+        super(owner, POWER_ID);
         this.amount = block;
 
         updateDescription();
@@ -26,6 +28,7 @@ public class PinaCoLadaPower extends AnimatorPower
         if (card != null && card.HasActiveSynergy())
         {
             AbstractDungeon.actionManager.addToBottom(new GainBlockAction(this.owner, this.owner, this.amount));
+            this.flash();
         }
     }
 }

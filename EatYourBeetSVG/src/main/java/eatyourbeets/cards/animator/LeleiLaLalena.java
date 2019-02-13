@@ -4,8 +4,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.SlowPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import eatyourbeets.actions.CycleCardAction;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.cards.Synergies;
 
@@ -19,8 +20,6 @@ public class LeleiLaLalena extends AnimatorCard
 
         Initialize(0,0,1);
 
-        secondaryValue = baseSecondaryValue = 3;
-
         SetSynergy(Synergies.Gate);
     }
 
@@ -31,8 +30,12 @@ public class LeleiLaLalena extends AnimatorCard
 
         if (HasActiveSynergy())
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new SlowPower(m, this.secondaryValue), this.secondaryValue));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, p, new WeakPower(m, this.magicNumber, false), this.magicNumber));
         }
+
+        AbstractDungeon.actionManager.addToBottom(new CycleCardAction(p, this.magicNumber));
+//        AbstractDungeon.actionManager.addToBottom(new DiscardAction(p, p, this.magicNumber, false));
+//        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
     }
 
     @Override
@@ -40,7 +43,6 @@ public class LeleiLaLalena extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeSecondaryValue(2);
             upgradeMagicNumber(1);
         }
     }

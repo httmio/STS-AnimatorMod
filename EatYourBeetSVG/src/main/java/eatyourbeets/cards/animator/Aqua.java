@@ -16,7 +16,7 @@ public class Aqua extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(0,0, 4);
+        Initialize(0,0, 5);
 
         this.secondaryValue = this.baseSecondaryValue = 2;
         this.tags.add(CardTags.HEALING);
@@ -39,7 +39,8 @@ public class Aqua extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeSecondaryValue(-1);
+            upgradeBaseCost(0);
+            //upgradeSecondaryValue(-1);
         }
     }
 }

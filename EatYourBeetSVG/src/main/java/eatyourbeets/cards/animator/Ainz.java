@@ -1,6 +1,5 @@
 package eatyourbeets.cards.animator;
 
-import basemod.helpers.TooltipInfo;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,7 +20,8 @@ public class Ainz extends AnimatorCard
         Initialize(0,0,0);
 
         SetSynergy(Synergies.Overlord);
-        AddTooltip(new TooltipInfo("Powers Form", "Either Demon Form, Wraith Form or Echo Form"));
+
+        AddExtendedDescription();
     }
 
     @Override

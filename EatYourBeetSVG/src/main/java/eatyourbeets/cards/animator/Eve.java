@@ -14,9 +14,9 @@ public class Eve extends AnimatorCard
 
     public Eve()
     {
-        super(ID, 2, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
+        super(ID, 3, CardType.POWER, CardRarity.RARE, CardTarget.SELF);
 
-        Initialize(0,0,1);
+        Initialize(0,0);
 
         SetSynergy(Synergies.Elsword);
     }
@@ -24,18 +24,7 @@ public class Eve extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        EvePower newPower = new EvePower(p, 1, this.magicNumber);
-        if (p.hasPower(newPower.ID))
-        {
-            EvePower currentPower = (EvePower) p.getPower(newPower.ID);
-            currentPower.amount += newPower.amount;
-            currentPower.growth += newPower.growth;
-            currentPower.updateDescription();
-        }
-        else
-        {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, newPower));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, new EvePower(p, 1, 1), 1));
     }
 
     @Override
@@ -43,7 +32,7 @@ public class Eve extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(1);
+            upgradeBaseCost(2);
         }
     }
 }

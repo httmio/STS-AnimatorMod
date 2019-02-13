@@ -10,9 +10,11 @@ import com.megacrit.cardcrawl.powers.PoisonPower;
 
 public class MarkOfPoisonPower extends AnimatorPower
 {
+    public static final String POWER_ID = CreateFullID(MarkOfPoisonPower.class.getSimpleName());
+
     public MarkOfPoisonPower(AbstractCreature owner, int stacks)
     {
-        super(owner, "MarkOfPoison");
+        super(owner, POWER_ID);
 
         this.amount = stacks;
         this.type = PowerType.DEBUFF;
@@ -22,7 +24,7 @@ public class MarkOfPoisonPower extends AnimatorPower
     @Override
     public int onAttacked(DamageInfo info, int damageAmount)
     {
-        if (info.type == DamageInfo.DamageType.NORMAL && damageAmount > 0)
+        if (info.type != DamageInfo.DamageType.THORNS && damageAmount > 0)
         {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new PoisonPower(owner, owner, this.amount), this.amount, AbstractGameAction.AttackEffect.POISON));
         }

@@ -10,8 +10,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class ShimakazeAction extends com.megacrit.cardcrawl.actions.AbstractGameAction
 {
-    private AbstractPlayer source;
-    private int damage;
+    private final AbstractPlayer source;
+    private final int damage;
 
     public ShimakazeAction(AbstractPlayer source, AbstractCreature target, int damage)
     {

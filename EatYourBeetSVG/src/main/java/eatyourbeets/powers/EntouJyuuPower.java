@@ -8,9 +8,11 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 public class EntouJyuuPower extends AnimatorPower
 {
+    public static final String POWER_ID = CreateFullID(EntouJyuuPower.class.getSimpleName());
+
     public EntouJyuuPower(AbstractCreature owner, int amount)
     {
-        super(owner, "EntouJyuu");
+        super(owner, POWER_ID);
 
         this.amount = amount;
         updateDescription();
@@ -23,6 +25,8 @@ public class EntouJyuuPower extends AnimatorPower
         {
             AbstractDungeon.actionManager.addToBottom(new ModifyDamageAction(card.uuid, this.amount));
         }
+
+        this.flash();
 
         super.onPlayCard(card, m);
     }

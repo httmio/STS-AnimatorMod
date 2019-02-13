@@ -5,34 +5,40 @@ import basemod.helpers.TooltipInfo;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import eatyourbeets.AnimatorResources;
 import eatyourbeets.Utilities;
 import eatyourbeets.powers.PlayerStatistics;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import patches.AbstractCardEnum;
+import patches.AbstractEnums;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public abstract class AnimatorCard extends CustomCard 
 {
     protected static final Logger logger = LogManager.getLogger(AnimatorCard.class.getName());
-    private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
+    //private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
 
     private static AnimatorCard previousCard = null;
     private static AnimatorCard lastCardPlayed = null;
 
     private String upgradedDescription = null;
-    private List<TooltipInfo> customTooltips = new ArrayList<>();
-    private String synergy;
+    private final List<TooltipInfo> customTooltips = new ArrayList<>();
+    private Synergy synergy;
     private boolean anySynergy;
     private boolean lastHovered = false;
+
+    protected final CardStrings cardStrings;
 
     public boolean isSecondaryValueModified = false;
     public boolean upgradedSecondaryValue = false;
@@ -75,10 +81,20 @@ public abstract class AnimatorCard extends CustomCard
         AnimatorCard card = Utilities.SafeCast(other, AnimatorCard.class);
         if (card != null && card.synergy != null)
         {
-            return this.anySynergy || card.anySynergy || card.synergy.equals(this.synergy);
+            return this.synergy != null && (this.anySynergy || card.anySynergy || HasExactSynergy(card.synergy));
         }
 
         return false;
+    }
+
+    public boolean HasExactSynergy(Synergy synergy)
+    {
+        return Objects.equals(this.synergy, synergy);
+    }
+
+    public Synergy GetSynergy()
+    {
+        return synergy;
     }
 
     @Override
@@ -116,7 +132,7 @@ public abstract class AnimatorCard extends CustomCard
     {
         super.triggerOnOtherCardPlayed(c);
 
-        if (HasActiveSynergy())
+        if (HasSynergy(c))
         {
             this.targetDrawScale = 0.9f;
         }
@@ -138,26 +154,31 @@ public abstract class AnimatorCard extends CustomCard
 
     private void RenderSynergy(SpriteBatch sb)
     {
+        AbstractRoom room = PlayerStatistics.CurrentRoom();
         if (this.synergy != null)
         {
-            float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
-            FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
-
-            Color textColor;
-            if (HasActiveSynergy())
+            if(room == null || !(room.event instanceof GremlinMatchGame))
             {
-                textColor = SYNERGY_COLOR.cpy();
-            }
-            else
-            {
-                textColor = Settings.CREAM_COLOR.cpy();
-            }
+                float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
 
-            FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy,
-                    this.current_x, this.current_y, 0.0F, 400.0F * Settings.scale * this.drawScale / 2.0F,
-                    this.angle, true, textColor);
+                Color textColor;
+                if (HasActiveSynergy())
+                {
+                    FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.85f);
+                    textColor = Color.YELLOW.cpy();
+                }
+                else
+                {
+                    FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
+                    textColor = Settings.CREAM_COLOR.cpy();
+                }
 
-            FontHelper.cardTitleFont_small_N.getData().setScale(originalScale);
+                FontHelper.renderRotatedText(sb, FontHelper.cardTitleFont_small_N, this.synergy.NAME,
+                        this.current_x, this.current_y, 0.0F, 400.0F * Settings.scale * this.drawScale / 2.0F,
+                        this.angle, true, textColor);
+
+                FontHelper.cardTitleFont_small_N.getData().setScale(originalScale);
+            }
         }
     }
 
@@ -227,23 +248,35 @@ public abstract class AnimatorCard extends CustomCard
         this.upgradedSecondaryValue = true;
     }
 
-    protected void SetSynergy(String synergy)
+    protected void SetSynergy(Synergy synergy)
     {
         SetSynergy(synergy, false);
     }
 
-    protected void SetSynergy(String synergy, boolean anySynergy)
+    protected void SetSynergy(Synergy synergy, boolean anySynergy)
     {
         this.synergy = synergy;
         this.anySynergy = anySynergy;
-        if (anySynergy)
-        {
-            customTooltips.add(new TooltipInfo("Synergies", "Any"));
-        }
-        else
-        {
-            customTooltips.add(new TooltipInfo("Synergies", synergy));
-        }
+//        if (anySynergy)
+//        {
+//            customTooltips.add(new TooltipInfo("Synergies", Synergies.ANY.NAME));
+//        }
+//        else
+//        {
+//            customTooltips.add(new TooltipInfo("Synergies", synergy.NAME));
+//        }
+    }
+
+    protected void AddExtendedDescription(Object param)
+    {
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1] + param + info[2]));
+    }
+
+    protected void AddExtendedDescription()
+    {
+        String[] info = this.cardStrings.EXTENDED_DESCRIPTION;
+        AddTooltip(new TooltipInfo(info[0], info[1]));
     }
 
     protected void AddTooltip(TooltipInfo tooltip)
@@ -253,21 +286,44 @@ public abstract class AnimatorCard extends CustomCard
 
     protected AnimatorCard(String id, int cost, CardType type, CardRarity rarity, CardTarget target)
     {
-        this(id, cost, type, AbstractCardEnum.THE_ANIMATOR, rarity, target);
+        this(AnimatorResources.GetCardStrings(id), id, AnimatorResources.GetCardImage(id), cost, type, AbstractEnums.Cards.THE_ANIMATOR, rarity, target);
     }
 
     protected AnimatorCard(String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        this(CardCrawlGame.languagePack.getCardStrings(id), id, cost, type, color, rarity, target);
+        this(AnimatorResources.GetCardStrings(id), id, AnimatorResources.GetCardImage(id), cost, type, color, rarity, target);
     }
 
-    protected AnimatorCard(CardStrings strings, String id, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
+    protected AnimatorCard(CardStrings strings, String id, String imagePath, int cost, CardType type, CardColor color, CardRarity rarity, CardTarget target)
     {
-        super(id, strings.NAME, "images/cards/" + id + ".png", cost, strings.DESCRIPTION, type, color, rarity, target);
+        super(id, strings.NAME, imagePath, cost, strings.DESCRIPTION, type, color, rarity, target);
 
+        if (rarity == CardRarity.SPECIAL)
+        {
+            setBannerTexture("images\\cardui\\512\\banner_special.png","images\\cardui\\1024\\banner_special.png");
+        }
+
+        cardStrings = strings;
         if (StringUtils.isNotEmpty(strings.UPGRADE_DESCRIPTION))
         {
             this.upgradedDescription = strings.UPGRADE_DESCRIPTION;
         }
-    } 
+    }
+
+    protected void ChangeMagicNumberForCombat(int value, boolean add)
+    {
+        for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
+        {
+            if (add)
+            {
+                c.baseMagicNumber += value;
+            }
+            else
+            {
+                c.baseMagicNumber = value;
+            }
+            c.magicNumber = c.baseMagicNumber;
+            c.isMagicNumberModified = true;
+        }
+    }
 }

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public class ModifyMagicNumberAction extends com.megacrit.cardcrawl.actions.AbstractGameAction
 {
-    UUID uuid;
+    final UUID uuid;
 
     public ModifyMagicNumberAction(UUID targetUUID, int amount)
     {

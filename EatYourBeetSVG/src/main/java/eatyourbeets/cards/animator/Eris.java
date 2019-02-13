@@ -1,6 +1,5 @@
 package eatyourbeets.cards.animator;
 
-import basemod.helpers.TooltipInfo;
 import com.evacipated.cardcrawl.mod.stslib.StSLib;
 import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -19,8 +18,6 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
 {
     public static final String ID = CreateFullID(Eris.class.getSimpleName());
 
-    private boolean expired = false;
-
     public Eris()
     {
         super(ID, 0, CardType.SKILL, CardRarity.RARE, CardTarget.SELF);
@@ -35,7 +32,6 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
             OnBattleStart();
         }
 
-        AddTooltip(new TooltipInfo("Revive Limitation","If the card is exhausted or purged you will NOT be saved."));
         SetSynergy(Synergies.Konosuba);
     }
 
@@ -89,7 +85,7 @@ public class Eris extends AnimatorCard implements OnLoseHpSubscriber, OnBattleSt
     {
         if (TryUpgrade())
         {
-            upgradeMagicNumber(2);
+            upgradeMagicNumber(3);
         }
     }
 

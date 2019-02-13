@@ -6,7 +6,7 @@
 
 Mod which adds a new playable character with cards based on different anime series.
 I have tried to design each card in a way that resembles its character as much as possible,
-e.g. Megumin that Exhaustes after 1 use, or Darkness which likes to receive damage...
+e.g. Megumin that Exhausts after 1 use, or Darkness which likes to receive damage...
 
 It also adds a new mechanic: **Synergies**, playing 2 cards of the same series in a row triggers additional effects. Cards with the **Shapeshifter** keyword can trigger any synergy.
 

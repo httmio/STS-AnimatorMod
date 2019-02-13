@@ -2,7 +2,6 @@ package eatyourbeets.cards.animator;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -16,9 +15,9 @@ public class YaoHaDucy extends AnimatorCard
 
     public YaoHaDucy()
     {
-        super(ID, 0, CardType.ATTACK, CardRarity.COMMON, CardTarget.ALL_ENEMY);
+        super(ID, 0, CardType.ATTACK, CardRarity.UNCOMMON, CardTarget.ALL_ENEMY);
 
-        Initialize(3,3,1);
+        Initialize(4,4);
         isMultiDamage = true;
         SetSynergy(Synergies.Gate);
     }
@@ -26,23 +25,22 @@ public class YaoHaDucy extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
         AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(p, multiDamage, this.damageTypeForTurn, AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 
         if (HasActiveSynergy())
         {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(p, this.magicNumber));
+            AbstractDungeon.actionManager.addToBottom(new GainBlockAction(p, p, this.block));
+            //AbstractDungeon.actionManager.addToBottom(new CycleCardAction(p, 1));
         }
     }
 
     @Override
-    public void upgrade() 
+    public void upgrade()
     {
         if (TryUpgrade())
         {
-            upgradeMagicNumber(1);
-            upgradeBlock(1);
-            upgradeDamage(1);
+            upgradeBlock(2);
+            upgradeDamage(2);
         }
     }
 }
