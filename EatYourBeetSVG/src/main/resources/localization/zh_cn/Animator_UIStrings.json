@@ -22,10 +22,10 @@
 	{
 		"TEXT": 
 		[
-			"fetch Cards with the same synergy.",
-			"discard and draw that many cards.",
-			"activate this card's effect that many times.",
-			"reduce its cost for this combat"
+			"抽同系列的牌.",
+			"丢弃.",
+			"触发同样次数的效果.",
+			"在本场战斗中减少耗能"
 		]
 	},
 	
@@ -33,22 +33,22 @@
 	{
 		"TEXT": 
 		[
-			"Attack",
-			"Defend",
-			"Prepare",
-			"Upgrade All the cards in your hand.",
-			"Deal !D! damage to a random enemy !M! times.",
-			"Deal !D! damage to ALL enemies.",
-			"Gain !B! block.",
-			"Gain !M! Strength.",
-			"Gain !M! Dexterity.",
-			"Gain !M! Thorns.",
-			"Reduce the cost of 2 random cards in your hand by !M! this turn.",
-			"Apply !M! Weak to ALL enemies.",
-			"Apply !M! Vulnerable to ALL enemies.",
-			"Cycle !M! cards",
-			"Draw !M! cards.",
-			"Gain !M! temporary HP."
+			"攻击",
+			"防守",
+			"预备",
+			"升级手牌中的所有牌.",
+			"对随机敌人造成!D!点伤害，重复!M!次.",
+			"对所有敌人造成!D!点伤害.",
+			"获得!B!点格挡.",
+			"获得!M!点力量.",
+			"获得!M!点敏捷.",
+			"获得!M!点荆棘.",
+			"本回合减少手牌中2张牌!M!点能量消耗.",
+			"给予所有敌人!M!层虚弱.",
+			"给予所有敌人!M!层易伤.",
+			"循环!M!张牌",
+			"抽!M!张牌.",
+			"获得!M!点临时生命."
 		]
 	},
 	
@@ -56,7 +56,7 @@
 	{
 		"TEXT": 
 		[
-			"Only contains Cards with this synergy. WARNING: once you click on this, the other 2 Card rewards will disappear."
+			"仅包含该系列的牌. WARNING: 选一个之后另外两个系列奖励就会消失."
 		]
 	},
 		
@@ -64,7 +64,7 @@
 	{
 		"TEXT": 
 		[
-			"Banish"
+			"放逐"
 		]
 	},
 	
@@ -72,15 +72,15 @@
 	{
 		"TEXT": 
 		[
-			"Starting Cards: ",
+			"初始牌: ",
 			"#############",
 			"Unlocks at Level ",
-			" (You are Level ",
+			" (你的level为",
 			")",
-			"Recommended.",
-			"Balanced start.",
-			"Slightly overpowered start.",
-			"Very overpowered start."
+			"推荐.",
+			"正常开局.",
+			"略暴力的开局.",
+			"真实压倒性强力开局."
 		]
 	}
 }
