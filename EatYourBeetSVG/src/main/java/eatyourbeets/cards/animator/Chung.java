@@ -1,16 +1,20 @@
 package eatyourbeets.cards.animator;
 
+import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import eatyourbeets.actions.ModifyMagicNumberPermanentlyAction;
 import eatyourbeets.cards.AnimatorCard;
+import eatyourbeets.cards.AnimatorCard_Cooldown;
+import eatyourbeets.cards.AnimatorCard_SavableInteger;
 import eatyourbeets.cards.Synergies;
 
-public class Chung extends AnimatorCard
+public class Chung extends AnimatorCard_Cooldown implements CustomSavable<Integer>
 {
     public static final String ID = CreateFullID(Chung.class.getSimpleName());
 
@@ -20,19 +24,11 @@ public class Chung extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.COMMON, CardTarget.ALL);
 
-        Initialize(16, 5, COOLDOWN);
+        Initialize(16, 6);
 
-        this.misc = COOLDOWN;
+        this.baseSecondaryValue = this.secondaryValue = COOLDOWN;
         this.isMultiDamage = true;
         SetSynergy(Synergies.Elsword);
-    }
-
-    @Override
-    public void applyPowers()
-    {
-        this.magicNumber = this.misc;
-        super.applyPowers();
-        initializeDescription();
     }
 
     @Override
@@ -52,23 +48,13 @@ public class Chung extends AnimatorCard
         if (TryUpgrade())
         {
             upgradeDamage(4);
-            upgradeBlock(3);
+            upgradeBlock(2);
         }
     }
 
-    private boolean ProgressCooldown()
+    @Override
+    protected int GetBaseCooldown()
     {
-        if (this.baseMagicNumber <= 0)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberPermanentlyAction(this.uuid, COOLDOWN));
-
-            return true;
-        }
-        else
-        {
-            AbstractDungeon.actionManager.addToBottom(new ModifyMagicNumberPermanentlyAction(this.uuid, -1));
-
-            return false;
-        }
+        return COOLDOWN;
     }
 }

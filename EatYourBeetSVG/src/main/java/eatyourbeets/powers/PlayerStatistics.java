@@ -91,8 +91,12 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     public static boolean InBattle()
     {
         AbstractRoom room = CurrentRoom();
+        if (room != null && !room.isBattleOver)
+        {
+            return room.monsters != null && room.monsters.monsters.size() > 0;
+        }
 
-        return room != null && !room.isBattleOver && room.monsters != null;
+        return false;
     }
 
     public static int getCardsDrawnThisTurn()

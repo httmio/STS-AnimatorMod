@@ -2,11 +2,16 @@ package eatyourbeets;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.*;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import eatyourbeets.actions.CycleCardAction;
+import eatyourbeets.actions.OnCardDrawnAction;
+
+import java.util.ArrayList;
+import java.util.function.BiConsumer;
 
 @SuppressWarnings("UnusedReturnValue")
 public class GameActionsHelper
@@ -47,6 +52,13 @@ public class GameActionsHelper
     public static DamageRandomEnemyAction DamageRandomEnemy(AbstractCreature source, int amount, DamageInfo.DamageType damageType, AbstractGameAction.AttackEffect effect)
     {
         DamageRandomEnemyAction action = new DamageRandomEnemyAction(new DamageInfo(source, amount, damageType), effect);
+        AbstractDungeon.actionManager.addToBottom(action);
+        return action;
+    }
+
+    public static OnCardDrawnAction DrawCard(AbstractCreature source, int amount, BiConsumer<Object, ArrayList<AbstractCard>> onDraw, Object context)
+    {
+        OnCardDrawnAction action = new OnCardDrawnAction(source, amount, onDraw, context);
         AbstractDungeon.actionManager.addToBottom(action);
         return action;
     }

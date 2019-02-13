@@ -70,6 +70,7 @@ public class AinzPower extends AnimatorPower
                 throw new IndexOutOfBoundsException();
         }
 
+        power.updateCost(-1);
         if (upgrade)
         {
             power.upgrade();

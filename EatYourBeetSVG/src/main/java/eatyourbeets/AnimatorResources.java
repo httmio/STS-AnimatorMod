@@ -20,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 import patches.AbstractEnums;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -188,8 +189,15 @@ public class AnimatorResources
         BaseMod.addCard(card);
     }
 
-    public static void CreateDebugFile()
+    public static boolean CreateDebugFile()
     {
+        final String filePath = "c:/temp/synergies.txt";
+        File f = new File(filePath);
+        if(!f.exists() || f.isDirectory())
+        {
+            return false;
+        }
+
         ArrayList<AbstractCard> cards = BaseMod.getCustomCardsToAdd();
         ArrayList<AnimatorCard> animatorCards = new ArrayList<>();
         for (AbstractCard c : cards)
@@ -234,13 +242,17 @@ public class AnimatorResources
 
         try
         {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("c:/temp/synergies.txt"));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(filePath));
             writer.write(sb.toString());
             writer.close();
+
+            return true;
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
+
+        return false;
     }
 }

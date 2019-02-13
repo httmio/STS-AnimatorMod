@@ -21,13 +21,14 @@ import org.apache.logging.log4j.Logger;
 import patches.AbstractEnums;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
 public abstract class AnimatorCard extends CustomCard 
 {
     protected static final Logger logger = LogManager.getLogger(AnimatorCard.class.getName());
-    private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
+    //private static final Color SYNERGY_COLOR = new Color(0.565f, 0.933f, 0.565f, 1);
 
     private static AnimatorCard previousCard = null;
     private static AnimatorCard lastCardPlayed = null;
@@ -160,15 +161,16 @@ public abstract class AnimatorCard extends CustomCard
             if(room == null || !(room.event instanceof GremlinMatchGame))
             {
                 float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
-                FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
 
                 Color textColor;
                 if (HasActiveSynergy())
                 {
-                    textColor = SYNERGY_COLOR.cpy();
+                    FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.85f);
+                    textColor = Color.YELLOW.cpy();
                 }
                 else
                 {
+                    FontHelper.cardTitleFont_small_N.getData().setScale(this.drawScale * 0.8f);
                     textColor = Settings.CREAM_COLOR.cpy();
                 }
 
@@ -203,7 +205,7 @@ public abstract class AnimatorCard extends CustomCard
         AnimatorCard copy = Utilities.SafeCast(result, AnimatorCard.class);
         if (copy != null)
         {
-            copy.baseSecondaryValue = this.baseSecondaryValue;
+            copy.secondaryValue = copy.baseSecondaryValue = this.baseSecondaryValue;
         }
 
         return result;
@@ -309,20 +311,18 @@ public abstract class AnimatorCard extends CustomCard
         }
     }
 
-    protected void ChangeMagicNumberForCombat(int value, boolean add)
+    public HashSet<AbstractCard> GetAllInstances()
     {
-        for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
+        HashSet<AbstractCard> cards = GetAllInBattleInstances.get(uuid);
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
         {
-            if (add)
+            if (c.uuid == uuid)
             {
-                c.baseMagicNumber += value;
+                cards.add(c);
+                break;
             }
-            else
-            {
-                c.baseMagicNumber = value;
-            }
-            c.magicNumber = c.baseMagicNumber;
-            c.isMagicNumberModified = true;
         }
+
+        return cards;
     }
 }
