@@ -93,7 +93,7 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         AbstractRoom room = CurrentRoom();
         if (room != null && !room.isBattleOver)
         {
-            return room.monsters != null && room.monsters.monsters.size() > 0;
+            return room.phase == AbstractRoom.RoomPhase.COMBAT || (room.monsters != null && !room.monsters.areMonstersBasicallyDead());
         }
 
         return false;

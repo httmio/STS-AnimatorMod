@@ -142,10 +142,10 @@
 	},
 	"animator_Emonzaemon":
 	{
-		"DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, Purge this and obtain [#EFC851]Entou [#EFC851]Jyuu.",
+		"DESCRIPTION": "Deal !D! damage. If this is your 3rd [#EFC851]Attack in a row, Purge this and obtain [#EFC851]Entou [#EFC851]Jyuu.",
 		"EXTENDED_DESCRIPTION": ["Entou Jyuu", "A special 0-Cost #yPower."],
 		"NAME": "Emonzaemon",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, Purge this and obtain [#EFC851]Entou [#EFC851]Jyuu+."
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If this is your 3rd [#EFC851]Attack in a row, Purge this and obtain [#EFC851]Entou [#EFC851]Jyuu+."
 	},
 	"animator_Entoma":
 	{
@@ -155,7 +155,7 @@
 	},
 	"animator_EntouJyuu":
 	{
-		"DESCRIPTION": "Every time you play an Attack increase its damage by !M! for this combat.",
+		"DESCRIPTION": "Every time you play an [#EFC851]Attack increase its damage by !M! for this combat.",
 		"NAME": "Entou Jyuu"
 	},
 	"animator_Eris":
@@ -420,7 +420,7 @@
 	},
 	"animator_Tyuule":
 	{
-		"DESCRIPTION": "Apply !M! Poison to an enemy for each [#EFC851]Skill in your hand. NL (Apply !SV! Poison)",
+		"DESCRIPTION": "Apply !M! Poison to an enemy for each other [#EFC851]Skill in your hand. NL (Apply !SV! Poison)",
 		"NAME": "Tyuule"
 	},
 	"animator_Wiz":

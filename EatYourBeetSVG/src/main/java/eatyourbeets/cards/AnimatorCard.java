@@ -184,12 +184,12 @@ public abstract class AnimatorCard extends CustomCard
     }
 
     @Override
-    public AbstractCard makeCopy() 
+    public AbstractCard makeCopy()
     {
-        try 
+        try
         {
             return getClass().newInstance();
-        } 
+        }
         catch (InstantiationException | IllegalAccessException e)
         {
             e.printStackTrace();

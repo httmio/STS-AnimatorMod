@@ -2,11 +2,13 @@ package eatyourbeets;
 
 import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
@@ -75,13 +77,14 @@ public class AnimatorResources
 
     static
     {
-        final String filePath = "c:/temp/localization/";
-        File f = new File(filePath);
-        if(f.exists() && f.isDirectory())
-        {
-            languagePath = filePath;
-        }
-        else if (Settings.language == Settings.GameLanguage.ZHS)
+//        final String filePath = "c:/temp/localization/";
+//        File f = new File(filePath);
+//        if (f.exists() && f.isDirectory())
+//        {
+//            languagePath = filePath;
+//        }
+//        else
+        if (Settings.language == Settings.GameLanguage.ZHS)
         {
             languagePath = "localization/zhs/";
         }
