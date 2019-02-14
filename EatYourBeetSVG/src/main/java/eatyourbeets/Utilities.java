@@ -1,6 +1,9 @@
 package eatyourbeets;
 
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import eatyourbeets.powers.PlayerStatistics;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;

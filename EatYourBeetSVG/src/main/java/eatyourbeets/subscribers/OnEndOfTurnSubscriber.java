@@ -2,5 +2,5 @@ package eatyourbeets.subscribers;
 
 public interface OnEndOfTurnSubscriber
 {
-    void OnEndOfTurn();
+    void OnEndOfTurn(boolean isPlayer);
 }

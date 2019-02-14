@@ -63,5 +63,10 @@
 	{
 		"DESCRIPTIONS": ["Your next attack this turn deals double damage. #b", " use/s."],
 		"NAME": "Rory Mercury"
+	},
+	"animator_SupportDamagePower":
+	{
+		"DESCRIPTIONS": ["Deal #b", " damage to the enemy with lowest HP at the end of your turn."],
+		"NAME": "Support Damage"
 	}
 }

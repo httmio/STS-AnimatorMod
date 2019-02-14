@@ -8,11 +8,14 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.map.MapRoomNode;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import eatyourbeets.Utilities;
 import eatyourbeets.cards.AnimatorCard;
 import eatyourbeets.subscribers.*;
+
+import java.util.ArrayList;
 
 public class PlayerStatistics extends AnimatorPower implements InvisiblePower, OnCardDrawPower
 {
@@ -160,6 +163,11 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
     {
         super.atEndOfTurn(isPlayer);
 
+        for (OnEndOfTurnSubscriber s : onEndOfTurn.GetSubscribers())
+        {
+            s.OnEndOfTurn(isPlayer);
+        }
+
         cardsDrawnThisTurn = 0;
         turnCount += 1;
         AnimatorCard.SetLastCardPlayed(null);
@@ -216,5 +224,23 @@ public class PlayerStatistics extends AnimatorPower implements InvisiblePower, O
         }
 
         return super.onLoseHp(damage);
+    }
+
+    public static ArrayList<AbstractMonster> GetCurrentEnemies(boolean aliveOnly)
+    {
+        ArrayList<AbstractMonster> monsters = new ArrayList<>();
+        AbstractRoom room = CurrentRoom();
+        if (room != null && room.monsters != null)
+        {
+            for (AbstractMonster m : room.monsters.monsters)
+            {
+                if (!aliveOnly || (!m.isDeadOrEscaped() && !m.isDying))
+                {
+                    monsters.add(m);
+                }
+            }
+        }
+
+        return monsters;
     }
 }

@@ -118,9 +118,9 @@
 	},
 	"animator_DolaStephanie":
 	{
-		"DESCRIPTION": "选择一张手牌， 从你的抽牌堆中取一张同系列的牌 。",
+		"DESCRIPTION": "选择一张手牌 ， 从你的抽牌堆中取一张同系列的牌 。",
 		"NAME": "Stephanie",
-		"UPGRADE_DESCRIPTION": "固有 。 选择一张手牌， 从你的抽牌堆中取一张同系列的牌 。"
+		"UPGRADE_DESCRIPTION": "固有 。 选择一张手牌 ， 从你的抽牌堆中取一张同系列的牌 。"
 	},
 	"animator_DwarfShaman":
 	{
@@ -444,5 +444,16 @@
 		"EXTENDED_DESCRIPTION": ["阿修罗丸", "特殊的0耗#y攻击牌 。"],
 		"NAME": "百夜优一郎",
 		"UPGRADE_DESCRIPTION": "造成!D!点伤害 。 NL 遗馈 : 将一张 [#EFC851]阿修罗丸+[] 放到你的弃牌堆 。"
+	},
+	"animator_Mitsuba":
+	{
+		"DESCRIPTION": "造成 !D! 点 伤害 。 如果目标以前的健康比你的好 ， 那么获得 !B! 点 格挡 。",
+		"NAME": "Mitsuba"
+	},
+	"animator_Guren":
+	{
+		"DESCRIPTION": "从抽牌堆随机 消耗 一张 [#EFC851]攻击[] 牌 。 转换它的当前 伤害 以 [#EFC851]支持伤害[] 。",
+		"EXTENDED_DESCRIPTION": ["支持伤害", "在你的回合结束时对最低健康的敌人造成 伤害"],
+		"NAME": "Guren"
 	}
 }

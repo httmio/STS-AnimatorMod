@@ -121,7 +121,7 @@
 	{
 		"DESCRIPTION": "Choose a card in your hand, Fetch 1 card with the same Synergy from your draw pile.",
 		"NAME": "Stephanie",
-		"UPGRADE_DESCRIPTION": "Innate. Choose a card in your hand, Fetch 1 card with the same Synergy from your draw pile.."
+		"UPGRADE_DESCRIPTION": "Innate. Choose a card in your hand, Fetch 1 card with the same Synergy from your draw pile."
 	},
 	"animator_DwarfShaman":
 	{
@@ -445,5 +445,16 @@
 		"EXTENDED_DESCRIPTION": ["Asuramaru", "A special 0-Cost #yAttack."],
 		"NAME": "Yuuichirou",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Legacy: Add [#EFC851]Asuramaru+ to your discard pile."
+	},
+	"animator_Mitsuba":
+	{
+		"DESCRIPTION": "Deal !D! damage. If the target had more health than you, gain !B! Block.",
+		"NAME": "Mitsuba"
+	},
+	"animator_Guren":
+	{
+		"DESCRIPTION": "Exhaust a random [#EFC851]Attack in your draw pile and turn its current damage into [#EFC851]Support [#EFC851]Damage.",
+		"EXTENDED_DESCRIPTION": ["Support Damage", "Deal damage to the enemy with lowest HP at the end of each turn."],
+		"NAME": "Guren"
 	}
 }
