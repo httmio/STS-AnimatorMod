@@ -112,10 +112,15 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
 
     public void receiveRewards(ArrayList<RewardItem> rewards)
     {
-        logger.info("Received Rewards");
+        if (rewards == null)
+        {
+            return;
+        }
+
+        //logger.info("Received Rewards");
         for (RewardItem r : rewards)
         {
-            if (r.type == RewardItem.RewardType.CARD)
+            if (r != null && r.type == RewardItem.RewardType.CARD)
             {
 //                StringJoiner sj = new StringJoiner(",");
 //                for (AbstractCard c : r.cards)

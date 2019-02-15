@@ -316,6 +316,7 @@
 	"animator_Mitsurugi":
 	{
 		"DESCRIPTION": "Deal !D! damage, can only be used if the enemy intends to attack. Legacy: Gain !M! Strength.",
+		"EXTENDED_DESCRIPTION": ["The target does not intend to attack."],
 		"NAME": "Mitsurugi"
 	},
 	"animator_Nanami":

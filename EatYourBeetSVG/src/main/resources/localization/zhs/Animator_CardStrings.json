@@ -1,3 +1,4 @@
+
 {
 	"animator_AcuraAkari":
 	{
@@ -315,6 +316,7 @@
 	"animator_Mitsurugi":
 	{
 		"DESCRIPTION": "造成 !D! 点 伤害 , 仅当敌人意图为攻击时可被打出 。 遗馈 : 获得 !M! 点 力量 。",
+		"EXTENDED_DESCRIPTION": ["The enemy does not intend to attack."],
 		"NAME": "Mitsurugi"
 	},
 	"animator_Nanami":
