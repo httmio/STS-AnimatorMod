@@ -1,7 +1,6 @@
 package eatyourbeets.cards;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.localization.CardStrings;
 
 public abstract class AnimatorCard_Cooldown extends AnimatorCard_SavableInteger
 {

@@ -17,7 +17,9 @@ import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.AnimatorResources;
+import eatyourbeets.cards.animator.Aqua;
 import eatyourbeets.cards.animator.Defend;
+import eatyourbeets.cards.animator.Kazuma;
 import eatyourbeets.cards.animator.Strike;
 import eatyourbeets.relics.LivingPicture;
 import eatyourbeets.relics.PurgingStone;
@@ -131,18 +133,21 @@ public class AnimatorCharacter extends CustomPlayer
     public ArrayList<String> getStartingDeck() 
     {
         ArrayList<String> res = new ArrayList<>();
-        res.add(Strike.ID);
-        res.add(Strike.ID);
-        res.add(Strike.ID);
-        res.add(Strike.ID);
-        res.add(Defend.ID);
-        res.add(Defend.ID);
-        res.add(Defend.ID);
-        res.add(Defend.ID);
-
         AnimatorCharacterSelect.PrepareCharacterDeck(res);
-        //res.add(Kazuma.ID);
-        //res.add(Aqua.ID);
+
+        if (res.size() == 0)
+        {
+            res.add(Strike.ID);
+            res.add(Strike.ID);
+            res.add(Strike.ID);
+            res.add(Strike.ID);
+            res.add(Defend.ID);
+            res.add(Defend.ID);
+            res.add(Defend.ID);
+            res.add(Defend.ID);
+            res.add(Kazuma.ID);
+            res.add(Aqua.ID);
+        }
 
         return res;
     }

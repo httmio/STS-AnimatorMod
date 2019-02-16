@@ -364,9 +364,9 @@
 	},
 	"animator_Saber":
 	{
-		"DESCRIPTION": "Loyal. Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
+		"DESCRIPTION": "Loyal. Deal !D! damage, if this Synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
 		"NAME": "Saber",
-		"UPGRADE_DESCRIPTION": "Loyal. Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
+		"UPGRADE_DESCRIPTION": "Loyal. Deal !D! damage, if this Synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
 	},
 	"animator_Shalltear":
 	{

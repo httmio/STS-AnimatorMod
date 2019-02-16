@@ -1,13 +1,11 @@
 package eatyourbeets.cards.animator;
 
-import basemod.abstracts.CustomSavable;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ModifyDamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
@@ -18,7 +16,6 @@ import com.megacrit.cardcrawl.vfx.combat.BiteEffect;
 import eatyourbeets.actions.EntomaAction;
 import eatyourbeets.actions.OnTargetDeadAction;
 import eatyourbeets.cards.AnimatorCard;
-import eatyourbeets.cards.AnimatorCard_SavableInteger;
 import eatyourbeets.cards.Synergies;
 
 public class Entoma extends AnimatorCard//_SavableInteger implements CustomSavable<Integer>

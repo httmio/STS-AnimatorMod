@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -158,7 +157,7 @@ public abstract class AnimatorCard extends CustomCard
         AbstractRoom room = PlayerStatistics.CurrentRoom();
         if (this.synergy != null)
         {
-            if(room == null || !(room.event instanceof GremlinMatchGame))
+            if (!this.isFlipped)//room == null || !(room.event instanceof GremlinMatchGame))
             {
                 float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
 

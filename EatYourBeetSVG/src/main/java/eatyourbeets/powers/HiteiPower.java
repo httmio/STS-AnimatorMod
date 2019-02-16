@@ -1,11 +1,16 @@
 package eatyourbeets.powers;
 
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
+import eatyourbeets.GameActionsHelper;
 import eatyourbeets.Utilities;
 
 public class HiteiPower extends AnimatorPower
@@ -52,25 +57,30 @@ public class HiteiPower extends AnimatorPower
             if (player.drawPile.size() > 0)
             {
                 group = player.drawPile;
-                card = group.getRandomCard(true);
             }
             else if (player.discardPile.size() > 0)
             {
                 group = player.discardPile;
-                card = group.getRandomCard(true);
             }
             else
             {
                 return;
             }
 
+            card = group.getRandomCard(true);
             if (card != null)
             {
-                group.moveToExhaustPile(card);
-                card.exhaustOnUseOnce = false;
-                card.freeToPlayOnce = false;
+                ShowCardBrieflyEffect effect = new ShowCardBrieflyEffect(card, Settings.WIDTH / 3f, Settings.HEIGHT / 2f);
+
+                AbstractDungeon.effectsQueue.add(effect);
+                GameActionsHelper.Special(new WaitAction(effect.duration));
+                GameActionsHelper.Special(new ExhaustSpecificCardAction(card, group, true));
+//                group.moveToExhaustPile(card);
+//                card.exhaustOnUseOnce = false;
+//                card.freeToPlayOnce = false;
             }
         }
+
         this.flash();
     }
 

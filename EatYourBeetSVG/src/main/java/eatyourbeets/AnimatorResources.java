@@ -2,13 +2,12 @@ package eatyourbeets;
 
 import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
-import com.evacipated.cardcrawl.modthespire.Loader;
+import com.badlogic.gdx.graphics.Texture;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
@@ -46,6 +45,7 @@ public class AnimatorResources
     }
 
     private static final Logger logger = LogManager.getLogger(AnimatorResources.class.getName());
+    private static final HashMap<Integer, Texture> characterPortraits = new HashMap<>();
     private static final String languagePath;
 
     public static final String ATTACK_PNG = "images/cardui/512/bg_attack_canvas.png";
@@ -74,6 +74,22 @@ public class AnimatorResources
     public static final String SHOULDER1_PNG = "images/characters/animator/shoulder.png";
     public static final String SHOULDER2_PNG = "images/characters/animator/shoulder2.png";
     public static final String CORPSE_PNG = "images/characters/animator/corpse.png";
+
+    public static Texture GetCharacterPortrait(int id)
+    {
+        Texture result;
+        if (!characterPortraits.containsKey(id))
+        {
+            result = new Texture("images/ui/charselect/animator_portrait_" + id + ".png");
+            characterPortraits.put(id, result);
+        }
+        else
+        {
+            result = characterPortraits.get(id);
+        }
+
+        return result;
+    }
 
     static
     {
