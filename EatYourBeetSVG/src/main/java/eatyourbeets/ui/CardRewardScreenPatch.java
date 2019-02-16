@@ -20,6 +20,7 @@ public class CardRewardScreenPatch
     private static final ArrayList<BanCardButton> buttons = new ArrayList<>();
     private static PurgingStone purgingStone;
     private static RewardItem rewardItem;
+    private static boolean canBan;
 
     public static void Open(CardRewardScreen rewardScreen, ArrayList<AbstractCard> cards, RewardItem rItem, String header)
     {
@@ -39,12 +40,24 @@ public class CardRewardScreenPatch
                 BanCardButton b = new BanCardButton(c);
                 b.show();
                 buttons.add(b);
+                canBan = true;
             }
         }
     }
 
+    public static void OnClose(CardRewardScreen instance)
+    {
+        buttons.clear();
+        canBan = false;
+    }
+
     public static void Update(CardRewardScreen rewardScreen)
     {
+        if (!canBan)
+        {
+            return;
+        }
+
         BanCardButton toRemove = null;
         for (BanCardButton b : buttons)
         {
@@ -57,6 +70,17 @@ public class CardRewardScreenPatch
                 purgingStone.Ban(b.card);
                 b.hideInstantly();
                 toRemove = b;
+
+                if (rewardItem.cards.size() == 0)
+                {
+                    AbstractDungeon.combatRewardScreen.rewards.remove(rewardItem);
+                    AbstractDungeon.combatRewardScreen.positionRewards();
+                    if (AbstractDungeon.combatRewardScreen.rewards.isEmpty())
+                    {
+                        AbstractDungeon.combatRewardScreen.hasTakenAll = true;
+                        AbstractDungeon.overlayMenu.proceedButton.show();
+                    }
+                }
             }
         }
 
@@ -78,6 +102,11 @@ public class CardRewardScreenPatch
 
     public static void Render(CardRewardScreen rewardScreen, SpriteBatch sb)
     {
+        if (!canBan)
+        {
+            return;
+        }
+
         for (BanCardButton b : buttons)
         {
             b.render(sb);

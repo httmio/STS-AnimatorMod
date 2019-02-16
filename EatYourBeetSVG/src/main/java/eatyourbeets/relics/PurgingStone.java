@@ -82,7 +82,7 @@ public class PurgingStone extends AnimatorRelic implements CustomSavable<String>
 
     public boolean CanActivate(RewardItem rewardItem)
     {
-        return (!PlayerStatistics.InBattle() && rewardItem != null && rewardItem.type == RewardItem.RewardType.CARD);
+        return (!PlayerStatistics.InBattle() && bannedCards.size() < 40 && rewardItem != null && rewardItem.type == RewardItem.RewardType.CARD);
     }
 
     public boolean CanBan(AbstractCard card)
