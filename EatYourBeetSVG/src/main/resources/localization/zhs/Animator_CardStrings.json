@@ -2,7 +2,7 @@
 {
 	"animator_AcuraAkari":
 	{
-		"DESCRIPTION": "对一个敌人造成 !M! 印记 毒 。 同调 : 下回合多抽一张牌 。",
+		"DESCRIPTION": "对一个敌人造成 !M! 印记 中毒 。 同调 : 下回合多抽一张牌 。",
 		"NAME": "阿卡莉"
 	},
 	"animator_AcuraTooru":
@@ -421,7 +421,7 @@
 	},
 	"animator_Tyuule":
 	{
-		"DESCRIPTION": "手牌中每有一张 [#EFC851]技能牌[] ， 给予一个敌人 !M! 层毒 。 NL ( 给予 !SV! 层毒 )",
+		"DESCRIPTION": "手牌中每有一张 [#EFC851]技能牌[] ， 给予一个敌人 !M! 层 中毒 。 NL ( 给予 !SV! 层 中毒 )",
 		"NAME": "蒂尤蕾"
 	},
 	"animator_Wiz":
@@ -460,7 +460,7 @@
 	},
 	"animator_AcuraShin":
 	{
-		"DESCRIPTION": "对所有敌人造成 !D! 点 伤害 ， 并给予 !M! 层毒 。 获得 !SV! 层 [#EFC851]毒素亲和[] 。",
+		"DESCRIPTION": "对所有敌人造成 !D! 点 伤害 ， 并给予 !M! 层 中毒 。 获得 !SV! 层 [#EFC851]毒素亲和[] 。",
 		"EXTENDED_DESCRIPTION": ["毒素亲和", "每当给予敌人毒效果时 ， 额外给予一层毒 。"],
 		"NAME": "Shin"
 	},
