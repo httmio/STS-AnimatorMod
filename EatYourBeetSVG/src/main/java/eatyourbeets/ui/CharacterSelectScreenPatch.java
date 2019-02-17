@@ -10,8 +10,10 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.AnimatorResources;
 import eatyourbeets.characters.AnimatorCharacterSelect;
+import eatyourbeets.characters.AnimatorCustomLoadout;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import patches.AbstractEnums;
@@ -57,15 +59,6 @@ public class CharacterSelectScreenPatch
         startingCardsSelectedHb.move(startingCardsLeftHb.x + startingCardsLeftHb.width + (rightTextWidth / 2f), POS_Y);
         startingCardsRightHb.move(startingCardsSelectedHb.x + startingCardsSelectedHb.width + (10 * Settings.scale), POS_Y - (10 * Settings.scale));
 
-//        float settingsPadX = Settings.CARD_VIEW_PAD_X * 0.2f;
-//        float settingsPadY = Settings.CARD_VIEW_PAD_Y * 0.2f;
-//        visibleCards = new CardGroup(CardGroup.CardGroupType.UNSPECIFIED);
-//        drawStartX = (float) Settings.WIDTH;
-//        drawStartX -= 6.0F * AbstractCard.IMG_WIDTH * 0.5F;
-//        drawStartX -= 4.0F * settingsPadX;
-//        drawStartY = (float) Settings.HEIGHT * 0.66F;
-//        padX = AbstractCard.IMG_WIDTH * 0.5F + settingsPadX;
-//        padY = AbstractCard.IMG_HEIGHT * 0.5F + settingsPadY;
         selectedOption = null;
     }
 
@@ -100,20 +93,18 @@ public class CharacterSelectScreenPatch
         if (startingCardsLeftHb.clicked)
         {
             startingCardsLeftHb.clicked = false;
-            AnimatorCharacterSelect.PreviousDeck();
+            AnimatorCharacterSelect.PreviousLoadout();
 
-            UpdateDeck(selectScreen);
+            RefreshLoadout(selectScreen, selectedOption);
         }
 
         if (startingCardsRightHb.clicked)
         {
             startingCardsRightHb.clicked = false;
-            AnimatorCharacterSelect.NextDeck();
+            AnimatorCharacterSelect.NextLoadout();
 
-            UpdateDeck(selectScreen);
+            RefreshLoadout(selectScreen, selectedOption);
         }
-
-        //updateCards();
     }
 
     public static void Render(CharacterSelectScreen selectScreen, SpriteBatch sb)
@@ -123,7 +114,7 @@ public class CharacterSelectScreenPatch
             return;
         }
 
-        AnimatorCharacterSelect.StartingDeck info = AnimatorCharacterSelect.GetDeckInfo();
+        AnimatorCustomLoadout info = AnimatorCharacterSelect.GetSelectedLoadout();
         String description = info.GetDescription();
         selectScreen.confirmButton.isDisabled = info.Locked;
         if (description != null)
@@ -160,7 +151,6 @@ public class CharacterSelectScreenPatch
         startingCardsLabelHb.render(sb);
         startingCardsLeftHb.render(sb);
         startingCardsRightHb.render(sb);
-        //renderCards(sb);
     }
 
     private static void UpdateSelectedCharacter(CharacterSelectScreen selectScreen)
@@ -175,8 +165,7 @@ public class CharacterSelectScreenPatch
                 {
                     if (current != o)
                     {
-                        AnimatorCharacterSelect.Refresh();
-                        UpdateDeck(selectScreen);
+                        RefreshLoadout(selectScreen, o);
                     }
 
                     selectedOption = o;
@@ -187,81 +176,9 @@ public class CharacterSelectScreenPatch
         }
     }
 
-    private static void UpdateDeck(CharacterSelectScreen selectScreen)
+    private static void RefreshLoadout(CharacterSelectScreen selectScreen, CharacterOption option)
     {
-        AnimatorCharacterSelect.StartingDeck deck = AnimatorCharacterSelect.GetDeckInfo();
-        //visibleCards.group.clear();
-        //deck.SetCards(visibleCards.group);
-        selectScreen.bgCharImg = AnimatorResources.GetCharacterPortrait(deck.ID);
+        int currentLevel = UnlockTracker.getUnlockLevel(AbstractEnums.Characters.THE_ANIMATOR);
+        AnimatorCharacterSelect.GetSelectedLoadout().Refresh(currentLevel, selectScreen, option);
     }
-
-//    private static void renderCards(SpriteBatch sb)
-//    {
-//        for (AbstractCard c : visibleCards.group)
-//        {
-//            if (c.isFlipped)
-//            {
-//                c.render(sb);
-//            }
-//            else
-//            {
-//                c.renderInLibrary(sb);
-//                c.renderCardTip(sb);
-//            }
-//        }
-//
-//        if (hoveredCard != null)
-//        {
-//            if (hoveredCard.isFlipped)
-//            {
-//                hoveredCard.render(sb);
-//            }
-//            else
-//            {
-//                hoveredCard.renderHoverShadow(sb);
-//                hoveredCard.renderInLibrary(sb);
-//            }
-//        }
-//    }
-//
-//    private static void updateCards()
-//    {
-//        hoveredCard = null;
-//        int lineNum = 0;
-//        ArrayList<AbstractCard> cards = visibleCards.group;
-//
-//        for (int i = 0; i < cards.size(); ++i)
-//        {
-//            int mod = i % 5;
-//            if (mod == 0 && i != 0)
-//            {
-//                ++lineNum;
-//            }
-//
-//            AbstractCard card = cards.get(i);
-//
-//            card.target_x = drawStartX + (float) mod * padX;
-//            card.target_y = drawStartY - (float) lineNum * padY;
-//
-//            card.update();
-//
-//            if (hoveredCard == null)
-//            {
-//                card.updateHoverLogic();
-//                if (card.hb.hovered)
-//                {
-//                    hoveredCard = card;
-//                }
-//                else
-//                {
-//                    card.targetDrawScale = 0.5f;
-//                }
-//            }
-//            else
-//            {
-//                card.unhover();
-//                card.targetDrawScale = 0.5f;
-//            }
-//        }
-//    }
 }

@@ -1,3 +1,4 @@
+
 {
 	"animator_AinzPower":
 	{
@@ -52,7 +53,7 @@
 	"animator_PinaCoLadaPower":
 	{
 		"DESCRIPTIONS": ["每当同调生效时获得", " 层格挡."],
-		"NAME": "Piña Co Lada"
+		"NAME": "平娜·戈·兰达"
 	},
 	"animator_PlayerStatistics":
 	{
@@ -66,7 +67,12 @@
 	},
 	"animator_SupportDamagePower":
 	{
-		"DESCRIPTIONS": ["在你的回合结束时对最低健康的敌人造成 #b", " 点 伤害"],
-		"NAME": "支持伤害"
+		"DESCRIPTIONS": ["回合结束时对血量较低的敌人造成 #b", " 点 伤害"],
+		"NAME": "支持"
+	},
+	"animator_PoisonAffinityPower":
+	{
+		"DESCRIPTIONS": ["每当你给予 #y毒 时, 额外给予一层 #b", " #y毒."],
+		"NAME": "毒素亲和"
 	}
 }

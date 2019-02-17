@@ -12,10 +12,12 @@ public class MarkOfPoisonPower extends AnimatorPower
 {
     public static final String POWER_ID = CreateFullID(MarkOfPoisonPower.class.getSimpleName());
 
-    public MarkOfPoisonPower(AbstractCreature owner, int stacks)
+    private final AbstractCreature source;
+
+    public MarkOfPoisonPower(AbstractCreature source, AbstractCreature owner, int stacks)
     {
         super(owner, POWER_ID);
-
+        this.source = source;
         this.amount = stacks;
         this.type = PowerType.DEBUFF;
         updateDescription();
@@ -26,7 +28,7 @@ public class MarkOfPoisonPower extends AnimatorPower
     {
         if (info.type != DamageInfo.DamageType.THORNS && damageAmount > 0)
         {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, owner, new PoisonPower(owner, owner, this.amount), this.amount, AbstractGameAction.AttackEffect.POISON));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(owner, source, new PoisonPower(owner, source, this.amount), this.amount, AbstractGameAction.AttackEffect.POISON));
         }
 
         return super.onAttacked(info, damageAmount);
@@ -35,7 +37,7 @@ public class MarkOfPoisonPower extends AnimatorPower
     @Override
     public void atEndOfTurn(boolean isPlayer)
     {
-        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, owner, this));
+        AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(owner, source, this));
 
         super.atEndOfTurn(isPlayer);
     }

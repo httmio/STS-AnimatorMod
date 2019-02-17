@@ -380,7 +380,7 @@
 	},
 	"animator_Shimakaze":
 	{
-		"DESCRIPTION": "Draw !M! cards, deal !D! damage to the target enemy for each attack drawn.",
+		"DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Draw !M! cards. NL Shuffle 1 Dazed in your draw pile.",
 		"NAME": "Shimakaze"
 	},
 	"animator_Shinoa":
@@ -457,5 +457,21 @@
 		"DESCRIPTION": "Exhaust a random [#EFC851]Attack in your draw pile and turn its current damage into [#EFC851]Support [#EFC851]Damage.",
 		"EXTENDED_DESCRIPTION": ["Support Damage", "Deal damage to the enemy with lowest HP at the end of each turn."],
 		"NAME": "Guren"
+	},
+	"animator_AcuraShin":
+	{
+		"DESCRIPTION": "Deal !D! damage to ALL enemies, then Apply !M! Poison. Gain !SV! [#EFC851]Poison [#EFC851]Affinity.",
+		"EXTENDED_DESCRIPTION": ["Poison Affinity", "Every time you apply Poison, apply 1 additional Poison per stack."],
+		"NAME": "Shin"
+	},
+	"animator_Gillette":
+	{
+		"DESCRIPTION": "Deal !D! damage. Apply !M! Weak. Legacy: Stun the enemy with the most HP.",
+		"NAME": "Gillette"
+	},
+	"animator_Viivi":
+	{
+		"DESCRIPTION": "Deal !D! damage to a random Enemy !M! times. Apply 1 Vulnerable to each enemy hit.",
+		"NAME": "Viivi"
 	}
 }

@@ -15,7 +15,7 @@
 		"PROPERNAME": "Loyal"
 	},
 	{
-		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect on every #yAttack received. Lasts 1 turn.",
+		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect when receiving damage. Lasts 1 turn.",
 		"NAMES": ["mark", "marks"],
 		"PROPERNAME": "Mark"
 	},
@@ -25,7 +25,7 @@
 		"PROPERNAME": "Heartseeker"
 	},
 	{
-		"DESCRIPTION": "Ignore the target's Block.",
+		"DESCRIPTION": "Ignore the target's Block, Thorns, and other Effects which trigger when receiving damage.",
 		"NAMES": ["piercing"],
 		"PROPERNAME": "Piercing"
 	},

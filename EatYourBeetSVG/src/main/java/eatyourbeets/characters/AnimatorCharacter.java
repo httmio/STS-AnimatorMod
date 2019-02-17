@@ -15,15 +15,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.localization.CharacterStrings;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.AnimatorResources;
-import eatyourbeets.cards.animator.Aqua;
-import eatyourbeets.cards.animator.Defend;
-import eatyourbeets.cards.animator.Kazuma;
 import eatyourbeets.cards.animator.Strike;
-import eatyourbeets.relics.LivingPicture;
-import eatyourbeets.relics.PurgingStone;
-import eatyourbeets.relics.TheMissingPiece;
 import patches.AbstractEnums;
 
 import java.util.ArrayList;
@@ -132,47 +125,51 @@ public class AnimatorCharacter extends CustomPlayer
     @Override
     public ArrayList<String> getStartingDeck() 
     {
-        ArrayList<String> res = new ArrayList<>();
-        AnimatorCharacterSelect.PrepareCharacterDeck(res);
+        return AnimatorCharacterSelect.GetSelectedLoadout().GetStartingDeck();
 
-        if (res.size() == 0)
-        {
-            res.add(Strike.ID);
-            res.add(Strike.ID);
-            res.add(Strike.ID);
-            res.add(Strike.ID);
-            res.add(Defend.ID);
-            res.add(Defend.ID);
-            res.add(Defend.ID);
-            res.add(Defend.ID);
-            res.add(Kazuma.ID);
-            res.add(Aqua.ID);
-        }
-
-        return res;
+//        ArrayList<String> res = new ArrayList<>();
+//        AnimatorCharacterSelect.PrepareCharacterDeck(res);
+//
+//        if (res.size() == 0)
+//        {
+//            res.add(Strike.ID);
+//            res.add(Strike.ID);
+//            res.add(Strike.ID);
+//            res.add(Strike.ID);
+//            res.add(Defend.ID);
+//            res.add(Defend.ID);
+//            res.add(Defend.ID);
+//            res.add(Defend.ID);
+//            res.add(Kazuma.ID);
+//            res.add(Aqua.ID);
+//        }
+//
+//        return res;
     }
 
     @Override
     public ArrayList<String> getStartingRelics() 
     {
-        if (!UnlockTracker.isRelicSeen(LivingPicture.ID))
-        {
-            UnlockTracker.markRelicAsSeen(LivingPicture.ID);
-        }
-        if (!UnlockTracker.isRelicSeen(PurgingStone.ID))
-        {
-            UnlockTracker.markRelicAsSeen(PurgingStone.ID);
-        }
-        if (!UnlockTracker.isRelicSeen(TheMissingPiece.ID))
-        {
-            UnlockTracker.markRelicAsSeen(TheMissingPiece.ID);
-        }
+        return AnimatorCharacterSelect.GetSelectedLoadout().GetStartingRelics();
 
-        ArrayList<String> res = new ArrayList<>();
-        res.add(LivingPicture.ID);
-        res.add(PurgingStone.ID);
-        res.add(TheMissingPiece.ID);
-        return res;
+//        if (!UnlockTracker.isRelicSeen(LivingPicture.ID))
+//        {
+//            UnlockTracker.markRelicAsSeen(LivingPicture.ID);
+//        }
+//        if (!UnlockTracker.isRelicSeen(PurgingStone.ID))
+//        {
+//            UnlockTracker.markRelicAsSeen(PurgingStone.ID);
+//        }
+//        if (!UnlockTracker.isRelicSeen(TheMissingPiece.ID))
+//        {
+//            UnlockTracker.markRelicAsSeen(TheMissingPiece.ID);
+//        }
+//
+//        ArrayList<String> res = new ArrayList<>();
+//        res.add(LivingPicture.ID);
+//        res.add(PurgingStone.ID);
+//        res.add(TheMissingPiece.ID);
+//        return res;
     }
 
     @Override
@@ -184,7 +181,9 @@ public class AnimatorCharacter extends CustomPlayer
     @Override
     public CharSelectInfo getLoadout()
     {
-        return new CharSelectInfo(NAMES[0], TEXT[0], 75, 75, 3, 99, 5, this, getStartingRelics(), getStartingDeck(), false);
+        return AnimatorCharacterSelect.GetSelectedLoadout().GetLoadout(NAMES[0], TEXT[0], this);
+
+        //return new CharSelectInfo(NAMES[0], TEXT[0], 75, 75, 3, 99, 5, this, getStartingRelics(), getStartingDeck(), false);
     }
 
     @Override

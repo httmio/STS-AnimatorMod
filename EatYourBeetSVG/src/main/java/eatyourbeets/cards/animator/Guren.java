@@ -33,7 +33,6 @@ public class Guren extends AnimatorCard
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         AbstractCard attack = GetRandomAttack(p);
-        logger.info(attack == null);
         if (attack != null)
         {
             attack.calculateCardDamage(null);
@@ -42,8 +41,8 @@ public class Guren extends AnimatorCard
                 ShowCardBrieflyEffect effect = new ShowCardBrieflyEffect(attack, Settings.WIDTH / 3f, Settings.HEIGHT / 2f);
 
                 AbstractDungeon.effectsQueue.add(effect);
-                GameActionsHelper.Special(new WaitAction(effect.duration));
-                GameActionsHelper.Special(new ExhaustSpecificCardAction(attack, p.drawPile, true));
+                AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(attack, p.drawPile, true));
+                AbstractDungeon.actionManager.addToTop(new WaitAction(effect.duration));
 
                 GameActionsHelper.ApplyPower(p, p, new SupportDamagePower(p, attack.damage), attack.damage);
             }
