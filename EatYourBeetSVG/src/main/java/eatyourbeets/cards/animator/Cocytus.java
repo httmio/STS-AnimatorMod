@@ -20,7 +20,7 @@ public class Cocytus extends AnimatorCard
     {
         super(ID, 1, CardType.ATTACK, CardRarity.COMMON, CardTarget.ENEMY);
 
-        Initialize(7,0,4);
+        Initialize(8,0,4);
 
         AddExtendedDescription();
 
@@ -40,11 +40,11 @@ public class Cocytus extends AnimatorCard
     }
 
     @Override
-    public void upgrade() 
+    public void upgrade()
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(3);
+            upgradeDamage(4);
             upgradeMagicNumber(2);
         }
     }

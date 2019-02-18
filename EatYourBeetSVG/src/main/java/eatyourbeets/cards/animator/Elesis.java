@@ -18,7 +18,7 @@ public class Elesis extends AnimatorCard
     {
         super(ID, 2, CardType.ATTACK, CardRarity.RARE, CardTarget.ENEMY);
 
-        Initialize(6,0, 4);
+        Initialize(6,0, 5);
 
         this.retain = true;
 
@@ -48,7 +48,7 @@ public class Elesis extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeMagicNumber(4);
+            upgradeMagicNumber(3);
         }
     }
 }

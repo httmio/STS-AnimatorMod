@@ -25,7 +25,7 @@ public class AcuraAkari extends AnimatorCard
     @Override
     public void use(AbstractPlayer p, AbstractMonster m) 
     {
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, p, new MarkOfPoisonPower(m, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, p, new MarkOfPoisonPower(p, m, this.magicNumber), this.magicNumber));
 
         if (HasActiveSynergy())
         {
@@ -38,7 +38,7 @@ public class AcuraAkari extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBaseCost(0);
+            upgradeMagicNumber(1);
         }
     }
 }

@@ -10,8 +10,10 @@ import com.megacrit.cardcrawl.helpers.input.InputHelper;
 import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterOption;
 import com.megacrit.cardcrawl.screens.charSelect.CharacterSelectScreen;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.AnimatorResources;
 import eatyourbeets.characters.AnimatorCharacterSelect;
+import eatyourbeets.characters.AnimatorCustomLoadout;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import patches.AbstractEnums;
@@ -19,6 +21,13 @@ import patches.AbstractEnums;
 public class CharacterSelectScreenPatch
 {
     protected static final Logger logger = LogManager.getLogger(CharacterSelectScreenPatch.class.getName());
+
+//    private static float drawStartX;
+//    private static float drawStartY;
+//    private static AbstractCard hoveredCard;
+//    private static CardGroup visibleCards;
+//    private static float padX;
+//    private static float padY;
 
     public static final UIStrings UIStrings = AnimatorResources.GetUIStrings(AnimatorResources.UIStringType.CharacterSelect);
 
@@ -49,6 +58,8 @@ public class CharacterSelectScreenPatch
         startingCardsLeftHb.move(startingCardsLabelHb.x + startingCardsLabelHb.width + (20 * Settings.scale), POS_Y - (10 * Settings.scale));
         startingCardsSelectedHb.move(startingCardsLeftHb.x + startingCardsLeftHb.width + (rightTextWidth / 2f), POS_Y);
         startingCardsRightHb.move(startingCardsSelectedHb.x + startingCardsSelectedHb.width + (10 * Settings.scale), POS_Y - (10 * Settings.scale));
+
+        selectedOption = null;
     }
 
     public static void Update(CharacterSelectScreen selectScreen)
@@ -82,13 +93,17 @@ public class CharacterSelectScreenPatch
         if (startingCardsLeftHb.clicked)
         {
             startingCardsLeftHb.clicked = false;
-            AnimatorCharacterSelect.PreviousSynergy();
+            AnimatorCharacterSelect.PreviousLoadout();
+
+            RefreshLoadout(selectScreen, selectedOption);
         }
 
         if (startingCardsRightHb.clicked)
         {
             startingCardsRightHb.clicked = false;
-            AnimatorCharacterSelect.NextSynergy();
+            AnimatorCharacterSelect.NextLoadout();
+
+            RefreshLoadout(selectScreen, selectedOption);
         }
     }
 
@@ -98,7 +113,8 @@ public class CharacterSelectScreenPatch
         {
             return;
         }
-        AnimatorCharacterSelect.SynergyInfo info = AnimatorCharacterSelect.GetSynergyInfo();
+
+        AnimatorCustomLoadout info = AnimatorCharacterSelect.GetSelectedLoadout();
         String description = info.GetDescription();
         selectScreen.confirmButton.isDisabled = info.Locked;
         if (description != null)
@@ -139,6 +155,7 @@ public class CharacterSelectScreenPatch
 
     private static void UpdateSelectedCharacter(CharacterSelectScreen selectScreen)
     {
+        CharacterOption current = selectedOption;
         selectedOption = null;
         for (CharacterOption o : selectScreen.options)
         {
@@ -146,11 +163,22 @@ public class CharacterSelectScreenPatch
             {
                 if (o.c.chosenClass == AbstractEnums.Characters.THE_ANIMATOR)
                 {
+                    if (current != o)
+                    {
+                        RefreshLoadout(selectScreen, o);
+                    }
+
                     selectedOption = o;
                 }
 
                 return;
             }
         }
+    }
+
+    private static void RefreshLoadout(CharacterSelectScreen selectScreen, CharacterOption option)
+    {
+        int currentLevel = UnlockTracker.getUnlockLevel(AbstractEnums.Characters.THE_ANIMATOR);
+        AnimatorCharacterSelect.GetSelectedLoadout().Refresh(currentLevel, selectScreen, option);
     }
 }

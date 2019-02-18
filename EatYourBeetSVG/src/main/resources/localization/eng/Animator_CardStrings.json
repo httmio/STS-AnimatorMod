@@ -1,3 +1,4 @@
+
 {
 	"animator_AcuraAkari":
 	{
@@ -6,15 +7,15 @@
 	},
 	"animator_AcuraTooru":
 	{
-		"DESCRIPTION": "Deal !D! damage !M! Times. NL Synergy: Deal damage 1 extra time.",
+		"DESCRIPTION": "Deal !D! damage !M! Times. NL Synergy: Deal damage 1 more time.",
 		"NAME": "Tooru"
 	},
 	"animator_Ainz":
 	{
-		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand.",
+		"DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form to your hand, it costs 2 energy.",
 		"EXTENDED_DESCRIPTION": ["Power Form", "Either Demon Form, Wraith Form or Echo Form."],
 		"NAME": "Ainz Ooal Gown",
-		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand."
+		"UPGRADE_DESCRIPTION": "Costs 1 less each turn. At the start of your turn add a [#EFC851]Power [#EFC851]Form+ to your hand, it costs 2 energy."
 	},
 	"animator_Aisha":
 	{
@@ -75,7 +76,7 @@
 	},
 	"animator_Chung":
 	{
-		"DESCRIPTION": "Gain !B! Block. Cooldown !M!: NL Deal !D! damage to ALL enemies.",
+		"DESCRIPTION": "Gain !B! Block. Cooldown !SV!: NL Deal !D! damage to ALL enemies.",
 		"NAME": "Chung"
 	},
 	"animator_Cocytus":
@@ -120,7 +121,14 @@
 	{
 		"DESCRIPTION": "Choose a card in your hand, Fetch 1 card with the same Synergy from your draw pile.",
 		"NAME": "Stephanie",
-		"UPGRADE_DESCRIPTION": "Innate. Choose a card in your hand, Fetch 1 card with the same Synergy from your draw pile.."
+		"UPGRADE_DESCRIPTION": "Innate. Choose a card in your hand, Fetch 1 card with the same Synergy from your draw pile."
+	},
+	"animator_DwarfShaman":
+	{
+		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! card and Upgrade it ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "It will prioritize upgradable cards, if there are none it will work as normal card draw."],
+		"NAME": "'Dwarf Shaman'",
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! cards and Upgrade them ([#EFC851]*[#FFFFFF])."
 	},
 	"animator_Elesis":
 	{
@@ -134,20 +142,20 @@
 	},
 	"animator_Emonzaemon":
 	{
-		"DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu, then Purge this.",
+		"DESCRIPTION": "Deal !D! damage. If this is your 3rd [#EFC851]Attack in a row, Purge this and obtain [#EFC851]Entou [#EFC851]Jyuu.",
 		"EXTENDED_DESCRIPTION": ["Entou Jyuu", "A special 0-Cost #yPower."],
 		"NAME": "Emonzaemon",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. If this is your 3rd Attack in a row, obtain [#EFC851]Entou [#EFC851]Jyuu+, then Purge this."
+		"UPGRADE_DESCRIPTION": "Deal !D! damage. If this is your 3rd [#EFC851]Attack in a row, Purge this and obtain [#EFC851]Entou [#EFC851]Jyuu+."
 	},
 	"animator_Entoma":
 	{
-		"DESCRIPTION": "Deal !D! damage and Apply !M! Poison. [#EFC851]Hunger.",
-		"EXTENDED_DESCRIPTION": ["Hunger", "Lose #b1 damage each turn. If this kills a non-minion enemy, permanently gain #b1 damage and #b2 Max HP."],
+		"DESCRIPTION": "Augmentable. NL Deal !D! damage and Apply !M! Poison. [#EFC851]Hunger.",
+		"EXTENDED_DESCRIPTION": ["Hunger", "Lose #b1 damage each turn. If this kills a non-minion enemy, permanently upgrade this card and gain #b2 Max HP."],
 		"NAME": "Entoma"
 	},
 	"animator_EntouJyuu":
 	{
-		"DESCRIPTION": "Every time you play an Attack increase its damage by !M! for this combat.",
+		"DESCRIPTION": "Every time you play an [#EFC851]Attack increase its damage by !M! for this combat.",
 		"NAME": "Entou Jyuu"
 	},
 	"animator_Eris":
@@ -177,13 +185,45 @@
 	},
 	"animator_Gilgamesh":
 	{
-		"DESCRIPTION": "Can be Upgraded any number of times. Deal !D! damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon.",
+		"DESCRIPTION": "Augmentable. NL Deal !D! damage to an enemy 3 times. NL [#EFC851]Gate [#EFC851]of [#EFC851]Babylon.",
 		"EXTENDED_DESCRIPTION": ["Gate of Babylon", "Whenever you obtain a relic upgrade this card and gain #b", " gold. Does not activate when purchasing relics."],
 		"NAME": "Gilgamesh"
 	},
+	"animator_GoblinChampion":
+	{
+		"DESCRIPTION": "At the end of your turn, shuffle 1 random Goblin into your draw pile.",
+		"NAME": "Goblin Champion"
+	},
+	"animator_GoblinKing":
+	{
+		"DESCRIPTION": "At the end of your turn, shuffle 3 random Goblins into your draw pile.",
+		"NAME": "Goblin King"
+	},
+	"animator_GoblinShaman":
+	{
+		"DESCRIPTION": "When you draw this, draw another card. At the end of your turn, gain 1 Frail.",
+		"NAME": "Goblin Shaman"
+	},
+	"animator_GoblinSlayer":
+	{
+		"DESCRIPTION": "[#EFC851]Goblin [#EFC851]Slayer. NL Deal !D! damage. NL Gain !B! Block. NL Retain.",
+		"EXTENDED_DESCRIPTION": ["Goblin Slayer", "Exhaust every Status and Curse in your hand and discard pile. Deal 2 extra damage for every card in your exhaust pile. #yWARNING: Goblins will start invading your deck."],
+		"NAME": "Goblin Slayer"
+	},
+	"animator_GoblinSoldier":
+	{
+		"DESCRIPTION": "When you draw this, draw another card. At the end of your turn, take 2 damage.",
+		"NAME": "Goblin Soldier"
+	},
+	"animator_GuildGirl":
+	{
+		"DESCRIPTION": "At the start of each turn, Cycle !M! card.",
+		"NAME": "'Guild Girl'",
+		"UPGRADE_DESCRIPTION": "At the start of each turn, Cycle !M! cards."
+	},
 	"animator_Guy":
 	{
-		"DESCRIPTION": "Give an enemy !B! Block, then gain its total Block. Synergy: Gain !M! Focus.",
+		"DESCRIPTION": "Give an enemy !B! Block, then gain its total Block. NL Synergy: Gain !M! Focus.",
 		"NAME": "Guy"
 	},
 	"animator_HigakiRinne":
@@ -192,10 +232,15 @@
 		"NAME": "Higaki Rinne",
 		"UPGRADE_DESCRIPTION": "Shapeshifter. NL Behaves very erratically..."
 	},
+	"animator_HighElfArcher":
+	{
+		"DESCRIPTION": "Deal !D! Piercing damage twice. If you haven't played other copies of this card this turn, draw 1 card.",
+		"NAME": "'High Elf Archer'"
+	},
 	"animator_Hitei":
 	{
-		"DESCRIPTION": "At the start of your turn gain !M! Gold and Exhaust a random card in your draw pile.",
-		"EXTENDED_DESCRIPTION": ["Gold Limit", "You cannot gain more than 100 Gold per combat. Stacking this power increases the gold cap a little."],
+		"DESCRIPTION": "At the start of your turn gain !M! Gold NL and Exhaust a random card in your draw pile ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "You cannot gain more than 100 Gold per combat. Stacking this power increases the gold cap a little."],
 		"NAME": "Hitei"
 	},
 	"animator_Illya":
@@ -225,8 +270,8 @@
 	},
 	"animator_KrulTepes":
 	{
-		"DESCRIPTION": "Deal !D! damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial.",
-		"EXTENDED_DESCRIPTION": ["Relic Limit", "You will only receive 1 relic in multi-elite combats."],
+		"DESCRIPTION": "Deal !D! damage. NL If this kills an Elite or Boss obtain a NL [#EFC851]Blood [#EFC851]Vial ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "The relic will drop at the end of combat. You will only receive 1 relic in multi-elite combats. You can equip multiple Blood Vials."],
 		"NAME": "Krul Tepes"
 	},
 	"animator_Kuribayashi":
@@ -248,13 +293,18 @@
 	},
 	"animator_LeleiLaLalena":
 	{
-		"DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! card. Synergy: Also apply !M! Weak.",
+		"DESCRIPTION": "Apply !M! Vulnerable. NL Cycle !M! card. NL Synergy: Also apply !M! Weak.",
 		"NAME": "Lelei La Lalena",
-		"UPGRADE_DESCRIPTION": "Apply !M! Vulnerable to an enemy then Cycle !M! cards. Synergy: Also apply !M! Weak."
+		"UPGRADE_DESCRIPTION": "Apply !M! Vulnerable. NL Cycle !M! cards. NL Synergy: Also apply !M! Weak."
+	},
+	"animator_LizardPriest":
+	{
+		"DESCRIPTION": "Set an enemy's Block to !M!. Gain !B! Block. Synergy: Cycle 1 card.",
+		"NAME": "'Lizard Priest'"
 	},
 	"animator_Megumin":
 	{
-		"DESCRIPTION": "Deal !D! damage to ALL Enemies. Exhaust. NL Synergy: Permanently increase this card's damage by !M!.",
+		"DESCRIPTION": "Augmentable. Deal !D! damage to ALL Enemies. Exhaust. Synergy: Permanently Upgrade this card.",
 		"NAME": "Megumin"
 	},
 	"animator_Mikaela":
@@ -266,6 +316,7 @@
 	"animator_Mitsurugi":
 	{
 		"DESCRIPTION": "Deal !D! damage, can only be used if the enemy intends to attack. Legacy: Gain !M! Strength.",
+		"EXTENDED_DESCRIPTION": ["The target does not intend to attack."],
 		"NAME": "Mitsurugi"
 	},
 	"animator_Nanami":
@@ -290,9 +341,14 @@
 		"DESCRIPTION": "When a Synergy is activated gain !M! Block.",
 		"NAME": "Piña Co Lada"
 	},
+	"animator_Priestess":
+	{
+		"DESCRIPTION": "Cooldown !SV!: Gain !M! Regeneration. NL Synergy: Gain !M! temporary HP.",
+		"NAME": "'Priestess'"
+	},
 	"animator_Rena":
 	{
-		"DESCRIPTION": "Apply 1 Vulnerable and Gain !B! Block. Synergy: Gain 1 [#EFC851]Blur.",
+		"DESCRIPTION": "Apply !M! Vulnerable. NL Gain !B! Block. NL Synergy: Gain 1 [#EFC851]Blur.",
 		"EXTENDED_DESCRIPTION": ["Blur", "Your #yBlock is not removed at the start of your next turn."],
 		"NAME": "Rena"
 	},
@@ -308,9 +364,9 @@
 	},
 	"animator_Saber":
 	{
-		"DESCRIPTION": "Loyal. Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
+		"DESCRIPTION": "Loyal. Deal !D! damage, if this Synergizes !M! times, Purge and obtain [#EFC851]Excalibur.",
 		"NAME": "Saber",
-		"UPGRADE_DESCRIPTION": "Loyal. Deal !D! damage, if this synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
+		"UPGRADE_DESCRIPTION": "Loyal. Deal !D! damage, if this Synergizes !M! times, Purge and obtain [#EFC851]Excalibur+."
 	},
 	"animator_Shalltear":
 	{
@@ -324,12 +380,12 @@
 	},
 	"animator_Shimakaze":
 	{
-		"DESCRIPTION": "Draw !M! cards, deal !D! damage to the target enemy for each attack drawn.",
+		"DESCRIPTION": "Deal !D! damage. NL Gain !B! Block. NL Draw !M! cards. NL Shuffle 1 Dazed in your draw pile.",
 		"NAME": "Shimakaze"
 	},
 	"animator_Shinoa":
 	{
-		"DESCRIPTION": "Gain !B! Block and apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply !M! Weak.",
+		"DESCRIPTION": "Gain !B! Block. NL Apply !M! Vulnerable to ALL enemies. NL Synergy: Also apply !M! Weak.",
 		"NAME": "Shinoa"
 	},
 	"animator_Shiro":
@@ -339,7 +395,7 @@
 	},
 	"animator_Sora":
 	{
-		"DESCRIPTION": "Choose and execute !M! custom Effects. Synergy: choose 1 extra Effect.",
+		"DESCRIPTION": "Choose and execute !M! custom Effects. Synergy: Choose 1 extra Effect.",
 		"NAME": "Sora"
 	},
 	"animator_Strike":
@@ -348,9 +404,14 @@
 		"NAME": "Strike",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage."
 	},
+	"animator_SwordMaiden":
+	{
+		"DESCRIPTION": "Retain. NL Gain !M! Artifact. NL Gain !M! Intangible. NL Exhaust.",
+		"NAME": "'Sword Maiden'"
+	},
 	"animator_Togame":
 	{
-		"DESCRIPTION": "Draw !SV! cards, then you may choose and Exhaust 1 card. Purge after !M! uses.",
+		"DESCRIPTION": "Draw !SV! cards, then you may choose and Exhaust 1 card. NL Purge after !M! uses.",
 		"NAME": "Togame"
 	},
 	"animator_TukaLunaMarceau":
@@ -360,13 +421,13 @@
 	},
 	"animator_Tyuule":
 	{
-		"DESCRIPTION": "Apply !M! Poison to an enemy for each [#EFC851]Skill in your hand. NL (Apply !SV! Poison)",
+		"DESCRIPTION": "Apply !M! Poison to an enemy for each other [#EFC851]Skill in your hand. NL (Apply !SV! Poison)",
 		"NAME": "Tyuule"
 	},
 	"animator_Wiz":
 	{
-		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses.",
-		"EXTENDED_DESCRIPTION": ["Retrieval Limit", "You cannot retrieve another Wiz from your exhaust pile."],
+		"DESCRIPTION": "Exhaust 1 card, choose a card from your Exhaust pile and add a copy to your hand. Purge after !M! uses ([#EFC851]*[#FFFFFF]).",
+		"EXTENDED_DESCRIPTION": ["* Note", "You cannot retrieve another Wiz from your exhaust pile."],
 		"NAME": "Wiz"
 	},
 	"animator_YaoHaDucy":
@@ -386,62 +447,31 @@
 		"NAME": "Yuuichirou",
 		"UPGRADE_DESCRIPTION": "Deal !D! damage. NL Legacy: Add [#EFC851]Asuramaru+ to your discard pile."
 	},
-	"animator_GoblinSoldier":
+	"animator_Mitsuba":
 	{
-		"DESCRIPTION": "When you draw this, draw another card. At the end of your turn, take 2 damage.",
-		"NAME": "Goblin Soldier"
+		"DESCRIPTION": "Deal !D! damage. If the target had more health than you, gain !B! Block.",
+		"NAME": "Mitsuba"
 	},
-	"animator_GoblinShaman":
+	"animator_Guren":
 	{
-		"DESCRIPTION": "At the end of your turn, gain 1 Frail. Exhaust.",
-		"NAME": "Goblin Shaman"
+		"DESCRIPTION": "Exhaust a random [#EFC851]Attack in your draw pile and turn its current damage into [#EFC851]Support [#EFC851]Damage.",
+		"EXTENDED_DESCRIPTION": ["Support Damage", "Deal damage to the enemy with lowest HP at the end of each turn."],
+		"NAME": "Guren"
 	},
-	"animator_GoblinChampion":
+	"animator_AcuraShin":
 	{
-		"DESCRIPTION": "At the end of your turn, shuffle 1 random Goblin into your draw pile.",
-		"NAME": "Goblin Champion"
+		"DESCRIPTION": "Deal !D! damage to ALL enemies, then Apply !M! Poison. Gain !SV! [#EFC851]Poison [#EFC851]Affinity.",
+		"EXTENDED_DESCRIPTION": ["Poison Affinity", "Every time you apply Poison, apply 1 additional Poison per stack."],
+		"NAME": "Shin"
 	},
-	"animator_GoblinKing":
+	"animator_Gillette":
 	{
-		"DESCRIPTION": "At the end of your turn, shuffle 3 random Goblins into your draw pile.",
-		"NAME": "Goblin King"
+		"DESCRIPTION": "Deal !D! damage. Apply !M! Weak. Legacy: Stun the enemy with the most HP.",
+		"NAME": "Gillette"
 	},
-	"animator_GoblinSlayer":
+	"animator_Viivi":
 	{
-		"DESCRIPTION": "[#EFC851]Goblin [#EFC851]Slayer. NL Deal !D! damage. NL Gain !B! Block. NL Retain.",
-		"EXTENDED_DESCRIPTION": ["Goblin Slayer", "Exhaust every Status and Curse in your hand and discard pile. Deal 2 extra damage for every card in your exhaust pile. #yWARNING: Goblins will start invading your deck."],
-		"NAME": "Goblin Slayer"
-	},
-	"animator_GuildGirl":
-	{
-		"DESCRIPTION": "At the start of each turn, Cycle !M! card.",
-		"UPGRADE_DESCRIPTION": "At the start of each turn, Cycle !M! cards.",
-		"NAME": "'Guild Girl'"
-	},
-	"animator_Priestess":
-	{
-		"DESCRIPTION": "Cooldown !M!: Gain !SV! Regeneration. NL Synergy: Gain !SV! temporary HP.",
-		"NAME": "'Priestess'"
-	},
-	"animator_DwarfShaman":
-	{
-		"DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded card and Upgrade it.",
-		"UPGRADE_DESCRIPTION": "Deal !D! damage. If you break the target's Block, draw !M! unupgraded cards and Upgrade them.",
-		"NAME": "'Dwarf Shaman'"
-	},
-	"animator_LizardPriest":
-	{
-		"DESCRIPTION": "Set an enemy's Block to !M!. Gain !B! Block. Synergy: Cycle 1 card.",
-		"NAME": "'Lizard Priest'"
-	},
-	"animator_HighElfArcher":
-	{
-		"DESCRIPTION": "Deal !D! Piercing damage twice. If you haven't played other copies of this card this turn, draw 1 card.",
-		"NAME": "'High Elf Archer'"
-	},
-	"animator_SwordMaiden":
-	{
-		"DESCRIPTION": "Retain. NL Gain !M! Artifact. NL Gain !M! Intangible. NL Exhaust.",
-		"NAME": "'Sword Maiden'"
+		"DESCRIPTION": "Deal !D! damage to a random Enemy !M! times. Apply 1 Vulnerable to each enemy hit.",
+		"NAME": "Viivi"
 	}
 }

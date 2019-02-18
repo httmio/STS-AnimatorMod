@@ -1,7 +1,7 @@
 [
 	{
 		"DESCRIPTION": "Activates if the last card played was from the same series.",
-		"NAMES": ["synergy", "synergies", "synergize"],
+		"NAMES": ["synergy", "synergies", "synergize", "synergizes"],
 		"PROPERNAME": "Synergy"
 	},
 	{
@@ -15,7 +15,7 @@
 		"PROPERNAME": "Loyal"
 	},
 	{
-		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect on every #yAttack received. Lasts 1 turn.",
+		"DESCRIPTION": "The owner is inflicted with the specified #yDebuff or Effect when receiving damage. Lasts 1 turn.",
 		"NAMES": ["mark", "marks"],
 		"PROPERNAME": "Mark"
 	},
@@ -25,7 +25,7 @@
 		"PROPERNAME": "Heartseeker"
 	},
 	{
-		"DESCRIPTION": "Ignore the target's Block.",
+		"DESCRIPTION": "Ignore the target's Block, Thorns, and other Effects which trigger when receiving damage.",
 		"NAMES": ["piercing"],
 		"PROPERNAME": "Piercing"
 	},
@@ -58,5 +58,10 @@
 		"DESCRIPTION": "Discard a certain number of cards then draw that many cards.",
 		"NAMES": ["cycle"],
 		"PROPERNAME": "Cycle"
+	},
+	{
+		"DESCRIPTION": "Can be upgraded any number of times.",
+		"NAMES": ["augmentable"],
+		"PROPERNAME": "Augmentable"
 	}
 ]

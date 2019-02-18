@@ -1,12 +1,16 @@
 package eatyourbeets;
 
 import com.badlogic.gdx.math.MathUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
 public class Utilities
 {
+    public static final Logger Logger = LogManager.getLogger(Utilities.class.getName());
+
     public static <T> T SafeCast(Object o, Class<T> type)
     {
         return type.isInstance(o) ? type.cast(o) : null;

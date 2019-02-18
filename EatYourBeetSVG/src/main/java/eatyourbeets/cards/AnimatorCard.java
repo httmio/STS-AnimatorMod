@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.shrines.GremlinMatchGame;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 import com.megacrit.cardcrawl.localization.CardStrings;
@@ -21,6 +20,7 @@ import org.apache.logging.log4j.Logger;
 import patches.AbstractEnums;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
 
@@ -157,7 +157,7 @@ public abstract class AnimatorCard extends CustomCard
         AbstractRoom room = PlayerStatistics.CurrentRoom();
         if (this.synergy != null)
         {
-            if(room == null || !(room.event instanceof GremlinMatchGame))
+            if (!this.isFlipped)//room == null || !(room.event instanceof GremlinMatchGame))
             {
                 float originalScale = FontHelper.cardTitleFont_small_N.getData().scaleX;
 
@@ -183,12 +183,12 @@ public abstract class AnimatorCard extends CustomCard
     }
 
     @Override
-    public AbstractCard makeCopy() 
+    public AbstractCard makeCopy()
     {
-        try 
+        try
         {
             return getClass().newInstance();
-        } 
+        }
         catch (InstantiationException | IllegalAccessException e)
         {
             e.printStackTrace();
@@ -204,7 +204,7 @@ public abstract class AnimatorCard extends CustomCard
         AnimatorCard copy = Utilities.SafeCast(result, AnimatorCard.class);
         if (copy != null)
         {
-            copy.baseSecondaryValue = this.baseSecondaryValue;
+            copy.secondaryValue = copy.baseSecondaryValue = this.baseSecondaryValue;
         }
 
         return result;
@@ -310,20 +310,18 @@ public abstract class AnimatorCard extends CustomCard
         }
     }
 
-    protected void ChangeMagicNumberForCombat(int value, boolean add)
+    public HashSet<AbstractCard> GetAllInstances()
     {
-        for (AbstractCard c : GetAllInBattleInstances.get(this.uuid))
+        HashSet<AbstractCard> cards = GetAllInBattleInstances.get(uuid);
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
         {
-            if (add)
+            if (c.uuid == uuid)
             {
-                c.baseMagicNumber += value;
+                cards.add(c);
+                break;
             }
-            else
-            {
-                c.baseMagicNumber = value;
-            }
-            c.magicNumber = c.baseMagicNumber;
-            c.isMagicNumberModified = true;
         }
+
+        return cards;
     }
 }

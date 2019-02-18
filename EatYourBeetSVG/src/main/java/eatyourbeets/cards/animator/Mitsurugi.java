@@ -33,8 +33,26 @@ public class Mitsurugi extends AnimatorCard
     @Override
     public boolean canUse(AbstractPlayer p, AbstractMonster m)
     {
-        return m != null && super.canUse(p, m) && (m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF
-                || m.intent == AbstractMonster.Intent.ATTACK_DEFEND || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF);
+        if (super.canUse(p, m))
+        {
+            if (m == null)
+            {
+                return true;
+            }
+            else if ((m.intent == AbstractMonster.Intent.ATTACK || m.intent == AbstractMonster.Intent.ATTACK_BUFF
+                    || m.intent == AbstractMonster.Intent.ATTACK_DEFEND || m.intent == AbstractMonster.Intent.ATTACK_DEBUFF))
+            {
+                return true;
+            }
+            else
+            {
+                this.cantUseMessage = cardStrings.EXTENDED_DESCRIPTION[0];
+
+                return false;
+            }
+        }
+
+        return false;
     }
 
     @Override
@@ -48,7 +66,7 @@ public class Mitsurugi extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeDamage(6);
+            upgradeDamage(5);
             upgradeMagicNumber(1);
         }
     }

@@ -25,7 +25,7 @@ public class Konayuki extends AnimatorCard implements OnBattleStartSubscriber, O
     {
         super(ID, 2, CardType.ATTACK, CardRarity.COMMON, CardTarget.SELF);
 
-        Initialize(30,0, 2);
+        Initialize(20,0, 3);
 
         if (PlayerStatistics.InBattle())
         {
@@ -53,7 +53,7 @@ public class Konayuki extends AnimatorCard implements OnBattleStartSubscriber, O
     {
         if (TryUpgrade())
         {          
-            upgradeDamage(3);
+            upgradeDamage(5);
             upgradeMagicNumber(1);
         }
     }

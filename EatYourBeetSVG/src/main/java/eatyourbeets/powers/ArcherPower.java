@@ -1,6 +1,7 @@
 package eatyourbeets.powers;
 
-import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,6 +9,8 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect;
+import eatyourbeets.GameActionsHelper;
 
 public class ArcherPower extends AnimatorPower
 {
@@ -58,16 +61,18 @@ public class ArcherPower extends AnimatorPower
 
             updateDescription();
 
-            for (AbstractMonster m : AbstractDungeon.getCurrRoom().monsters.monsters)
+            for (AbstractMonster m : PlayerStatistics.GetCurrentEnemies(true))
             {
-                if (!m.isDead && !m.isDying && !m.escaped)
+                for (AbstractPower p : m.powers)
                 {
-                    for (AbstractPower p : m.powers)
+                    if (p.type == PowerType.DEBUFF)
                     {
-                        if (p.type == PowerType.DEBUFF)
-                        {
-                            AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, this.amount, DamageInfo.DamageType.THORNS)));
-                        }
+
+                        float x = m.hb.cX + (m.hb.width * AbstractDungeon.miscRng.random(-0.1f, 0.1f));
+                        float y = m.hb.cY + (m.hb.height * AbstractDungeon.miscRng.random(-0.2f, 0.2f));
+
+                        AbstractDungeon.actionManager.addToTop(new VFXAction(new ThrowDaggerEffect(x, y)));
+                        GameActionsHelper.DamageTarget(AbstractDungeon.player, m, this.amount, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.NONE);
                     }
                 }
             }

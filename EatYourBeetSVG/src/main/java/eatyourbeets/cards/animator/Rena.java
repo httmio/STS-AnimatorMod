@@ -17,7 +17,7 @@ public class Rena extends AnimatorCard
     {
         super(ID, 1, CardType.SKILL, CardRarity.UNCOMMON, CardTarget.ENEMY);
 
-        Initialize(0, 4, 1);
+        Initialize(0, 4, 2);
 
         AddExtendedDescription();
         SetSynergy(Synergies.Elsword);
@@ -40,7 +40,7 @@ public class Rena extends AnimatorCard
     {
         if (TryUpgrade())
         {
-            upgradeBlock(3);
+            upgradeBlock(4);
         }
     }
 }

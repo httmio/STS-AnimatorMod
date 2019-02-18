@@ -2,10 +2,12 @@ package eatyourbeets;
 
 import basemod.BaseMod;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Texture;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.cards.AnimatorCard;
@@ -43,6 +45,8 @@ public class AnimatorResources
     }
 
     private static final Logger logger = LogManager.getLogger(AnimatorResources.class.getName());
+    private static final HashMap<Integer, Texture> characterPortraits = new HashMap<>();
+    private static final String languagePath;
 
     public static final String ATTACK_PNG = "images/cardui/512/bg_attack_canvas.png";
     public static final String SKILL_PNG = "images/cardui/512/bg_skill_canvas.png";
@@ -71,14 +75,48 @@ public class AnimatorResources
     public static final String SHOULDER2_PNG = "images/characters/animator/shoulder2.png";
     public static final String CORPSE_PNG = "images/characters/animator/corpse.png";
 
+    public static Texture GetCharacterPortrait(int id)
+    {
+        Texture result;
+        if (!characterPortraits.containsKey(id))
+        {
+            result = new Texture("images/ui/charselect/animator_portrait_" + id + ".png");
+            characterPortraits.put(id, result);
+        }
+        else
+        {
+            result = characterPortraits.get(id);
+        }
+
+        return result;
+    }
+
+    static
+    {
+//        final String filePath = "c:/temp/localization/";
+//        File f = new File(filePath);
+//        if (f.exists() && f.isDirectory())
+//        {
+//            languagePath = filePath;
+//        }
+//        else
+        if (Settings.language == Settings.GameLanguage.ZHS)
+        {
+            languagePath = "localization/zhs/";
+        }
+        else
+        {
+            languagePath = "localization/eng/";
+        }
+    }
+
     public static void LoadGameStrings()
     {
-        //if we add localization, just add a Settings.GameLanguage switch here
-        BaseMod.loadCustomStringsFile(CharacterStrings.class, "localization/eng/Animator_CharacterStrings.json");
-        BaseMod.loadCustomStringsFile(CardStrings.class, "localization/eng/Animator_CardStrings.json");
-        BaseMod.loadCustomStringsFile(RelicStrings.class, "localization/eng/Animator_RelicStrings.json");
-        BaseMod.loadCustomStringsFile(PowerStrings.class, "localization/eng/Animator_PowerStrings.json");
-        BaseMod.loadCustomStringsFile(UIStrings.class, "localization/eng/Animator_UIStrings.json");
+        BaseMod.loadCustomStringsFile(CharacterStrings.class, languagePath + "Animator_CharacterStrings.json");
+        BaseMod.loadCustomStringsFile(CardStrings.class, languagePath + "Animator_CardStrings.json");
+        BaseMod.loadCustomStringsFile(RelicStrings.class, languagePath + "Animator_RelicStrings.json");
+        BaseMod.loadCustomStringsFile(PowerStrings.class, languagePath + "Animator_PowerStrings.json");
+        BaseMod.loadCustomStringsFile(UIStrings.class, languagePath + "Animator_UIStrings.json");
     }
 
     public static CharacterStrings GetCharacterStrings()
@@ -91,27 +129,7 @@ public class AnimatorResources
         return CardCrawlGame.languagePack.getCardStrings(cardID);
     }
 
-    public static UIStrings GetUIStrings(UIStringType type) throws EnumConstantNotPresentException
-    {
-        return CardCrawlGame.languagePack.getUIString("Animator_" + type.name());
-//        if (type == UIStringType.CharacterSelect)
-//        {
-//            return CardCrawlGame.languagePack.getUIString("Animator_CharacterSelect");
-//        }
-//        else if (type == UIStringType.Rewards)
-//        {
-//            return CardCrawlGame.languagePack.getUIString("Animator_Rewards");
-//        }
-//        else if (type == UIStringType.Synergies)
-//        {
-//            return CardCrawlGame.languagePack.getUIString("Animator_Synergies");
-//        }
-//        else
-//        {
-//            logger.warn("Tried to get a not implemented UIString Type: " + type);
-//            throw new EnumConstantNotPresentException(UIStringType.class, type.name());
-//        }
-    }
+    public static UIStrings GetUIStrings(UIStringType type) { return CardCrawlGame.languagePack.getUIString("Animator_" + type.name()); }
 
     public static String GetCardImage(String cardID)
     {
@@ -135,7 +153,7 @@ public class AnimatorResources
 
     public static void LoadCustomKeywords()
     {
-        final String json = Gdx.files.internal("localization/eng/Animator_KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        final String json = Gdx.files.internal(languagePath + "Animator_KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
 
         final com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords = new Gson().fromJson(json, com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
         if (keywords != null)
@@ -158,6 +176,7 @@ public class AnimatorResources
     {
         BaseMod.addDynamicVariable(new SecondaryValueVariable());
 
+        // Do NOT localize this, it is used to load every card's ID
         String jsonString = Gdx.files.internal("localization/eng/Animator_CardStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         Map<String, CardStrings> map = new Gson().fromJson(jsonString, new TypeToken<HashMap<String, CardStrings>>()
         {

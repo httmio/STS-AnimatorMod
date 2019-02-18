@@ -1,116 +1,68 @@
 package eatyourbeets.characters;
 
-import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import eatyourbeets.AnimatorResources;
-import eatyourbeets.cards.Synergies;
-import eatyourbeets.cards.Synergy;
-import eatyourbeets.cards.animator.*;
-import patches.AbstractEnums;
+import eatyourbeets.characters.Loadouts.*;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class AnimatorCharacterSelect
 {
     private static int index;
-    private static final ArrayList<SynergyInfo> possibleSynergies;
+    private static final ArrayList<AnimatorCustomLoadout> customLoadouts;
 
     protected static final String[] uiText = AnimatorResources.GetUIStrings(AnimatorResources.UIStringType.CharacterSelect).TEXT;
 
-    public static SynergyInfo GetSynergyInfo()
+    public static AnimatorCustomLoadout GetSelectedLoadout()
     {
-        return possibleSynergies.get(index);
+        return customLoadouts.get(index);
     }
 
-    public static void NextSynergy()
+    public static void NextLoadout()
     {
         index += 1;
-        if (index >= possibleSynergies.size())
+        if (index >= customLoadouts.size())
         {
             index = 0;
         }
     }
 
-    public static void PreviousSynergy()
+    public static void PreviousLoadout()
     {
         index -= 1;
         if (index < 0)
         {
-            index = possibleSynergies.size() - 1;
+            index = customLoadouts.size() - 1;
         }
     }
 
-    public static void PrepareCharacterDeck(ArrayList<String> deck)
+    private static void AddLoadout(AnimatorCustomLoadout loadout, int level, String description)
     {
-        deck.addAll(GetSynergyInfo().Cards);
-    }
-
-
-    private static void AddSynergyInfo(Synergy synergy, int level, String extraInfo, String... cards)
-    {
-        AddSynergyInfo(synergy.NAME, level, extraInfo, cards);
-    }
-
-    private static void AddSynergyInfo(String name, int level, String extraInfo, String... cards)
-    {
-        SynergyInfo info = new SynergyInfo(name, extraInfo, level);
-        info.Cards.addAll(Arrays.asList(cards));
-        possibleSynergies.add(info);
+        loadout.unlockLevel = level;
+        loadout.description = description;
+        customLoadouts.add(loadout);
     }
 
     static
     {
         index = 0;
-        possibleSynergies = new ArrayList<>();
+        customLoadouts = new ArrayList<>();
 
         String recommended = uiText[5];
         String balanced = uiText[6];
         String unbalanced = uiText[7];
         String veryUnbalanced = uiText[8];
+        String special = uiText[9];
 
-        AddSynergyInfo(Synergies.Konosuba, 0, recommended, Kazuma.ID, Aqua.ID);
-        AddSynergyInfo(Synergies.Gate, 1, balanced, Tyuule.ID, Kuribayashi.ID);
-        AddSynergyInfo(Synergies.Elsword, 1, balanced, Ara.ID, Elsword.ID);
-        AddSynergyInfo(Synergies.NoGameNoLife, 1, balanced, Jibril.ID, DolaCouronne.ID);
-        AddSynergyInfo(Synergies.OwariNoSeraph, 2, unbalanced, Yuuichirou.ID, Shinoa.ID);
-        AddSynergyInfo(Synergies.GoblinSlayer, 2, unbalanced, Priestess.ID, DwarfShaman.ID);
-        AddSynergyInfo(Synergies.Katanagatari, 2, unbalanced, Emonzaemon.ID, Nanami.ID);
-        AddSynergyInfo(Synergies.Fate, 3, veryUnbalanced, RinTohsaka.ID, Lancer.ID);
-        AddSynergyInfo(Synergies.Overlord, 3, veryUnbalanced, Cocytus.ID, NarberalGamma.ID);
-        AddSynergyInfo(Synergies.Chaika, 3, veryUnbalanced, AcuraTooru.ID, AcuraAkari.ID);
-    }
-
-    public static class SynergyInfo
-    {
-        public final String Name;
-        public final ArrayList<String> Cards;
-        public boolean Locked;
-
-        private final String description;
-        private final int unlockLevel;
-
-        public String GetDescription()
-        {
-            int currentLevel = UnlockTracker.getUnlockLevel(AbstractEnums.Characters.THE_ANIMATOR);
-            Locked = unlockLevel > currentLevel;
-            if (Locked)
-            {
-                return AnimatorCharacterSelect.uiText[2] + unlockLevel +
-                        AnimatorCharacterSelect.uiText[3] + currentLevel +
-                        AnimatorCharacterSelect.uiText[4];
-            }
-            else
-            {
-                return description;
-            }
-        }
-
-        protected SynergyInfo(String name, String description, int unlockLevel)
-        {
-            this.unlockLevel = unlockLevel;
-            this.Name = name;
-            this.description = description;
-            this.Cards = new ArrayList<>();
-        }
+        AddLoadout(new Konosuba(), 0, recommended);
+        AddLoadout(new Gate(), 1, balanced);
+        AddLoadout(new Elsword(), 1, balanced);
+        AddLoadout(new NoGameNoLife(), 1, balanced);
+        AddLoadout(new OwariNoSeraph(), 2, unbalanced);
+        AddLoadout(new GoblinSlayer(), 2, unbalanced);
+        AddLoadout(new Katanagatari(), 2, unbalanced);
+        AddLoadout(new Fate(), 3, veryUnbalanced);
+        AddLoadout(new Overlord(), 3, veryUnbalanced);
+        AddLoadout(new Chaika(), 3, veryUnbalanced);
+        AddLoadout(new Kancolle(), 4, special);
     }
 }

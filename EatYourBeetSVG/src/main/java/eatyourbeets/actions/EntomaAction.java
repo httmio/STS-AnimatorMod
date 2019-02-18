@@ -17,17 +17,16 @@ public class EntomaAction extends AnimatorAction
 
     public void update()
     {
-        for (AbstractCard c : AbstractDungeon.player.masterDeck.group)
-        {
-            if (c.uuid.equals(entoma.uuid))
-            {
-                c.baseDamage = c.baseDamage + 1;
-                c.isDamageModified = false;
-            }
-        }
-        //AbstractDungeon.actionManager.addToBottom(new ModifyDamagePermanentlyAction(entoma.uuid, 1));
-
         AbstractDungeon.player.increaseMaxHp(2, false);
+        for (AbstractCard c : entoma.GetAllInstances())
+        {
+            Entoma card = (Entoma)c;
+            card.upgrade();
+//            card.secondaryValue += 1;
+//            card.baseSecondaryValue = card.secondaryValue;
+//            card.applyPowers();
+        }
+
         this.isDone = true;
     }
 }

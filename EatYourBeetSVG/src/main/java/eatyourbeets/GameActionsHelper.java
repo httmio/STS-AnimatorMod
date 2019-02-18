@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import eatyourbeets.actions.CycleCardAction;
 import eatyourbeets.actions.OnCardDrawnAction;
+import eatyourbeets.actions.OnRandomEnemyDamagedAction;
 
 import java.util.ArrayList;
 import java.util.function.BiConsumer;
@@ -52,6 +53,13 @@ public class GameActionsHelper
     public static DamageRandomEnemyAction DamageRandomEnemy(AbstractCreature source, int amount, DamageInfo.DamageType damageType, AbstractGameAction.AttackEffect effect)
     {
         DamageRandomEnemyAction action = new DamageRandomEnemyAction(new DamageInfo(source, amount, damageType), effect);
+        AbstractDungeon.actionManager.addToBottom(action);
+        return action;
+    }
+
+    public static OnRandomEnemyDamagedAction DamageRandomEnemy(AbstractCreature source, int amount, DamageInfo.DamageType damageType, AbstractGameAction.AttackEffect effect, BiConsumer<Object, AbstractCreature> onDamage, Object state)
+    {
+        OnRandomEnemyDamagedAction action = new OnRandomEnemyDamagedAction(new DamageInfo(source, amount, damageType), effect, state, onDamage);
         AbstractDungeon.actionManager.addToBottom(action);
         return action;
     }

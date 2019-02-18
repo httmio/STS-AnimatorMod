@@ -1,7 +1,6 @@
 package eatyourbeets.actions;
 
-import basemod.BaseMod;
-import com.megacrit.cardcrawl.actions.common.ReduceCostAction;
+import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -10,9 +9,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import eatyourbeets.GameActionsHelper;
-import eatyourbeets.Utilities;
-
-import java.util.ArrayList;
 
 public class DrawAndUpgradeCardAction extends AnimatorAction
 {
@@ -28,13 +24,14 @@ public class DrawAndUpgradeCardAction extends AnimatorAction
     @Override
     public void update()
     {
-        DrawUnupgradedCard(this.count);
+        DrawUpgradableCard(this.count);
         this.isDone = true;
     }
 
-    private void DrawUnupgradedCard(int count)
+    private void DrawUpgradableCard(int count)
     {
-        CardGroup drawPile = AbstractDungeon.player.drawPile;
+        AbstractPlayer player = AbstractDungeon.player;
+        CardGroup drawPile = player.drawPile;
         for (AbstractCard c : drawPile.getUpgradableCards().group)
         {
             if (c.canUpgrade())
@@ -51,7 +48,12 @@ public class DrawAndUpgradeCardAction extends AnimatorAction
             }
         }
 
-        if (count > 0)
+        if (drawPile.size() < count && player.discardPile.size() > 0)
+        {
+            GameActionsHelper.Special(new EmptyDeckShuffleAction());
+            GameActionsHelper.Special(new DrawAndUpgradeCardAction(player, count));
+        }
+        else if (count > 0)
         {
             GameActionsHelper.DrawCard(AbstractDungeon.player, count);
         }
