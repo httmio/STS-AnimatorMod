@@ -23,14 +23,14 @@
 	},
 	"animator_Alexander":
 	{
-		"DESCRIPTION": "對隨機敵人造成 !D! 點傷害 !M! 次 。 遺贈 : 獲得 !SV! 點 [#EFC851]多層護甲[]。",
+		"DESCRIPTION": "對隨機敵人造成 !D! 點傷害 !M! 次 。 遺產 : 獲得 !SV! 點 [#EFC851]多層護甲[]。",
 		"NAME": "亞歷山大大帝"
 	},
 	"animator_Aqua":
 	{
-		"DESCRIPTION": "恢復 !M! 點 生命 。 在本回合減少 !SV! 點 恢復量 。",
+		"DESCRIPTION": "回復 !M! 點 生命 。 在本回合減少 !SV! 點 回復量 。",
 		"NAME": "阿克婭",
-		"UPGRADE_DESCRIPTION": "恢復 !M! 點 生命 。 在本回合減少 !SV! 點 恢復量 。"
+		"UPGRADE_DESCRIPTION": "回復 !M! 點 生命 。 在本回合減少 !SV! 點 回復量 。"
 	},
 	"animator_Ara":
 	{
@@ -65,17 +65,17 @@
 	},
 	"animator_ChaikaTrabant":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 。 如果這張卡是本回合使用的第一張卡 ，則 眩暈目標。虛無 。",
+		"DESCRIPTION": "造成 !D! 點傷害 。 如果這張卡是本回合使用的第一張卡 ，則眩暈目標。虛無 。",
 		"NAME": "嘉依卡·托勒龐特"
 	},
 	"animator_ChlammyZell":
 	{
-		"DESCRIPTION": "造成 !M! 點 傷害 。 傷害等同於本回合你所抽到的牌的數量 。 NL (造成 !D! 點 傷害)",
+		"DESCRIPTION": "造成 !M! 點傷害 。 本回合你所抽的每張牌造成 !D! 點 傷害。",
 		"NAME": "克拉米·傑爾"
 	},
 	"animator_Chung":
 	{
-		"DESCRIPTION": "獲得 !B! 點 格擋 。 NL 冷卻 !SV! : 對所有敵人造成 !D! 點 傷害 。",
+		"DESCRIPTION": "獲得 !B! 點格擋 。 NL 冷卻 !SV! : 對所有敵人造成 !D! 點 傷害 。",
 		"NAME": "澄"
 	},
 	"animator_Cocytus": 
@@ -141,7 +141,7 @@
 	},
 	"animator_Entoma":
 	{
-		"DESCRIPTION": " 造成 !D! 點 傷害與 !M! 層毒 。 [#EFC851]飢餓[] 。",
+		"DESCRIPTION": " 造成 !D! 點 傷害與 !M! 層中毒 。 [#EFC851]飢餓[] 。",
 		"EXTENDED_DESCRIPTION": ["飢餓", "每回合造成的傷害減少 #b1 點 。 如果這張牌消滅了非爪牙的敵人 ， 永久獲得 #b1 點傷害 和 #b2 點生命上限 。"],
 		"NAME": "艾多瑪"
 	},
@@ -167,12 +167,12 @@
 	},
 	"animator_FeridBathory":
 	{
-		"DESCRIPTION": "每回合可觸發兩次 ， 消耗 一張牌時 獲得 !M! 點 力量 ， 治愈 2 點 生命 。",
+		"DESCRIPTION": "每回合可觸發兩次 ， 消耗 一張牌時 獲得 !M! 點 力量 ， 回復 2 點 生命 。",
 		"NAME": "費里德·巴特利"
 	},
 	"animator_Fredrika":
 	{
-		"DESCRIPTION": "變形者 。 每個敵人使你獲得獲得 !B! 點 格擋 。 同調 : 選擇並 保留 最多 !M! 張牌 。",
+		"DESCRIPTION": "變形者。 每個敵人使你獲得獲得 !B! 點 格擋 。 同調 : 選擇並保留 最多 !M! 張牌 。",
 		"NAME": "弗蕾德麗卡"
 	},
 	"animator_Gilgamesh":
@@ -199,12 +199,12 @@
 	"animator_GoblinSlayer":
 	{
 		"DESCRIPTION": "[#EFC851]哥布林殺手[] 。 造成 !D! 點傷害 。 NL 獲得 !B! 點 格擋 。 NL 保留 。",
-		"EXTENDED_DESCRIPTION": ["哥布林殺手", "消耗所有位於手牌和棄牌堆中的狀態牌和詛咒牌 。 已消耗牌堆中每有一張牌 ， 額外造成2 點 傷害 。 #yWARNING: 哥布林將開始入侵你的牌堆 。"],
+		"EXTENDED_DESCRIPTION": ["哥布林殺手", "消耗所有位於手牌和棄牌堆中的狀態牌和詛咒牌 。 已消耗牌堆中每有一張牌 ， 額外造成 2 點 傷害 。 #y警告: 哥布林將開始入侵你的牌堆 。"],
 		"NAME": "哥布林殺手"
 	},
 	"animator_GoblinSoldier":
 	{
-		"DESCRIPTION": "抽到這張牌時 ， 額外抽一張牌 。 回合結束時 ， 受到2 點 傷害 。",
+		"DESCRIPTION": "抽到這張牌時 ， 額外抽一張牌 。 回合結束時 ， 受到 2 點 傷害 。",
 		"NAME": "哥布林小鬼"
 	},
 	"animator_GuildGirl":
@@ -220,9 +220,9 @@
 	},
 	"animator_HigakiRinne":
 	{
-		"DESCRIPTION": "穿越者 。 NL 布朗運動愛好者... (觸發隨機效果)",
+		"DESCRIPTION": "變形者 。 NL 布朗運動愛好者... (觸發隨機效果)",
 		"NAME": "彼我木輪回",
-		"UPGRADE_DESCRIPTION": "穿越者 。 NL 真·布朗運動愛好者。。。(觸發更多隨機效果)"
+		"UPGRADE_DESCRIPTION": "變形者 。 NL 真·布朗運動愛好者。。。(觸發更多隨機效果)"
 	},
 	"animator_HighElfArcher":
 	{
@@ -247,23 +247,23 @@
 	},
 	"animator_Jibril":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 。 NL 若敵人有 易傷 效果獲得 !M! 點 力量 。",
+		"DESCRIPTION": "造成 !D! 點 傷害 。 NL 若敵人有易傷效果獲得 !M! 點 力量 。",
 		"NAME": "吉普莉爾"
 	},
 	"animator_Kazuma":
 	{
-		"DESCRIPTION": "獲得 !B! 點 格擋 ， 造成 !D! 點 傷害 。 NL 同調 : 抽一張牌 。",
+		"DESCRIPTION": "獲得 !B! 點格擋 ， 造成 !D! 點傷害 。 NL 同調 : 抽一張牌 。",
 		"NAME": "和真"
 	},
 	"animator_Konayuki":
 	{
-		"DESCRIPTION": "若至少擁有10 點 力量 ， 造成 !D! 點 傷害 , 否則獲得 !M! 點 力量 。",
+		"DESCRIPTION": "若至少擁有10 點力量 ， 造成 !D! 點傷害 , 否則獲得 !M! 點 力量 。",
 		"NAME": "凍空粉雪"
 	},
 	"animator_KrulTepes":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 。 若這張牌消滅了一個精英或 boss ， 獲得 [#EFC851]小血瓶[] [#EFC851]*[] 。",
-		"EXTENDED_DESCRIPTION": ["* 注", "若本場戰鬥中有多個精英存在 ， 只能獲得一次遺物 。"],
+		"DESCRIPTION": "造成 !D! 點傷害 。 若這張牌消滅了一個精英或王 ， 獲得 [#EFC851]小血瓶[] [#EFC851]*[] 。",
+		"EXTENDED_DESCRIPTION": ["*備註", "若本場戰鬥中有多個精英存在 ， 只能獲得一次遺物 。"],
 		"NAME": "克魯魯·采佩西"
 	},
 	"animator_Kuribayashi":
@@ -273,59 +273,59 @@
 	},
 	"animator_Lancer":
 	{
-		"DESCRIPTION": "造成 !D! 點 穿刺 傷害 。 渴血 。 若此牌消滅了一個敵人 ， 獲得 [B] 。",
+		"DESCRIPTION": "造成 !D! 點 穿刺 傷害 。愛情獵手。 若此牌消滅了一個敵人 ， 獲得 [B] 。",
 		"NAME": "Lancer"
 	},
 	"animator_Layla":
 	{
-		"DESCRIPTION": "[#EFC851]重裝填[] : 造成 !D! 點 傷害 。",
-		"EXTENDED_DESCRIPTION": ["重裝填", "丟棄任意數量的牌 ， 觸發同等次數 。"],
+		"DESCRIPTION": "[#EFC851]重新裝填[] : 造成 !D! 點 傷害 。",
+		"EXTENDED_DESCRIPTION": ["重新裝填", "丟棄任意數量的牌 ，觸發同等次數 。"],
 		"NAME": "蕾拉",
-		"UPGRADE_DESCRIPTION": "[#EFC851]重裝填[] : 造成 !D! 穿刺 點 傷害 。"
+		"UPGRADE_DESCRIPTION": "[#EFC851]重新裝填[] : 造成 !D! 穿刺 點 傷害 。"
 	},
 	"animator_LeleiLaLalena":
 	{
-		"DESCRIPTION": "給予一個敵人 !M! 層 易傷 ， NL 循環 !M! 張牌 。 同調 : 同時給予 !M! 層 虛弱 。",
+		"DESCRIPTION": "給予一個敵人 !M! 層易傷 ， NL 循環 !M! 張牌 。 同調 : 同時給予 !M! 層虛弱 。",
 		"NAME": "蕾萊·拉·列娜",
-		"UPGRADE_DESCRIPTION": "給予一個敵人 !M! 層 易傷， NL 循環 !M! 張牌 。 同調 : 同時給予 !M! 層 虛弱 。"
+		"UPGRADE_DESCRIPTION": "給予一個敵人 !M! 層易傷， NL 循環 !M! 張牌 。 同調 : 同時給予 !M! 層虛弱 。"
 	},
 	"animator_LizardPriest":
 	{
-		"DESCRIPTION": "使一個敵人的 格擋 值變為 !M! ， 獲得 !B! 點 格擋 。 同調 : 循環 一張牌 。",
+		"DESCRIPTION": "使一個敵人的 格擋值變為 !M! ， 獲得 !B! 點格擋 。 同調 : 循環 一張牌 。",
 		"NAME": "蜥蜴僧侶"
 	},
 	"animator_Megumin":
 	{
-		"DESCRIPTION": "多重進化 。 對所有敵人造成 !D! 點 傷害 。 消耗 。 NL 同調 : 傷害永久增加 !M! 點 。",
+		"DESCRIPTION": "多重進化 。 對所有敵人造成 !D! 點傷害 。 消耗 。 NL 同調 : 傷害永久增加 !M! 點 。",
 		"NAME": "惠惠"
 	},
 	"animator_Mikaela":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 兩次 。 從你的棄牌堆中隨機 消耗 一張牌 。",
+		"DESCRIPTION": "造成 !D! 點 傷害 兩次 。 從你的棄牌堆中隨機消耗 一張牌 。",
 		"NAME": "米迦爾",
 		"UPGRADE_DESCRIPTION": "造成 !D! 點傷害兩次 。 從你的棄牌堆中選擇並 消耗 一張牌 。"
 	},
 	"animator_Mitsurugi":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 , 僅當敵人意圖為攻擊時可被打出 。 遺贈 : 獲得 !M! 點 力量 。",
+		"DESCRIPTION": "造成 !D! 點 傷害 , 僅當敵人意圖為攻擊時可被打出 。 遺產 : 獲得 !M! 點 力量 。",
 		"EXTENDED_DESCRIPTION": ["敵人不打算攻擊"],
 		"NAME": "御劍響夜"
 	},
 	"animator_Nanami":
 	{
-		"DESCRIPTION": "獲得 !B! 點 格擋 。 NL 同調 : 將一張 [#EFC851]連續拳[] 放入你的手牌 。",
+		"DESCRIPTION": "獲得 !B! 點格擋 。 NL 同調 : 將一張 [#EFC851]連續拳[] 放入你的手牌 。",
 		"NAME": "鑢七實",
 		"UPGRADE_DESCRIPTION": "獲得 !B! 點 格擋 。 NL 同調 : 添加一張 [#EFC851]連續拳+[] 到你的手牌 。"
 	},
 	"animator_NarberalGamma":
 	{
-		"DESCRIPTION": "生成 !M! 個閃電 充能球 。 下回合 , 獲得 [B] 。 NL 穿越者 。",
+		"DESCRIPTION": "生成 !M! 個閃電充能球 。 下回合 , 獲得 [B] 。 NL 變形者 。",
 		"NAME": "娜貝拉爾·伽瑪",
-		"UPGRADE_DESCRIPTION": "生成 !M! 個閃電 充能球 。 下回合 , 獲得 [B] 。 NL 穿越者 。 同調 : 獲得一個充能球欄位 。"
+		"UPGRADE_DESCRIPTION": "生成 !M! 個閃電充能球 。 下回合 , 獲得 [B] 。 NL 變形者 。 同調 : 獲得一個充能球欄位 。"
 	},
 	"animator_PandorasActor":
 	{
-		"DESCRIPTION": "獲得 !B! 點 格擋 。 穿越者 。 NL 同調 : 額外獲得 !M! 點 格擋 。",
+		"DESCRIPTION": "獲得 !B! 點 格擋 。 變形者 。 NL 同調 : 額外獲得 !M! 點 格擋 。",
 		"NAME": "潘多拉·亞克特"
 	},
 	"animator_PinaCoLada":
@@ -335,7 +335,7 @@
 	},
 	"animator_Priestess":
 	{
-		"DESCRIPTION": "預熱 !M! : 獲得 !SV! 層 [#EFC851]再生[] 。 NL 同調 : 獲得 !SV! 點 臨時生命 。",
+		"DESCRIPTION": "冷卻 !M! : 獲得 !SV! 層 [#EFC851]再生[] 。 NL 同調 : 獲得 !SV! 點臨時生命 。",
 		"NAME": "女神官"
 	},
 	"animator_Rena":
@@ -351,14 +351,14 @@
 	},
 	"animator_RoryMercury":
 	{
-		"DESCRIPTION": "本回合下一 [#EFC851]攻擊[] 害翻倍。",
+		"DESCRIPTION": "本回合下一次[#EFC851]攻擊[]傷害翻倍。",
 		"NAME": "蘿莉·麥丘利"
 	},
 	"animator_Saber":
 	{
-		"DESCRIPTION": "忠誠 。 造成 !D! 點傷害 ， 當這張牌觸發 !M! 次同調效果後 ， 抹除 並獲得 [#EFC851]誓約勝利之劍[] 。",
+		"DESCRIPTION": "忠誠 。 造成 !D! 點傷害 ， 當這張牌觸發 !M! 次同調效果後 ， 抹除並獲得 [#EFC851]誓約勝利之劍[] 。",
 		"NAME": "Saber",
-		"UPGRADE_DESCRIPTION": "忠誠 。 造成 !D! 點傷害 ， 當這張牌觸發 !M! 次同調效果後 ， 抹除 並獲得 [#EFC851]誓約勝利之劍+[] 。"
+		"UPGRADE_DESCRIPTION": "忠誠 。 造成 !D! 點傷害 ， 當這張牌觸發 !M! 次同調效果後 ， 抹除並獲得 [#EFC851]誓約勝利之劍+[] 。"
 	},
 	"animator_Shalltear":
 	{
@@ -434,10 +434,10 @@
 	},
 	"animator_Yuuichirou":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 。 NL 遺贈 : 將一張 [#EFC851]阿修羅丸[] 放到你的棄牌堆 。",
+		"DESCRIPTION": "造成 !D! 點 傷害 。 NL 遺產 : 將一張 [#EFC851]阿修羅丸[] 放到你的棄牌堆 。",
 		"EXTENDED_DESCRIPTION": ["阿修羅丸", "特殊的0耗#y攻擊牌 。"],
 		"NAME": "百夜優一郎",
-		"UPGRADE_DESCRIPTION": "造成!D!點傷害 。 NL 遺贈 : 將一張 [#EFC851]阿修羅丸+[] 放到你的棄牌堆 。"
+		"UPGRADE_DESCRIPTION": "造成!D!點傷害 。 NL 遺產 : 將一張 [#EFC851]阿修羅丸+[] 放到你的棄牌堆 。"
 	},
 	"animator_Mitsuba":
 	{
@@ -448,23 +448,23 @@
 	{
 		"DESCRIPTION": "從抽牌堆隨機 消耗 一張 [#EFC851]攻擊[] 牌 。 將其傷害預存到 [#EFC851]支援[] 中 。",
 		"EXTENDED_DESCRIPTION": ["支援", "回合結束時對生命值較低的敵人造成預存的傷害"],
-		"NAME": "Guren"
+		"NAME": "紅蓮"
 	},
 	"animator_AcuraShin":
 	{
 		"DESCRIPTION": "對所有敵人造成 !D! 點 傷害 ， 並給予 !M! 層 中毒 。 獲得 !SV! 層 [#EFC851]毒素親和[] 。",
 		"EXTENDED_DESCRIPTION": ["毒素親和", "每當給予敵人毒效果時 ， 額外給予一層毒 。"],
-		"NAME": "Shin"
+		"NAME": "辛·亞裘拉"
 	},
 	"animator_Gillette":
 	{
-		"DESCRIPTION": "造成 !D! 點 傷害 。 給予 !M! 層 虛弱 。 遺贈 : 對血量最多的敵人造成 眩暈 效果 。",
-		"NAME": "Gillette"
+		"DESCRIPTION": "造成 !D! 點 傷害 。 給予 !M! 層 虛弱 。 遺產 : 對血量最多的敵人造成 眩暈 效果 。",
+		"NAME": "亞伯力克·基烈特"
 	},
 	"animator_Viivi":
 	{
 		"DESCRIPTION": "對隨機敵人造成 !D! 點 傷害 !M! 次 。 對擊中的敵人造成 1 層 易傷 。",
-		"NAME": "Viivi"
+		"NAME": "薇薇·荷羅派涅"
 	},	
 	"animator_DwarfShaman":
 	{
